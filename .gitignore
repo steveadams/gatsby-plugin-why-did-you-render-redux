@@ -1,0 +1,4 @@
+.cache
+.linaria-cache
+node_modules
+public
