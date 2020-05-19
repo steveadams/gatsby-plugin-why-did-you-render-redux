@@ -1,0 +1,121 @@
+/* Copyright 2005-present Instant Domain Search, Inc. */
+
+import * as React from 'react';
+
+import Controller from '../components/Controller';
+import DomainResults from '../components/DomainResults';
+import Page from '../components/Page';
+import WideLayout from '../components/WideLayout';
+import godaddyLogo from '../images/hosting/godaddy.svg';
+import shopifyLogo from '../images/hosting/shopify.svg';
+import weeblyLogo from '../images/hosting/weebly.svg';
+import wixLogo from '../images/hosting/wix.svg';
+import wordpressLogo from '../images/hosting/wordpress.svg';
+import * as routes from '../routes';
+
+export default (props: PageProps) => (
+  <Page
+    {...props}
+    title="Web Hosting - Make a website, online store, or blog"
+    description="Our favorite website builders, blogging software, and ecommerce software.">
+    <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
+      <WideLayout>
+        <h2>Make a website</h2>
+
+        <ul className="hosting">
+          <li>
+            <a rel="sponsored noopener noreferrer" target="_blank" href="https://wixstats.com/?a=21507&c=2149&s1=">
+              <img alt="Wix Logo" src={wixLogo} />
+              <span>Wix</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              rel="sponsored noopener noreferrer"
+              target="_blank"
+              href="https://www.dpbolvw.net/click-8955823-13379824">
+              <img alt="Go Daddy Logo" src={godaddyLogo} />
+              <span>Go Daddy</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              rel="sponsored noopener noreferrer"
+              target="_blank"
+              href="https://shareasale.com/r.cfm?b=366125&u=275332&m=37723&urllink=&afftrack=">
+              <img alt="Weebly Logo" src={weeblyLogo} />
+              <span>Weebly</span>
+            </a>
+          </li>
+        </ul>
+
+        <h2>Make a store</h2>
+
+        <ul className="hosting">
+          <li>
+            <a
+              rel="sponsored noopener noreferrer"
+              target="_blank"
+              href="https://www.shopify.com/?ref=instant-domain-search">
+              <img alt="Shopify Logo" src={shopifyLogo} />
+              <span>Shopify</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              rel="sponsored noopener noreferrer"
+              target="_blank"
+              href="https://www.dpbolvw.net/click-8955823-13379824">
+              <img alt="Go Daddy Logo" src={godaddyLogo} />
+              <span>Go Daddy</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              rel="sponsored noopener noreferrer"
+              target="_blank"
+              href="https://shareasale.com/r.cfm?b=1207610&u=275332&m=37723&urllink=&afftrack=">
+              alt="Weebly Logo" src={weeblyLogo} />
+              <span>Weebly</span>
+            </a>
+          </li>
+        </ul>
+
+        <h2>Start a blog</h2>
+
+        <ul className="hosting">
+          <li>
+            <a rel="sponsored noopener noreferrer" target="_blank" href="https://wordpress.com/alp/?aff=5992">
+              <img alt="WordPress Logo" src={wordpressLogo} />
+              <span>WordPress</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              rel="sponsored noopener noreferrer"
+              target="_blank"
+              href="https://www.dpbolvw.net/click-8955823-13379824">
+              <img alt="Go Daddy Logo" src={godaddyLogo} />
+              <span>Go Daddy</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              rel="sponsored noopener noreferrer"
+              target="_blank"
+              href="https://shareasale.com/r.cfm?b=1207610&u=275332&m=37723&urllink=&afftrack=">
+              <img alt="Weebly Logo" src={weeblyLogo} />
+              <span>Weebly</span>
+            </a>
+          </li>
+        </ul>
+      </WideLayout>
+    </Controller>
+  </Page>
+);
