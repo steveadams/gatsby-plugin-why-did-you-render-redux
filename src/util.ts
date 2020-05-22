@@ -12,7 +12,7 @@ export const formatp = (formatString: string, ...args: string[]) => {
   // positional format: {0} ... {n} in formatString to substitute for subsequent parameters
   // {n} in the formatString is distinct from the percent-encoded chars in our typical strings
 
-  return formatString.replace(formatRegExp, match => args[parseInt(match.substr(1, match.length - 2), 10)]);
+  return formatString.replace(formatRegExp, (match) => args[parseInt(match.substr(1, match.length - 2), 10)]);
 };
 
 const leadingDots = /^\.*/;
@@ -59,7 +59,7 @@ export function debounce<Args extends any[], Result>(
 // Just like debounce, but lets the first event in a series through
 export function debounceImmediate<Args extends any[], Result>(
   fun: (...args: Args) => Result,
-  delay: number = 200,
+  delay = 200,
 ): (...args: Args) => void {
   let timeout: number | null = null;
   let called = false;

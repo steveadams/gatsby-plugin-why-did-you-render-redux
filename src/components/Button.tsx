@@ -142,24 +142,27 @@ function Button<Tag extends 'a' | 'button'>({
   const [onTouchStart, onTouchMove, onTouchEnd] = useTapped(ref);
 
   // TODO: TS does not like this in JSX for some reason
-  return React.createElement(Tag, {
-    className: cx(
-      className,
-      !hoverStyle && styles.button,
-      defaultColor && styles.defaultColor,
-      hoverStyle && styles.hoverButton,
-    ),
-    onClick,
-    onFocus,
-    onTouchStart,
-    onTouchMove,
-    onTouchEnd,
-    ref,
-    rel,
-    role: 'button',
+  return React.createElement(
+    Tag,
+    {
+      className: cx(
+        className,
+        !hoverStyle && styles.button,
+        defaultColor && styles.defaultColor,
+        hoverStyle && styles.hoverButton,
+      ),
+      onClick,
+      onFocus,
+      onTouchStart,
+      onTouchMove,
+      onTouchEnd,
+      ref,
+      rel,
+      role: 'button',
+      ...props,
+    },
     children,
-    ...props,
-  });
+  );
 }
 
 export default React.memo(Button);

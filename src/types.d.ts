@@ -99,8 +99,8 @@ type SearchStatus = {
 };
 
 interface URLParams {
-  campaign: string;
-  search: string;
+  campaign: string | undefined;
+  search: string | undefined;
 }
 
 interface NameResponse {
