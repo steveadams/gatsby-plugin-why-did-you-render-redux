@@ -12,7 +12,7 @@ export const formatp = (formatString: string, ...args: string[]) => {
   // positional format: {0} ... {n} in formatString to substitute for subsequent parameters
   // {n} in the formatString is distinct from the percent-encoded chars in our typical strings
 
-  return formatString.replace(formatRegExp, (match) => args[parseInt(match.substr(1, match.length - 2), 10)]);
+  return formatString.replace(formatRegExp, match => args[parseInt(match.substr(1, match.length - 2), 10)]);
 };
 
 const leadingDots = /^\.*/;
