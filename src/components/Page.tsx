@@ -29,7 +29,7 @@ function Page({
         <html lang={lang} />
 
         <meta charSet="utf-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <title>{title}</title>
         <meta name="description" content={description} />
 

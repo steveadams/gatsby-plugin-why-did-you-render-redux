@@ -11,7 +11,7 @@ import * as log from './log';
 import * as storage from './storage';
 import {store} from './store';
 
-export type AnalyticsEvent = {id: string; deviceID: string; sessionID: string; buildTime: string} & (
+type Event = {id: string; deviceID: string; sessionID: string; buildTime: string} & (
   | {
       type: 'pageview';
       path: string;
@@ -36,12 +36,12 @@ export type AnalyticsEvent = {id: string; deviceID: string; sessionID: string; b
     }
 );
 
-let eventQueue: AnalyticsEvent[] = [];
+let eventQueue: Event[] = [];
 
 const flushQueue = () => {
   if (eventQueue.length === 0) return;
   const eventsBatch = [...eventQueue];
-  async.request<Record<string, unknown>>({
+  async.request<{}>({
     url: `${config.appURL}log/`,
     requestType: 'json',
     responseType: 'empty',
@@ -58,7 +58,7 @@ export const restoreQueue = () => {
   flushQueue();
 };
 
-const enqueueEvent = (event: AnalyticsEvent) => {
+const enqueueEvent = (event: Event) => {
   if (process.env.NODE_ENV !== 'production') {
     console.groupCollapsed(event.type);
     for (const key in event) {
@@ -150,7 +150,7 @@ export const event = (eventType: string, eventID: string, eventInfo?: string, ev
     guid: getDeviceID(),
   };
 
-  async.requestWithRetries<Record<string, unknown>>({
+  async.requestWithRetries<{}>({
     url: `${config.appURL}event/`,
     requestType: 'json',
     responseType: 'empty',

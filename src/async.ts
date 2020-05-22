@@ -2,13 +2,12 @@
 
 import * as log from './log';
 import {encodeQueryString} from './url';
-import {AnalyticsEvent} from './analytics';
 
 const timeout = 10 * 1000; // google load balancer timeout is 30s; nominl timeout is 5s
 
 type JSONRequest = {
   requestType?: 'json';
-  body?: Record<string, unknown> | AnalyticsEvent[];
+  body?: object;
 };
 
 type FormRequest = {
@@ -119,11 +118,7 @@ export const request = <R>({
             // note that IE expects trimmed responseText in JSON.parse
             (success as (res: R) => void)(JSON.parse(response.trim()) as R);
           } catch (e) {
-            log.error(
-              log.Module.Async,
-              `error parsing response at ${url}; json: ${response}; text: ${responseText}`,
-              e,
-            );
+            log.error(log.Module.Async, `error parsing response at ${url}; json: ${response}; text: ${responseText}`, e);
             error && error(e);
           }
           break;

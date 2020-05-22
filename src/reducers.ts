@@ -133,13 +133,12 @@ export interface State {
 
 export const domains = (state: {[domainName: string]: Domain} = {}, action: Action) => {
   switch (action.type) {
-    case 'RECEIVE_SEARCH_RESULTS': {
+    case 'RECEIVE_SEARCH_RESULTS':
       const result = {...state};
       for (const domain of action.results) {
         result[domainName(domain)] = domain;
       }
       return result;
-    }
     default:
       return state;
   }
@@ -175,7 +174,7 @@ export interface State {
 
 export const extensionSimilarity = (state: State['extensionSimilarity'] = {}, action: Action) => {
   switch (action.type) {
-    case 'RECEIVE_EXTENSION_SIMILARITIES': {
+    case 'RECEIVE_EXTENSION_SIMILARITIES':
       const first = action.similarities[0];
       if (!first) return state;
       // Perf optimization: assume all results in the batch share the same
@@ -187,7 +186,6 @@ export const extensionSimilarity = (state: State['extensionSimilarity'] = {}, ac
         state[search]![item] = similarity;
       }
       return state;
-    }
     default:
       return state;
   }
@@ -336,7 +334,7 @@ export const favorites = (state = new Set<string>(), action: Action) => {
     case 'FAVORITES_LOADED':
       return new Set(action.favorites);
 
-    case 'TOGGLE_FAVORITE': {
+    case 'TOGGLE_FAVORITE':
       const key = localStorageKey(action.domain);
       const newState = new Set(Array.from(state));
       if (state.has(key)) {
@@ -345,7 +343,7 @@ export const favorites = (state = new Set<string>(), action: Action) => {
         newState.add(key);
       }
       return newState;
-    }
+
     default:
       return state;
   }

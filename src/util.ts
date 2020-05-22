@@ -59,7 +59,7 @@ export function debounce<Args extends any[], Result>(
 // Just like debounce, but lets the first event in a series through
 export function debounceImmediate<Args extends any[], Result>(
   fun: (...args: Args) => Result,
-  delay = 200,
+  delay: number = 200,
 ): (...args: Args) => void {
   let timeout: number | null = null;
   let called = false;
