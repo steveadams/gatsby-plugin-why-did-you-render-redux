@@ -17,7 +17,7 @@
     "plugin:react-hooks/recommended",
     "prettier/@typescript-eslint"
   ],
-  "ignorePatterns": ["gatsby-*.js", "*/node_modules/*"],
+  "ignorePatterns": ["gatsby-*.js", "public", "*/node_modules/*"],
   "rules": {
     "object-curly-spacing": ["error", "never"],
     "@typescript-eslint/explicit-function-return-type": "off",
