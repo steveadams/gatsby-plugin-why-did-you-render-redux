@@ -38,5 +38,7 @@ errors:
 .PHONY: errors
 
 lint:
-	./node_modules/.bin/eslint '*/**/*.{js,ts,tsx}' --fix
+	-./node_modules/.bin/eslint '*/**/*.{js,ts,tsx}' --fix
+	-./node_modules/.bin/prettier --write "**/*.js"
+	-yarn stylelint "**/*.css"
 .PHONY: lint
