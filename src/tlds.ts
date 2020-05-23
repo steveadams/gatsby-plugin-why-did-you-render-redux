@@ -35,7 +35,7 @@ export const regex = new RegExp(`^\\s*(www\\.)?(.*?)(\\.(${names.join('|')}))?\\
 
 // this is pretty inefficient, and runs on every keystroke. hacky memoize for now.
 // TODO: revisit sorting, unclown
-let popularTldsWithPreferredLen: number = 0;
+let popularTldsWithPreferredLen = 0;
 let popularTldsWithPreferredMemoized: string[] = [];
 let lastExtensionSimilarity: object | undefined;
 let lastExtensionSort: string | undefined;
