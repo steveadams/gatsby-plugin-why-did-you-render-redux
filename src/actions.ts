@@ -294,7 +294,7 @@ const updateSearchDebounced = debounceImmediate((phrase: string, tld: string) =>
     case Page.Expired:
       search(config.expiringURL, phrase, null, preferredTlds, onResults, onDone, onError, 96);
       break;
-    default:
+    default: {
       let pending = 3;
       let errors = 0;
       const onOneDone = () => {
@@ -310,6 +310,7 @@ const updateSearchDebounced = debounceImmediate((phrase: string, tld: string) =>
       search(config.generatorURL, phrase, null, preferredTlds, onResults, onOneDone, onOneError, 32);
       search(config.vectorURL, phrase, null, preferredTlds, onResults, onOneDone, onOneError, 32);
       break;
+    }
   }
 }, EXTENED_SEARCH_RESULTS_DEBOUNCE);
 

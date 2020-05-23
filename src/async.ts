@@ -2,12 +2,13 @@
 
 import * as log from './log';
 import {encodeQueryString} from './url';
+import {AnalyticsEvent, LoggingEvent} from './analytics';
 
 const timeout = 10 * 1000; // google load balancer timeout is 30s; nominl timeout is 5s
 
 type JSONRequest = {
   requestType?: 'json';
-  body?: object;
+  body?: AnalyticsEvent[] | LoggingEvent;
 };
 
 type FormRequest = {
