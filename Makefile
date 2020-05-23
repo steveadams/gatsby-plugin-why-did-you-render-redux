@@ -38,5 +38,5 @@ errors:
 .PHONY: errors
 
 lint:
-	./node_modules/.bin/tslint app/*.ts?
+	./node_modules/.bin/eslint '*/**/*.{js,ts,tsx}' --fix
 .PHONY: lint

@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "allowJs": true,
+    "allowSyntheticDefaultImports": true,
     "checkJs": false,
     "experimentalDecorators": true,
     "jsx": "react",
@@ -10,9 +11,9 @@
     "noEmit": true, // https://github.com/Microsoft/TypeScript/issues/14538#issuecomment-427979741
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "resolveJsonModule": true,
     "strict": true,
-    "target": "es5",
-    "resolveJsonModule": true
+    "target": "es5"
   },
   "include": ["./src/**/*"]
 }
