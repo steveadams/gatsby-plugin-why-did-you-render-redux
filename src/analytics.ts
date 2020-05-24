@@ -37,14 +37,14 @@ export type AnalyticsEvent = {id: string; deviceID: string; sessionID: string; b
 );
 
 export type LoggingEvent = {
-    clientID: string;
-    buildTime: string;
-    eventID: string;
-    eventInfo?: string;
-    eventType: string;
-    eventValue?: number;
-    experiments: experiments.SavedGroups;
-    guid: string;
+  clientID: string;
+  buildTime: string;
+  eventID: string;
+  eventInfo?: string;
+  eventType: string;
+  eventValue?: number;
+  experiments: experiments.SavedGroups;
+  guid: string;
 };
 
 let eventQueue: AnalyticsEvent[] = [];
@@ -226,7 +226,7 @@ export const getBuildTime = () => {
 export const setup = (callback: (geography: {Country: string; City: string}) => void) => {
   // ga should always be defined in production (it's defined in a <head> script
   // block), but this occasionally breaks hot reload in development, so skip it.
-  if (!<any>window.ga) {
+  if (!(<any>window.ga)) {
     async.request({
       url: `${config.appURL}analytics/`,
       body: {},

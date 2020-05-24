@@ -52,10 +52,9 @@ export function request<R>(
 
     log.error(
       log.Module.StreamingAsync,
-      `timeout: first byte did not come back within ${firstByteTimeout /
-        1000}s [endpoint:${endpoint}, status:${statusKind}, readyState:${
-        xhr.readyState
-      }, responseText:${responseTextKind}]`,
+      `timeout: first byte did not come back within ${
+        firstByteTimeout / 1000
+      }s [endpoint:${endpoint}, status:${statusKind}, readyState:${xhr.readyState}, responseText:${responseTextKind}]`,
     );
   }, firstByteTimeout);
 
@@ -138,7 +137,10 @@ export function request<R>(
             try {
               return JSON.parse(response.trim());
             } catch (e) {
-              log.error(log.Module.StreamingAsync, `error parsing response json between ${lastDelimiter} and ${nextDelimiter} at endpoint:${endpoint}: ${response}`);
+              log.error(
+                log.Module.StreamingAsync,
+                `error parsing response json between ${lastDelimiter} and ${nextDelimiter} at endpoint:${endpoint}: ${response}`,
+              );
               return {};
             }
           }),

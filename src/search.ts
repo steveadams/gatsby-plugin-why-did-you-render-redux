@@ -55,11 +55,7 @@ export const search = (
   if (tldTags === 'popular') {
     params.tlds = [
       ...popularTldsWithPreferred(preferredTlds, undefined, 'popular'),
-      ...bestGeography(
-        country(store.getState())
-          .toString()
-          .toLowerCase(),
-      ),
+      ...bestGeography(country(store.getState()).toString().toLowerCase()),
     ].join(',');
   } else if (tldTags) {
     params.tldTags = tldTags;

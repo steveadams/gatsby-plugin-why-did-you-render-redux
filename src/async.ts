@@ -119,7 +119,11 @@ export const request = <R>({
             // note that IE expects trimmed responseText in JSON.parse
             (success as (res: R) => void)(JSON.parse(response.trim()) as R);
           } catch (e) {
-            log.error(log.Module.Async, `error parsing response at ${url}; json: ${response}; text: ${responseText}`, e);
+            log.error(
+              log.Module.Async,
+              `error parsing response at ${url}; json: ${response}; text: ${responseText}`,
+              e,
+            );
             error && error(e);
           }
           break;
