@@ -8,7 +8,7 @@ const experiments = {
   _example: {test: 1, control: 1},
 };
 
-type SavedGroups = {[name: string]: string};
+export type SavedGroups = {[name: string]: string};
 
 let cachedGroups: SavedGroups | null = null;
 

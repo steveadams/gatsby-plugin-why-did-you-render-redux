@@ -11,7 +11,7 @@ import * as log from './log';
 import * as storage from './storage';
 import {store} from './store';
 
-type Event = {id: string; deviceID: string; sessionID: string; buildTime: string} & (
+export type AnalyticsEvent = {id: string; deviceID: string; sessionID: string; buildTime: string} & (
   | {
       type: 'pageview';
       path: string;
@@ -21,14 +21,14 @@ type Event = {id: string; deviceID: string; sessionID: string; buildTime: string
       timezoneOffset: number;
       language: string;
       experiments: string;
-      navigationTiming: PerformanceNavigationTiming | undefined;
+      navigationTiming?: PerformanceNavigationTiming;
     }
   | {
       type: 'click';
       path: string;
       search: string;
       location: ClickLocation;
-      position: number | undefined;
+      position?: number;
       tld: string;
       length: number;
       hasNumbers: boolean;
@@ -36,12 +36,23 @@ type Event = {id: string; deviceID: string; sessionID: string; buildTime: string
     }
 );
 
-let eventQueue: Event[] = [];
+export type LoggingEvent = {
+    clientID: string;
+    buildTime: string;
+    eventID: string;
+    eventInfo?: string;
+    eventType: string;
+    eventValue?: number;
+    experiments: experiments.SavedGroups;
+    guid: string;
+};
+
+let eventQueue: AnalyticsEvent[] = [];
 
 const flushQueue = () => {
   if (eventQueue.length === 0) return;
   const eventsBatch = [...eventQueue];
-  async.request<{}>({
+  async.request<Record<string, unknown>>({
     url: `${config.appURL}log/`,
     requestType: 'json',
     responseType: 'empty',
@@ -58,7 +69,7 @@ export const restoreQueue = () => {
   flushQueue();
 };
 
-const enqueueEvent = (event: Event) => {
+const enqueueEvent = (event: AnalyticsEvent) => {
   if (process.env.NODE_ENV !== 'production') {
     console.groupCollapsed(event.type);
     for (const key in event) {
@@ -135,11 +146,11 @@ export const click = (domain: Domain, location: ClickLocation, position?: number
 export const event = (eventType: string, eventID: string, eventInfo?: string, eventValue?: number) => {
   log.info('event', eventType, eventID, eventInfo, eventValue);
 
-  if ((window as any).ga) {
+  if (<any>window.ga) {
     ga('send', 'event', eventType, eventID, eventInfo, eventValue);
   }
 
-  const requestBody = {
+  const requestBody: LoggingEvent = {
     clientID: getClientID(),
     buildTime: getBuildTime(),
     eventID,
@@ -150,7 +161,7 @@ export const event = (eventType: string, eventID: string, eventInfo?: string, ev
     guid: getDeviceID(),
   };
 
-  async.requestWithRetries<{}>({
+  async.requestWithRetries<Record<string, unknown>>({
     url: `${config.appURL}event/`,
     requestType: 'json',
     responseType: 'empty',
@@ -215,7 +226,7 @@ export const getBuildTime = () => {
 export const setup = (callback: (geography: {Country: string; City: string}) => void) => {
   // ga should always be defined in production (it's defined in a <head> script
   // block), but this occasionally breaks hot reload in development, so skip it.
-  if (!(window as any).ga) {
+  if (!<any>window.ga) {
     async.request({
       url: `${config.appURL}analytics/`,
       body: {},

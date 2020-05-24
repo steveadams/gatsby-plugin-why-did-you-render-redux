@@ -15,7 +15,7 @@ const parseQueryString = (query: string): {[key: string]: string} => {
   return parsed;
 };
 
-export const parseLocation = ({hash}: Location): object => {
+export const parseLocation = ({hash}: Location): Record<string, unknown> => {
   if (hash.substr(0, 1) === '#') {
     return parseQueryString(hash.substring(1));
   }

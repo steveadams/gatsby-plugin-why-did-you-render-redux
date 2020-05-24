@@ -24,7 +24,10 @@ export default (props: PageProps) => (
 
         <ul className="hosting">
           <li>
-            <a rel="sponsored noopener noreferrer" target="_blank" href="https://wixstats.com/?a=21507&c=2149&s1=">
+            <a
+              rel="sponsored noopener noreferrer"
+              target="_blank"
+              href="https://wixstats.com/?a=21507&amp;c=2149&amp;s1=">
               <img alt="Wix Logo" src={wixLogo} />
               <span>Wix</span>
             </a>
@@ -44,7 +47,7 @@ export default (props: PageProps) => (
             <a
               rel="sponsored noopener noreferrer"
               target="_blank"
-              href="https://shareasale.com/r.cfm?b=366125&u=275332&m=37723&urllink=&afftrack=">
+              href="https://shareasale.com/r.cfm?b=366125&amp;u=275332&amp;m=37723&amp;urllink=&amp;afftrack=">
               <img alt="Weebly Logo" src={weeblyLogo} />
               <span>Weebly</span>
             </a>
@@ -78,8 +81,8 @@ export default (props: PageProps) => (
             <a
               rel="sponsored noopener noreferrer"
               target="_blank"
-              href="https://shareasale.com/r.cfm?b=1207610&u=275332&m=37723&urllink=&afftrack=">
-              alt="Weebly Logo" src={weeblyLogo} />
+              href="https://shareasale.com/r.cfm?b=1207610&amp;u=275332&amp;m=37723&amp;urllink=&amp;afftrack=">
+              <img alt="Weebly Logo" src={weeblyLogo} />
               <span>Weebly</span>
             </a>
           </li>
