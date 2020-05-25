@@ -268,12 +268,14 @@ function Footer() {
             }
           `}>
           We use <a href="https://fasttext.cc/docs/en/pretrained-vectors.html">word vectors</a> published by P.
-          Bojanowski*, E. Grave*, A. Joulin, T. Mikolov,
-          <br />
+          Bojanowski*, E. Grave*, A. Joulin, T. Mikolov,{' '}
           <a href="https://arxiv.org/abs/1607.04606">
             <em>Enriching Word Vectors with Subword Information</em>
           </a>{' '}
-          to rank some search results.
+          <a href="https://creativecommons.org/licenses/by-sa/3.0/">
+            (Creative Commons Attribution-Share-Alike License 3.0)
+          </a>{' '}
+          to help rank some search results. <br />
         </div>
       </div>
       {/* facebook pixel */}
