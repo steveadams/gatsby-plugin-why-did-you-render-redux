@@ -49,6 +49,9 @@ const styles = {
     }
   `,
   searchInput: css`
+    &:placeholder {
+      color: ${colors.extraLightGray};
+    }
     padding: 0px 160px 0px 20px;
     ${mobile} {
       padding: 0 94px 0 10px;
@@ -199,6 +202,7 @@ function SearchBox() {
           autoCorrect="off"
           autoCapitalize="off"
           spellCheck={false}
+          placeholder={isMobile ? Text({id: 'mobileSearchPlaceholder'}) : Text({id: 'searchPlaceholder'})}
           className={cx(styles.searchInput, (domain && statusColors.focusBorder[statusName(domain)]) || '')}
           id="search"
           type="text"
