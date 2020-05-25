@@ -7,6 +7,7 @@ import * as reducers from './reducers';
 
 export const store = reduxCreateStore<reducers.State, Action, Store<reducers.State, Action>, Record<string, unknown>>(
   combineReducers<reducers.State>(reducers),
+  {} as reducers.State,
   typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
 
