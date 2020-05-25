@@ -1,13 +1,15 @@
 /* Copyright 2005-present Instant Domain Search, Inc. */
 
-import {combineReducers, createStore as reduxCreateStore, Store} from 'redux';
-
-import {Action} from './actionTypes';
 import * as reducers from './reducers';
+
+import {combineReducers, createStore as reduxCreateStore, Store} from 'redux';
+import {Action} from './actionTypes';
+import {composeWithDevTools} from 'redux-devtools-extension';
 
 export const store = reduxCreateStore<reducers.State, Action, Store<reducers.State, Action>, Record<string, unknown>>(
   combineReducers<reducers.State>(reducers),
-  typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  {} as reducers.State,
+  composeWithDevTools(),
 );
 
 export const dispatch = (action: Action) => {
