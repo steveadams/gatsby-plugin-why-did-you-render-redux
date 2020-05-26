@@ -8,7 +8,6 @@ import * as colors from '../colors';
 import * as favorites from '../favorites';
 import * as font from '../font';
 import * as selectors from '../selectors';
-
 import Dialog from './Dialog';
 
 const styles = {

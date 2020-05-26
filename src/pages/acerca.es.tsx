@@ -6,8 +6,8 @@ import Controller from '../components/Controller';
 import DomainResults from '../components/DomainResults';
 import Page from '../components/Page';
 import TwoColumnLayout from '../components/TwoColumnLayout';
-import * as routes from '../routes';
 import beauImage from '../images/beau.jpg';
+import * as routes from '../routes';
 
 export default (props: PageProps) => (
   <Page

@@ -13,7 +13,6 @@ import godaddyLogo from '../images/hosting/godaddy.svg';
 import shopifyLogo from '../images/hosting/shopify.svg';
 import tailorLogo from '../images/hosting/tailor.svg';
 import * as selectors from '../selectors';
-
 import {ClearIcon} from './icons';
 import Link from './Link';
 

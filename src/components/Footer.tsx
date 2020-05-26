@@ -7,7 +7,6 @@ import {event} from '../analytics';
 import * as colors from '../colors';
 import * as font from '../font';
 import {desktop, mobile} from '../styles';
-
 import IconFacebook from './IconFacebook';
 import IconTwitter from './IconTwitter';
 import SearchSelectorLink from './SearchSelectorLink';

@@ -9,7 +9,6 @@ import {ClickLocation} from '../analytics';
 import * as font from '../font';
 import * as selectors from '../selectors';
 import {mobile} from '../styles';
-
 import TldView from './TldView';
 
 const styles = {

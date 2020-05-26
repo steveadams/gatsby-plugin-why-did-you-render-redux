@@ -1,8 +1,8 @@
 /* Copyright 2005-present Instant Domain Search, Inc. */
 
+import {AnalyticsEvent, LoggingEvent} from './analytics';
 import * as log from './log';
 import {encodeQueryString} from './url';
-import {AnalyticsEvent, LoggingEvent} from './analytics';
 
 const timeout = 10 * 1000; // google load balancer timeout is 30s; nominl timeout is 5s
 

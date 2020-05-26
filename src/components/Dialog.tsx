@@ -5,7 +5,6 @@ import * as React from 'react';
 
 import * as actions from '../actions';
 import * as colors from '../colors';
-
 import {ClearIcon} from './icons';
 
 const styles = {

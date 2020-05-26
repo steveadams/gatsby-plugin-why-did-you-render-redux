@@ -8,12 +8,11 @@ import * as actions from '../actions';
 import {SocialService} from '../actionTypes';
 import * as colors from '../colors';
 import {appraiseURL, domainName, googleAnalyticsLabel, name, statusName} from '../domain';
-import {debounceImmediate} from '../util';
 import * as font from '../font';
 import {State} from '../reducers';
 import * as selectors from '../selectors';
 import * as statusColors from '../statusColors';
-
+import {debounceImmediate} from '../util';
 import Flyout from './Flyout';
 import {EllipsisIcon} from './icons';
 import Link from './Link';

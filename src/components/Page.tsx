@@ -1,12 +1,12 @@
 /* Copyright 2005-present Instant Domain Search, Inc. */
 
+import '../globalStyles';
+
 import * as React from 'react';
 import {Helmet} from 'react-helmet';
 import {useSelector} from 'react-redux';
 
-import '../globalStyles';
 import * as selectors from '../selectors';
-
 import * as Text from './Text';
 
 function Page({

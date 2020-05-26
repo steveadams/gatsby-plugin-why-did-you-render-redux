@@ -6,7 +6,6 @@ import {useSelector} from 'react-redux';
 import {init} from '../actions';
 import {Page} from '../routes';
 import * as selectors from '../selectors';
-
 import Footer from './Footer';
 import Header from './Header';
 import HomeHeader from './HomeHeader';

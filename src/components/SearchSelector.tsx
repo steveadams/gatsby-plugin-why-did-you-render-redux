@@ -5,7 +5,6 @@ import * as React from 'react';
 
 import * as colors from '../colors';
 import * as font from '../font';
-
 import SearchSelectorLink from './SearchSelectorLink';
 import Text, {useLanguage} from './Text';
 

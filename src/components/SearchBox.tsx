@@ -1,25 +1,24 @@
 /* Copyright 2005-present Instant Domain Search, Inc. */
 
 import {css, cx} from 'linaria';
-import {unstable_LowPriority, unstable_scheduleCallback} from 'scheduler';
-import {useSelector} from 'react-redux';
 import * as React from 'react';
+import {useSelector} from 'react-redux';
+import {unstable_LowPriority, unstable_scheduleCallback} from 'scheduler';
 
-import {desktop, mobile} from '../styles';
-import {googleAnalyticsLabel, statusName} from '../domain';
 import * as actions from '../actions';
 import * as analytics from '../analytics';
 import * as colors from '../colors';
+import {googleAnalyticsLabel, statusName} from '../domain';
 import * as font from '../font';
 import * as selectors from '../selectors';
 import * as statusColors from '../statusColors';
-
-import {ClearIcon, SearchIcon} from './icons';
-import {Key} from './ShortcutsDialog';
-import {SearchSelector} from './SearchSelector';
+import {desktop, mobile} from '../styles';
 import Button from './Button';
 import DomainButton from './DomainButton';
 import FavoritesFlyout from './FavoritesFlyout';
+import {ClearIcon, SearchIcon} from './icons';
+import {SearchSelector} from './SearchSelector';
+import {Key} from './ShortcutsDialog';
 import Text from './Text';
 import TextInput from './TextInput';
 

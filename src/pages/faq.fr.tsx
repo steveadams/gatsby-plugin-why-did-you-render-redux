@@ -1,5 +1,6 @@
 /* Copyright 2005-present Instant Domain Search, Inc. */
 
+import {Link} from 'gatsby';
 import * as React from 'react';
 
 import Controller from '../components/Controller';
@@ -7,7 +8,6 @@ import DomainResults from '../components/DomainResults';
 import Page from '../components/Page';
 import TwoColumnLayout from '../components/TwoColumnLayout';
 import * as routes from '../routes';
-import {Link} from 'gatsby';
 
 const context = React.createContext(false);
 

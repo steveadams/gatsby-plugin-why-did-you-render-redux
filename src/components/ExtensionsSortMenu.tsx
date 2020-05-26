@@ -7,7 +7,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import {darkGray, lightGray, mediumDarkGray, mediumGray} from '../colors';
 import {bold, regular} from '../font';
 import {extensionsSort} from '../selectors';
-
 import Flyout from './Flyout';
 import {SortIcon} from './icons';
 
