@@ -8,7 +8,7 @@ import Page from '../../components/Page';
 import * as routes from '../../routes';
 
 export default (props: PageProps) => (
-  <Page {...props} title="Mobile Domains" description="Find domain names instantly by searching as you type.">
+  <Page {...props} description="Find domain names instantly by searching as you type." title="Mobile Domains">
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <p style={{textAlign: 'center'}}>Instantly check .com names for free.</p>
     </Controller>

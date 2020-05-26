@@ -9,7 +9,7 @@ import WideLayout from '../components/WideLayout';
 import * as routes from '../routes';
 
 export default (props: PageProps) => (
-  <Page {...props} title="Terms of Service" description="Terms of service for Instant Domain Search.">
+  <Page {...props} description="Terms of service for Instant Domain Search." title="Terms of Service">
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <WideLayout>
         <h1>Terms of Service</h1>

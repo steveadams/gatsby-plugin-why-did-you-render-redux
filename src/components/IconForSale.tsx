@@ -5,15 +5,15 @@ import * as React from 'react';
 function IconForSale({className}: {className?: string}) {
   return (
     <svg
-      width="48"
-      height="48"
-      viewBox="0 0 48 48"
-      fillRule="evenodd"
+      className={className}
       clipRule="evenodd"
+      fillRule="evenodd"
+      height="48"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className={className}>
-      <path fill="none" d="M0 0h48v48H0z" />
+      viewBox="0 0 48 48"
+      width="48">
+      <path d="M0 0h48v48H0z" fill="none" />
       <clipPath id="for-sale">
         <path d="M0 0h48v48H0z" />
       </clipPath>
@@ -34,7 +34,7 @@ function IconForSale({className}: {className?: string}) {
           stroke="#444"
           strokeWidth="2"
         />
-        <circle cx="33.4" cy="10.3" r="2.9" fill="#fff" stroke="#444" strokeWidth="2" />
+        <circle cx="33.4" cy="10.3" fill="#fff" r="2.9" stroke="#444" strokeWidth="2" />
       </g>
     </svg>
   );

@@ -15,8 +15,8 @@ import * as routes from '../routes';
 export default ({data, ...props}: PageProps & ArticlesData) => (
   <Page
     {...props}
-    title="Noms de domaine | Recherche instantanée de noms de domaine"
-    description="Trouvez des noms de domaine instantanément pendant que vous tapez. Recherchez les .com et autres extensions en temps réel. Des suggestions et les noms à vendre apparaissent aussi immédiatement.">
+    description="Trouvez des noms de domaine instantanément pendant que vous tapez. Recherchez les .com et autres extensions en temps réel. Des suggestions et les noms à vendre apparaissent aussi immédiatement."
+    title="Noms de domaine | Recherche instantanée de noms de domaine">
     <Alternates />
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <TwoColumnLayout>
@@ -36,13 +36,13 @@ export default ({data, ...props}: PageProps & ArticlesData) => (
 
           <p style={{fontSize: '1.1em'}}>
             <strong>Adora o site?</strong> Espalhe a palavra no{' '}
-            <a onClick={() => event('outbound', 'click', 'twitter')} href="https://twitter.com/instantdomain">
+            <a href="https://twitter.com/instantdomain" onClick={() => event('outbound', 'click', 'twitter')}>
               Twitter
             </a>{' '}
             e no{' '}
             <a
-              onClick={() => event('outbound', 'click', 'facebook')}
-              href="https://www.facebook.com/InstantDomainSearch">
+              href="https://www.facebook.com/InstantDomainSearch"
+              onClick={() => event('outbound', 'click', 'facebook')}>
               Facebook
             </a>
             !

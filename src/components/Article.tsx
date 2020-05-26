@@ -18,11 +18,9 @@ export default ({
   frontmatter: {title: string; headline: string; description: string; date: string};
   children: React.ReactNode;
 }) => (
-  <Page {...props} title={title} description={description}>
+  <Page {...props} description={description} title={title}>
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <div
-        itemScope
-        itemType="http://schema.org/TechArticle"
         className={css`
           font-weight: ${font.regular};
           margin-left: auto;
@@ -41,12 +39,14 @@ export default ({
             padding-right: 16px;
             padding-top: 16px;
           }
-        `}>
+        `}
+        itemScope
+        itemType="http://schema.org/TechArticle">
         <h1>{headline}</h1>
         <div itemProp="articleBody">{children}</div>
         <em>
           Published{' '}
-          <time itemProp="datePublished" dateTime={date}>
+          <time dateTime={date} itemProp="datePublished">
             {new Date(date).toLocaleDateString()}
           </time>
         </em>

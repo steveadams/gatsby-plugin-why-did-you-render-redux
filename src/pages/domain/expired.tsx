@@ -19,19 +19,19 @@ import * as routes from '../../routes';
 export default (props: PageProps) => (
   <Page
     {...props}
-    title="Expired Domains"
-    description="Instantly hundreds of thousands of expired domain names. Artificial intelligence powered search.">
-    <Controller page={routes.Page.Expired} header="Expired Domains" results={<DomainExpired />}>
+    description="Instantly hundreds of thousands of expired domain names. Artificial intelligence powered search."
+    title="Expired Domains">
+    <Controller header="Expired Domains" page={routes.Page.Expired} results={<DomainExpired />}>
       <WideLayout>
         <IconGroup
-          icon={IconExpiredLarge}
-          title="Expired domains – search expiring domains"
-          headerTag="h1"
           className={css`
             & > p {
               font-size: ${font.s}px;
             }
-          `}>
+          `}
+          headerTag="h1"
+          icon={IconExpiredLarge}
+          title="Expired domains – search expiring domains">
           Domain names expire when someone decides to stop renewing it. They may not be available to register
           immediately. We update the search index every night, so some names may already be renewed or re-registered.
           Some may become available in a few days. Some registrars, like GoDaddy, will let you buy a name that one of

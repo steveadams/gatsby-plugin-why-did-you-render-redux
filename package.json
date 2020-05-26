@@ -59,11 +59,11 @@
     }
   },
   "lint-staged": {
-    "*.{js,ts,tsx}": [
+    "*.{js,jsx,ts,tsx}": [
       "eslint --fix"
     ],
     "*.js": "eslint --cache --fix",
     "*.css": "stylelint --fix",
-    "*.{js,css,md}": "prettier --write"
+    "*.{js,jsx,ts,tsx,css,md}": "prettier --write"
   }
 }

@@ -23,14 +23,14 @@ function Articles({
     <ul>
       {articles.map(({fields: {path}, frontmatter: {headline}}) => (
         <li
-          key={path}
           className={cx(
             space &&
               css`
                 margin-bottom: 0.5em;
                 margin-top: 0.5em;
               `,
-          )}>
+          )}
+          key={path}>
           <Link to={path}>{headline}</Link>
         </li>
       ))}

@@ -163,8 +163,8 @@ function FAQ({toc = false}: {toc?: boolean}) {
 export default (props: PageProps) => (
   <Page
     {...props}
-    title="Foire aux questions"
-    description="Foire aux questions et politique de confidentialité de Recherche Instantanée de Noms de Domaine">
+    description="Foire aux questions et politique de confidentialité de Recherche Instantanée de Noms de Domaine"
+    title="Foire aux questions">
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <TwoColumnLayout>
         <>

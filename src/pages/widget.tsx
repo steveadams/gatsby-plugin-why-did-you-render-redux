@@ -11,8 +11,8 @@ import * as routes from '../routes';
 export default (props: PageProps) => (
   <Page
     {...props}
-    title="Domain Name Widgets"
-    description="Domain name widgets that you can install on your web site, or on your Mac’s Dashboard.">
+    description="Domain name widgets that you can install on your web site, or on your Mac’s Dashboard."
+    title="Domain Name Widgets">
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <TwoColumnLayout>
         <>

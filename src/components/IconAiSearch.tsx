@@ -5,15 +5,15 @@ import * as React from 'react';
 function IconAiSearch({className}: {className?: string}) {
   return (
     <svg
-      width="48"
-      height="48"
-      viewBox="0 0 48 48"
-      fillRule="evenodd"
+      className={className}
       clipRule="evenodd"
+      fillRule="evenodd"
+      height="48"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeMiterlimit="1.5"
-      className={className}>
+      viewBox="0 0 48 48"
+      width="48">
       <path
         d="M15.381 6.422V11"
         fill="none"
@@ -192,7 +192,7 @@ function IconAiSearch({className}: {className?: string}) {
         fill="#444"
         fillRule="nonzero"
       />
-      <path fill="#444" d="M30 15.477h3v17h-3z" />
+      <path d="M30 15.477h3v17h-3z" fill="#444" />
       <path
         d="M37.82 8h-1.282v26.209c0 1.21-.969 2.18-2.18 2.18H8.143v1.28c0 1.212.97 2.18 2.18 2.18H37.82c1.211 0 2.18-.968 2.18-2.18V10.18C40 8.97 39.031 8 37.82 8z"
         fill="#d0fdc2"
@@ -203,8 +203,8 @@ function IconAiSearch({className}: {className?: string}) {
           d="M35.4 37.3H12.7c-1 0-1.8-.8-1.8-1.8V12.8c0-1 .8-1.8 1.8-1.8h22.7c1 0 1.8.8 1.8 1.8v22.7c0 1-.8 1.8-1.8 1.8z"
           fill="none"
           stroke="#444"
-          strokeWidth="1.66"
           strokeMiterlimit="4"
+          strokeWidth="1.66"
           transform="matrix(1.21673 0 0 1.215 -5.262 -5.365)"
         />
       </g>

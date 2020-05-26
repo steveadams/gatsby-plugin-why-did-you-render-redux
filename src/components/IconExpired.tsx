@@ -5,16 +5,16 @@ import * as React from 'react';
 function IconExpired({className}: {className?: string}) {
   return (
     <svg
-      width="48"
-      height="48"
-      viewBox="0 0 48 48"
-      fillRule="evenodd"
+      className={className}
       clipRule="evenodd"
+      fillRule="evenodd"
+      height="48"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeMiterlimit="1.5"
-      className={className}>
-      <path fill="none" d="M0 0h48v48H0z" />
+      viewBox="0 0 48 48"
+      width="48">
+      <path d="M0 0h48v48H0z" fill="none" />
       <path
         d="M34.846 38.94s.11-4.492-.823-6.783c-1.24-3.05-5.672-5.446-5.65-8.343.022-2.891 2.994-4.507 5.184-7.429C35.632 13.618 35.187 9 35.187 9H12.812s-.446 4.618 1.63 7.385c2.19 2.922 5.161 4.538 5.184 7.43.022 2.896-4.409 5.291-5.65 8.342-.934 2.291-.988 4.21-.824 6.784h21.693z"
         fill="#fff"

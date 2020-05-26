@@ -40,10 +40,10 @@ const styles = {
 
 const FlyoutTip = (props: React.HTMLAttributes<SVGSVGElement>) => {
   return (
-    <svg width="18" height="12" viewBox="0 0 18 12" {...props}>
-      <path stroke="none" fillOpacity=".03" fill="#000" d="M16 7L9 0 2 7z" />
-      <path stroke="none" fill="#FFF" d="M1 11.5l8-8 8 8" />
-      <path stroke="#DDD" fill="#FFF" d="M0 9.5h3l6-6 6 6h3" />
+    <svg height="12" viewBox="0 0 18 12" width="18" {...props}>
+      <path d="M16 7L9 0 2 7z" fill="#000" fillOpacity=".03" stroke="none" />
+      <path d="M1 11.5l8-8 8 8" fill="#FFF" stroke="none" />
+      <path d="M0 9.5h3l6-6 6 6h3" fill="#FFF" stroke="#DDD" />
     </svg>
   );
 };
@@ -141,11 +141,11 @@ function Flyout(props: FlyoutProps) {
   return (
     <div
       className={cx(className, styles.parent)}
-      role="menu"
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       ref={flyoutElement}
+      role="menu"
       style={{position}}>
       {expanded ? expandedHandle : collapsedHandle}
       {expanded && (
@@ -155,7 +155,7 @@ function Flyout(props: FlyoutProps) {
             width,
             transform: `translateX(${dx.current}px)`,
           }}>
-          <div role="button" onClick={onChildrenClick}>
+          <div onClick={onChildrenClick} role="button">
             {children}
           </div>
         </div>

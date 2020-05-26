@@ -11,8 +11,8 @@ import * as routes from '../routes';
 export default (props: PageProps) => (
   <Page
     {...props}
-    title="Widgets para Nome de Domínio"
-    description="Widgets para nome de domínio que pode instalar no seu sítio web, ou no Painel do seu Mac.">
+    description="Widgets para nome de domínio que pode instalar no seu sítio web, ou no Painel do seu Mac."
+    title="Widgets para Nome de Domínio">
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <TwoColumnLayout>
         <>

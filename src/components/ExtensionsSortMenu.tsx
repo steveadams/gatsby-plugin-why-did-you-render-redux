@@ -74,9 +74,9 @@ function ExtensionsSortMenu() {
 
   return (
     <Flyout
+      className={styles.flyout}
       collapsedHandle={collapsedHandle}
       expandedHandle={expandedHandle}
-      className={styles.flyout}
       position="absolute"
       width={120}>
       <ul className={styles.menu}>

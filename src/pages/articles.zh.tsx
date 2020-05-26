@@ -13,8 +13,8 @@ import * as routes from '../routes';
 export default ({data, ...props}: ArticlesData & PageProps) => (
   <Page
     {...props}
-    title="域名新闻，建议和窍门"
-    description="有关为你的新网站选择域名的建议：了解怎样选择域名，命名网站，以及选择你的域名扩展。">
+    description="有关为你的新网站选择域名的建议：了解怎样选择域名，命名网站，以及选择你的域名扩展。"
+    title="域名新闻，建议和窍门">
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <TwoColumnLayout>
         <>

@@ -148,12 +148,12 @@ function MainDomainView() {
         {' '}
         Check{' '}
         <Link
-          rel="sponsored"
-          href={whoisURL(domain)}
-          eventType="convert"
           eventID="flyout_whois"
           eventInfo={googleAnalyticsLabel(domain)}
-          eventValue={domain.price || 0}>
+          eventType="convert"
+          eventValue={domain.price || 0}
+          href={whoisURL(domain)}
+          rel="sponsored">
           WHOIS
         </Link>{' '}
         for more information.
@@ -163,7 +163,7 @@ function MainDomainView() {
     if (domain.actuallyRegistered) {
       const handle = <div className={styles.questionMark}>?</div>;
       return (
-        <Flyout collapsedHandle={handle} expandedHandle={handle} className={styles.flyout} width={300}>
+        <Flyout className={styles.flyout} collapsedHandle={handle} expandedHandle={handle} width={300}>
           <div className={styles.notice}>
             This domain is not in use, or it may be about to expire.
             {info}
@@ -188,11 +188,11 @@ function MainDomainView() {
             defaultColor={false}
             eventID="whois"
             eventInfo={googleAnalyticsLabel(domain)}
-            eventValue={domain.price || 0}
             eventType="convert"
+            eventValue={domain.price || 0}
             href={whoisURL(domain)}
-            tag="a"
             rel="sponsored"
+            tag="a"
             target="_blank">
             <Text id="whois" />
           </Button>
@@ -203,11 +203,11 @@ function MainDomainView() {
             className={styles.secondaryButton}
             eventID="acquire"
             eventInfo={googleAnalyticsLabel(domain)}
-            eventValue={domain.price || 0}
             eventType="convert"
+            eventValue={domain.price || 0}
             href={acquireURL(domain)}
-            tag="a"
             rel="sponsored"
+            tag="a"
             target="_blank"
             title={`Acquire ${domainName(domain)} with an agent`}>
             <Text id="makeOffer" />
@@ -220,11 +220,11 @@ function MainDomainView() {
             defaultColor={false}
             eventID="appraise"
             eventInfo={googleAnalyticsLabel(domain)}
-            eventValue={domain.price || 0}
             eventType="convert"
+            eventValue={domain.price || 0}
             href={appraiseURL(domain)}
-            tag="a"
             rel="sponsored"
+            tag="a"
             target="_blank">
             <Text id="appraise" />
           </Button>
@@ -265,19 +265,19 @@ function MainDomainView() {
         <DomainStar domain={domain} large statusColor />
         <div className={styles.domain}>
           <Link
-            href={status(domain) === DomainStatus.taken ? directURL(domain) : defaultActionURL(domain) || undefined}
-            title={status(domain) === DomainStatus.taken ? `Visit ${domainName(domain)}` : undefined}
-            eventType={status(domain) === DomainStatus.taken ? 'interact' : 'convert'}
-            eventID={status(domain) === DomainStatus.taken ? 'visit_site' : 'click_main_link'}
-            eventInfo={googleAnalyticsLabel(domain)}
-            eventValue={domain.price || 0}
             className={cx(
               styles.link,
               status(domain) !== DomainStatus.taken &&
                 status(domain) !== DomainStatus.recentlyRegistered &&
                 status(domain) !== DomainStatus.recentlyDropped &&
                 styles.noUnderline,
-            )}>
+            )}
+            eventID={status(domain) === DomainStatus.taken ? 'visit_site' : 'click_main_link'}
+            eventInfo={googleAnalyticsLabel(domain)}
+            eventType={status(domain) === DomainStatus.taken ? 'interact' : 'convert'}
+            eventValue={domain.price || 0}
+            href={status(domain) === DomainStatus.taken ? directURL(domain) : defaultActionURL(domain) || undefined}
+            title={status(domain) === DomainStatus.taken ? `Visit ${domainName(domain)}` : undefined}>
             {domainName(domain)}
           </Link>
           {renderAvailabilityNotice()}
@@ -285,13 +285,13 @@ function MainDomainView() {
         <div className={styles.actions}>
           {renderSecondaryButton()}
           <DomainButton
+            className={styles.button}
             domain={domain}
-            location={analytics.ClickLocation.MainResult}
-            eventType="convert"
             eventID={status(domain) === DomainStatus.taken ? 'whois' : 'click_main_button'}
             eventInfo={googleAnalyticsLabel(domain)}
+            eventType="convert"
             eventValue={domain.price || 0}
-            className={styles.button}
+            location={analytics.ClickLocation.MainResult}
           />
           {!isMobile && <DomainMenu domain={domain} />}
         </div>

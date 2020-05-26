@@ -12,8 +12,8 @@ import * as routes from '../routes';
 export default (props: PageProps) => (
   <Page
     {...props}
-    title="À propos de la Recherche instantanée de noms de domaine"
-    description="Une brève histoire de la Recherche instantanée de noms de domaine.">
+    description="Une brève histoire de la Recherche instantanée de noms de domaine."
+    title="À propos de la Recherche instantanée de noms de domaine">
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <TwoColumnLayout>
         <>
@@ -48,7 +48,7 @@ export default (props: PageProps) => (
           <p>Recherche Instantanée de Noms de Domaine a été créé en 2005 par Beau Hartshorne.</p>
 
           <p>
-            <img src={beauImage} width="216" height="299" alt="Beau Hartshorne" />
+            <img alt="Beau Hartshorne" height="299" src={beauImage} width="216" />
           </p>
 
           <h4 style={{marginBottom: 0}}>Contact</h4>

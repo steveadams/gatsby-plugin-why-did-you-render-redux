@@ -16,8 +16,8 @@ import * as routes from '../routes';
 export default (props: PageProps) => (
   <Page
     {...props}
-    title="Web Hosting - Make a website, online store, or blog"
-    description="Our favorite website builders, blogging software, and ecommerce software.">
+    description="Our favorite website builders, blogging software, and ecommerce software."
+    title="Web Hosting - Make a website, online store, or blog">
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <WideLayout>
         <h2>Make a website</h2>
@@ -25,9 +25,9 @@ export default (props: PageProps) => (
         <ul className="hosting">
           <li>
             <a
+              href="https://wixstats.com/?a=21507&amp;c=2149&amp;s1="
               rel="sponsored noopener noreferrer"
-              target="_blank"
-              href="https://wixstats.com/?a=21507&amp;c=2149&amp;s1=">
+              target="_blank">
               <img alt="Wix Logo" src={wixLogo} />
               <span>Wix</span>
             </a>
@@ -35,9 +35,9 @@ export default (props: PageProps) => (
 
           <li>
             <a
+              href="https://www.dpbolvw.net/click-8955823-13379824"
               rel="sponsored noopener noreferrer"
-              target="_blank"
-              href="https://www.dpbolvw.net/click-8955823-13379824">
+              target="_blank">
               <img alt="Go Daddy Logo" src={godaddyLogo} />
               <span>Go Daddy</span>
             </a>
@@ -45,9 +45,9 @@ export default (props: PageProps) => (
 
           <li>
             <a
+              href="https://shareasale.com/r.cfm?b=366125&amp;u=275332&amp;m=37723&amp;urllink=&amp;afftrack="
               rel="sponsored noopener noreferrer"
-              target="_blank"
-              href="https://shareasale.com/r.cfm?b=366125&amp;u=275332&amp;m=37723&amp;urllink=&amp;afftrack=">
+              target="_blank">
               <img alt="Weebly Logo" src={weeblyLogo} />
               <span>Weebly</span>
             </a>
@@ -59,9 +59,9 @@ export default (props: PageProps) => (
         <ul className="hosting">
           <li>
             <a
+              href="https://www.shopify.com/?ref=instant-domain-search"
               rel="sponsored noopener noreferrer"
-              target="_blank"
-              href="https://www.shopify.com/?ref=instant-domain-search">
+              target="_blank">
               <img alt="Shopify Logo" src={shopifyLogo} />
               <span>Shopify</span>
             </a>
@@ -69,9 +69,9 @@ export default (props: PageProps) => (
 
           <li>
             <a
+              href="https://www.dpbolvw.net/click-8955823-13379824"
               rel="sponsored noopener noreferrer"
-              target="_blank"
-              href="https://www.dpbolvw.net/click-8955823-13379824">
+              target="_blank">
               <img alt="Go Daddy Logo" src={godaddyLogo} />
               <span>Go Daddy</span>
             </a>
@@ -79,9 +79,9 @@ export default (props: PageProps) => (
 
           <li>
             <a
+              href="https://shareasale.com/r.cfm?b=1207610&amp;u=275332&amp;m=37723&amp;urllink=&amp;afftrack="
               rel="sponsored noopener noreferrer"
-              target="_blank"
-              href="https://shareasale.com/r.cfm?b=1207610&amp;u=275332&amp;m=37723&amp;urllink=&amp;afftrack=">
+              target="_blank">
               <img alt="Weebly Logo" src={weeblyLogo} />
               <span>Weebly</span>
             </a>
@@ -92,7 +92,7 @@ export default (props: PageProps) => (
 
         <ul className="hosting">
           <li>
-            <a rel="sponsored noopener noreferrer" target="_blank" href="https://wordpress.com/alp/?aff=5992">
+            <a href="https://wordpress.com/alp/?aff=5992" rel="sponsored noopener noreferrer" target="_blank">
               <img alt="WordPress Logo" src={wordpressLogo} />
               <span>WordPress</span>
             </a>
@@ -100,9 +100,9 @@ export default (props: PageProps) => (
 
           <li>
             <a
+              href="https://www.dpbolvw.net/click-8955823-13379824"
               rel="sponsored noopener noreferrer"
-              target="_blank"
-              href="https://www.dpbolvw.net/click-8955823-13379824">
+              target="_blank">
               <img alt="Go Daddy Logo" src={godaddyLogo} />
               <span>Go Daddy</span>
             </a>
@@ -110,9 +110,9 @@ export default (props: PageProps) => (
 
           <li>
             <a
+              href="https://shareasale.com/r.cfm?b=1207610&u=275332&m=37723&urllink=&afftrack="
               rel="sponsored noopener noreferrer"
-              target="_blank"
-              href="https://shareasale.com/r.cfm?b=1207610&u=275332&m=37723&urllink=&afftrack=">
+              target="_blank">
               <img alt="Weebly Logo" src={weeblyLogo} />
               <span>Weebly</span>
             </a>

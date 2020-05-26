@@ -129,7 +129,6 @@ function DomainStar({domain, large = false, statusColor = false, left}: DomainSt
   const isFavorite = favs.has(localStorageKey(domain)) || animating;
   return (
     <StarIcon
-      svgRef={ref}
       className={cx(
         styles.default,
         !large && styles.regular,
@@ -142,8 +141,9 @@ function DomainStar({domain, large = false, statusColor = false, left}: DomainSt
         statusColor && isFavorite && statusColors.stroke[statusName(domain)],
         statusColor && isFavorite && statusColors.fill[statusName(domain)],
       )}
-      style={{left}}
       onClick={toggle}
+      style={{left}}
+      svgRef={ref}
     />
   );
 }

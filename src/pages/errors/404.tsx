@@ -10,7 +10,7 @@ import TwoColumnLayout from '../../components/TwoColumnLayout';
 import * as routes from '../../routes';
 
 export default (props: PageProps) => (
-  <Page {...props} title="Page Not Available" description="Page Not Available">
+  <Page {...props} description="Page Not Available" title="Page Not Available">
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <TwoColumnLayout>
         <>

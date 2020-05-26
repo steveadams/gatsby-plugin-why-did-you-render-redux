@@ -108,8 +108,8 @@ function TldView({domain, tld, className}: TldViewProps) {
       eventType="convert"
       hoverStyle
       href={(domain && defaultActionURL(domain)) || void 0}
-      tag="a"
       rel="sponsored"
+      tag="a"
       target="_blank">
       .{tld}
       {domain && <span className={actionStyles.action}>{getAction(domain)}</span>}

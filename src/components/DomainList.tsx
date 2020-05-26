@@ -166,12 +166,12 @@ function DomainList({category, location, className, compact = false, link, style
         <div className={cx(styles.buyLinks)} style={{height: !expanded && !isMobile ? undefined : height}}>
           {domains.map((domain, i) => (
             <DomainView
+              category={category}
+              compact={compact}
+              domain={domain}
               key={`${i}`}
               location={location}
               position={i}
-              domain={domain}
-              compact={compact}
-              category={category}
             />
           ))}
         </div>

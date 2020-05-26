@@ -9,7 +9,7 @@ import WideLayout from '../components/WideLayout';
 import * as routes from '../routes';
 
 export default (props: PageProps) => (
-  <Page {...props} title="Privacy Policy" description="Privacy Policy for Instant Domain Search.">
+  <Page {...props} description="Privacy Policy for Instant Domain Search." title="Privacy Policy">
     <Controller header="Privacy Policy" page={routes.Page.Home} results={<DomainResults showTlds />}>
       <WideLayout>
         <h1>Privacy Policy</h1>

@@ -159,7 +159,7 @@ const highlight = (name: string, highlight: string) => {
   const [, prefix, mid, suffix] = match;
   return [
     prefix,
-    <b key="0" className={titleStyle.highlight}>
+    <b className={titleStyle.highlight} key="0">
       {mid}
     </b>,
     suffix,
@@ -172,11 +172,11 @@ const highlightExcept = (name: string, except: string) => {
   if (!match) return name;
   const [, prefix, mid, suffix] = match;
   return [
-    <b key="0" className={titleStyle.highlight}>
+    <b className={titleStyle.highlight} key="0">
       {prefix}
     </b>,
     mid,
-    <b key="1" className={titleStyle.highlight}>
+    <b className={titleStyle.highlight} key="1">
       {suffix}
     </b>,
   ];
@@ -225,10 +225,10 @@ function DomainView({domain, category, location, position}: DomainViewProps) {
         eventValue={domain.price || 0}
         hoverStyle
         href={defaultActionURL(domain) || void 0}
-        tag="a"
+        onClick={onClick}
         rel="sponsored"
-        target="_blank"
-        onClick={onClick}>
+        tag="a"
+        target="_blank">
         <div className={titleStyle.title}>{highlightedTitle(domain, searchPhrase, category)}</div>
         <div className={styles.right}>
           <span>{buttonText}</span>

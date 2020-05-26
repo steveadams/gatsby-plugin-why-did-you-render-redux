@@ -155,8 +155,8 @@ function FAQ({toc = false}: {toc?: boolean}) {
 export default (props: PageProps) => (
   <Page
     {...props}
-    title="Frequently Asked Questions"
-    description="Frequently asked questions and privacy information for Instant Domain Search.">
+    description="Frequently asked questions and privacy information for Instant Domain Search."
+    title="Frequently Asked Questions">
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <TwoColumnLayout>
         <>

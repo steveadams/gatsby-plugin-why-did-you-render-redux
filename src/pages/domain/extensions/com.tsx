@@ -19,27 +19,27 @@ import * as routes from '../../../routes';
 export default (props: PageProps) => (
   <Page
     {...props}
-    title=".com Domain Names"
-    description="Search the list of .com domain names as you type. Search results appear instantly. $4.99 coupon for new .com customers. Automatically generates suggestions and finds premium domain names available for sale.">
-    <Controller page={routes.Page.Com} header=".com Domain Names" results={<DomainResults showTlds={false} />}>
+    description="Search the list of .com domain names as you type. Search results appear instantly. $4.99 coupon for new .com customers. Automatically generates suggestions and finds premium domain names available for sale."
+    title=".com Domain Names">
+    <Controller header=".com Domain Names" page={routes.Page.Com} results={<DomainResults showTlds={false} />}>
       <WideLayout>
         <IconGroup
-          icon={IconSearch}
-          title="Search .com domain names as you type"
-          headerTag="h1"
           className={css`
             & > p {
               font-size: ${font.s}px;
             }
-          `}>
+          `}
+          headerTag="h1"
+          icon={IconSearch}
+          title="Search .com domain names as you type">
           The .com domain extension is the most popular domain extension available. There are over one hundred million
           .com names registered today. The extension was released in March of 1985, and is short for “commercial”. The
           .com registry is administered by <a href="https://www.verisign.com/">Verisign</a>. Verisign acts like a
           wholesaler, and does not sell to retail customers. Instead, you need to register the name through a vendor
           like our partner, GoDaddy. This interface only shows search results and suggestions for .com domain names.{' '}
           <a
-            onClick={() => event('interact', 'extensions', 'click to see all')}
-            href="/domain/extensions/#search=full%20list%20of%20extensions">
+            href="/domain/extensions/#search=full%20list%20of%20extensions"
+            onClick={() => event('interact', 'extensions', 'click to see all')}>
             Click here to the full list of domain extensions.
           </a>
         </IconGroup>

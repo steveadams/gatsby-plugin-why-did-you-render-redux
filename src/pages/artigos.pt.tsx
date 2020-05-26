@@ -13,8 +13,8 @@ import * as routes from '../routes';
 export default ({data, ...props}: ArticlesData & PageProps) => (
   <Page
     {...props}
-    title="Artigos de nome de domínio"
-    description="Sugestões para escolher um nome de domínio para o seu novo sítio web: Saiba como escolher um domínio, dar o nome a um site e selecionar a sua extensão de domínio.">
+    description="Sugestões para escolher um nome de domínio para o seu novo sítio web: Saiba como escolher um domínio, dar o nome a um site e selecionar a sua extensão de domínio."
+    title="Artigos de nome de domínio">
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <TwoColumnLayout>
         <>

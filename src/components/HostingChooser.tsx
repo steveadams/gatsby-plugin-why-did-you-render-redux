@@ -76,12 +76,12 @@ function HostingChooser() {
       <li>
         <strong>Make a website</strong>
         <Link
-          eventType="convert"
           eventID="hosting"
           eventInfo="domain-com"
+          eventType="convert"
+          href={'https://www.tkqlhce.com/click-8955823-13685453'}
           rel="sponsored noopener noreferrer"
-          target="_blank"
-          href={'https://www.tkqlhce.com/click-8955823-13685453'}>
+          target="_blank">
           <img alt="Domain.com Logo" src={domainLogo} />
           <span>Domain.com</span>
         </Link>
@@ -92,12 +92,12 @@ function HostingChooser() {
       <li>
         <strong>Make a website</strong>
         <Link
-          eventType="convert"
           eventID="hosting"
           eventInfo="godaddy"
+          eventType="convert"
+          href={'https://www.dpbolvw.net/click-8955823-13379824'}
           rel="sponsored noopener noreferrer"
-          target="_blank"
-          href={'https://www.dpbolvw.net/click-8955823-13379824'}>
+          target="_blank">
           <img alt="Go Daddy Logo" src={godaddyLogo} />
           <span>Go Daddy</span>
         </Link>
@@ -108,10 +108,10 @@ function HostingChooser() {
   return (
     <div className={styles.parent}>
       <Link
-        href="##"
-        eventType="interact"
         eventID="hosting"
         eventInfo="close_icon"
+        eventType="interact"
+        href="##"
         onClick={actions.dismissHostingChooser}>
         <ClearIcon className={styles.clearButton} />
       </Link>
@@ -121,14 +121,14 @@ function HostingChooser() {
           <li>
             <strong>Start a store</strong>
             <Link
-              eventType="convert"
               eventID="hosting"
               eventInfo="shopify"
-              rel="sponsored noopener noreferrer"
-              target="_blank"
+              eventType="convert"
               href={
                 'https://www.shopify.com/free-trial?ref=instant-domain-search&utm_campaign=free-trial&utm_content=hosting'
-              }>
+              }
+              rel="sponsored noopener noreferrer"
+              target="_blank">
               <img alt="Shopify Logo" src={shopifyLogo} />
               <span>Shopify</span>
             </Link>
@@ -136,12 +136,12 @@ function HostingChooser() {
           <li>
             <strong>Make a logo</strong>
             <Link
-              eventType="convert"
               eventID="hosting"
               eventInfo="tailor"
+              eventType="convert"
+              href={'https://tailorbrands.go2cloud.org/aff_c?offer_id=1&aff_id=1197&aff_sub=IDS25'}
               rel="sponsored"
-              target="_blank"
-              href={'https://tailorbrands.go2cloud.org/aff_c?offer_id=1&aff_id=1197&aff_sub=IDS25'}>
+              target="_blank">
               <img src={tailorLogo} />
               <span>Tailor Brands</span>
             </Link>
@@ -149,21 +149,21 @@ function HostingChooser() {
         </ul>
         <div className={styles.footer}>
           <Link
-            target="_self"
-            eventType="interact"
+            className={styles.grayLink}
             eventID="hosting"
             eventInfo="more"
-            className={styles.grayLink}
-            href="/hosting/">
+            eventType="interact"
+            href="/hosting/"
+            target="_self">
             More options
           </Link>{' '}
           &nbsp;{' '}
           <Link
-            eventType="interact"
             eventID="hosting"
             eventInfo="close_link"
-            onClick={actions.dismissHostingChooser}
-            href="#">
+            eventType="interact"
+            href="#"
+            onClick={actions.dismissHostingChooser}>
             Close
           </Link>
         </div>

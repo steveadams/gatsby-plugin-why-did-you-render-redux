@@ -5,30 +5,30 @@ import * as React from 'react';
 function IconSearch({className}: {className?: string}) {
   return (
     <svg
-      width="60"
-      height="60"
-      viewBox="0 0 60 60"
-      fillRule="evenodd"
-      strokeWidth="2"
+      className={className}
       fill="none"
+      fillRule="evenodd"
+      height="60"
+      stroke="#444"
       strokeLinecap="round"
       strokeLinejoin="round"
-      stroke="#444"
-      className={className}>
-      <circle fill="#CFE9FF" cx="34.5" cy="27.5" r="13.5" stroke="none" />
-      <circle fill="#FFF" cx="32.5" cy="25.5" r="11.5" stroke="none" />
-      <path stroke="#FFEFC6" d="M17.09 29h-14" />
-      <path stroke="#FFD0D8" d="M20.043 39H6.1" />
-      <path stroke="#D0FDC2" d="M20 18H6" />
+      strokeWidth="2"
+      viewBox="0 0 60 60"
+      width="60">
+      <circle cx="34.5" cy="27.5" fill="#CFE9FF" r="13.5" stroke="none" />
+      <circle cx="32.5" cy="25.5" fill="#FFF" r="11.5" stroke="none" />
+      <path d="M17.09 29h-14" stroke="#FFEFC6" />
+      <path d="M20.043 39H6.1" stroke="#FFD0D8" />
+      <path d="M20 18H6" stroke="#D0FDC2" />
       <path d="M44 38l9.5 9.5" />
       <rect
         fill="#9FC3FF"
-        transform="rotate(-45 52.707 46.707)"
-        x="50.707"
-        y="39.222"
-        width="4"
         height="14.971"
         rx="2"
+        transform="rotate(-45 52.707 46.707)"
+        width="4"
+        x="50.707"
+        y="39.222"
       />
       <path d="M16 27.029H2M18.954 37H5.01m13.944-21H5.01" />
       <circle cx="34.5" cy="27.5" r="13.5" />

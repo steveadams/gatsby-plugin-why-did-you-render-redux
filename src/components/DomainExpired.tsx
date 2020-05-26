@@ -37,8 +37,8 @@ function DomainExpired() {
     <div className="wrapper">
       <div className={styles.root}>
         {domains.map((domain, i) => (
-          <div key={`${i}`} className={styles.tldWrapper}>
-            <DomainView location={ClickLocation.ExpiredList} position={i} category="expiring" domain={domain} />
+          <div className={styles.tldWrapper} key={`${i}`}>
+            <DomainView category="expiring" domain={domain} location={ClickLocation.ExpiredList} position={i} />
           </div>
         ))}
       </div>

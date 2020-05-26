@@ -30,20 +30,20 @@ import * as routes from '../routes';
 export default (props: PageProps) => (
   <Page
     {...props}
-    title="Domain Name Search"
-    description="Domain name search results appear instantly as you type. $4.99 domains for new .com customers. Check the availability of hundreds of domain names at once.">
+    description="Domain name search results appear instantly as you type. $4.99 domains for new .com customers. Check the availability of hundreds of domain names at once."
+    title="Domain Name Search">
     <Alternates />
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <WideLayout>
         <IconGroup
-          icon={IconSearch}
-          title="Domain name search"
-          headerTag="h1"
           className={css`
             & > p {
               font-size: ${font.s}px;
             }
-          `}>
+          `}
+          headerTag="h1"
+          icon={IconSearch}
+          title="Domain name search">
           Instant Domain Search shows domain name search results as you type. Our domain checker automatically generates
           available domain names, shows aftermarket domains for sale, and shows domain availability for popular domain
           extensions—instantly! Great <Link to="/articles/choosing-a-domain-name/">domain names</Link> are short,
@@ -54,10 +54,10 @@ export default (props: PageProps) => (
 
         <Column>
           <IconGroup
-            icon={IconExtensions}
-            title="Domain extensions"
+            eventInfo="domain_extensions_h3"
             href="/domain/extensions/"
-            eventInfo="domain_extensions_h3">
+            icon={IconExtensions}
+            title="Domain extensions">
             Search .com and other domain extensions like .app, .dev, .store, and over a hundred more. We also search
             country-code domains (ccTLDs) like .ca, .co.uk, .us, and .in. The{' '}
             <Link onClick={() => event('internal', 'click', 'domain_extensions_p-small')} to="/domain/extensions/">
@@ -69,10 +69,10 @@ export default (props: PageProps) => (
 
         <Column>
           <IconGroup
-            icon={IconGenerator}
-            title="Domain name generator"
+            eventInfo="domain_generator_h3"
             href="/domain/generator/"
-            eventInfo="domain_generator_h3">
+            icon={IconGenerator}
+            title="Domain name generator">
             Our{' '}
             <Link onClick={() => event('internal', 'click', 'domain_generator_p')} to="/domain/generator/">
               domain name generator
@@ -83,7 +83,7 @@ export default (props: PageProps) => (
         </Column>
 
         <Column>
-          <IconGroup icon={IconForSale} title="Domains for sale" href="/domain/sale/" eventInfo="domain_sale_h3">
+          <IconGroup eventInfo="domain_sale_h3" href="/domain/sale/" icon={IconForSale} title="Domains for sale">
             Search millions of domain names for sale. We work with large marketplaces like AfterNic, GoDaddy, and Sedo.
             AI-powered search helps find great names related to your domain name.
           </IconGroup>
@@ -91,10 +91,10 @@ export default (props: PageProps) => (
 
         <Column>
           <IconGroup
-            icon={IconExpired}
-            title="Expired domain names"
+            eventInfo="domain_expired_h3"
             href="/domain/expired/"
-            eventInfo="domain_expired_h3">
+            icon={IconExpired}
+            title="Expired domain names">
             Search domain names that are about to expire. Some registrars let you buy the domain name immediately,
             sometimes the names go to an auction, and others will backorder the name for you.
           </IconGroup>
@@ -105,10 +105,10 @@ export default (props: PageProps) => (
 
       <WideLayout>
         <Column>
-          <IconGroup icon={IconSemaphore} title="Check domain availability" headerTag="h2">
+          <IconGroup headerTag="h2" icon={IconSemaphore} title="Check domain availability">
             Instant Domain Search checks domain availability by doing a <span className="smallCaps">DNS</span> query to
             get domain name search results as fast as possible. <span className="smallCaps">WHOIS</span>{' '}
-            <Link to="/domain/lookup/" onClick={() => event('internal', 'click', 'domain_lookup_p-small')}>
+            <Link onClick={() => event('internal', 'click', 'domain_lookup_p-small')} to="/domain/lookup/">
               domain lookups
             </Link>{' '}
             are much slower than <span className="smallCaps">DNS</span> queries, but provide more information about who
@@ -137,7 +137,7 @@ export default (props: PageProps) => (
         <Column>
           <IconGroup icon={IconCoupon} title="$4.99 .com domain name registration">
             We automatically apply a discount when you register your first{' '}
-            <Link to="/domain/extensions/.com/" onClick={() => event('internal', 'click', 'domain_com_p-small')}>
+            <Link onClick={() => event('internal', 'click', 'domain_com_p-small')} to="/domain/extensions/.com/">
               .com
             </Link>{' '}
             at GoDaddy. It will only cost $4.99–plus an $0.18 <span className="smallCaps">ICANN</span> fee. Go Daddy
