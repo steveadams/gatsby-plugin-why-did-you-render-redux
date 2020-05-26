@@ -12,8 +12,8 @@ import * as routes from '../routes';
 export default (props: PageProps) => (
   <Page
     {...props}
-    title="Sobre a Procura de Domínio Instantâneo"
-    description="Uma breve história do Instant Search Domain.">
+    description="Uma breve história do Instant Search Domain."
+    title="Sobre a Procura de Domínio Instantâneo">
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <TwoColumnLayout>
         <>
@@ -49,7 +49,7 @@ export default (props: PageProps) => (
           <p>A Pesquisa de Domínio Instantânea foi formada em 2005 por Beau Hartshorne.</p>
 
           <p>
-            <img src={beauImage} width="216" height="299" alt="Beau Hartshorne" />
+            <img alt="Beau Hartshorne" height="299" src={beauImage} width="216" />
           </p>
 
           <h4 style={{marginBottom: 0}}>Contact</h4>

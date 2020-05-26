@@ -21,19 +21,19 @@ import * as routes from '../../routes';
 export default (props: PageProps) => (
   <Page
     {...props}
-    title="Domain Name Generator"
-    description="Generate domain names instantly as you type. Automatically adds popular beginnings and endings to your keywords and show you what’s available.">
-    <Controller page={routes.Page.Generator} header="Domain Name Generator" results={<DomainGenerator />}>
+    description="Generate domain names instantly as you type. Automatically adds popular beginnings and endings to your keywords and show you what’s available."
+    title="Domain Name Generator">
+    <Controller header="Domain Name Generator" page={routes.Page.Generator} results={<DomainGenerator />}>
       <WideLayout>
         <IconGroup
-          icon={IconGeneratorLarge}
-          title="Domain name generator – try thousands of combinations instantly"
-          headerTag="h1"
           className={css`
             & > p {
               font-size: ${font.s}px;
             }
-          `}>
+          `}
+          headerTag="h1"
+          icon={IconGeneratorLarge}
+          title="Domain name generator – try thousands of combinations instantly">
           We automatically add popular domain name beginnings and endings to whatever you type in the search box.
           Sometimes we will show a generated name as available when it’s really not. This is because we check domain
           availability by looking it up in the zone file. We can do this instantly because we store the zone files in

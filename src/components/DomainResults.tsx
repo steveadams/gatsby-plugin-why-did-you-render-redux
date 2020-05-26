@@ -80,25 +80,25 @@ function DomainResults({showTlds = false}: DomainResultsProps) {
           {showTlds && (
             <DomainList
               category="tlds"
-              location={ClickLocation.TldsColumn}
-              title={<Text id="popularTlds" />}
               className={styles.col}
               link="/domain/extensions/"
+              location={ClickLocation.TldsColumn}
+              title={<Text id="popularTlds" />}
             />
           )}
           <DomainList
             category="suggestions"
-            location={ClickLocation.GeneratorColumn}
-            title={<Text id="suggestions" />}
             className={styles.col}
             link="/domain/generator/"
+            location={ClickLocation.GeneratorColumn}
+            title={<Text id="suggestions" />}
           />
           <DomainList
             category="forSale"
-            location={ClickLocation.ForSaleColumn}
-            title={<Text id="forSale" />}
             className={styles.col}
             link="/domain/sale/"
+            location={ClickLocation.ForSaleColumn}
+            title={<Text id="forSale" />}
           />
         </div>
       )}
@@ -112,14 +112,14 @@ function DomainResults({showTlds = false}: DomainResultsProps) {
           <div>We are having trouble with your search at this time.</div>
           <Button
             className={styles.goDaddyButton}
+            defaultColor={false}
             eventID="click_error"
             eventInfo={`error_${normalizedSearch[1]}`}
             eventType="convert"
             href={domain.goDaddyURL(normalizedSearch[0], normalizedSearch[1])}
-            tag="a"
             rel="sponsored"
-            target="_blank"
-            defaultColor={false}>
+            tag="a"
+            target="_blank">
             Try your search on GoDaddy
           </Button>
         </div>

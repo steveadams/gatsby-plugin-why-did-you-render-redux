@@ -11,8 +11,8 @@ import * as routes from '../../routes';
 export default (props: PageProps) => (
   <Page
     {...props}
-    title="Mac OS X Domain Name Widget"
-    description="Instantly checks .com domain name availability as you type. Works on Mac OS X.">
+    description="Instantly checks .com domain name availability as you type. Works on Mac OS X."
+    title="Mac OS X Domain Name Widget">
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <TwoColumnLayout>
         <>

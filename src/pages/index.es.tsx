@@ -30,20 +30,20 @@ import * as routes from '../routes';
 export default (props: PageProps) => (
   <Page
     {...props}
-    title="Dominios | Búsqueda de Dominios Instantáneo"
-    description="Busque nombres de dominio al instante mientras escribe. Busque en tiempo real extensiones como .com y otras. También aparecen inmediatamente sugerencias y nombres a la venta.">
+    description="Busque nombres de dominio al instante mientras escribe. Busque en tiempo real extensiones como .com y otras. También aparecen inmediatamente sugerencias y nombres a la venta."
+    title="Dominios | Búsqueda de Dominios Instantáneo">
     <Alternates />
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <WideLayout>
         <IconGroup
-          icon={IconSearch}
-          title="Búsqueda de nombre de dominio - verifique la disponibilidad de dominio"
-          headerTag="h1"
           className={css`
             & > p {
               font-size: ${font.s}px;
             }
-          `}>
+          `}
+          headerTag="h1"
+          icon={IconSearch}
+          title="Búsqueda de nombre de dominio - verifique la disponibilidad de dominio">
           Los resultados de la búsqueda de nombre de dominio aparecen a medida que escribe. Podemos hacer búsquedas de
           dominio muy rápidamente, y usualmente mostramos los resultados de la búsqueda de dominio en menos de 100
           milisegundos. Generamos nombres de dominios y verificamos extensiones de dominios instantáneamente. Estamos
@@ -53,10 +53,10 @@ export default (props: PageProps) => (
 
         <Column>
           <IconGroup
-            icon={IconExtensions}
-            title="Extensiones de dominio"
+            eventInfo="domain_extensions_h3"
             href="/domain/extensions/"
-            eventInfo="domain_extensions_h3">
+            icon={IconExtensions}
+            title="Extensiones de dominio">
             Busque más de cien nuevas extensiones como .club, .online y otras. También buscamos dominios con código de
             países (ccTLDs) como .com.au, .co.uk, .de y .br. La página de{' '}
             <Link onClick={() => event('internal', 'click', 'domain_extensions_p-small')} to="/domain/extensions/">
@@ -69,10 +69,10 @@ export default (props: PageProps) => (
 
         <Column>
           <IconGroup
-            icon={IconGenerator}
-            title="Generador de nombre de dominio"
+            eventInfo="domain_generator_h3"
             href="/domain/generator/"
-            eventInfo="domain_generator_h3">
+            icon={IconGenerator}
+            title="Generador de nombre de dominio">
             Nuestro{' '}
             <Link onClick={() => event('internal', 'click', 'domain_generator_p')} to="/domain/generator/">
               generador de dominio
@@ -83,7 +83,7 @@ export default (props: PageProps) => (
         </Column>
 
         <Column>
-          <IconGroup icon={IconForSale} title="Dominios para la venta" href="/domain/sale/" eventInfo="domain_sale_h3">
+          <IconGroup eventInfo="domain_sale_h3" href="/domain/sale/" icon={IconForSale} title="Dominios para la venta">
             Busque millones de nombres de dominios para la venta. Trabajamos con grandes firmas del mercado, como
             AfterNic, GoDaddy y Sedo. Las búsquedas impulsadas por inteligencia artificial le ayudan a hallar nombres
             magníficos relacionados con el nombre de su dominio.{' '}
@@ -92,10 +92,10 @@ export default (props: PageProps) => (
 
         <Column>
           <IconGroup
-            icon={IconExpired}
-            title="Nombres de dominios expirados"
+            eventInfo="domain_expired_h3"
             href="/domain/expired/"
-            eventInfo="domain_expired_h3">
+            icon={IconExpired}
+            title="Nombres de dominios expirados">
             Buscar nombres de dominio que están a punto de expirar. Algunos registradores le permiten comprar el nombre
             de dominio de inmediato, a veces los nombres van a una subasta, y otros ordenan el nombre por usted.
           </IconGroup>
@@ -122,7 +122,7 @@ export default (props: PageProps) => (
 
       <WideLayout>
         <Column>
-          <IconGroup icon={IconSemaphore} title="Disponibilidad del nombre de dominio" headerTag="h2">
+          <IconGroup headerTag="h2" icon={IconSemaphore} title="Disponibilidad del nombre de dominio">
             La búsqueda instantánea de dominio verifica la disponibilidad del dominio haciendo una consulta{' '}
             <span className="smallCaps"> DNS </span> para obtener resultados de búsqueda lo más rápido posible. Las
             búsquedas <span className="smallCaps">WHOIS</span> son mucho más lentas que las consultas{' '}

@@ -13,8 +13,8 @@ import * as routes from '../routes';
 export default ({data, ...props}: ArticlesData & PageProps) => (
   <Page
     {...props}
-    title="Domain Name Articles"
-    description="How to search for a domain name for your new website: Learn how to pick a domain, name a website, and choose your domain extension.">
+    description="How to search for a domain name for your new website: Learn how to pick a domain, name a website, and choose your domain extension."
+    title="Domain Name Articles">
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <TwoColumnLayout>
         <>

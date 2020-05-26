@@ -10,7 +10,7 @@ import beauImage from '../images/beau.jpg';
 import * as routes from '../routes';
 
 export default (props: PageProps) => (
-  <Page {...props} title="关于立即域名搜索" description="即时域搜索简史。">
+  <Page {...props} description="即时域搜索简史。" title="关于立即域名搜索">
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <TwoColumnLayout>
         <>
@@ -42,7 +42,7 @@ export default (props: PageProps) => (
         <>
           <p>立即域名搜索是在2005年创建于博·哈茨霍恩(Beau Hartshorne)。</p>
           <p>
-            <img src={beauImage} width="216" height="299" alt="Beau Hartshorne" />
+            <img alt="Beau Hartshorne" height="299" src={beauImage} width="216" />
           </p>
 
           <h4 style={{marginBottom: 0}}>Contact</h4>

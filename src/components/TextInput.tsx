@@ -38,9 +38,9 @@ type TextInputProps = {inputRef?: React.Ref<HTMLInputElement>} & React.InputHTML
 function TextInput({type = 'text', className, inputRef, ...props}: TextInputProps) {
   return (
     <input
-      ref={inputRef}
       autoComplete="off"
       className={cx(className, styles.textInput)}
+      ref={inputRef}
       spellCheck={false}
       type={type}
       {...props}

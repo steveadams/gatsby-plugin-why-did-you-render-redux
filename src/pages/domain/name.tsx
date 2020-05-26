@@ -12,8 +12,8 @@ import * as routes from '../../routes';
 export default (props: PageProps) => (
   <Page
     {...props}
-    title="Domain Names | Instant Domain Search"
-    description="Find your perfect domain name with the fastest domain name search available. Uses artificial intelligence to find great names related to your search.">
+    description="Find your perfect domain name with the fastest domain name search available. Uses artificial intelligence to find great names related to your search."
+    title="Domain Names | Instant Domain Search">
     <Controller header="Domain Names" page={routes.Page.Home} results={<DomainResults showTlds />}>
       <WideLayout>
         <h1>What is a domain name?</h1>

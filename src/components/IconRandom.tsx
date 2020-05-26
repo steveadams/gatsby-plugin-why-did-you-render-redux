@@ -3,17 +3,17 @@ import * as React from 'react';
 function IconRandom({className}: {className?: string}) {
   return (
     <svg
-      width={48}
-      height={48}
-      viewBox="0 0 48 48"
-      fillRule="evenodd"
+      className={className}
       clipRule="evenodd"
+      fill="none"
+      fillRule="evenodd"
+      height={48}
+      stroke="#444"
       strokeLinecap="round"
       strokeLinejoin="round"
-      fill="none"
-      stroke="#444"
       strokeWidth={2}
-      className={className}>
+      viewBox="0 0 48 48"
+      width={48}>
       <path
         d="M4 37.167c22.877 0 10.897-23.334 29.824-23.334h7.455M4 13.833c7.62 0 10.225 1.422 12.541 4.875m7.464 13.748c1.879 3.37 3.615 4.711 9.819 4.711h7.455"
         stroke="#cfe9ff"

@@ -37,8 +37,8 @@ function DomainGenerator() {
     <div className="wrapper">
       <div className={styles.root}>
         {domains.map((domain, i) => (
-          <div key={`${i}`} className={styles.tldWrapper}>
-            <DomainView location={ClickLocation.GeneratorList} position={i} category="generator" domain={domain} />
+          <div className={styles.tldWrapper} key={`${i}`}>
+            <DomainView category="generator" domain={domain} location={ClickLocation.GeneratorList} position={i} />
           </div>
         ))}
       </div>

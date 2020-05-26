@@ -81,11 +81,11 @@ function DomainGrid() {
 
   for (const {category, domains} of topLevelDomains) {
     contents.push(
-      <div key={category} className={styles.category}>
+      <div className={styles.category} key={category}>
         <div className={styles.title}>{category}</div>
         {domains.slice(0, remaining).map(({name, domain}) => (
-          <div key={name} className={styles.tldWrapper}>
-            <TldView tld={name} domain={domain} position={ClickLocation.TldGrid} />
+          <div className={styles.tldWrapper} key={name}>
+            <TldView domain={domain} position={ClickLocation.TldGrid} tld={name} />
           </div>
         ))}
       </div>,

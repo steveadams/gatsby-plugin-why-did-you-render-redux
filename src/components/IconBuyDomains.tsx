@@ -5,15 +5,15 @@ import * as React from 'react';
 function IconBuyDomains({className}: {className?: string}) {
   return (
     <svg
-      width="48"
-      height="48"
-      viewBox="0 0 48 48"
-      fillRule="evenodd"
+      className={className}
       clipRule="evenodd"
+      fillRule="evenodd"
+      height="48"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeMiterlimit="10"
-      className={className}>
+      viewBox="0 0 48 48"
+      width="48">
       <path
         d="M-8.819-8.819H8.819"
         fill="none"
@@ -30,35 +30,35 @@ function IconBuyDomains({className}: {className?: string}) {
         d="M2 7h7l3.781 22.643s.753 4.29 5.22 4.357C22.497 34.07 38 34 38 34s3.337-.033 4.248-3.878C43.158 26.275 45.47 14 45.47 14H33M20.564 14H10.169"
         fill="none"
         stroke="#444"
-        strokeWidth="1.9978818000000003"
         strokeLinejoin="miter"
         strokeMiterlimit="2"
+        strokeWidth="1.9978818000000003"
       />
       <path
         d="M20.564 19l6.936 5.626L34.436 19"
         fill="none"
         stroke="#444"
-        strokeWidth="1.9978818000000003"
         strokeMiterlimit="2"
+        strokeWidth="1.9978818000000003"
       />
       <circle
         cx="16.885"
         cy="40.114"
-        r="3.322"
         fill="#d0fdc2"
+        r="3.322"
         stroke="#444"
-        strokeWidth="1.9"
         strokeMiterlimit="2"
+        strokeWidth="1.9"
         transform="translate(.21 -.766) scale(1.05365)"
       />
       <circle
         cx="16.885"
         cy="40.114"
-        r="3.322"
         fill="#d0fdc2"
+        r="3.322"
         stroke="#444"
-        strokeWidth="1.9"
         strokeMiterlimit="2"
+        strokeWidth="1.9"
         transform="translate(19.21 -.766) scale(1.05365)"
       />
     </svg>

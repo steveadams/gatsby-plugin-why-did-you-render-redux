@@ -9,7 +9,7 @@ import TwoColumnLayout from '../components/TwoColumnLayout';
 import * as routes from '../routes';
 
 export default (props: PageProps) => (
-  <Page {...props} title="域名微件" description="你可以在你的网站上或你的苹果电脑仪表板上安装的域名微件。">
+  <Page {...props} description="你可以在你的网站上或你的苹果电脑仪表板上安装的域名微件。" title="域名微件">
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <TwoColumnLayout>
         <>

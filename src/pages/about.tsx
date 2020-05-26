@@ -12,8 +12,8 @@ import * as routes from '../routes';
 export default (props: PageProps) => (
   <Page
     {...props}
-    title="About Instant Domain Name Search"
-    description="A brief history of Instant Domain Search. Built by Beau Hartshorne in 2005. It works by indexing domain names in an insanely fast server.">
+    description="A brief history of Instant Domain Search. Built by Beau Hartshorne in 2005. It works by indexing domain names in an insanely fast server."
+    title="About Instant Domain Name Search">
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <TwoColumnLayout>
         <>
@@ -55,7 +55,7 @@ export default (props: PageProps) => (
         <>
           <p>Instant Domain Search was built in 2005 by Beau Hartshorne.</p>
           <p>
-            <img src={beauImage} width="216" height="299" alt="Beau Hartshorne" />
+            <img alt="Beau Hartshorne" height="299" src={beauImage} width="216" />
           </p>
 
           <h4 style={{marginBottom: 0}}>Contact</h4>

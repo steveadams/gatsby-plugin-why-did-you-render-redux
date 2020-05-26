@@ -29,19 +29,19 @@ export function SearchSelector() {
   const lang = useLanguage();
   return (
     <div className="searchSelector">
-      <SearchSelectorLink to={lang === 'en' ? '/' : `/${lang}/`} className={styles.link}>
+      <SearchSelectorLink className={styles.link} to={lang === 'en' ? '/' : `/${lang}/`}>
         <Text id="all" />
       </SearchSelectorLink>
-      <SearchSelectorLink to="/domain/extensions/" className={styles.link}>
+      <SearchSelectorLink className={styles.link} to="/domain/extensions/">
         <Text id="popularTlds" />
       </SearchSelectorLink>
-      <SearchSelectorLink to="/domain/generator/" className={styles.link}>
+      <SearchSelectorLink className={styles.link} to="/domain/generator/">
         <Text id="suggestions" />
       </SearchSelectorLink>
-      <SearchSelectorLink to="/domain/sale/" className={styles.link}>
+      <SearchSelectorLink className={styles.link} to="/domain/sale/">
         <Text id="forSale" />
       </SearchSelectorLink>
-      <SearchSelectorLink to="/domain/expired/" className={styles.link}>
+      <SearchSelectorLink className={styles.link} to="/domain/expired/">
         <Text id="expired" />
       </SearchSelectorLink>
     </div>

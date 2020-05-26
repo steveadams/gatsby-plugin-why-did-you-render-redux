@@ -192,8 +192,8 @@ function SearchBox() {
         action="https://app.instantdomainsearch.com/redirect/"
         className={styles.search}
         method="get"
-        role="search"
-        onSubmit={onSubmit}>
+        onSubmit={onSubmit}
+        role="search">
         <TextInput
           autoCapitalize="off"
           autoComplete="off"
@@ -228,7 +228,7 @@ function SearchBox() {
           )}
         </div>
         {!isMobile && <FavoritesFlyout />}
-        {isMobile && <input type="button" style={{display: 'none'}} value="Search" />}
+        {isMobile && <input style={{display: 'none'}} type="button" value="Search" />}
       </form>
       <SearchSelector />
       {!shouldShowHeaderAndFooter && (

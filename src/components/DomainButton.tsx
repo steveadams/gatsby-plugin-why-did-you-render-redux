@@ -101,8 +101,8 @@ function DomainButton({
       hoverStyle={hoverStyle}
       href={defaultActionURL(domain) || void 0}
       onClick={onClick}
-      tag="a"
       rel="sponsored"
+      tag="a"
       target="_blank">
       {buttonText}
       {buttonText && domainPrice && '\xa0'}

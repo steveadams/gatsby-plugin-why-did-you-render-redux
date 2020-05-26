@@ -10,7 +10,7 @@ import beauImage from '../images/beau.jpg';
 import * as routes from '../routes';
 
 export default (props: PageProps) => (
-  <Page {...props} title="О мгновенном поиске доменов" description="Краткая история Instant Domain Search.">
+  <Page {...props} description="Краткая история Instant Domain Search." title="О мгновенном поиске доменов">
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <TwoColumnLayout>
         <>
@@ -51,7 +51,7 @@ export default (props: PageProps) => (
           <p>Сайт Мгновенный Поиск Домена был создан в 2005 Бо Хартшорном (Beau Hartshorne).</p>
 
           <p>
-            <img src={beauImage} width="216" height="299" alt="Beau Hartshorne" />
+            <img alt="Beau Hartshorne" height="299" src={beauImage} width="216" />
           </p>
 
           <h4 style={{marginBottom: 0}}>Contact</h4>

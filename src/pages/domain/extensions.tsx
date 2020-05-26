@@ -22,25 +22,25 @@ import * as routes from '../../routes';
 export default (props: PageProps) => (
   <Page
     {...props}
-    title="Domain Extensions"
-    description="Search the list of new gTLD domain extensions instantly as you type. We support the best domain extensions that you can buy today.">
-    <Controller page={routes.Page.Gtlds} header="Domain Extensions" results={<DomainGrid />}>
+    description="Search the list of new gTLD domain extensions instantly as you type. We support the best domain extensions that you can buy today."
+    title="Domain Extensions">
+    <Controller header="Domain Extensions" page={routes.Page.Gtlds} results={<DomainGrid />}>
       <WideLayout>
         <IconGroup
-          icon={IconExtensionsLarge}
-          title="Domain extensions – search new gTLDs instantly"
-          headerTag="h1"
           className={css`
             & > p {
               font-size: ${font.s}px;
             }
-          `}>
+          `}
+          headerTag="h1"
+          icon={IconExtensionsLarge}
+          title="Domain extensions – search new gTLDs instantly">
           New domain name extensions, or generic top-level domains—gTLDs—are coming online every day. We also support
           hundreds of country code TLDs as you type. We made a special interface to instantly search hundreds of domain
           names at once.{' '}
           <a
-            onClick={() => event('interact', 'extensions', 'click to see all')}
-            href="/domain/extensions/#search=full%20list%20of%20extensions">
+            href="/domain/extensions/#search=full%20list%20of%20extensions"
+            onClick={() => event('interact', 'extensions', 'click to see all')}>
             Click here to the full list.
           </a>{' '}
           To search generated names, domain extensions, and domains for sale at the same time you can use our{' '}
@@ -51,7 +51,7 @@ export default (props: PageProps) => (
         <Column>
           <IconGroup icon={IconWhatIs} title="What is a gTLD?">
             A generic top-level domain (gTLD), is the last part of the domain, like{' '}
-            <Link to="/domain/extensions/.com/" onClick={() => event('internal', 'click', 'domain_com_p-small')}>
+            <Link onClick={() => event('internal', 'click', 'domain_com_p-small')} to="/domain/extensions/.com/">
               .com
             </Link>
             . Since over 100 million .com domains are registered, <span className="smallCaps">ICANN</span> (the entity
@@ -64,8 +64,8 @@ export default (props: PageProps) => (
           <IconGroup icon={IconList} title="List of domain extensions">
             Hundreds of new endings, like .guru and .tips, are now available to register. We show the best TLDs first.{' '}
             <a
-              onClick={() => event('interact', 'extensions', 'see the full list')}
-              href="/domain/extensions/#search=full%20list%20of%20extensions">
+              href="/domain/extensions/#search=full%20list%20of%20extensions"
+              onClick={() => event('interact', 'extensions', 'see the full list')}>
               See the full list.
             </a>{' '}
           </IconGroup>
@@ -75,7 +75,7 @@ export default (props: PageProps) => (
           <IconGroup icon={IconGrid} title="Search all domain endings at once">
             This page is optimized to help you search for them all at once. It shows results in a grid, with available
             extensions shown in green.{' '}
-            <a onClick={() => event('interact', 'extensions', 'kitten')} href="/domain/extensions/#search=kitten">
+            <a href="/domain/extensions/#search=kitten" onClick={() => event('interact', 'extensions', 'kitten')}>
               Try it
             </a>
             .{' '}

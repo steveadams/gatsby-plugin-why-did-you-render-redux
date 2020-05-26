@@ -5,17 +5,17 @@ import * as React from 'react';
 function IconRed({className}: {className?: string}) {
   return (
     <svg
-      width={40}
-      height={40}
-      viewBox="0 0 40 40"
-      stroke="#FD245C"
-      strokeWidth={2}
-      fillRule="evenodd"
-      strokeLinejoin="round"
+      className={className}
       fill="none"
+      fillRule="evenodd"
+      height={40}
+      stroke="#FD245C"
       strokeLinecap="round"
-      className={className}>
-      <circle fill="#FFF" strokeLinecap="square" cx={20} cy={20} r={18} />
+      strokeLinejoin="round"
+      strokeWidth={2}
+      viewBox="0 0 40 40"
+      width={40}>
+      <circle cx={20} cy={20} fill="#FFF" r={18} strokeLinecap="square" />
       <path d="M15 15l10 10m-10 0l10-10" />
     </svg>
   );

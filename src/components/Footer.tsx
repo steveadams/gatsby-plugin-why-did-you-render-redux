@@ -30,7 +30,6 @@ function Footer() {
   const lang = useLanguage();
   return (
     <div
-      id="footer"
       className={css`
         border-top: 1px solid ${colors.mediumGray};
         background: ${colors.extraLightGray};
@@ -51,7 +50,8 @@ function Footer() {
             color: ${colors.darkGray};
           }
         }
-      `}>
+      `}
+      id="footer">
       <div
         className={css`
           margin-left: auto;
@@ -80,7 +80,7 @@ function Footer() {
               }
             }
           `}>
-          <SearchSelectorLink to={lang === 'en' ? '/' : `/${lang}/`} className="homeLink">
+          <SearchSelectorLink className="homeLink" to={lang === 'en' ? '/' : `/${lang}/`}>
             <Text id="home" />
           </SearchSelectorLink>
           <SearchSelectorLink to="/domain/extensions/">
@@ -112,18 +112,18 @@ function Footer() {
             }
           `}>
           <a
-            target="_blank"
-            rel="noopener noreferrer"
+            href="https://twitter.com/intent/follow?screen_name=InstantDomain"
             onClick={() => event('outbound', 'click', 'twitter_follow')}
-            href="https://twitter.com/intent/follow?screen_name=InstantDomain">
+            rel="noopener noreferrer"
+            target="_blank">
             <IconTwitter className={styles.icon} />
             &nbsp;@InstantDomain
           </a>
           <a
-            target="_blank"
-            rel="noopener noreferrer"
+            href="https://www.facebook.com/InstantDomainSearch"
             onClick={() => event('outbound', 'click', 'facebook_follow')}
-            href="https://www.facebook.com/InstantDomainSearch">
+            rel="noopener noreferrer"
+            target="_blank">
             <IconFacebook className={styles.icon} />
             &nbsp;InstantDomainSearch
           </a>
@@ -163,7 +163,7 @@ function Footer() {
               white-space: nowrap;
             }
           `}>
-          <a title={process.env.GATSBY_BUILD_TIME} href="/">
+          <a href="/" title={process.env.GATSBY_BUILD_TIME}>
             ©2005–{new Date().getFullYear()} Instant Domain Search, Inc.
           </a>
           {lang === 'en' && (
@@ -280,8 +280,8 @@ function Footer() {
       {/* facebook pixel */}
       <img
         alt="Facebook Tracking Pixel"
-        src="https://www.facebook.com/tr?id=753828288367173&amp;ev=PageView"
         height="1"
+        src="https://www.facebook.com/tr?id=753828288367173&amp;ev=PageView"
         width="1"
       />
     </div>

@@ -78,13 +78,13 @@ interface AdvancedLinkProps {
 const AdvancedLink = ({href, domain, linkID, children, rel}: AdvancedLinkProps) => (
   <li>
     <Link
-      href={href}
-      eventType="interact"
+      className={linkStyles.link}
       eventID={`advanced_${linkID}`}
       eventInfo={googleAnalyticsLabel(domain)}
+      eventType="interact"
       eventValue={domain.price || 0}
-      rel={rel}
-      className={linkStyles.link}>
+      href={href}
+      rel={rel}>
       {children}
     </Link>
   </li>
@@ -140,63 +140,63 @@ function DomainMenu({domain}: DomainMenuProps) {
 
   return (
     <Flyout
+      className={styles.flyout}
       collapsedHandle={collapsedHandle}
       expandedHandle={expandedHandle}
-      className={styles.flyout}
-      width={220}
       onCollapse={() => {
         setIsOpen(false);
       }}
       onExpand={() => {
         setIsOpen(true);
-      }}>
+      }}
+      width={220}>
       <ul className={styles.menu}>
-        <AdvancedLink domain={domain} linkID="visit" href={`http://${fullName}`}>
+        <AdvancedLink domain={domain} href={`http://${fullName}`} linkID="visit">
           Visit site
         </AdvancedLink>
-        <AdvancedLink domain={domain} linkID="appraise" rel="sponsored" href={appraiseURL(domain)}>
+        <AdvancedLink domain={domain} href={appraiseURL(domain)} linkID="appraise" rel="sponsored">
           <Text id="appraise" />
         </AdvancedLink>
         <hr />
         <AdvancedLink
           domain={domain}
-          linkID="trademark"
-          href={`https://www.uspto.gov/trademarks-application-process/search-trademark-database`}>
+          href={`https://www.uspto.gov/trademarks-application-process/search-trademark-database`}
+          linkID="trademark">
           Trademark Search
         </AdvancedLink>
         <AdvancedLink
           domain={domain}
-          linkID="google"
-          href={`https://www.google.com/?q=${encodeURIComponent(shortName)}`}>
+          href={`https://www.google.com/?q=${encodeURIComponent(shortName)}`}
+          linkID="google">
           Google Search
         </AdvancedLink>
         <AdvancedLink
           domain={domain}
-          linkID="wayback"
-          href={`https://web.archive.org/web/*/${encodeURIComponent(fullName)}`}>
+          href={`https://web.archive.org/web/*/${encodeURIComponent(fullName)}`}
+          linkID="wayback">
           Wayback Machine
         </AdvancedLink>
         <hr />
         <UsernameLink
-          domain={domain}
-          linkID="instagram"
-          href={`https://www.instagram.com/${encodeURIComponent(shortName)}/`}
-          service="Instagram"
           available={social[SocialService.instagram]}
+          domain={domain}
+          href={`https://www.instagram.com/${encodeURIComponent(shortName)}/`}
+          linkID="instagram"
+          service="Instagram"
         />
         <UsernameLink
-          domain={domain}
-          linkID="twitter"
-          href={`https://twitter.com/${encodeURIComponent(shortName)}`}
-          service="Twitter"
           available={social[SocialService.twitter]}
+          domain={domain}
+          href={`https://twitter.com/${encodeURIComponent(shortName)}`}
+          linkID="twitter"
+          service="Twitter"
         />
         <UsernameLink
-          domain={domain}
-          linkID="facebook"
-          href={`https://www.facebook.com/${encodeURIComponent(shortName)}`}
-          service="Facebook"
           available={social[SocialService.facebook]}
+          domain={domain}
+          href={`https://www.facebook.com/${encodeURIComponent(shortName)}`}
+          linkID="facebook"
+          service="Facebook"
         />
       </ul>
     </Flyout>

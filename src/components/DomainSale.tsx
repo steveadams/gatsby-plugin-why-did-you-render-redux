@@ -38,8 +38,8 @@ function DomainSale() {
     <div className="wrapper">
       <div className={styles.root}>
         {domains.map((domain, i) => (
-          <div key={`${i}`} className={styles.tldWrapper}>
-            <DomainView location={ClickLocation.ForSaleList} position={i} category="forSale" domain={domain} />
+          <div className={styles.tldWrapper} key={`${i}`}>
+            <DomainView category="forSale" domain={domain} location={ClickLocation.ForSaleList} position={i} />
           </div>
         ))}
       </div>

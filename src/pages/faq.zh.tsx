@@ -122,7 +122,7 @@ function FAQ({toc = false}: {toc?: boolean}) {
 }
 
 export default (props: PageProps) => (
-  <Page {...props} title="常见问题" description="有关立即域名搜索的常见问题和隐私信息。">
+  <Page {...props} description="有关立即域名搜索的常见问题和隐私信息。" title="常见问题">
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <TwoColumnLayout>
         <>

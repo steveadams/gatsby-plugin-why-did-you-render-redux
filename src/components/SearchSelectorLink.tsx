@@ -27,9 +27,9 @@ function SearchSelectorLink({children, to, className}: SearchSelectorLinkProps) 
     <Location>
       {({location}) => (
         <Link
-          to={to ? `${to}${canonicalUrl}` : '#'}
           className={cx(className, location.pathname === to && 'current')}
-          onClick={onClick}>
+          onClick={onClick}
+          to={to ? `${to}${canonicalUrl}` : '#'}>
           {children}
         </Link>
       )}

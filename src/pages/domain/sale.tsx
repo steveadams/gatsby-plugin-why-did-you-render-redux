@@ -21,19 +21,19 @@ import * as routes from '../../routes';
 export default (props: PageProps) => (
   <Page
     {...props}
-    title="Domains For Sale"
-    description="Instantly search millions of domain names for sale as you type. Artificial intelligence helps find great names related to your search.">
-    <Controller page={routes.Page.Sale} header="Domains For Sale" results={<DomainSale />}>
+    description="Instantly search millions of domain names for sale as you type. Artificial intelligence helps find great names related to your search."
+    title="Domains For Sale">
+    <Controller header="Domains For Sale" page={routes.Page.Sale} results={<DomainSale />}>
       <WideLayout>
         <IconGroup
-          icon={IconForSaleLarge}
-          title="Domains for sale – search the domain marketplace instantly"
-          headerTag="h1"
           className={css`
             & > p {
               font-size: ${font.s}px;
             }
-          `}>
+          `}
+          headerTag="h1"
+          icon={IconForSaleLarge}
+          title="Domains for sale – search the domain marketplace instantly">
           Instant Domain Search sifts through millions of domain names for sale with every key press. We show names for
           sale in blue, and link to marketplace where the domain is listed when you click on a name. You can use our{' '}
           <Link to="/">domain name search</Link> tool to search for names that are not yet registered. The domain name

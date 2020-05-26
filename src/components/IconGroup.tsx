@@ -75,11 +75,11 @@ function IconGroup({
         {!href && title}
         {href && (
           <Link
-            to={href}
             className={css`
               color: ${colors.darkGray};
             `}
-            onClick={() => event('internal', 'click', eventInfo)}>
+            onClick={() => event('internal', 'click', eventInfo)}
+            to={href}>
             {title}
           </Link>
         )}

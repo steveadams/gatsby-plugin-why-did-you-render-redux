@@ -15,8 +15,8 @@ import * as routes from '../routes';
 export default ({data, ...props}: PageProps & ArticlesData) => (
   <Page
     {...props}
-    title="域名搜索 | 立即域名搜索和建议"
-    description="当你输入时，可立即地找到域名。实时搜索.com和其它扩展。出售的建议和名字也会立即显示。">
+    description="当你输入时，可立即地找到域名。实时搜索.com和其它扩展。出售的建议和名字也会立即显示。"
+    title="域名搜索 | 立即域名搜索和建议">
     <Alternates />
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <TwoColumnLayout>
@@ -35,13 +35,13 @@ export default ({data, ...props}: PageProps & ArticlesData) => (
 
           <p style={{fontSize: '1.1em'}}>
             <strong>喜欢这个网站？</strong>在
-            <a onClick={() => event('outbound', 'click', 'twitter')} href="https://twitter.com/instantdomain">
+            <a href="https://twitter.com/instantdomain" onClick={() => event('outbound', 'click', 'twitter')}>
               Twitter
             </a>
             和
             <a
-              onClick={() => event('outbound', 'click', 'facebook')}
-              href="https://www.facebook.com/InstantDomainSearch">
+              href="https://www.facebook.com/InstantDomainSearch"
+              onClick={() => event('outbound', 'click', 'facebook')}>
               Facebook
             </a>
             上告诉其他人!
