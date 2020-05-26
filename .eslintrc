@@ -8,7 +8,7 @@
       "jsx": true
     }
   },
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "import", "simple-import-sort"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
@@ -20,15 +20,20 @@
   "ignorePatterns": ["gatsby-*.js", "public", "*/node_modules/*"],
   "rules": {
     "object-curly-spacing": ["error", "never"],
-    "@typescript-eslint/explicit-function-return-type": "off",
+    "no-irregular-whitespace": "off",
+    "sort-imports": "off",
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
     "react/display-name": "off",
     "react/no-unescaped-entities": "off",
-    "no-irregular-whitespace": "off",
+    "simple-import-sort/sort": "error",
     "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-empty-function": "off",
-    "@typescript-eslint/no-use-before-define": "off",
-    "@typescript-eslint/no-non-null-assertion": "off"
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-use-before-define": "off"
   },
   "settings": {
     "react": {
