@@ -9,7 +9,6 @@ import * as colors from '../colors';
 import * as font from '../font';
 import * as selectors from '../selectors';
 import {desktop, mobile} from '../styles';
-
 import DomainView from './DomainView';
 import ExtensionsSortMenu from './ExtensionsSortMenu';
 import {RightArrowIcon} from './icons';

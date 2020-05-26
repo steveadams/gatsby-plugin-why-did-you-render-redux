@@ -22,7 +22,6 @@ import * as font from '../font';
 import * as selectors from '../selectors';
 import * as statusColors from '../statusColors';
 import {desktop, mobile} from '../styles';
-
 import Button from './Button';
 import DomainButton from './DomainButton';
 import DomainMenu from './DomainMenu';

@@ -21,7 +21,6 @@ import * as font from '../font';
 import * as selectors from '../selectors';
 import * as statusColors from '../statusColors';
 import {desktop, mobile} from '../styles';
-
 import Button from './Button';
 import DomainStar from './DomainStar';
 import Text from './Text';

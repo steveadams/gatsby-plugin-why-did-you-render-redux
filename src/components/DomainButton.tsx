@@ -10,7 +10,6 @@ import {defaultActionURL, DomainStatus, price, status, statusName} from '../doma
 import * as font from '../font';
 import * as selectors from '../selectors';
 import * as statusColors from '../statusColors';
-
 import Button from './Button';
 import Text from './Text';
 

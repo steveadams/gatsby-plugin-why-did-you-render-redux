@@ -6,7 +6,6 @@ import * as React from 'react';
 
 import * as colors from '../colors';
 import * as font from '../font';
-
 import Text, {useLanguage} from './Text';
 
 function Header({children}: {children: React.ReactNode}) {

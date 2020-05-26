@@ -7,7 +7,6 @@ import {useSelector} from 'react-redux';
 import {ClickLocation} from '../analytics';
 import * as selectors from '../selectors';
 import {desktop, mobile} from '../styles';
-
 import DomainView from './DomainView';
 
 const styles = {

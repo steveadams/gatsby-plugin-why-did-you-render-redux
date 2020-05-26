@@ -8,7 +8,6 @@ import * as colors from '../colors';
 import * as domain from '../domain';
 import * as selectors from '../selectors';
 import {desktop, mobile} from '../styles';
-
 import Button from './Button';
 import DomainList from './DomainList';
 import Text from './Text';

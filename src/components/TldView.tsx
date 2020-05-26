@@ -9,7 +9,6 @@ import {defaultActionURL, DomainStatus, googleAnalyticsLabel, price, status, sta
 import * as font from '../font';
 import * as statusColors from '../statusColors';
 import {mobile} from '../styles';
-
 import Button from './Button';
 import Text from './Text';
 
