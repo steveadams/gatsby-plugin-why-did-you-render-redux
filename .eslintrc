@@ -2,38 +2,38 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2020,
-    "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
-    }
+    },
+    "ecmaVersion": 2020,
+    "sourceType": "module"
   },
   "plugins": ["@typescript-eslint", "import", "simple-import-sort"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
     "plugin:react-hooks/recommended",
+    "plugin:react/recommended",
     "prettier/@typescript-eslint"
   ],
   "ignorePatterns": ["gatsby-*.js", "public", "*/node_modules/*"],
   "rules": {
-    "object-curly-spacing": ["error", "never"],
-    "no-irregular-whitespace": "off",
-    "sort-imports": "off",
-    "import/first": "error",
-    "import/newline-after-import": "error",
-    "import/no-duplicates": "error",
-    "react/display-name": "off",
-    "react/no-unescaped-entities": "off",
-    "simple-import-sort/sort": "error",
     "@typescript-eslint/camelcase": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
-    "@typescript-eslint/no-use-before-define": "off"
+    "@typescript-eslint/no-use-before-define": "off",
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
+    "no-irregular-whitespace": "off",
+    "object-curly-spacing": ["error", "never"],
+    "react/display-name": "off",
+    "react/no-unescaped-entities": "off",
+    "simple-import-sort/sort": "error",
+    "sort-imports": "off"
   },
   "settings": {
     "react": {
