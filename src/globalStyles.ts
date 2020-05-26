@@ -118,7 +118,6 @@ css`
     section {
       display: block;
     }
-    body,
     body {
       /* TODO: fix hack */
       line-height: 1;
@@ -214,7 +213,7 @@ css`
     /* stylelint-disable-next-line no-duplicate-selectors */
     body {
       font-weight: ${font.regular};
-      // font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+      /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif; */
       font-family: -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
         'Helvetica Neue', sans-serif;
       background: ${colors.white};
