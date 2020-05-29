@@ -9,9 +9,7 @@ local: dev
 # must match GATSBY_BUILD_TIME in gatsby-config.js, Page.tsx, publish-bucket.sh, and rollbar-deploy.sh
 GATSBY_BUILD_TIME=$(shell date -u +%Y-%m-%d_%H-%M-%S)
 build: export NODE_ENV=production
-build:
-	./node_modules/.bin/gatsby clean
-
+build: clean
 	# iOS does not expect default at the top level
 	# TODO: have ts-node strip the top-level default instead of sed
 	./node_modules/.bin/ts-node --compiler-options '{"module": "CommonJS"}' -p -e "JSON.stringify(require('./src/config'))" > static/provider.json
@@ -23,6 +21,10 @@ build:
 	GATSBY_BUILD_TIME=$(GATSBY_BUILD_TIME) bash rollbar-deploy.sh
 
 .PHONY: build
+
+clean:
+	./node_modules/.bin/gatsby clean
+.PHONY: clean
 
 node_modules: package.json
 	yarn install
