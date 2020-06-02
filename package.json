@@ -1,6 +1,20 @@
 {
   "name": "ids",
   "version": "1.0.0",
+  "private": true,
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.css": "stylelint --fix",
+    "*.js": "eslint --cache --fix",
+    "*.{js,jsx,ts,tsx,css,md}": "prettier --write",
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
   "dependencies": {
     "@babel/core": "^7.10.2",
     "core-js": "^3.6.5",
@@ -17,7 +31,6 @@
     "uuid": "^8.1.0",
     "window.requestanimationframe": "^1.0.1"
   },
-  "private": true,
   "devDependencies": {
     "@hot-loader/react-dom": "^16.13.0",
     "@types/google.analytics": "^0.0.40",
@@ -52,18 +65,5 @@
     "stylelint-config-recommended": "^3.0.0",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix"
-    ],
-    "*.js": "eslint --cache --fix",
-    "*.css": "stylelint --fix",
-    "*.{js,jsx,ts,tsx,css,md}": "prettier --write"
   }
 }
