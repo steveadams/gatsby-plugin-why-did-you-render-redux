@@ -3,9 +3,11 @@
 import {Link} from 'gatsby';
 import {css} from 'linaria';
 import * as React from 'react';
+import {useSelector} from 'react-redux';
 
 import * as colors from '../colors';
 import * as font from '../font';
+import * as selectors from '../selectors';
 import {mobile} from '../styles';
 import IconLogo from './IconLogo';
 import LanguageFlyout from './LanguageFlyout';
@@ -63,9 +65,11 @@ function Header() {
     `,
   };
 
+  const isMobile = useSelector(selectors.isMobile);
+
   return (
     <header className={styles.header}>
-      <LanguageFlyout />
+      {!isMobile && <LanguageFlyout />}
 
       <Link className={styles.link} to={lang === languageCodes.english ? '/' : `/${lang}/`}>
         <h1 className={styles.title}>
