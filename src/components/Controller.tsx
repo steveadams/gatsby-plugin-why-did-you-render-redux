@@ -8,7 +8,6 @@ import {Page} from '../routes';
 import * as selectors from '../selectors';
 import Footer from './Footer';
 import Header from './Header';
-import HomeHeader from './HomeHeader';
 import HostingChooser from './HostingChooser';
 import MainDomainView from './MainDomainView';
 import SearchBox from './SearchBox';
@@ -21,7 +20,7 @@ interface ControllerProps {
   children?: React.ReactNode;
 }
 
-function Controller({page, header, results, children}: ControllerProps) {
+function Controller({page, results, children}: ControllerProps) {
   const shouldShowContent = useSelector(selectors.shouldShowContent);
 
   React.useEffect(() => {
@@ -29,25 +28,29 @@ function Controller({page, header, results, children}: ControllerProps) {
   }, [page]);
 
   return (
-    <>
-      {shouldShowContent && !header && <HomeHeader />}
-      {shouldShowContent && header && <Header>{header}</Header>}
-      <SearchBox />
-      {shouldShowContent ? (
-        <>
-          <hr className="darkHr" style={{margin: '0 0 48px'}} />
-          {children}
-          <Footer />
-        </>
-      ) : (
-        <>
-          <MainDomainView />
-          <HostingChooser />
-          {results}
-        </>
-      )}
+    <main>
+      <section id="headerAndSearch">
+        {shouldShowContent && <Header />}
+        <SearchBox />
+      </section>
+
+      <section>
+        {shouldShowContent ? (
+          <>
+            {children}
+            <Footer />
+          </>
+        ) : (
+          <>
+            <MainDomainView />
+            <HostingChooser />
+            {results}
+          </>
+        )}
+      </section>
+
       <ShortcutsDialog />
-    </>
+    </main>
   );
 }
 

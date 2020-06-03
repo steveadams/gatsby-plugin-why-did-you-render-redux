@@ -8,15 +8,12 @@ import {unstable_LowPriority, unstable_scheduleCallback} from 'scheduler';
 import * as actions from '../actions';
 import * as analytics from '../analytics';
 import * as colors from '../colors';
-import {googleAnalyticsLabel, statusName} from '../domain';
 import * as font from '../font';
 import * as selectors from '../selectors';
-import * as statusColors from '../statusColors';
 import {desktop, mobile} from '../styles';
 import Button from './Button';
-import DomainButton from './DomainButton';
 import FavoritesFlyout from './FavoritesFlyout';
-import {ClearIcon, SearchIcon} from './icons';
+import {ClearIcon} from './icons';
 import {SearchSelector} from './SearchSelector';
 import {Key} from './ShortcutsDialog';
 import Text from './Text';
@@ -25,78 +22,94 @@ import TextInput from './TextInput';
 let USER_HAS_TYPED = false;
 
 const styles = {
-  searcher: css`
-    padding-bottom: 72px;
-    padding-top: 48px;
+  searchContainer: css`
     position: relative;
     text-align: center;
+    padding: 64px 16px 0;
+
+    /* Limit padding when rendered adjavent to a <header> */
+    header + & {
+      padding-top: 8px;
+    }
+
     ${mobile} {
-      padding-bottom: 36px;
-      padding-top: 36px;
+      padding: 32px 16px;
     }
   `,
-  search: css`
+  searchFormAndFavs: css`
     position: relative;
+    display: flex;
     max-width: 560px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 32px;
-    padding-right: 32px;
-    ${mobile} {
-      padding-left: 16px;
-      padding-right: 16px;
+    margin: 0 auto;
+  `,
+  searchForm: css`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    border-radius: 50px;
+    margin: 0 auto;
+    background-color: ${colors.white};
+
+    &:focus-within,
+    &:hover {
+      box-shadow: 0 0 0 3px inset ${colors.darkGray};
     }
   `,
   searchInput: css`
+    font-size: ${font.xs}px;
+    background-color: transparent;
+    min-height: 48px;
+    height: auto;
+    padding-left: 24px;
+    border-radius: 48px 0 0 48px;
+    flex-grow: 1;
+
     &:placeholder {
-      color: ${colors.extraLightGray};
+      opacity: 1;
     }
-    padding: 0px 160px 0px 20px;
+
     ${mobile} {
-      padding: 0 94px 0 10px;
-    }
-    &:focus,
-    &:hover {
-      box-shadow: rgba(0, 0, 0, 0.06) 0 0 0 2px;
+      padding-left: 16px;
     }
   `,
-  right: css`
-    position: absolute;
-    right: ${4 + 32}px;
-    top: 4px;
-    ${mobile} {
-      right: 20px;
+  searchButton: css`
+    border-radius: 0 48px 48px 0;
+    background-color: ${colors.darkGray};
+
+    &:hover {
+      background-color: ${colors.darkGray};
     }
   `,
   collapsed: css`
-    padding-top: 24px;
     padding-bottom: 0;
   `,
   clearButton: css`
-    stroke: ${colors.mediumGray};
-    display: inline-block;
-    vertical-align: middle;
+    background-color: transparent;
+    border-radius: unset;
+    padding: 0 16px;
+    line-height: inherit;
     cursor: pointer;
-    margin-right: 8px;
-    border-radius: 12px;
+
+    &.empty {
+      color: transparent;
+    }
+
+    &:hover {
+      background-color: transparent;
+    }
+
     ${desktop} {
       &:hover {
-        background: ${colors.lightGray};
-        stroke: ${colors.white};
+        color: ${colors.darkGray};
       }
     }
     ${mobile} {
       margin-right: 4px;
-      &:active {
-        background: ${colors.lightGray};
-        stroke: ${colors.white};
-      }
     }
   `,
-  searchIcon: css`
-    stroke: ${colors.white};
-    margin-top: -9px;
-    margin-bottom: -9px;
+  clearIcon: css`
+    fill: ${colors.darkGray};
   `,
   shortcutsTip: css`
     position: absolute;
@@ -173,63 +186,51 @@ function SearchBox() {
     [performMainAction],
   );
 
-  const onButtonClick = React.useCallback(
-    (event: MouseEvent) => {
-      event.preventDefault();
-      performMainAction();
-    },
-    [performMainAction],
-  );
-
-  const buttonText = isMobile ? <SearchIcon className={styles.searchIcon} /> : <Text id="search" />;
-
   return (
-    <div
-      className={cx(styles.searcher, !shouldShowHeaderAndFooter && styles.collapsed)}
+    <section
+      className={cx(styles.searchContainer, !shouldShowHeaderAndFooter && styles.collapsed)}
       // iOS browsers need a user-initiated event to allow .focus() to pop up the keyboard
       onClick={actions.focusSearchField}>
-      <form
-        action="https://app.instantdomainsearch.com/redirect/"
-        className={styles.search}
-        method="get"
-        onSubmit={onSubmit}
-        role="search">
-        <TextInput
-          autoCapitalize="off"
-          autoComplete="off"
-          autoCorrect="off"
-          autoFocus={true}
-          className={cx(styles.searchInput, (domain && statusColors.focusBorder[statusName(domain)]) || '')}
-          id="search"
-          inputRef={inputRef}
-          name="search"
-          onChange={onChange}
-          onFocus={actions.focusedSearchField}
-          onKeyPress={onKeyPress}
-          placeholder={isMobile ? Text({id: 'mobileSearchPlaceholder'}) : Text({id: 'searchPlaceholder'})}
-          spellCheck={false}
-          type="text"
-          value={syncValue}
-        />
-        <div className={styles.right}>
-          {value.length > 0 && <ClearIcon className={styles.clearButton} onClick={actions.clearSearchField} />}
-          {!domain && <Button>{buttonText}</Button>}
-          {domain && (
-            <DomainButton
-              domain={domain}
-              eventID={`click_searchBox`}
-              eventInfo={googleAnalyticsLabel(domain)}
-              eventType="convert"
-              eventValue={domain.price || 0}
-              hidePrice={isMobile}
-              location={analytics.ClickLocation.SearchBox}
-              onClick={onButtonClick}
-            />
+      <div className={styles.searchFormAndFavs}>
+        <form
+          // TODO: Should urls like this be placed in config somewhere?
+          action="https://app.instantdomainsearch.com/redirect/"
+          className={cx(styles.searchForm)}
+          method="get"
+          onSubmit={onSubmit}
+          role="search">
+          <TextInput
+            autoCapitalize="off"
+            autoComplete="off"
+            autoCorrect="off"
+            autoFocus={true}
+            className={styles.searchInput}
+            id="search"
+            inputRef={inputRef}
+            name="search"
+            onChange={onChange}
+            onFocus={actions.focusedSearchField}
+            onKeyPress={onKeyPress}
+            placeholder={isMobile ? Text({id: 'mobileSearchPlaceholder'}) : Text({id: 'searchPlaceholder'})}
+            spellCheck={false}
+            type="text"
+            value={syncValue}
+          />
+
+          {!shouldShowHeaderAndFooter && (
+            <Button className={styles.clearButton} onClick={actions.clearSearchField}>
+              <ClearIcon className={styles.clearIcon} />
+            </Button>
           )}
-        </div>
+
+          <Button className={styles.searchButton}>
+            <Text id="search" />
+          </Button>
+
+          {isMobile && <input style={{display: 'none'}} type="button" value="Search" />}
+        </form>
         {!isMobile && <FavoritesFlyout />}
-        {isMobile && <input style={{display: 'none'}} type="button" value="Search" />}
-      </form>
+      </div>
       <SearchSelector />
       {!shouldShowHeaderAndFooter && (
         <div className={styles.shortcutsTip} style={{opacity: showShortcutsTip ? 1 : 0}}>
@@ -237,7 +238,7 @@ function SearchBox() {
           <Key>/</Key> to see available keyboard shortcuts.
         </div>
       )}
-    </div>
+    </section>
   );
 }
 

@@ -23,7 +23,7 @@ export default (props: PageProps) => (
     {...props}
     description="Instantly search millions of domain names for sale as you type. Artificial intelligence helps find great names related to your search."
     title="Domains For Sale">
-    <Controller header="Domains For Sale" page={routes.Page.Sale} results={<DomainSale />}>
+    <Controller page={routes.Page.Sale} results={<DomainSale />}>
       <WideLayout>
         <IconGroup
           className={css`

@@ -163,24 +163,30 @@ css`
     }
 
     h1,
-    h2,
-    h3,
-    h4 {
-      font-weight: ${font.medium};
+    h2 {
+      font-weight: ${font.black};
       margin-bottom: 0.25em;
+
       ${mobile} {
         line-height: 1.2;
       }
     }
 
-    h1,
-    h2 {
-      font-size: ${font.m}px;
-    }
-
     h3,
     h4 {
-      font-size: ${font.s}px;
+      font-weight: ${font.bold};
+    }
+
+    h1 {
+      font-size: ${font.xl}px;
+    }
+
+    h2 {
+      font-size: ${font.l}px;
+    }
+
+    h3 {
+      font-size: ${font.m}px;
     }
 
     h4 {
@@ -192,6 +198,10 @@ css`
       ${mobile} {
         font-size: ${font.xs}px;
       }
+    }
+
+    small {
+      font-size: ${font.xs}px;
     }
 
     hr {
@@ -213,8 +223,7 @@ css`
     /* stylelint-disable-next-line no-duplicate-selectors */
     body {
       font-weight: ${font.regular};
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
-        'Droid Sans', 'Helvetica Neue', sans-serif;
+      font-family: ${font.sansFamily};
       background: ${colors.white};
       color: ${colors.darkGray};
       font-size: ${font.s}px;
@@ -231,6 +240,10 @@ css`
       &:hover {
         text-decoration: underline;
       }
+    }
+
+    #headerAndSearch {
+      background-color: ${colors.extraLightGray};
     }
 
     .wrapper {
@@ -356,6 +369,14 @@ css`
       letter-spacing: 0.01em;
       font-variant: small-caps;
       font-feature-settings: 'smcp';
+    }
+
+    .icon {
+      display: inline-flex;
+      align-self: center;
+      height: 1em;
+      width: 1em;
+      fill: currentColor;
     }
   }
 `;

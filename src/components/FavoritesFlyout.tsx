@@ -15,20 +15,21 @@ import {StarIcon} from './icons';
 
 const styles = {
   flyout: css`
-    top: 11px;
-    left: calc(100% - 32px);
-    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    height: 48px;
+    left: calc(100% + 16px);
   `,
   handle: css`
-    display: block;
-    white-space: nowrap;
-    padding-right: 2px;
-    font-size: ${font.xxs}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: ${colors.mediumDarkGray};
-    line-height: 28px;
-    min-width: 26px;
+    padding: 4px 4px 4px 0;
     border-radius: 18px;
     text-align: center;
+    font-size: ${font.xs}px;
+
     &:hover {
       text-decoration: none;
       background: ${colors.lightGray};
@@ -43,12 +44,12 @@ const styles = {
     font-size: ${font.s}px;
     color: ${colors.darkGray};
   `,
-  star: css`
-    display: inline-block;
-    vertical-align: -7px;
-    margin-left: -4px;
-    margin-right: -4px;
-    stroke: ${colors.yellow};
+  starOutlined: css`
+    stroke: ${colors.mediumGray};
+    fill: transparent;
+  `,
+  starFilled: css`
+    stroke: none;
     fill: ${colors.yellow};
   `,
 };
@@ -56,17 +57,23 @@ const styles = {
 function FavoritesFlyout() {
   const count = useSelector(selectors.numberOfFavorites);
 
+  const star = <StarIcon className={count > 0 ? styles.starFilled : styles.starOutlined} />;
+
   const collapsedHandle = (
     <div className={styles.handle} id="favorites">
-      {count > 0 && <StarIcon className={styles.star} />}
-      {count || ''}
+      {count > 0 && (
+        <>
+          {star}
+          <span>{count}</span>
+        </>
+      )}
     </div>
   );
 
   const expandedHandle = (
     <div className={cx(styles.handle, styles.expandedHandle)} id="favorites">
-      {count > 0 && <StarIcon className={styles.star} />}
-      {count || ''}
+      {star}
+      <span>{count}</span>
     </div>
   );
 

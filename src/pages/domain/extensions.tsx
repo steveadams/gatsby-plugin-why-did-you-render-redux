@@ -24,7 +24,7 @@ export default (props: PageProps) => (
     {...props}
     description="Search the list of new gTLD domain extensions instantly as you type. We support the best domain extensions that you can buy today."
     title="Domain Extensions">
-    <Controller header="Domain Extensions" page={routes.Page.Gtlds} results={<DomainGrid />}>
+    <Controller page={routes.Page.Gtlds} results={<DomainGrid />}>
       <WideLayout>
         <IconGroup
           className={css`

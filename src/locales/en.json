@@ -1,6 +1,6 @@
 {
   "about": "About",
-  "all": "All",
+  "allDomains": "All Domains",
   "appraise": "Appraise",
   "articles": "Articles",
   "articlesUrl": "articles",
@@ -22,6 +22,7 @@
   "privacy": "Privacy",
   "search": "Search",
   "searchPlaceholder": "Start typing…",
+  "subTitle": "Search results appear instantly as you type",
   "suggestions": "Generator",
   "suggestionsLong": "Domain Generator",
   "terms": "Terms",

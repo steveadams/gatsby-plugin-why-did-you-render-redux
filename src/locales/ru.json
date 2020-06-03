@@ -1,6 +1,6 @@
 {
   "about": "Около",
-  "all": "Все",
+  "allDomains": "Все",
   "appraise": "оценивать",
   "articles": "статьи",
   "auction": "Аукцион",
@@ -21,6 +21,7 @@
   "privacy": "Конфиденциальность",
   "search": "Поиск",
   "searchPlaceholder": "Начните вводить имя домена здесь, чтобы начать его поиск",
+  "subTitle": "TRANSLATION NEEDED",
   "suggestions": "Генератор",
   "suggestionsLong": "Генератор доменов",
   "terms": "Условия пользования",

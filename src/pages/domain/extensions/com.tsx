@@ -21,7 +21,7 @@ export default (props: PageProps) => (
     {...props}
     description="Search the list of .com domain names as you type. Search results appear instantly. $4.99 coupon for new .com customers. Automatically generates suggestions and finds premium domain names available for sale."
     title=".com Domain Names">
-    <Controller header=".com Domain Names" page={routes.Page.Com} results={<DomainResults showTlds={false} />}>
+    <Controller page={routes.Page.Com} results={<DomainResults showTlds={false} />}>
       <WideLayout>
         <IconGroup
           className={css`
