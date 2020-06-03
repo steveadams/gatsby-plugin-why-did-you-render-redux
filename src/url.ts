@@ -4,8 +4,8 @@
 //  https://github.com/palantir/tslint/issues/4239 tslint is strict
 //  https://www.typescriptlang.org/docs/handbook/advanced-types.html uses {} as T
 
-const parseQueryString = (query: string): {[key: string]: string} => {
-  const parsed: {[key: string]: string} = {};
+const parseQueryString = (query: string): Record<string, string> => {
+  const parsed: Record<string, string> = {};
   for (const param of query.split('&')) {
     const [key, val] = param.split('=', 2);
     if (val && val.length) {
@@ -15,7 +15,7 @@ const parseQueryString = (query: string): {[key: string]: string} => {
   return parsed;
 };
 
-export const parseLocation = ({hash}: Location): Record<string, unknown> => {
+export const parseLocation = ({hash}: Location): Record<string, string> => {
   if (hash.substr(0, 1) === '#') {
     return parseQueryString(hash.substring(1));
   }

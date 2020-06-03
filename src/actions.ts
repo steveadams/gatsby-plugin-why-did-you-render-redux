@@ -389,13 +389,13 @@ export const toggleFavorite = (domain: Domain) => {
 /* URL handling */
 
 export const hashChanged = () => {
-  const {search} = url.parseLocation(window.location) as URLParams;
+  const {search = ''} = url.parseLocation(window.location);
 
   if (window.location.hash.length > 0 && !search) {
     return false; // ignore anchor links: /faq/#how-does-instant-domain-search-make-money
   }
 
-  updateSearch(search || '');
+  updateSearch(search);
   focusSearchField();
 };
 
