@@ -57,31 +57,22 @@ const styles = {
 function FavoritesFlyout() {
   const count = useSelector(selectors.numberOfFavorites);
 
-  const star = <StarIcon className={count > 0 ? styles.starFilled : styles.starOutlined} />;
-
-  const collapsedHandle = (
-    <div className={styles.handle} id="favorites">
+  const handle = (
+    <div className={cx(styles.handle, count > 0 ? styles.expandedHandle : '')} id="favorites">
       {count > 0 && (
         <>
-          {star}
+          <StarIcon className={count > 0 ? styles.starFilled : styles.starOutlined} />
           <span>{count}</span>
         </>
       )}
     </div>
   );
 
-  const expandedHandle = (
-    <div className={cx(styles.handle, styles.expandedHandle)} id="favorites">
-      {star}
-      <span>{count}</span>
-    </div>
-  );
-
   return (
     <Flyout
       className={styles.flyout}
-      collapsedHandle={collapsedHandle}
-      expandedHandle={expandedHandle}
+      collapsedHandle={handle}
+      expandedHandle={handle}
       onExpand={actions.listOfFavoritesShown}
       position="absolute"
       width={280}>
