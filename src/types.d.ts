@@ -17,6 +17,9 @@ interface Translation {
   whois: string;
 }
 
+type Language = 'english' | 'spanish' | 'french' | 'portuguese' | 'russian' | 'chinese';
+type LanguageCode = 'en' | 'es' | 'fr' | 'pt' | 'ru' | 'zh';
+
 interface Geography {
   City: string;
   Country: string;
@@ -118,7 +121,7 @@ interface Navigator {
 interface PageProps {
   location: {pathname: string; search: string; hash: string};
   pageContext: {
-    lang: string;
+    lang: LanguageCode;
   };
 }
 

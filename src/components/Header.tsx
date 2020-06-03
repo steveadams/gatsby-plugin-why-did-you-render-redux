@@ -6,7 +6,7 @@ import * as React from 'react';
 
 import * as colors from '../colors';
 import * as font from '../font';
-import Text, {useLanguage} from './Text';
+import Text, {languageCodes, useLanguage} from './Text';
 
 function Header({children}: {children: React.ReactNode}) {
   const lang = useLanguage();
@@ -25,7 +25,7 @@ function Header({children}: {children: React.ReactNode}) {
             text-decoration: none;
           }
         `}
-        to={lang === 'en' ? '/' : `/${lang}/`}>
+        to={lang === languageCodes.english ? '/' : `/${lang}/`}>
         <Text id="logo" />
         <span style={{fontSize: '50%', fontWeight: 'normal', verticalAlign: '25%'}}>®</span>
       </Link>

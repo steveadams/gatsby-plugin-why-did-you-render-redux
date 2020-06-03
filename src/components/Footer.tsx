@@ -10,7 +10,7 @@ import {desktop, mobile} from '../styles';
 import IconFacebook from './IconFacebook';
 import IconTwitter from './IconTwitter';
 import SearchSelectorLink from './SearchSelectorLink';
-import Text, {useLanguage} from './Text';
+import Text, {languageCodes, localizedLanguages, useLanguage} from './Text';
 
 const styles = {
   icon: css`
@@ -80,7 +80,7 @@ function Footer() {
               }
             }
           `}>
-          <SearchSelectorLink className="homeLink" to={lang === 'en' ? '/' : `/${lang}/`}>
+          <SearchSelectorLink className="homeLink" to={lang === languageCodes.english ? '/' : `/${lang}/`}>
             <Text id="home" />
           </SearchSelectorLink>
           <SearchSelectorLink to="/domain/extensions/">
@@ -145,12 +145,11 @@ function Footer() {
               text-align: center;
             }
           `}>
-          <Link to="/">English</Link>
-          <Link to="/es/">Español</Link>
-          <Link to="/fr/">Français</Link>
-          <Link to="/pt/">Português</Link>
-          <Link to="/ru/">Русский</Link>
-          <Link to="/zh/">中文</Link>
+          {Object.entries(localizedLanguages).map(([code, lang]) => (
+            <Link key={code} to={code !== languageCodes.english ? `/${code}/` : ''}>
+              {lang}
+            </Link>
+          ))}
         </div>
 
         <div
@@ -166,7 +165,7 @@ function Footer() {
           <a href="/" title={process.env.GATSBY_BUILD_TIME}>
             ©2005–{new Date().getFullYear()} Instant Domain Search, Inc.
           </a>
-          {lang === 'en' && (
+          {lang === languageCodes.english && (
             <>
               <Link to="/about/">
                 <Text id="about" />
@@ -179,7 +178,7 @@ function Footer() {
               </Link>
             </>
           )}
-          {lang === 'es' && (
+          {lang === languageCodes.spanish && (
             <>
               <Link to="/es/acerca/">
                 <Text id="about" />
@@ -192,7 +191,7 @@ function Footer() {
               </Link>
             </>
           )}
-          {lang === 'fr' && (
+          {lang === languageCodes.french && (
             <>
               <Link to="/fr/apropos/">
                 <Text id="about" />
@@ -205,7 +204,7 @@ function Footer() {
               </Link>
             </>
           )}
-          {lang === 'pt' && (
+          {lang === languageCodes.portuguese && (
             <>
               <Link to="/pt/acerca/">
                 <Text id="about" />
@@ -218,7 +217,7 @@ function Footer() {
               </Link>
             </>
           )}
-          {lang === 'ru' && (
+          {lang === languageCodes.russian && (
             <>
               <Link to="/ru/about/">
                 <Text id="about" />
@@ -231,7 +230,7 @@ function Footer() {
               </Link>
             </>
           )}
-          {lang === 'zh' && (
+          {lang === languageCodes.chinese && (
             <>
               <Link to="/zh/about/">
                 <Text id="about" />

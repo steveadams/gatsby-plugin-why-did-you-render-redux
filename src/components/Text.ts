@@ -4,14 +4,34 @@ import * as React from 'react';
 
 import * as en from '../locales/en.json';
 
-const context = React.createContext('en');
+export const languageCodes: Record<Language, LanguageCode> = {
+  english: 'en',
+  spanish: 'es',
+  french: 'fr',
+  portuguese: 'pt',
+  russian: 'ru',
+  chinese: 'zh',
+};
+
+export const localizedLanguages: Record<LanguageCode, string> = {
+  en: 'English',
+  es: 'Español',
+  fr: 'Français',
+  pt: 'Português',
+  ru: 'Русский',
+  zh: '中文',
+};
+
+export type LocaleKey = keyof typeof en;
+
+const context = React.createContext(languageCodes.english);
 export const Provider = context.Provider;
 
 export function useLanguage() {
   return React.useContext(context);
 }
 
-function Text({id}: {id: keyof typeof en}) {
+function Text({id}: {id: LocaleKey}) {
   const lang = useLanguage();
   const strings = React.useMemo(() => require(`../locales/${lang}`), [lang]);
   return strings[id] || en[id];

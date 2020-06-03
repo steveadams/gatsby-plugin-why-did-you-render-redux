@@ -6,7 +6,7 @@ import * as React from 'react';
 import * as colors from '../colors';
 import * as font from '../font';
 import SearchSelectorLink from './SearchSelectorLink';
-import Text, {useLanguage} from './Text';
+import Text, {languageCodes, useLanguage} from './Text';
 
 const styles = {
   link: css`
@@ -29,7 +29,7 @@ export function SearchSelector() {
   const lang = useLanguage();
   return (
     <div className="searchSelector">
-      <SearchSelectorLink className={styles.link} to={lang === 'en' ? '/' : `/${lang}/`}>
+      <SearchSelectorLink className={styles.link} to={lang === languageCodes.english ? '/' : `/${lang}/`}>
         <Text id="all" />
       </SearchSelectorLink>
       <SearchSelectorLink className={styles.link} to="/domain/extensions/">
