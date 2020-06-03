@@ -8,7 +8,7 @@ import * as colors from '../colors';
 import * as font from '../font';
 import Flyout from './Flyout';
 import {ChevronIcon} from './icons';
-import {languageCodes, localizedLanguages, useLanguage} from './Text';
+import {languageCodes, localizedLanguageNames, useLanguage} from './Text';
 
 const styles = {
   flyout: css`
@@ -69,7 +69,7 @@ function LanguageFlyout() {
   const handle = (className: string) => (
     <div className={className}>
       <span>
-        {localizedLanguages[lang]} <ChevronIcon className={styles.chevron} />
+        {localizedLanguageNames[lang]} <ChevronIcon className={styles.chevron} />
       </span>
     </div>
   );
@@ -85,7 +85,7 @@ function LanguageFlyout() {
       position="absolute"
       width={112}>
       <ul className={styles.languageList}>
-        {Object.entries(localizedLanguages).map(([code, language]) => {
+        {Object.entries(localizedLanguageNames).map(([code, language]) => {
           const to = code !== languageCodes.english ? `/${code}/` : '';
 
           return code !== lang ? (

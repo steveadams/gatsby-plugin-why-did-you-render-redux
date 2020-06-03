@@ -9,7 +9,7 @@ import * as font from '../font';
 import {mobile} from '../styles';
 import IconLogo from './IconLogo';
 import LanguageFlyout from './LanguageFlyout';
-import Text, {useLanguage} from './Text';
+import Text, {languageCodes, useLanguage} from './Text';
 
 function Header() {
   const lang = useLanguage();
@@ -67,7 +67,7 @@ function Header() {
     <header className={styles.header}>
       <LanguageFlyout />
 
-      <Link className={styles.link} to={lang === 'en' ? '/' : `/${lang}/`}>
+      <Link className={styles.link} to={lang === languageCodes.english ? '/' : `/${lang}/`}>
         <h1 className={styles.title}>
           <IconLogo className={styles.logoIcon} />
           <Text id="logo" />

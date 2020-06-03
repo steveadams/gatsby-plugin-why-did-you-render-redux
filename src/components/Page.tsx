@@ -13,7 +13,7 @@ function Page({
   title,
   description,
   location,
-  pageContext: {lang = 'en'},
+  pageContext: {lang = Text.languageCodes.english},
   children,
 }: PageProps & {
   title: string;

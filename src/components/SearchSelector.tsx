@@ -7,7 +7,7 @@ import * as colors from '../colors';
 import * as font from '../font';
 import {mobile} from '../styles';
 import SearchSelectorLink from './SearchSelectorLink';
-import Text, {LocaleKey, useLanguage} from './Text';
+import Text, {languageCodes, LocaleKey, useLanguage} from './Text';
 
 const styles = {
   searchSelector: css`
@@ -42,7 +42,7 @@ const styles = {
   `,
 };
 
-const searchSelector = (to: string, id: LocaleKey) => (
+const selectorLink = (to: string, id: LocaleKey) => (
   <SearchSelectorLink className={styles.link} to={to}>
     <Text id={id} />
   </SearchSelectorLink>
@@ -53,11 +53,11 @@ export function SearchSelector() {
 
   return (
     <div className={styles.searchSelector}>
-      {searchSelector(lang === 'en' ? '/' : `/${lang}/`, 'allDomains')}
-      {searchSelector('/domain/extensions/', 'popularTlds')}
-      {searchSelector('/domain/generator/', 'suggestionsLong')}
-      {searchSelector('/domain/sale/', 'forSale')}
-      {searchSelector('/domain/expired/', 'expired')}
+      {selectorLink(lang === languageCodes.english ? '/' : `/${lang}/`, 'allDomains')}
+      {selectorLink('/domain/extensions/', 'popularTlds')}
+      {selectorLink('/domain/generator/', 'suggestionsLong')}
+      {selectorLink('/domain/sale/', 'forSale')}
+      {selectorLink('/domain/expired/', 'expired')}
     </div>
   );
 }

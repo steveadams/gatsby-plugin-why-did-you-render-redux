@@ -4,29 +4,28 @@ import * as React from 'react';
 
 import * as en from '../locales/en.json';
 
-export type LanguageCode = 'en' | 'es' | 'fr' | 'pt' | 'ru' | 'zh';
+export const languageCodes: Record<Language, LanguageCode> = {
+  english: 'en',
+  spanish: 'es',
+  french: 'fr',
+  portuguese: 'pt',
+  russian: 'ru',
+  chinese: 'zh',
+};
 
-export enum LocalizedLanguage {
-  English = 'English',
-  Spanish = 'Español',
-  French = 'Français',
-  Portuguese = 'Português',
-  Russian = 'Русский',
-  Chinese = '中文',
-}
+export const localizedLanguageNames: Record<LanguageCode, string> = {
+  en: 'English',
+  es: 'Español',
+  fr: 'Français',
+  pt: 'Português',
+  ru: 'Русский',
+  zh: '中文',
+};
 
 export type LocaleKey = keyof typeof en;
 
-const context = React.createContext('en');
+const context = React.createContext(languageCodes.english);
 export const Provider = context.Provider;
-export const languageMap: {[key in LanguageCode]: LocalizedLanguage} = {
-  en: LocalizedLanguage.English,
-  es: LocalizedLanguage.Spanish,
-  fr: LocalizedLanguage.French,
-  pt: LocalizedLanguage.Portuguese,
-  ru: LocalizedLanguage.Russian,
-  zh: LocalizedLanguage.Chinese,
-};
 
 export function useLanguage() {
   return React.useContext(context) as LanguageCode;

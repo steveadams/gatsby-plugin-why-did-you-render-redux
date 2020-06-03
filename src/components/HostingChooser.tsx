@@ -139,7 +139,7 @@ function HostingChooser() {
               eventID="hosting"
               eventInfo="tailor"
               eventType="convert"
-              href={'https://tailorbrands.go2cloud.org/aff_c?offer_id=1&aff_id=1197&aff_sub=IDS25'}
+              href={'https://tailorbrands.go2cloud.org/aff_c?offer_id=1&aff_id=1197&aff_sub=ids25'}
               rel="sponsored"
               target="_blank">
               <img src={tailorLogo} />
