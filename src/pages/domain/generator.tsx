@@ -23,7 +23,7 @@ export default (props: PageProps) => (
     {...props}
     description="Generate domain names instantly as you type. Automatically adds popular beginnings and endings to your keywords and show you what’s available."
     title="Domain Name Generator">
-    <Controller header="Domain Name Generator" page={routes.Page.Generator} results={<DomainGenerator />}>
+    <Controller page={routes.Page.Generator} results={<DomainGenerator />}>
       <WideLayout>
         <IconGroup
           className={css`

@@ -10,7 +10,7 @@ import * as routes from '../routes';
 
 export default (props: PageProps) => (
   <Page {...props} description="Privacy Policy for Instant Domain Search." title="Privacy Policy">
-    <Controller header="Privacy Policy" page={routes.Page.Home} results={<DomainResults showTlds />}>
+    <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <WideLayout>
         <h1>Privacy Policy</h1>
 

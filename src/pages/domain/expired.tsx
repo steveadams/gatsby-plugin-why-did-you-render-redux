@@ -21,7 +21,7 @@ export default (props: PageProps) => (
     {...props}
     description="Instantly hundreds of thousands of expired domain names. Artificial intelligence powered search."
     title="Expired Domains">
-    <Controller header="Expired Domains" page={routes.Page.Expired} results={<DomainExpired />}>
+    <Controller page={routes.Page.Expired} results={<DomainExpired />}>
       <WideLayout>
         <IconGroup
           className={css`

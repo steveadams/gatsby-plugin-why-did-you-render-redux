@@ -5,45 +5,59 @@ import * as React from 'react';
 
 import * as colors from '../colors';
 import * as font from '../font';
+import {mobile} from '../styles';
 import SearchSelectorLink from './SearchSelectorLink';
-import Text, {languageCodes, useLanguage} from './Text';
+import Text, {languageCodes, LocaleKey, useLanguage} from './Text';
 
 const styles = {
+  searchSelector: css`
+    margin-top: 40px;
+
+    ${mobile} {
+      display: none;
+    }
+  `,
   link: css`
     display: inline-block;
-    font-size: ${font.xxs}px;
-    padding: 12px;
-    color: ${colors.mediumDarkGray};
+    font-size: ${font.xs}px;
+    padding: 16px 24px;
+    margin: 0 12px;
+    color: black;
+    border-bottom: transparent 4px solid;
+
+    &:hover,
+    &.current {
+      border-bottom: ${colors.darkGray} 4px solid;
+    }
+
     &:hover {
       text-decoration: none;
-      color: ${colors.darkGray};
     }
+
     &.current {
+      font-weight: bold;
       color: ${colors.darkGray};
       cursor: default;
     }
   `,
 };
 
+const selectorLink = (to: string, id: LocaleKey) => (
+  <SearchSelectorLink className={styles.link} to={to}>
+    <Text id={id} />
+  </SearchSelectorLink>
+);
+
 export function SearchSelector() {
   const lang = useLanguage();
+
   return (
-    <div className="searchSelector">
-      <SearchSelectorLink className={styles.link} to={lang === languageCodes.english ? '/' : `/${lang}/`}>
-        <Text id="all" />
-      </SearchSelectorLink>
-      <SearchSelectorLink className={styles.link} to="/domain/extensions/">
-        <Text id="popularTlds" />
-      </SearchSelectorLink>
-      <SearchSelectorLink className={styles.link} to="/domain/generator/">
-        <Text id="suggestions" />
-      </SearchSelectorLink>
-      <SearchSelectorLink className={styles.link} to="/domain/sale/">
-        <Text id="forSale" />
-      </SearchSelectorLink>
-      <SearchSelectorLink className={styles.link} to="/domain/expired/">
-        <Text id="expired" />
-      </SearchSelectorLink>
+    <div className={styles.searchSelector}>
+      {selectorLink(lang === languageCodes.english ? '/' : `/${lang}/`, 'allDomains')}
+      {selectorLink('/domain/extensions/', 'popularTlds')}
+      {selectorLink('/domain/generator/', 'suggestionsLong')}
+      {selectorLink('/domain/sale/', 'forSale')}
+      {selectorLink('/domain/expired/', 'expired')}
     </div>
   );
 }

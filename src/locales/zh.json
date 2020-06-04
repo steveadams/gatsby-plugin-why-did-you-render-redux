@@ -1,6 +1,6 @@
 {
   "about": "關於",
-  "all": "所有",
+  "allDomains": "所有",
   "appraise": "评价",
   "articles": "用品",
   "auction": "竞拍",
@@ -21,6 +21,7 @@
   "privacy": "隐私",
   "search": "搜索",
   "searchPlaceholder": "在这里输入以搜索一个域名",
+  "subTitle": "TRANSLATION NEEDED",
   "suggestions": "發電機",
   "suggestionsLong": "域生成器",
   "terms": "条款",

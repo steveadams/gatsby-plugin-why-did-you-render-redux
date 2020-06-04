@@ -1,6 +1,6 @@
 {
   "about": "Sobre",
-  "all": "Todos",
+  "allDomains": "Todos",
   "appraise": "Avaliar",
   "articles": "Articles",
   "auction": "Leilão",
@@ -21,6 +21,7 @@
   "privacy": "Privacidade",
   "search": "Pesquisa",
   "searchPlaceholder": "Digite aqui para procurar um nome de domínio",
+  "subTitle": "TRANSLATION NEEDED",
   "suggestions": "Gerador",
   "suggestionsLong": "Gerador de Domínios",
   "terms": "Termos",

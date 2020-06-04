@@ -3,47 +3,88 @@
 import {Link} from 'gatsby';
 import {css} from 'linaria';
 import * as React from 'react';
+import {useSelector} from 'react-redux';
 
 import * as colors from '../colors';
 import * as font from '../font';
+import * as selectors from '../selectors';
+import {mobile} from '../styles';
+import IconLogo from './IconLogo';
+import LanguageFlyout from './LanguageFlyout';
 import Text, {languageCodes, useLanguage} from './Text';
 
-function Header({children}: {children: React.ReactNode}) {
+function Header() {
   const lang = useLanguage();
 
+  const styles = {
+    header: css`
+      position: relative;
+      width: calc(100% - 32px);
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 64px 16px 24px;
+
+      background-color: ${colors.extraLightGray};
+      text-align: center;
+
+      ${mobile} {
+        padding-top: 40px;
+      }
+    `,
+    logoIcon: css`
+      &.icon {
+        /* TODO: USE VARIABLE-BASED UNITS */
+        margin-right: 8px;
+        width: 0.75em;
+        height: 0.75em;
+      }
+    `,
+    link: css`
+      &:hover {
+        text-decoration: none;
+      }
+    `,
+    title: css`
+      color: ${colors.darkGray};
+      display: inline-block;
+
+      ${mobile} {
+        font-size: ${font.l}px;
+        /* TODO: Use spacing units */
+        margin-top: 16px;
+      }
+    `,
+    registered: css`
+      display: inline-block;
+      font-size: ${font.xxs}px;
+      font-weight: ${font.regular};
+      vertical-align: 100%;
+    `,
+    subTitle: css`
+      margin-bottom: 0;
+    `,
+  };
+
+  const isMobile = useSelector(selectors.isMobile);
+
   return (
-    <>
-      <Link
-        className={css`
-          font-size: ${font.m}px;
-          font-weight: ${font.medium};
-          text-align: center;
-          color: ${colors.mediumDarkGray};
-          display: block;
-          margin-top: 68px;
-          &:hover {
-            text-decoration: none;
-          }
-        `}
-        to={lang === languageCodes.english ? '/' : `/${lang}/`}>
-        <Text id="logo" />
-        <span style={{fontSize: '50%', fontWeight: 'normal', verticalAlign: '25%'}}>®</span>
+    <header className={styles.header}>
+      {!isMobile && <LanguageFlyout />}
+
+      <Link className={styles.link} to={lang === languageCodes.english ? '/' : `/${lang}/`}>
+        <h1 className={styles.title}>
+          <IconLogo className={styles.logoIcon} />
+          <Text id="logo" />
+        </h1>
       </Link>
-      <h2
-        className={css`
-          font-weight: ${font.medium};
-          color: ${colors.darkGray};
-          font-size: ${font.xl}px;
-          text-align: center;
-          display: block;
-          margin-bottom: -11px;
-          &:hover {
-            text-decoration: none;
-          }
-        `}>
-        {children}
-      </h2>
-    </>
+
+      <span className={styles.registered}>®</span>
+      <p className={styles.subTitle}>
+        <small>
+          <Text id="subTitle" />
+        </small>
+      </p>
+    </header>
   );
 }
 

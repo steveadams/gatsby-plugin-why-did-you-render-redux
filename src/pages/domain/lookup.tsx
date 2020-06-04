@@ -14,7 +14,7 @@ export default (props: PageProps) => (
     {...props}
     description="Lookup domain names instantly by searching as you type. Uses artificial intelligence to help you find great names. $4.99 .com names for new customers."
     title="Domain Lookup | Lookup Domain Availability">
-    <Controller header="Domain Lookup" page={routes.Page.Home} results={<DomainResults showTlds />}>
+    <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <WideLayout>
         <h1>Domain lookup – how we lookup domain names</h1>
         <p>

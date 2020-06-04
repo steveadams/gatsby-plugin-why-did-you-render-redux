@@ -1,6 +1,6 @@
 {
   "about": "About",
-  "all": "Todos",
+  "allDomains": "Todos",
   "appraise": "Evaluar",
   "articles": "Artículos",
   "articlesUrl": "articulos",
@@ -22,6 +22,7 @@
   "privacy": "Privacidad",
   "search": "Buscar",
   "searchPlaceholder": "Escriba aquí para buscar el nombre de un dominio",
+  "subTitle": "TRANSLATION NEEDED",
   "suggestions": "Generador",
   "suggestionsLong": "Generador de dominio",
   "terms": "Términos",

@@ -1,7 +1,7 @@
 // To edit all translations:
 // cd client/content/_includes && subl en/app.json fr/app.json pt/app.json ru/app.json tr/app.json zh/app.json
 interface Translation {
-  all: string;
+  allDomains: string;
   appraise: string;
   auction: string;
   backorder: string;
@@ -13,6 +13,7 @@ interface Translation {
   popularTlds: string;
   search: string;
   searchPlaceholder: string;
+  subTitle: string;
   suggestions: string;
   whois: string;
 }

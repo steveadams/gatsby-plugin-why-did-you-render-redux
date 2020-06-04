@@ -14,9 +14,8 @@ const styles = {
     line-height: 48px\\9; /* hack: center text vertically in ie8 */
     width: 100%;
     outline: none;
-    border: 1px solid ${colors.mediumGray};
+    border: none;
     box-sizing: border-box;
-    border-radius: 7px;
     font-weight: ${font.regular};
     appearance: none;
     &::-ms-clear {
@@ -24,8 +23,12 @@ const styles = {
       display: none;
     }
     &::placeholder {
+      /* Font family required to override browser defaults */
+      font-family: ${font.sansFamily};
       font-weight: ${font.regular};
       color: ${colors.darkGray};
+      /* Firefox uses opacity: 0.5 by default */
+      opacity: 1;
     }
     &:focus::placeholder {
       color: ${colors.mediumDarkGray};

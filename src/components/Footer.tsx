@@ -10,7 +10,7 @@ import {desktop, mobile} from '../styles';
 import IconFacebook from './IconFacebook';
 import IconTwitter from './IconTwitter';
 import SearchSelectorLink from './SearchSelectorLink';
-import Text, {languageCodes, localizedLanguages, useLanguage} from './Text';
+import Text, {languageCodes, localizedLanguageNames, useLanguage} from './Text';
 
 const styles = {
   icon: css`
@@ -145,7 +145,7 @@ function Footer() {
               text-align: center;
             }
           `}>
-          {Object.entries(localizedLanguages).map(([code, lang]) => (
+          {Object.entries(localizedLanguageNames).map(([code, lang]) => (
             <Link key={code} to={code !== languageCodes.english ? `/${code}/` : ''}>
               {lang}
             </Link>

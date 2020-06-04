@@ -13,7 +13,7 @@ export const languageCodes: Record<Language, LanguageCode> = {
   chinese: 'zh',
 };
 
-export const localizedLanguages: Record<LanguageCode, string> = {
+export const localizedLanguageNames: Record<LanguageCode, string> = {
   en: 'English',
   es: 'Español',
   fr: 'Français',
@@ -28,7 +28,7 @@ const context = React.createContext(languageCodes.english);
 export const Provider = context.Provider;
 
 export function useLanguage() {
-  return React.useContext(context);
+  return React.useContext(context) as LanguageCode;
 }
 
 function Text({id}: {id: LocaleKey}) {
