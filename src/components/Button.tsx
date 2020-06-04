@@ -7,22 +7,27 @@ import * as actions from '../actions';
 import * as analytics from '../analytics';
 import * as colors from '../colors';
 import * as font from '../font';
-import {desktop, mobile} from '../styles';
+import {mobile} from '../styles';
 
 const styles = {
   button: css`
     color: ${colors.white};
     box-sizing: border-box;
-    font-weight: ${font.regular};
+    font-weight: ${font.bold};
     font-size: ${font.s}px;
     outline: none;
     border: none;
-    border-radius: 4px;
+    height: 48px;
+    border-radius: 32px;
     cursor: pointer;
-    display: inline-block;
-    padding: 10px 22px;
-    line-height: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 12px 24px;
+    line-height: 24px;
     user-select: none;
+    transition: background-color 150ms, color 150ms;
+
     &:hover {
       text-decoration: none;
     }
@@ -31,17 +36,13 @@ const styles = {
     }
   `,
   defaultColor: css`
-    background: ${colors.blue};
+    background: ${colors.darkGray};
     color: ${colors.white};
-    ${desktop} {
-      &:hover {
-        background: ${colors.hoverBlue};
-      }
-    }
-    ${mobile} {
-      &:active {
-        background: ${colors.hoverBlue};
-      }
+
+    &:hover,
+    &:active {
+      /* TODO: Handle this with variables */
+      color: rgba(255, 255, 255, 0.72);
     }
   `,
   hoverButton: css`

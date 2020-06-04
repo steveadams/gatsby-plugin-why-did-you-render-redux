@@ -14,11 +14,6 @@ import Button from './Button';
 import Text from './Text';
 
 const styles = {
-  button: css`
-    display: inline-block;
-    vertical-align: middle;
-    border-radius: 4px;
-  `,
   selectedButton: css`
     color: ${colors.white};
   `,
@@ -41,6 +36,7 @@ interface DomainButtonProps {
   hoverStyle?: boolean;
   onClick?: (event: MouseEvent) => void;
   selected?: boolean;
+  children?: React.ReactElement;
 }
 
 function DomainButton({
@@ -56,6 +52,7 @@ function DomainButton({
   hoverStyle = false,
   location,
   selected = false,
+  children = undefined,
 }: DomainButtonProps) {
   const isMobile = useSelector(selectors.isMobile);
 
@@ -85,7 +82,6 @@ function DomainButton({
     <Button
       className={cx(
         className,
-        styles.button,
         statusColors.hoverBackground[statusName(domain)],
         statusColors.focusBackground[statusName(domain)],
         (!hoverStyle || (selected && !isMobile)) && statusColors.background[statusName(domain)],
@@ -107,6 +103,7 @@ function DomainButton({
       {buttonText}
       {buttonText && domainPrice && '\xa0'}
       <span className={cx(!hoverStyle && styles.price)}>{domainPrice}</span>
+      {children}
     </Button>
   );
 }

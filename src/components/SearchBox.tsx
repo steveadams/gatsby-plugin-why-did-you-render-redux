@@ -74,12 +74,9 @@ const styles = {
     }
   `,
   searchButton: css`
-    border-radius: 0 48px 48px 0;
-    background-color: ${colors.darkGray};
-
-    &:hover {
-      background-color: ${colors.darkGray};
-    }
+    font-weight: ${font.regular};
+    border-top-left-radius: unset;
+    border-bottom-left-radius: unset;
   `,
   collapsed: css`
     padding-bottom: 0;
