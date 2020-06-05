@@ -63,8 +63,8 @@ function Header() {
       align-self: center;
       /* Bump it up just a bit */
       position: relative;
-      right: -1px;
-      top: -3px;
+      left: 1px;
+      bottom: 3px;
     `,
     subTitle: css`
       font-size: ${font.xs}px;
