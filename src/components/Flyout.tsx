@@ -52,7 +52,7 @@ let nextID = 0;
 
 interface FlyoutProps {
   children: React.ReactNode;
-  className: string;
+  className?: string;
   collapsedHandle: JSX.Element | string;
   expandedHandle: JSX.Element | string;
   onCollapse?: () => void;

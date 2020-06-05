@@ -376,7 +376,6 @@ css`
       align-self: center;
       height: 1em;
       width: 1em;
-      fill: currentColor;
     }
   }
 `;

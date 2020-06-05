@@ -7,47 +7,73 @@ import * as actions from '../actions';
 import * as analytics from '../analytics';
 import * as colors from '../colors';
 import * as font from '../font';
-import {desktop, mobile} from '../styles';
+import {mobile} from '../styles';
 
 const styles = {
   button: css`
     color: ${colors.white};
     box-sizing: border-box;
-    font-weight: ${font.regular};
+    font-weight: ${font.bold};
     font-size: ${font.s}px;
     outline: none;
     border: none;
-    border-radius: 4px;
+    height: 48px;
+    border-radius: 32px;
     cursor: pointer;
-    display: inline-block;
-    padding: 10px 22px;
-    line-height: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 12px 24px;
+    line-height: 24px;
     user-select: none;
+    transition: background-color 150ms, color 150ms;
+
     &:hover {
       text-decoration: none;
     }
+
     &:focus {
       outline: none;
     }
+
+    /* If an icon is added as a child, provide proper spacing before or after the icon */
+    span + svg {
+      margin-left: 8px;
+    }
+
+    svg + span {
+      margin-left: 8px;
+    }
   `,
   defaultColor: css`
-    background: ${colors.blue};
+    background: ${colors.darkGray};
     color: ${colors.white};
-    ${desktop} {
-      &:hover {
-        background: ${colors.hoverBlue};
-      }
+
+    &:hover,
+    &:active {
+      /* TODO: Handle this with variables */
+      color: rgba(255, 255, 255, 0.72);
     }
-    ${mobile} {
-      &:active {
-        background: ${colors.hoverBlue};
-      }
+  `,
+  textButton: css`
+    height: auto;
+    padding: unset;
+    background: unset;
+    color: ${colors.blue};
+
+    &:hover {
+      color: ${colors.hoverBlue};
+    }
+
+    svg {
+      font-size: ${font.xs}px;
     }
   `,
   hoverButton: css`
     border-radius: 4px;
     padding: 10px 12px;
     cursor: pointer;
+
     &:hover {
       text-decoration: none;
     }
@@ -60,7 +86,7 @@ const styles = {
   `,
 };
 
-function useTapped(ref: React.RefObject<HTMLElement>) {
+function useTapped(ref: React.RefObject<HTMLElement>): (() => void)[] {
   const timeout = React.useRef(0);
 
   const onTouchStart = React.useCallback(() => {
@@ -99,6 +125,7 @@ type ButtonProps<Tag extends 'a' | 'button'> = {
   tag?: Tag;
   href?: string;
   target?: string;
+  textButton?: boolean;
 } & React.HTMLAttributes<HTMLElement>;
 
 function Button<Tag extends 'a' | 'button'>({
@@ -115,6 +142,7 @@ function Button<Tag extends 'a' | 'button'>({
   eventID,
   eventInfo,
   eventValue,
+  textButton = false,
   ...props
 }: ButtonProps<Tag>) {
   const ref = React.useRef<Tag extends 'a' ? HTMLAnchorElement : HTMLButtonElement>(null);
@@ -148,7 +176,8 @@ function Button<Tag extends 'a' | 'button'>({
       className: cx(
         className,
         !hoverStyle && styles.button,
-        defaultColor && styles.defaultColor,
+        defaultColor && !textButton && styles.defaultColor,
+        textButton && styles.textButton,
         hoverStyle && styles.hoverButton,
       ),
       onClick,

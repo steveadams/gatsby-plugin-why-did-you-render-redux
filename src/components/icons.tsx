@@ -53,15 +53,8 @@ export const StarIcon = ({
 
 export const ChevronIcon = (props: React.HTMLAttributes<SVGSVGElement>) => {
   return (
-    <svg
-      className="icon"
-      height="12"
-      version="1.1"
-      viewBox="0 0 12 12"
-      width="12"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}>
-      <path d="M9.029,0.046C9.173,0.055 9.31,0.088 9.437,0.158C9.514,0.201 9.586,0.256 9.647,0.32C9.873,0.554 9.956,0.9 9.86,1.21C9.817,1.349 9.742,1.468 9.644,1.574C8.335,2.839 6.952,4.026 5.606,5.252C5.538,5.31 5.467,5.361 5.386,5.399C5.177,5.498 4.932,5.513 4.713,5.439C4.61,5.404 4.52,5.351 4.435,5.286C3.053,4.101 1.741,2.836 0.394,1.611C0.264,1.486 0.169,1.336 0.126,1.159C0.031,0.769 0.213,0.353 0.563,0.158C0.657,0.106 0.759,0.072 0.865,0.056C0.988,0.037 1.115,0.044 1.235,0.077C1.375,0.114 1.496,0.186 1.606,0.28L5,3.369L8.394,0.28C8.435,0.245 8.434,0.245 8.477,0.213C8.537,0.173 8.597,0.137 8.664,0.11C8.731,0.084 8.799,0.067 8.869,0.055C8.923,0.049 8.975,0.046 9.029,0.046Z" />
+    <svg fill="none" height="8" viewBox="0 0 14 8" width="14" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path d="M1 1L7 7L13 1" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
     </svg>
   );
 };
@@ -70,6 +63,24 @@ export const RightArrowIcon = (props: React.HTMLAttributes<SVGSVGElement>) => {
   return (
     <svg height="14" viewBox="0 0 14 14" width="14" {...props}>
       <path d="M6 3 l4 4 L6 11" fill="none" />
+    </svg>
+  );
+};
+
+export const LongRightArrowIcon = (props: React.HTMLAttributes<SVGSVGElement>) => {
+  return (
+    <svg fill="none" height="16" viewBox="0 0 16 16" width="16" {...props}>
+      <path d="M1 8H15" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+      <path d="M8 1L15 8L8 15" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+    </svg>
+  );
+};
+
+export const LongLeftArrowIcon = (props: React.HTMLAttributes<SVGSVGElement>) => {
+  return (
+    <svg fill="none" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path d="M15 8H1" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+      <path d="M8 15L1 8L8 1" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
     </svg>
   );
 };

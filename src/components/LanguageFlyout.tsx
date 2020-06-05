@@ -19,7 +19,7 @@ const styles = {
   `,
   handle: css`
     display: flex;
-    align-items: center;
+    align-content: center;
     justify-content: center;
     color: ${colors.darkGray};
     padding: 8px;
@@ -31,8 +31,8 @@ const styles = {
       text-decoration: none;
       background: ${colors.lightGray};
 
-      & svg {
-        fill: ${colors.mediumDarkGray};
+      svg {
+        color: ${colors.mediumDarkGray};
       }
     }
   `,
@@ -40,14 +40,15 @@ const styles = {
     background: ${colors.extraLightGray};
 
     & svg {
-      fill: ${colors.mediumDarkGray};
+      color: ${colors.mediumDarkGray};
     }
   `,
   chevron: css`
+    color: ${colors.mediumGray};
+    width: 10px;
+    height: 5px;
+    align-self: center;
     margin-left: 4px;
-    stroke: none;
-    fill: ${colors.mediumGray};
-    vertical-align: text-bottom;
   `,
   languageList: css`
     margin: 0;
@@ -68,9 +69,7 @@ function LanguageFlyout() {
 
   const handle = (className: string) => (
     <div className={className}>
-      <span>
-        {localizedLanguageNames[lang]} <ChevronIcon className={styles.chevron} />
-      </span>
+      {localizedLanguageNames[lang]} <ChevronIcon className={styles.chevron} />
     </div>
   );
 

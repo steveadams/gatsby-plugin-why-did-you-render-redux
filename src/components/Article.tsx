@@ -3,6 +3,7 @@
 import {css} from 'linaria';
 import * as React from 'react';
 
+import BackButton from '../components/BackButton';
 import Controller from '../components/Controller';
 import DomainResults from '../components/DomainResults';
 import Page from '../components/Page';
@@ -42,6 +43,7 @@ export default ({
         `}
         itemScope
         itemType="http://schema.org/TechArticle">
+        <BackButton />
         <h1>{headline}</h1>
         <div itemProp="articleBody">{children}</div>
         <em>

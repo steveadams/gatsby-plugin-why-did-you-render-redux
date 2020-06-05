@@ -7,31 +7,32 @@ import {useSelector} from 'react-redux';
 import * as actions from '../actions';
 import {SocialService} from '../actionTypes';
 import * as colors from '../colors';
-import {appraiseURL, domainName, googleAnalyticsLabel, name, statusName} from '../domain';
+import {appraiseURL, domainName, googleAnalyticsLabel, name} from '../domain';
 import * as font from '../font';
 import {State} from '../reducers';
 import * as selectors from '../selectors';
-import * as statusColors from '../statusColors';
 import {debounceImmediate} from '../util';
 import Flyout from './Flyout';
-import {EllipsisIcon} from './icons';
+import {ChevronIcon} from './icons';
 import Link from './Link';
 import Text from './Text';
 
 const styles = {
-  flyout: css`
-    margin-right: -42px;
-    margin-left: 18px;
-  `,
   handle: css`
-    display: block;
-    border-radius: 12px;
+    background-color: ${colors.extraLightGray};
+    border-radius: 100%;
+    padding: 10px 6px;
+    width: 16px;
+    height: 8px;
+    fill: none;
+    color: ${colors.darkGray};
+
     &:hover {
-      fill: #fff;
+      color: black;
     }
   `,
   expandedHandle: css`
-    fill: #fff;
+    color: black;
   `,
   menu: css`
     margin: 0;
@@ -98,9 +99,9 @@ type UsernameLinkProps = {
 const UsernameLink = ({service, available, ...props}: UsernameLinkProps) => (
   <AdvancedLink {...props}>
     {service} username
-    {available === true && <span className={cx(linkStyles.available)}>Available</span>}
-    {available === false && <span className={cx(linkStyles.taken)}>Taken</span>}
-    {available === void 0 && <span className={cx(linkStyles.checking)}>Checking</span>}
+    {available === true && <span className={linkStyles.available}>Available</span>}
+    {available === false && <span className={linkStyles.taken}>Taken</span>}
+    {available === void 0 && <span className={linkStyles.checking}>Checking</span>}
   </AdvancedLink>
 );
 
@@ -125,24 +126,12 @@ function DomainMenu({domain}: DomainMenuProps) {
 
   const social = useSelector((state: State) => selectors.socialUsernameAvailability(state, domain));
 
-  const collapsedHandle = (
-    <EllipsisIcon
-      className={cx(
-        styles.handle,
-        statusColors.fill[statusName(domain)],
-        statusColors.hoverBackground[statusName(domain)],
-      )}
-    />
-  );
-  const expandedHandle = (
-    <EllipsisIcon className={cx(styles.handle, styles.expandedHandle, statusColors.background[statusName(domain)])} />
-  );
+  const handle = (className?: string) => <ChevronIcon className={cx(styles.handle, className)} />;
 
   return (
     <Flyout
-      className={styles.flyout}
-      collapsedHandle={collapsedHandle}
-      expandedHandle={expandedHandle}
+      collapsedHandle={handle()}
+      expandedHandle={handle(styles.expandedHandle)}
       onCollapse={() => {
         setIsOpen(false);
       }}
