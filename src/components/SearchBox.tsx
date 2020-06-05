@@ -52,8 +52,11 @@ const styles = {
     background-color: ${colors.white};
 
     /* TODO :focus-within might need to be accomplished with a hasFocus state due to browser compatibility */
-    &:focus-within,
-    &:hover {
+    &:focus-within {
+      box-shadow: 0 0 0 3px inset ${colors.darkGray};
+    }
+
+    &:hover:not(:focus-within) {
       box-shadow: 0 0 0 3px inset ${colors.mediumGray};
     }
   `,
