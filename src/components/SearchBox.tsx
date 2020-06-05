@@ -51,9 +51,10 @@ const styles = {
     margin: 0 auto;
     background-color: ${colors.white};
 
+    /* TODO :focus-within might need to be accomplished with a hasFocus state due to browser compatibility */
     &:focus-within,
     &:hover {
-      box-shadow: 0 0 0 3px inset ${colors.darkGray};
+      box-shadow: 0 0 0 3px inset ${colors.mediumGray};
     }
   `,
   searchInput: css`
@@ -65,7 +66,9 @@ const styles = {
     border-radius: 48px 0 0 48px;
     flex-grow: 1;
 
-    &:placeholder {
+    &::placeholder,
+    &:focus::placeholder {
+      color: ${colors.darkGray};
       opacity: 1;
     }
 
