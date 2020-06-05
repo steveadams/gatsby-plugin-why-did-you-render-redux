@@ -51,7 +51,6 @@ const styles = {
     margin: 0 auto;
     background-color: ${colors.white};
 
-    /* TODO :focus-within might need to be accomplished with a hasFocus state due to browser compatibility */
     &:focus-within {
       box-shadow: 0 0 0 3px inset ${colors.darkGray};
     }
