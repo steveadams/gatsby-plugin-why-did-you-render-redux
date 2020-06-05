@@ -21,45 +21,25 @@ export const geography = (state: State) => state.geography;
 export const country = (state: State) => state.geography.country; // TODO: unclown
 export const pageTitle = (state: State) => state.pageTitle;
 
-const searchIsEmpty = createSelector(
-  typedSearch,
-  // tslint:disable-next-line:no-shadowed-variable
-  typedSearch => typedSearch === '',
-);
+const searchIsEmpty = createSelector(typedSearch, typedSearch => typedSearch === '');
 
 export const shouldShowHeaderAndFooter = searchIsEmpty;
 export const shouldShowContent = searchIsEmpty;
 
 // typed search -> 'www.' (optional) + searchSansTld + '.' + searchedTld(optional)
-export const normalizedSearch = createSelector(
-  typedSearch,
-  // tslint:disable-next-line:no-shadowed-variable
-  typedSearch => util.normalizeSearch(typedSearch),
-);
+export const normalizedSearch = createSelector(typedSearch, typedSearch => util.normalizeSearch(typedSearch));
 
-export const searchPhrase = createSelector(
-  normalizedSearch,
-  // tslint:disable-next-line:no-shadowed-variable
-  normalizedSearch => normalizedSearch[0],
-);
+export const searchPhrase = createSelector(normalizedSearch, normalizedSearch => normalizedSearch[0]);
 
-export const mainTld = createSelector(
-  normalizedSearch,
-  // tslint:disable-next-line:no-shadowed-variable
-  normalizedSearch => normalizedSearch[1],
-);
+export const mainTld = createSelector(normalizedSearch, normalizedSearch => normalizedSearch[1]);
 
-export const canonicalUrl = createSelector(
-  typedSearch,
-  // tslint:disable-next-line:no-shadowed-variable
-  typedSearch => {
-    if (typedSearch && typedSearch.length > 0) {
-      return `#search=${encodeURIComponent(typedSearch)}`;
-    } else {
-      return '';
-    }
-  },
-);
+export const canonicalUrl = createSelector(typedSearch, typedSearch => {
+  if (typedSearch && typedSearch.length > 0) {
+    return `#search=${encodeURIComponent(typedSearch)}`;
+  } else {
+    return '';
+  }
+});
 
 export const domainsForCurrentSearch = createSelector(
   rawResults,
@@ -122,7 +102,6 @@ export const tldResults = createSelector(
   geography,
   extensionSimilarityForCurrentSearch,
   extensionsSort,
-  // tslint:disable-next-line:no-shadowed-variable
   (domains, searchPhrase, mainTld, geography, extensionSimilarity, extensionSort) => {
     const geo = tlds.bestGeography(geography.country.toLowerCase());
     const popularTlds = tlds.popularTldsWithPreferred(
@@ -142,7 +121,6 @@ export const suggestionResults = createSelector(
   domainsForCurrentSearch,
   tldResults,
   isSearchInProgress,
-  // tslint:disable-next-line:no-shadowed-variable
   (domainsForCurrentSearch, tldResults, isSearchInProgress) => {
     const seen = new Set(tldResults.map(domainName));
     const results = domainsForCurrentSearch.filter(
@@ -162,7 +140,6 @@ export const forSaleResults = createSelector(
   domainsForCurrentSearch,
   tldResults,
   isSearchInProgress,
-  // tslint:disable-next-line:no-shadowed-variable
   (domainsForCurrentSearch, tldResults, isSearchInProgress) => {
     const seen = new Set(tldResults.map(domainName));
     const results = domainsForCurrentSearch.filter(domain => isForSale(domain) && !seen.has(localStorageKey(domain)));
@@ -181,7 +158,6 @@ export const expiringResults = createSelector(
   domainsForCurrentSearch,
   tldResults,
   isSearchInProgress,
-  // tslint:disable-next-line:no-shadowed-variable
   (domainsForCurrentSearch, tldResults, isSearchInProgress) => {
     const seen = new Set(tldResults.map(domainName));
     const results = domainsForCurrentSearch.filter(domain => isExpiring(domain) && !seen.has(localStorageKey(domain)));
@@ -240,7 +216,6 @@ export const selection = (state: State) => state.selection;
 export const selectedDomain = createSelector(
   allResultsByType,
   selection,
-  // tslint:disable-next-line:no-shadowed-variable
   (allResultsByType, {type, index}) => allResultsByType[type] && allResultsByType[type][index],
 );
 
