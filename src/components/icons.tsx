@@ -53,15 +53,8 @@ export const StarIcon = ({
 
 export const ChevronIcon = (props: React.HTMLAttributes<SVGSVGElement>) => {
   return (
-    <svg
-      className="icon"
-      height="12"
-      version="1.1"
-      viewBox="0 0 12 12"
-      width="12"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}>
-      <path d="M9.029,0.046C9.173,0.055 9.31,0.088 9.437,0.158C9.514,0.201 9.586,0.256 9.647,0.32C9.873,0.554 9.956,0.9 9.86,1.21C9.817,1.349 9.742,1.468 9.644,1.574C8.335,2.839 6.952,4.026 5.606,5.252C5.538,5.31 5.467,5.361 5.386,5.399C5.177,5.498 4.932,5.513 4.713,5.439C4.61,5.404 4.52,5.351 4.435,5.286C3.053,4.101 1.741,2.836 0.394,1.611C0.264,1.486 0.169,1.336 0.126,1.159C0.031,0.769 0.213,0.353 0.563,0.158C0.657,0.106 0.759,0.072 0.865,0.056C0.988,0.037 1.115,0.044 1.235,0.077C1.375,0.114 1.496,0.186 1.606,0.28L5,3.369L8.394,0.28C8.435,0.245 8.434,0.245 8.477,0.213C8.537,0.173 8.597,0.137 8.664,0.11C8.731,0.084 8.799,0.067 8.869,0.055C8.923,0.049 8.975,0.046 9.029,0.046Z" />
+    <svg fill="none" height="8" viewBox="0 0 14 8" width="14" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path d="M1 1L7 7L13 1" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
     </svg>
   );
 };
@@ -74,29 +67,20 @@ export const RightArrowIcon = (props: React.HTMLAttributes<SVGSVGElement>) => {
   );
 };
 
-export const RightArrowLongIcon = (props: React.HTMLAttributes<SVGSVGElement>) => {
+export const LongRightArrowIcon = (props: React.HTMLAttributes<SVGSVGElement>) => {
   return (
-    <svg height="18" viewBox="0 0 18 18" width="18" {...props}>
-      <path
-        d={`M13.256,7.671L8.025,2.439L7.974,2.384C7.879,2.266 7.806,2.139
-      7.766,1.991C7.74,1.895 7.729,1.794 7.733,1.695C7.745,1.367 7.922,1.06
-      8.2,0.885C8.33,0.804 8.47,0.761 8.62,0.738C8.695,0.733
-      8.694,0.733 8.769,0.733C8.836,0.738 8.853,0.737 8.918,0.749C9.041,0.773
-      9.158,0.819 9.264,0.885C9.328,0.926 9.384,0.974
-      9.439,1.025L16.439,8.025L16.44,8.025C16.466,8.052 16.491,8.08 16.514,8.109C16.551,8.155
-      16.584,8.205 16.611,8.257C16.625,8.281 16.637,8.306 16.649,8.332C16.769,8.609
-      16.757,8.932 16.616,9.199C16.614,9.203 16.613,9.206 16.611,9.209C16.607,9.217
-      16.602,9.224 16.598,9.232C16.554,9.308 16.501,9.377
-      16.439,9.439L16.439,9.439L9.439,16.439C9.384,16.491 9.328,16.538
-      9.264,16.579C9.116,16.672 8.944,16.725 8.769,16.731C8.645,16.736
-      8.52,16.717 8.402,16.676C8.092,16.568 7.851,16.307 7.766,15.991C7.74,15.895 7.729,15.794
-      7.733,15.695C7.736,15.595 7.755,15.496 7.788,15.402C7.839,15.257 7.922,15.136
-      8.025,15.025L13.318,9.732L1.732,9.732C1.656,9.729 1.584,9.724 1.51,9.707C1.339,9.668
-      1.18,9.584 1.052,9.465C0.979,9.397 0.916,9.318 0.866,9.232C0.816,9.146 0.779,9.052
-      0.757,8.955C0.684,8.635 0.776,8.292 0.999,8.052C1.084,7.96 1.186,7.885
-      1.298,7.831C1.436,7.765 1.58,7.738 1.732,7.732C5.573,7.732 9.416,7.616
-      13.256,7.671Z`}
-      />
+    <svg fill="none" height="16" viewBox="0 0 16 16" width="16" {...props}>
+      <path d="M1 8H15" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+      <path d="M8 1L15 8L8 15" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+    </svg>
+  );
+};
+
+export const LongLeftArrowIcon = (props: React.HTMLAttributes<SVGSVGElement>) => {
+  return (
+    <svg fill="none" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <path d="M15 8H1" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+      <path d="M8 15L1 8L8 1" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
     </svg>
   );
 };

@@ -31,8 +31,18 @@ const styles = {
     &:hover {
       text-decoration: none;
     }
+
     &:focus {
       outline: none;
+    }
+
+    /* If an icon is added as a child, provide proper spacing before or after the icon */
+    span + svg {
+      margin-left: 8px;
+    }
+
+    svg + span {
+      margin-left: 8px;
     }
   `,
   defaultColor: css`
@@ -45,10 +55,25 @@ const styles = {
       color: rgba(255, 255, 255, 0.72);
     }
   `,
+  textButton: css`
+    height: auto;
+    padding: unset;
+    background: unset;
+    color: ${colors.blue};
+
+    &:hover {
+      color: ${colors.hoverBlue};
+    }
+
+    svg {
+      font-size: ${font.xs}px;
+    }
+  `,
   hoverButton: css`
     border-radius: 4px;
     padding: 10px 12px;
     cursor: pointer;
+
     &:hover {
       text-decoration: none;
     }
@@ -61,7 +86,7 @@ const styles = {
   `,
 };
 
-function useTapped(ref: React.RefObject<HTMLElement>) {
+function useTapped(ref: React.RefObject<HTMLElement>): (() => void)[] {
   const timeout = React.useRef(0);
 
   const onTouchStart = React.useCallback(() => {
@@ -100,6 +125,7 @@ type ButtonProps<Tag extends 'a' | 'button'> = {
   tag?: Tag;
   href?: string;
   target?: string;
+  textButton?: boolean;
 } & React.HTMLAttributes<HTMLElement>;
 
 function Button<Tag extends 'a' | 'button'>({
@@ -116,6 +142,7 @@ function Button<Tag extends 'a' | 'button'>({
   eventID,
   eventInfo,
   eventValue,
+  textButton = false,
   ...props
 }: ButtonProps<Tag>) {
   const ref = React.useRef<Tag extends 'a' ? HTMLAnchorElement : HTMLButtonElement>(null);
@@ -149,7 +176,8 @@ function Button<Tag extends 'a' | 'button'>({
       className: cx(
         className,
         !hoverStyle && styles.button,
-        defaultColor && styles.defaultColor,
+        defaultColor && !textButton && styles.defaultColor,
+        textButton && styles.textButton,
         hoverStyle && styles.hoverButton,
       ),
       onClick,

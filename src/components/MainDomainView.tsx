@@ -24,12 +24,12 @@ import * as statusColors from '../statusColors';
 import {desktop, mobile} from '../styles';
 import Button from './Button';
 import DomainButton from './DomainButton';
-// import DomainMenu from './DomainMenu';
+import DomainMenu from './DomainMenu';
 import DomainStar from './DomainStar';
 import Flyout from './Flyout';
-import {RightArrowLongIcon} from './icons';
+import {LongRightArrowIcon} from './icons';
 import Link from './Link';
-import Text from './Text';
+import Text, {LocaleKey} from './Text';
 
 const styles = {
   default: css`
@@ -78,6 +78,10 @@ const styles = {
     ${desktop} {
       margin-left: auto;
     }
+
+    a {
+      margin-right: 8px;
+    }
   `,
   link: css`
     color: inherit;
@@ -91,35 +95,19 @@ const styles = {
     }
   `,
   secondaryButton: css`
-    margin: 0 8px 0;
     position: relative;
+    background: ${colors.blue};
 
     &:hover {
-      color: ${colors.white};
+      background: ${colors.hoverBlue};
     }
   `,
-  blueButton: css`
-    background: ${colors.blue};
-    &:hover {
-      background: ${colors.lightBlue};
-    }
-  `,
-  rightArrow: css`
-    fill: ${colors.white};
+  arrowIcon: css`
     margin-left: 8px;
-  `,
-  area: css`
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    margin: 0;
   `,
   flyout: css`
     text-align: center;
-    margin-left: 16px;
+    margin-left: 0;
   `,
   questionMark: css`
     font-weight: ${font.regular};
@@ -139,7 +127,7 @@ const styles = {
 
 function MainDomainView() {
   const domain = useSelector(selectors.mainDomain);
-  // const isMobile = useSelector(selectors.isMobile);
+  const isMobile = useSelector(selectors.isMobile);
   const searchPhrase = useSelector(selectors.searchPhrase);
   const mainTld = useSelector(selectors.mainTld);
 
@@ -166,7 +154,7 @@ function MainDomainView() {
     if (domain.actuallyRegistered) {
       const handle = <div className={styles.questionMark}>?</div>;
       return (
-        <Flyout className={styles.flyout} collapsedHandle={handle} expandedHandle={handle} width={300}>
+        <Flyout collapsedHandle={handle} expandedHandle={handle} width={300}>
           <div className={styles.notice}>
             This domain is not in use, or it may be about to expire.
             {info}
@@ -181,60 +169,45 @@ function MainDomainView() {
   const renderSecondaryButton = () => {
     if (!domain) return null;
 
+    const secondaryButton = (
+      mainDomain: Domain,
+      urlFunction: (d: Domain) => string,
+      eventId: string,
+      textId: LocaleKey,
+      title?: string,
+    ) => (
+      <Button
+        className={cx(styles.secondaryButton, styles.secondaryButton)}
+        defaultColor={false}
+        eventID={eventId}
+        eventInfo={googleAnalyticsLabel(mainDomain)}
+        eventType="convert"
+        eventValue={mainDomain.price || 0}
+        href={urlFunction(mainDomain)}
+        rel="sponsored"
+        tag="a"
+        target="_blank"
+        title={title}>
+        <Text id={textId} />
+        <LongRightArrowIcon className={styles.arrowIcon} />
+      </Button>
+    );
+
     switch (status(domain)) {
       case DomainStatus.recentlyRegistered:
       case DomainStatus.recentlyDropped:
       case DomainStatus.expiring:
-        return (
-          <Button
-            className={cx(styles.secondaryButton, styles.blueButton)}
-            defaultColor={false}
-            eventID="whois"
-            eventInfo={googleAnalyticsLabel(domain)}
-            eventType="convert"
-            eventValue={domain.price || 0}
-            href={whoisURL(domain)}
-            rel="sponsored"
-            tag="a"
-            target="_blank">
-            <Text id="whois" />
-            <RightArrowLongIcon className={styles.rightArrow} />
-          </Button>
-        );
+        return secondaryButton(domain, whoisURL, 'whois', 'whois');
       case DomainStatus.taken:
-        return (
-          <Button
-            className={cx(styles.secondaryButton, styles.blueButton)}
-            eventID="acquire"
-            eventInfo={googleAnalyticsLabel(domain)}
-            eventType="convert"
-            eventValue={domain.price || 0}
-            href={acquireURL(domain)}
-            rel="sponsored"
-            tag="a"
-            target="_blank"
-            title={`Acquire ${domainName(domain)} with an agent`}>
-            <Text id="makeOffer" />
-            <RightArrowLongIcon className={styles.rightArrow} />
-          </Button>
+        return secondaryButton(
+          domain,
+          acquireURL,
+          'acquire',
+          'makeOffer',
+          `Acquire ${domainName(domain)} with an agent`,
         );
       case DomainStatus.sale:
-        return (
-          <Button
-            className={cx(styles.secondaryButton, styles.blueButton)}
-            defaultColor={false}
-            eventID="appraise"
-            eventInfo={googleAnalyticsLabel(domain)}
-            eventType="convert"
-            eventValue={domain.price || 0}
-            href={appraiseURL(domain)}
-            rel="sponsored"
-            tag="a"
-            target="_blank">
-            <Text id="appraise" />
-            <RightArrowLongIcon className={styles.rightArrow} />
-          </Button>
-        );
+        return secondaryButton(domain, appraiseURL, 'appraise', 'appraise');
       default:
         return null;
     }
@@ -253,13 +226,12 @@ function MainDomainView() {
       className={cx(
         styles.default,
         statusColors.color[statusName(domain)],
-        // status(domain) !== DomainStatus.taken &&
-        //   status(domain) !== DomainStatus.recentlyRegistered &&
-        //   status(domain) !== DomainStatus.recentlyDropped &&
-        //   statusColors.hoverBackground[statusName(domain)],
+        status(domain) !== DomainStatus.taken &&
+          status(domain) !== DomainStatus.recentlyRegistered &&
+          status(domain) !== DomainStatus.recentlyDropped &&
+          statusColors.hoverBackground[statusName(domain)],
       )}>
       <Link
-        className={styles.area}
         eventID="click_main_area"
         eventInfo={googleAnalyticsLabel(domain)}
         eventType="convert"
@@ -297,9 +269,9 @@ function MainDomainView() {
             eventType="convert"
             eventValue={domain.price || 0}
             location={analytics.ClickLocation.MainResult}>
-            <RightArrowLongIcon className={styles.rightArrow} />
+            <LongRightArrowIcon className={styles.arrowIcon} />
           </DomainButton>
-          {/* {!isMobile && <DomainMenu domain={domain} />} */}
+          {!isMobile && <DomainMenu domain={domain} />}
         </div>
       </div>
     </div>
