@@ -51,9 +51,12 @@ const styles = {
     margin: 0 auto;
     background-color: ${colors.white};
 
-    &:focus-within,
-    &:hover {
+    &:focus-within {
       box-shadow: 0 0 0 3px inset ${colors.darkGray};
+    }
+
+    &:hover:not(:focus-within) {
+      box-shadow: 0 0 0 3px inset ${colors.mediumGray};
     }
   `,
   searchInput: css`
@@ -65,7 +68,9 @@ const styles = {
     border-radius: 48px 0 0 48px;
     flex-grow: 1;
 
-    &:placeholder {
+    &::placeholder,
+    &:focus::placeholder {
+      color: ${colors.darkGray};
       opacity: 1;
     }
 

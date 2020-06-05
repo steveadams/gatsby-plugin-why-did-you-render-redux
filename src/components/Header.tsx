@@ -35,18 +35,21 @@ function Header() {
       &.icon {
         /* TODO: USE VARIABLE-BASED UNITS */
         margin-right: 8px;
-        width: 0.75em;
-        height: 0.75em;
+        vertical-align: text-bottom;
       }
     `,
     link: css`
+      display: flex;
+      justify-content: center;
+      color: ${colors.darkGray};
+
       &:hover {
         text-decoration: none;
       }
     `,
     title: css`
-      color: ${colors.darkGray};
-      display: inline-block;
+      line-height: 1;
+      margin-bottom: 0;
 
       ${mobile} {
         font-size: ${font.l}px;
@@ -55,12 +58,17 @@ function Header() {
       }
     `,
     registered: css`
-      display: inline-block;
       font-size: ${font.xxs}px;
       font-weight: ${font.regular};
-      vertical-align: 100%;
+      align-self: center;
+      /* Bump it up just a bit */
+      position: relative;
+      left: 1px;
+      bottom: 3px;
     `,
     subTitle: css`
+      font-size: ${font.xs}px;
+      margin-top: 0;
       margin-bottom: 0;
     `,
   };
@@ -74,15 +82,13 @@ function Header() {
       <Link className={styles.link} to={lang === languageCodes.english ? '/' : `/${lang}/`}>
         <h1 className={styles.title}>
           <IconLogo className={styles.logoIcon} />
-          <Text id="logo" />
+          Instant Domain Search
         </h1>
+        <span className={styles.registered}>®</span>
       </Link>
 
-      <span className={styles.registered}>®</span>
       <p className={styles.subTitle}>
-        <small>
-          <Text id="subTitle" />
-        </small>
+        <Text id="subTitle" />
       </p>
     </header>
   );
