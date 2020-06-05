@@ -4,8 +4,6 @@ import * as tlds from './tlds';
 
 // TODO: review
 
-/* tslint:disable:only-arrow-functions */
-
 const formatRegExp = /{\d+}/g;
 
 export const formatp = (formatString: string, ...args: string[]) => {
@@ -133,9 +131,7 @@ export function hashCode(str: string, seed = 0): number {
   let hash = seed;
   const len = str.length;
   for (let i = 0; i < len; i += 1) {
-    // tslint:disable-next-line:no-bitwise
     hash = (hash << 5) - hash + str.charCodeAt(i);
-    // tslint:disable-next-line:no-bitwise
     hash &= hash; // convert to 32bit integer
   }
   return hash;

@@ -1,9 +1,5 @@
 /* Copyright 2005-present Instant Domain Search, Inc. */
 
-// no-object-literal-type-assertion in generics, see:
-//  https://github.com/palantir/tslint/issues/4239 tslint is strict
-//  https://www.typescriptlang.org/docs/handbook/advanced-types.html uses {} as T
-
 const parseQueryString = (query: string): Record<string, string> => {
   const parsed: Record<string, string> = {};
   for (const param of query.split('&')) {
