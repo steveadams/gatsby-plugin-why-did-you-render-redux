@@ -43,6 +43,8 @@ const styles = {
     margin: 0 auto;
   `,
   searchForm: css`
+    position: relative;
+    min-height: 48px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -51,22 +53,39 @@ const styles = {
     margin: 0 auto;
     background-color: ${colors.white};
 
+    &:before {
+      content: ' ';
+      color: transparent;
+      position: absolute;
+      left: 0px;
+      right: 0px;
+      top: 0px;
+      bottom: 0px;
+      border: 3px solid transparent;
+      border-radius: 50px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
     &:focus-within {
-      box-shadow: 0 0 0 3px inset ${colors.darkGray};
+      &:before {
+        border-color: ${colors.darkGray};
+      }
     }
 
     &:hover:not(:focus-within) {
-      box-shadow: 0 0 0 3px inset ${colors.mediumGray};
+      &:before {
+        border-color: ${colors.mediumGray};
+      }
     }
   `,
   searchInput: css`
-    font-size: ${font.xs}px;
+    display: flex;
     background-color: transparent;
-    min-height: 48px;
-    height: auto;
     padding-left: 24px;
     border-radius: 48px 0 0 48px;
     flex-grow: 1;
+    z-index: 2;
 
     &::placeholder,
     &:focus::placeholder {
@@ -75,23 +94,29 @@ const styles = {
     }
 
     ${mobile} {
+      /* Prevent input zooming on iOS Safari */
+      font-size: ${font.s}px;
       padding-left: 16px;
     }
   `,
   searchButton: css`
+    display: flex;
     font-weight: ${font.regular};
     border-top-left-radius: unset;
     border-bottom-left-radius: unset;
+    z-index: 2;
   `,
   collapsed: css`
     padding-bottom: 0;
   `,
   clearButton: css`
+    display: flex;
     background-color: transparent;
     border-radius: unset;
     padding: 0 16px;
     line-height: inherit;
     cursor: pointer;
+    z-index: 2;
 
     &.empty {
       color: transparent;
@@ -197,7 +222,7 @@ function SearchBox() {
         <form
           // TODO: Should urls like this be placed in config somewhere?
           action="https://app.instantdomainsearch.com/redirect/"
-          className={cx(styles.searchForm)}
+          className={styles.searchForm}
           method="get"
           onSubmit={onSubmit}
           role="search">
@@ -211,7 +236,6 @@ function SearchBox() {
             inputRef={inputRef}
             name="search"
             onChange={onChange}
-            onFocus={actions.focusedSearchField}
             onKeyPress={onKeyPress}
             placeholder={isMobile ? Text({id: 'mobileSearchPlaceholder'}) : Text({id: 'searchPlaceholder'})}
             spellCheck={false}
