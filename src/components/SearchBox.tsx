@@ -85,6 +85,7 @@ const styles = {
     padding-left: 24px;
     border-radius: 48px 0 0 48px;
     flex-grow: 1;
+    z-index: 2;
 
     &::placeholder,
     &:focus::placeholder {
@@ -115,6 +116,7 @@ const styles = {
     padding: 0 16px;
     line-height: inherit;
     cursor: pointer;
+    z-index: 2;
 
     &.empty {
       color: transparent;
