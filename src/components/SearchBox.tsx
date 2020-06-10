@@ -40,8 +40,10 @@ const styles = {
     position: relative;
     width: 100%;
     max-width: 560px;
-    margin: 32px auto;
+    margin-left: auto;
     margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 32px;
     display: flex;
     justify-content: center;
     align-items: stretch;
