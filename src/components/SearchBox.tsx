@@ -25,24 +25,12 @@ const styles = {
   searchContainer: css`
     position: relative;
     text-align: center;
-    padding: 64px 16px;
-    padding-bottom: 0;
-
-    /* Limit padding when rendered adjavent to a <header> */
-    header + & {
-      padding-top: 8px;
-    }
-
-    ${mobile} {
-      padding: 32px 16px;
-    }
   `,
   searchFormAndFavs: css`
     position: relative;
     display: flex;
-    max-width: 560px;
     margin: 0 auto;
-    margin-bottom: 40px;
+    padding: 0 16px;
 
     ${mobile} {
       margin-bottom: 0;
@@ -50,14 +38,19 @@ const styles = {
   `,
   searchForm: css`
     position: relative;
-    min-height: 48px;
     width: 100%;
+    max-width: 560px;
+    margin: 32px auto;
+    margin-top: 0;
     display: flex;
     justify-content: center;
     align-items: stretch;
     border-radius: 50px;
-    margin: 0 auto;
     background-color: ${colors.white};
+
+    &.collapsed {
+      margin-top: 32px;
+    }
 
     &:before {
       content: ' ';
@@ -86,6 +79,7 @@ const styles = {
     }
   `,
   searchInput: css`
+    min-height: 48px;
     font-size: ${font.xs}px;
     display: flex;
     background-color: transparent;
@@ -112,9 +106,6 @@ const styles = {
     border-top-left-radius: unset;
     border-bottom-left-radius: unset;
     z-index: 2;
-  `,
-  collapsed: css`
-    padding: 32px auto;
   `,
   clearButton: css`
     display: flex;
@@ -221,18 +212,12 @@ function SearchBox() {
   );
 
   return (
-    <section
-      className={cx(styles.searchContainer, !shouldShowHeaderAndFooter && styles.collapsed)}
-      // iOS browsers need a user-initiated event to allow .focus() to pop up the keyboard
-      // TODO: Find a way to handle this nicely with the mobile search selector – it closes
-      // the selector automatically.
-      // onClick={actions.focusSearchField}
-    >
-      <div className={styles.searchFormAndFavs}>
+    <section className={styles.searchContainer}>
+      <div className={styles.searchFormAndFavs} onClick={actions.focusSearchField}>
         <form
           // TODO: Should urls like this be placed in config somewhere?
           action="https://app.instantdomainsearch.com/redirect/"
-          className={styles.searchForm}
+          className={cx(styles.searchForm, !shouldShowHeaderAndFooter && 'collapsed')}
           method="get"
           onSubmit={onSubmit}
           role="search">
