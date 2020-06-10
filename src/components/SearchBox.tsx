@@ -14,7 +14,7 @@ import {desktop, mobile} from '../styles';
 import Button from './Button';
 import FavoritesFlyout from './FavoritesFlyout';
 import {ClearIcon} from './icons';
-import {SearchSelector} from './SearchSelector';
+import SearchSelector from './SearchSelector/index';
 import {Key} from './ShortcutsDialog';
 import Text from './Text';
 import TextInput from './TextInput';
@@ -26,6 +26,7 @@ const styles = {
     position: relative;
     text-align: center;
     padding: 64px 16px 0;
+    overflow: auto;
 
     /* Limit padding when rendered adjavent to a <header> */
     header + & {
@@ -34,6 +35,7 @@ const styles = {
 
     ${mobile} {
       padding: 32px 16px;
+      padding-bottom: 0;
     }
   `,
   searchFormAndFavs: css`
@@ -41,6 +43,7 @@ const styles = {
     display: flex;
     max-width: 560px;
     margin: 0 auto;
+    margin-bottom: 40px;
   `,
   searchForm: css`
     position: relative;
@@ -80,6 +83,7 @@ const styles = {
     }
   `,
   searchInput: css`
+    font-size: ${font.xs}px;
     display: flex;
     background-color: transparent;
     padding-left: 24px;
@@ -108,6 +112,7 @@ const styles = {
   `,
   collapsed: css`
     padding-bottom: 0;
+    padding-top: 32px;
   `,
   clearButton: css`
     display: flex;
@@ -217,7 +222,10 @@ function SearchBox() {
     <section
       className={cx(styles.searchContainer, !shouldShowHeaderAndFooter && styles.collapsed)}
       // iOS browsers need a user-initiated event to allow .focus() to pop up the keyboard
-      onClick={actions.focusSearchField}>
+      // TODO: Find a way to handle this nicely with the mobile search selector – it closes
+      // the selector automatically.
+      // onClick={actions.focusSearchField}
+    >
       <div className={styles.searchFormAndFavs}>
         <form
           // TODO: Should urls like this be placed in config somewhere?
@@ -257,7 +265,7 @@ function SearchBox() {
         </form>
         {!isMobile && <FavoritesFlyout />}
       </div>
-      <SearchSelector />
+      <SearchSelector floating={isMobile} />
       {!shouldShowHeaderAndFooter && (
         <div className={styles.shortcutsTip} style={{opacity: showShortcutsTip ? 1 : 0}}>
           <strong>Tip:</strong> press <Key>ctrl</Key>

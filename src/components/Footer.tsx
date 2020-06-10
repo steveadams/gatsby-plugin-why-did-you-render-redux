@@ -9,7 +9,7 @@ import * as font from '../font';
 import {desktop, mobile} from '../styles';
 import IconFacebook from './IconFacebook';
 import IconTwitter from './IconTwitter';
-import SearchSelectorLink from './SearchSelectorLink';
+import {SearchSelectorLink} from './SearchSelector';
 import Text, {languageCodes, localizedLanguageNames, useLanguage} from './Text';
 
 const styles = {
@@ -28,6 +28,7 @@ const styles = {
 
 function Footer() {
   const lang = useLanguage();
+
   return (
     <div
       className={css`
@@ -80,19 +81,19 @@ function Footer() {
               }
             }
           `}>
-          <SearchSelectorLink className="homeLink" to={lang === languageCodes.english ? '/' : `/${lang}/`}>
+          <SearchSelectorLink className="homeLink" type="all">
             <Text id="home" />
           </SearchSelectorLink>
-          <SearchSelectorLink to="/domain/extensions/">
+          <SearchSelectorLink type="extensions">
             <Text id="popularTldsLong" />
           </SearchSelectorLink>
-          <SearchSelectorLink to="/domain/generator/">
+          <SearchSelectorLink type="generator">
             <Text id="suggestionsLong" />
           </SearchSelectorLink>
-          <SearchSelectorLink to="/domain/sale/">
+          <SearchSelectorLink type="sale">
             <Text id="forSaleLong" />
           </SearchSelectorLink>
-          <SearchSelectorLink to="/domain/expired/">
+          <SearchSelectorLink type="expired">
             <Text id="expiredLong" />
           </SearchSelectorLink>
         </div>
@@ -146,7 +147,7 @@ function Footer() {
             }
           `}>
           {Object.entries(localizedLanguageNames).map(([code, lang]) => (
-            <Link key={code} to={code !== languageCodes.english ? `/${code}/` : ''}>
+            <Link key={code} to={code !== languageCodes.english ? `/${code}/` : '/'}>
               {lang}
             </Link>
           ))}

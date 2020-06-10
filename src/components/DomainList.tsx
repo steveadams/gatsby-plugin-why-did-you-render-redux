@@ -12,7 +12,7 @@ import {desktop, mobile} from '../styles';
 import DomainView from './DomainView';
 import ExtensionsSortMenu from './ExtensionsSortMenu';
 import {RightArrowIcon} from './icons';
-import SearchSelectorLink from './SearchSelectorLink';
+import {SearchSelectorLink, SearchSelectorType} from './SearchSelector';
 
 const topLinkStyles = {
   topLink: css`
@@ -119,7 +119,7 @@ interface DomainListProps {
   location: ClickLocation;
   style?: React.CSSProperties;
   title?: React.ReactNode;
-  link?: string;
+  link: SearchSelectorType;
 }
 
 function DomainList({category, location, className, compact = false, link, style, title}: DomainListProps) {
@@ -146,7 +146,7 @@ function DomainList({category, location, className, compact = false, link, style
         <SearchSelectorLink
           className={cx(styles.title, styles.buttonSize, !!link && styles.linkedButton)}
           eventID="domain_list_top_link"
-          to={link}>
+          type={link}>
           {title}
           {link && (
             <span className={topLinkStyles.topLink}>
@@ -185,7 +185,7 @@ function DomainList({category, location, className, compact = false, link, style
         <SearchSelectorLink
           className={cx(styles.bottomLink, styles.buttonSize, styles.linkedButton)}
           eventID="domain_list_bottom_link"
-          to={link}>
+          type={link}>
           See all...
         </SearchSelectorLink>
       )}
