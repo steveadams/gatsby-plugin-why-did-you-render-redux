@@ -14,7 +14,7 @@ import {desktop, mobile} from '../styles';
 import Button from './Button';
 import FavoritesFlyout from './FavoritesFlyout';
 import {ClearIcon} from './icons';
-import SearchSelector from './SearchSelector/index';
+import SearchSelector from './SearchSelector';
 import {Key} from './ShortcutsDialog';
 import Text from './Text';
 import TextInput from './TextInput';
