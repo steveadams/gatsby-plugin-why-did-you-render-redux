@@ -6,7 +6,7 @@ import * as React from 'react';
 import * as colors from '../../colors';
 import * as font from '../../font';
 import Text from '../Text';
-import {options, SearchSelectorLink, SearchSelectorOption} from '.';
+import {searches, SearchSelectorLink} from '.';
 
 const styles = {
   list: css`
@@ -38,7 +38,7 @@ const styles = {
 
 const ListSelector = () => (
   <nav>
-    {options.map(([searchType, localeKey]: SearchSelectorOption) => (
+    {searches.map(([searchType, localeKey]) => (
       <SearchSelectorLink className={styles.listItem} key={searchType} type={searchType}>
         <Text id={localeKey} />
       </SearchSelectorLink>

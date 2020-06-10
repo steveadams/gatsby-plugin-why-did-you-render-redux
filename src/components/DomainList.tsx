@@ -12,7 +12,7 @@ import {desktop, mobile} from '../styles';
 import DomainView from './DomainView';
 import ExtensionsSortMenu from './ExtensionsSortMenu';
 import {RightArrowIcon} from './icons';
-import {SearchSelectorLink, SearchSelectorType} from './SearchSelector';
+import {SearchSelectorLink, SearchType} from './SearchSelector';
 
 const topLinkStyles = {
   topLink: css`
@@ -119,7 +119,7 @@ interface DomainListProps {
   location: ClickLocation;
   style?: React.CSSProperties;
   title?: React.ReactNode;
-  searchSelectorType?: SearchSelectorType;
+  searchSelectorType?: SearchType;
 }
 
 function DomainList({

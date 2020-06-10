@@ -12,7 +12,7 @@ import * as font from '../../font';
 import * as selectors from '../../selectors';
 import {ChevronIcon} from '../icons';
 import {useLanguage} from '../Text';
-import {createSearchSelectorPath, options, SearchSelectorOption} from '.';
+import {createSearchSelectorPath, searches} from '.';
 
 const styles = {
   form: css`
@@ -73,7 +73,7 @@ const FloatingSelector = () => {
       {({location}) => (
         <form className={styles.form}>
           <select className={styles.select} onChange={onChange} value={location.pathname}>
-            {options.map(([searchType, localeKey]: SearchSelectorOption) => (
+            {searches.map(([searchType, localeKey]) => (
               <option key={searchType} title={localeKey} value={createSearchSelectorPath(searchType, lang)}>
                 {locale[localeKey]}
               </option>
