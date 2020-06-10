@@ -2,7 +2,7 @@
 
 import {Location} from '@reach/router';
 import {navigate} from 'gatsby';
-import {css, cx} from 'linaria';
+import {css} from 'linaria';
 import React from 'react';
 import {useSelector} from 'react-redux';
 
@@ -12,7 +12,7 @@ import * as font from '../../font';
 import * as selectors from '../../selectors';
 import {ChevronIcon} from '../icons';
 import {useLanguage} from '../Text';
-import {createSearchSelectorPath, SearchSelectorOption, SearchSelectorProps} from '.';
+import {createSearchSelectorPath, options, SearchSelectorOption} from '.';
 
 const styles = {
   form: css`
@@ -48,7 +48,7 @@ const styles = {
   `,
 };
 
-const FloatingSelector = ({className, options}: SearchSelectorProps) => {
+const FloatingSelector = () => {
   // TODO: This localization is awful
   // You can't render a JSX element in an <option> element (output is [object Object]),
   // so using <option><Text id={...} /></option> won't work here
@@ -58,17 +58,20 @@ const FloatingSelector = ({className, options}: SearchSelectorProps) => {
   const locale = React.useMemo(() => require(`../../locales/${lang}`), [lang]);
   const canonicalUrl = useSelector(selectors.canonicalUrl);
 
-  const onChange = ({currentTarget}: {currentTarget: HTMLSelectElement}) => {
-    const selectedValue = currentTarget.value;
+  const onChange = React.useCallback(
+    ({currentTarget}: {currentTarget: HTMLSelectElement}) => {
+      const selectedValue = currentTarget.value;
 
-    analytics.event('interact', 'search_results_switcher_mobile', selectedValue);
-    navigate(selectedValue + canonicalUrl);
-  };
+      analytics.event('interact', 'search_results_switcher_floating', selectedValue);
+      navigate(selectedValue + canonicalUrl);
+    },
+    [canonicalUrl],
+  );
 
   return (
     <Location>
       {({location}) => (
-        <form className={cx(styles.form, className)}>
+        <form className={styles.form}>
           <select className={styles.select} onChange={onChange} value={location.pathname}>
             {options.map(([searchType, localeKey]: SearchSelectorOption) => (
               <option key={searchType} title={localeKey} value={createSearchSelectorPath(searchType, lang)}>

@@ -15,10 +15,6 @@ import ListSelector from './ListSelector';
 export type SearchSelectorType = 'all' | 'extensions' | 'generator' | 'sale' | 'expired';
 export type SearchSelectorOption = [SearchSelectorType, LocaleKey];
 
-export type SearchSelectorProps = {
-  options: SearchSelectorOption[];
-} & React.HTMLAttributes<HTMLElement>;
-
 export type SearchSelectorOptionProps = {
   eventID?: string;
   type: SearchSelectorType;
@@ -38,7 +34,7 @@ export function SearchSelectorLink({children, type, className}: SearchSelectorOp
   const path = createSearchSelectorPath(type, lang);
 
   const onClick = React.useCallback(() => {
-    analytics.event('interact', 'search_results_switcher_desktop', path);
+    analytics.event('interact', 'search_results_switcher_list', path);
   }, [path]);
 
   return (
@@ -55,7 +51,7 @@ export function SearchSelectorLink({children, type, className}: SearchSelectorOp
   );
 }
 
-const options: SearchSelectorOption[] = [
+export const options: SearchSelectorOption[] = [
   ['all', 'allDomains'],
   ['extensions', 'popularTlds'],
   ['generator', 'suggestionsLong'],
@@ -63,8 +59,6 @@ const options: SearchSelectorOption[] = [
   ['expired', 'expired'],
 ];
 
-export default function SearchSelector({floating}: {floating: boolean}) {
-  const Selector = floating ? FloatingSelector : ListSelector;
-
-  return <Selector options={options} />;
+export default function SearchSelector({mobile}: {mobile: boolean}) {
+  return mobile ? <FloatingSelector /> : <ListSelector />;
 }

@@ -254,7 +254,7 @@ function SearchBox() {
         </form>
         {!isMobile && <FavoritesFlyout />}
       </div>
-      <SearchSelector floating={isMobile} />
+      <SearchSelector mobile={isMobile} />
       {!shouldShowHeaderAndFooter && (
         <div className={styles.shortcutsTip} style={{opacity: showShortcutsTip ? 1 : 0}}>
           <strong>Tip:</strong> press <Key>ctrl</Key>
