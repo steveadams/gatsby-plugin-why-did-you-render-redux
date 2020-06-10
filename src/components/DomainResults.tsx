@@ -81,23 +81,23 @@ function DomainResults({showTlds = false}: DomainResultsProps) {
             <DomainList
               category="tlds"
               className={styles.col}
-              link="/domain/extensions/"
               location={ClickLocation.TldsColumn}
+              searchSelectorType="extensions"
               title={<Text id="popularTlds" />}
             />
           )}
           <DomainList
             category="suggestions"
             className={styles.col}
-            link="/domain/generator/"
             location={ClickLocation.GeneratorColumn}
+            searchSelectorType="generator"
             title={<Text id="suggestions" />}
           />
           <DomainList
             category="forSale"
             className={styles.col}
-            link="/domain/sale/"
             location={ClickLocation.ForSaleColumn}
+            searchSelectorType="sale"
             title={<Text id="forSale" />}
           />
         </div>

@@ -25,8 +25,8 @@ const styles = {
   searchContainer: css`
     position: relative;
     text-align: center;
-    padding: 64px 16px 0;
-    overflow: auto;
+    padding: 64px 16px;
+    padding-bottom: 0;
 
     /* Limit padding when rendered adjavent to a <header> */
     header + & {
@@ -35,7 +35,6 @@ const styles = {
 
     ${mobile} {
       padding: 32px 16px;
-      padding-bottom: 0;
     }
   `,
   searchFormAndFavs: css`
@@ -44,6 +43,10 @@ const styles = {
     max-width: 560px;
     margin: 0 auto;
     margin-bottom: 40px;
+
+    ${mobile} {
+      margin-bottom: 0;
+    }
   `,
   searchForm: css`
     position: relative;
@@ -111,8 +114,7 @@ const styles = {
     z-index: 2;
   `,
   collapsed: css`
-    padding-bottom: 0;
-    padding-top: 32px;
+    padding: 32px auto;
   `,
   clearButton: css`
     display: flex;

@@ -119,10 +119,18 @@ interface DomainListProps {
   location: ClickLocation;
   style?: React.CSSProperties;
   title?: React.ReactNode;
-  link: SearchSelectorType;
+  searchSelectorType?: SearchSelectorType;
 }
 
-function DomainList({category, location, className, compact = false, link, style, title}: DomainListProps) {
+function DomainList({
+  category,
+  location,
+  className,
+  compact = false,
+  searchSelectorType,
+  style,
+  title,
+}: DomainListProps) {
   const isMobile = useSelector(selectors.isMobile);
   const domains = useSelector(selectors.forResultCategory[category]);
   const isSearchInProgress = useSelector(selectors.isSearchInProgress);
@@ -142,13 +150,13 @@ function DomainList({category, location, className, compact = false, link, style
   return (
     <div className={className} style={{...style, position: 'relative'}}>
       {category === 'tlds' && !isMobile && <ExtensionsSortMenu />}
-      {title && (
+      {title && searchSelectorType && (
         <SearchSelectorLink
-          className={cx(styles.title, styles.buttonSize, !!link && styles.linkedButton)}
+          className={cx(styles.title, styles.buttonSize, !!searchSelectorType && styles.linkedButton)}
           eventID="domain_list_top_link"
-          type={link}>
+          type={searchSelectorType}>
           {title}
-          {link && (
+          {searchSelectorType && (
             <span className={topLinkStyles.topLink}>
               See all
               <RightArrowIcon className={topLinkStyles.icon} />
@@ -181,11 +189,11 @@ function DomainList({category, location, className, compact = false, link, style
           See {domains.length - collapsedRows * domainsPerRow} more...
         </div>
       )}
-      {!isSearchInProgress && domains && (expanded || !isMobile) && link && domains.length > 0 && (
+      {!isSearchInProgress && domains && (expanded || !isMobile) && searchSelectorType && domains.length > 0 && (
         <SearchSelectorLink
           className={cx(styles.bottomLink, styles.buttonSize, styles.linkedButton)}
           eventID="domain_list_bottom_link"
-          type={link}>
+          type={searchSelectorType}>
           See all...
         </SearchSelectorLink>
       )}
