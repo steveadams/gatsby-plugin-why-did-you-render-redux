@@ -40,10 +40,7 @@ const styles = {
     position: relative;
     width: 100%;
     max-width: 560px;
-    margin-left: auto;
-    margin-top: 0;
-    margin-right: auto;
-    margin-bottom: 32px;
+    margin: 0 auto 32px auto;
     display: flex;
     justify-content: center;
     align-items: stretch;
@@ -81,7 +78,6 @@ const styles = {
     }
   `,
   searchInput: css`
-    min-height: 48px;
     font-size: ${font.xs}px;
     display: flex;
     background-color: transparent;
