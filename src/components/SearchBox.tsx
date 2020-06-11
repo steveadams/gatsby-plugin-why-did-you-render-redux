@@ -209,9 +209,12 @@ function SearchBox() {
     [performMainAction],
   );
 
+  // Only focus the search field in the desktop view
+  const onClick = () => (!isMobile ? actions.focusSearchField() : () => {});
+
   return (
-    <section className={styles.searchContainer}>
-      <div className={styles.searchFormAndFavs} onClick={actions.focusSearchField}>
+    <section className={styles.searchContainer} onClick={onClick}>
+      <div className={styles.searchFormAndFavs}>
         <form
           // TODO: Should urls like this be placed in config somewhere?
           action="https://app.instantdomainsearch.com/redirect/"
