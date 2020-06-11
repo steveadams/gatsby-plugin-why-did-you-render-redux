@@ -14,7 +14,7 @@ import {desktop, mobile} from '../styles';
 import Button from './Button';
 import FavoritesFlyout from './FavoritesFlyout';
 import {ClearIcon} from './icons';
-import {SearchSelector} from './SearchSelector';
+import SearchSelector from './SearchSelector';
 import {Key} from './ShortcutsDialog';
 import Text from './Text';
 import TextInput from './TextInput';
@@ -25,33 +25,31 @@ const styles = {
   searchContainer: css`
     position: relative;
     text-align: center;
-    padding: 64px 16px 0;
-
-    /* Limit padding when rendered adjavent to a <header> */
-    header + & {
-      padding-top: 8px;
-    }
-
-    ${mobile} {
-      padding: 32px 16px;
-    }
   `,
   searchFormAndFavs: css`
     position: relative;
     display: flex;
-    max-width: 560px;
     margin: 0 auto;
+    padding: 0 16px;
+
+    ${mobile} {
+      margin-bottom: 0;
+    }
   `,
   searchForm: css`
     position: relative;
-    min-height: 48px;
     width: 100%;
+    max-width: 560px;
+    margin: 0 auto 32px auto;
     display: flex;
     justify-content: center;
     align-items: stretch;
     border-radius: 50px;
-    margin: 0 auto;
     background-color: ${colors.white};
+
+    &.collapsed {
+      margin-top: 32px;
+    }
 
     &:before {
       content: ' ';
@@ -80,6 +78,7 @@ const styles = {
     }
   `,
   searchInput: css`
+    font-size: ${font.xs}px;
     display: flex;
     background-color: transparent;
     padding-left: 24px;
@@ -105,9 +104,6 @@ const styles = {
     border-top-left-radius: unset;
     border-bottom-left-radius: unset;
     z-index: 2;
-  `,
-  collapsed: css`
-    padding-bottom: 0;
   `,
   clearButton: css`
     display: flex;
@@ -213,16 +209,16 @@ function SearchBox() {
     [performMainAction],
   );
 
+  // Only focus the search field in the desktop view
+  const onClick = () => (!isMobile ? actions.focusSearchField() : () => {});
+
   return (
-    <section
-      className={cx(styles.searchContainer, !shouldShowHeaderAndFooter && styles.collapsed)}
-      // iOS browsers need a user-initiated event to allow .focus() to pop up the keyboard
-      onClick={actions.focusSearchField}>
+    <section className={styles.searchContainer} onClick={onClick}>
       <div className={styles.searchFormAndFavs}>
         <form
           // TODO: Should urls like this be placed in config somewhere?
           action="https://app.instantdomainsearch.com/redirect/"
-          className={styles.searchForm}
+          className={cx(styles.searchForm, !shouldShowHeaderAndFooter && 'collapsed')}
           method="get"
           onSubmit={onSubmit}
           role="search">
@@ -257,7 +253,7 @@ function SearchBox() {
         </form>
         {!isMobile && <FavoritesFlyout />}
       </div>
-      <SearchSelector />
+      <SearchSelector mobile={isMobile} />
       {!shouldShowHeaderAndFooter && (
         <div className={styles.shortcutsTip} style={{opacity: showShortcutsTip ? 1 : 0}}>
           <strong>Tip:</strong> press <Key>ctrl</Key>
