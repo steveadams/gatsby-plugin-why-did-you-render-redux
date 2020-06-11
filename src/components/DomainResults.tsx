@@ -10,6 +10,7 @@ import * as selectors from '../selectors';
 import {desktop, mobile} from '../styles';
 import Button from './Button';
 import DomainList from './DomainList';
+import {SearchType} from './SearchSelector';
 import Text from './Text';
 
 const styles = {
@@ -82,7 +83,7 @@ function DomainResults({showTlds = false}: DomainResultsProps) {
               category="tlds"
               className={styles.col}
               location={ClickLocation.TldsColumn}
-              searchSelectorType="extensions"
+              searchSelectorType={SearchType.Extensions}
               title={<Text id="popularTlds" />}
             />
           )}
@@ -90,14 +91,14 @@ function DomainResults({showTlds = false}: DomainResultsProps) {
             category="suggestions"
             className={styles.col}
             location={ClickLocation.GeneratorColumn}
-            searchSelectorType="generator"
+            searchSelectorType={SearchType.Generator}
             title={<Text id="suggestions" />}
           />
           <DomainList
             category="forSale"
             className={styles.col}
             location={ClickLocation.ForSaleColumn}
-            searchSelectorType="sale"
+            searchSelectorType={SearchType.Sale}
             title={<Text id="forSale" />}
           />
         </div>

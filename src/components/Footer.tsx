@@ -9,7 +9,7 @@ import * as font from '../font';
 import {desktop, mobile} from '../styles';
 import IconFacebook from './IconFacebook';
 import IconTwitter from './IconTwitter';
-import {SearchSelectorLink} from './SearchSelector';
+import {SearchSelectorLink, SearchType} from './SearchSelector';
 import Text, {languageCodes, localizedLanguageNames, useLanguage} from './Text';
 
 const styles = {
@@ -81,19 +81,19 @@ function Footer() {
               }
             }
           `}>
-          <SearchSelectorLink className="homeLink" type="all">
+          <SearchSelectorLink className="homeLink" type={SearchType.All}>
             <Text id="home" />
           </SearchSelectorLink>
-          <SearchSelectorLink type="extensions">
+          <SearchSelectorLink type={SearchType.Extensions}>
             <Text id="popularTldsLong" />
           </SearchSelectorLink>
-          <SearchSelectorLink type="generator">
+          <SearchSelectorLink type={SearchType.Generator}>
             <Text id="suggestionsLong" />
           </SearchSelectorLink>
-          <SearchSelectorLink type="sale">
+          <SearchSelectorLink type={SearchType.Sale}>
             <Text id="forSaleLong" />
           </SearchSelectorLink>
-          <SearchSelectorLink type="expired">
+          <SearchSelectorLink type={SearchType.Expired}>
             <Text id="expiredLong" />
           </SearchSelectorLink>
         </div>
