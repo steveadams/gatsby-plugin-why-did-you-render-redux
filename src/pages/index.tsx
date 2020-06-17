@@ -101,8 +101,6 @@ export default (props: PageProps) => (
         </Column>
       </WideLayout>
 
-      <hr style={{margin: '0 0 48px'}} />
-
       <WideLayout>
         <Column>
           <IconGroup headerTag="h2" icon={IconSemaphore} title="Check domain availability">
@@ -130,8 +128,6 @@ export default (props: PageProps) => (
           </SmallIconGroup>
         </Column>
       </WideLayout>
-
-      <hr style={{margin: '0 0 48px'}} />
 
       <WideLayout>
         <Column>
