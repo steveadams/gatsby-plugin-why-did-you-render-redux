@@ -1,7 +1,6 @@
 /* Copyright 2005-present Instant Domain Search, Inc. */
 
 import {Link} from 'gatsby';
-import {css} from 'linaria';
 import * as React from 'react';
 
 import {event} from '../analytics';
@@ -10,11 +9,11 @@ import Alternates from '../components/Alternates';
 import Column from '../components/Column';
 import Controller from '../components/Controller';
 import DomainResults from '../components/DomainResults';
+import Explainer from '../components/Explainer';
 import IconGroup from '../components/IconGroup';
 import Page from '../components/Page';
 import SmallIconGroup from '../components/SmallIconGroup';
 import WideLayout from '../components/WideLayout';
-import * as font from '../font';
 import * as routes from '../routes';
 
 export default (props: PageProps) => (
@@ -25,22 +24,19 @@ export default (props: PageProps) => (
     <Alternates />
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <WideLayout>
-        <IconGroup
-          className={css`
-            & > p {
-              font-size: ${font.s}px;
-            }
-          `}
-          headerTag="h1"
-          icon="Search"
-          title="Domain name search">
-          Instant Domain Search shows domain name search results as you type. Our domain checker automatically generates
-          available domain names, shows aftermarket domains for sale, and shows domain availability for popular domain
-          extensions—instantly! Great <Link to="/articles/choosing-a-domain-name/">domain names</Link> are short,
-          memorable, and easy to spell. Try not to use hyphens or numbers. A good place to start is what someone might
-          type into a search engine to find your website. The domain name search results are sponsored. We earn money
-          when you buy names and services from partners that we link to.
-        </IconGroup>
+        <Explainer title="Domain name search">
+          <p>
+            Instant Domain Search <strong>shows domain name search results as you type.</strong> Our domain checker
+            automatically generates available domain names, shows aftermarket domains for sale, and shows domain
+            availability for popular domain extensions—instantly! <Link to="/wow">Great domain names</Link> are short,
+            memorable, and easy to spell.
+          </p>
+          <p>
+            Try not to use hyphens or numbers. A good place to start is what someone might type into a search engine to
+            find your website. The domain name search results are sponsored. We earn money when you buy names and
+            services from partners that we link to.
+          </p>
+        </Explainer>
 
         <Column>
           <IconGroup

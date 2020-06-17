@@ -1,16 +1,15 @@
 /* Copyright 2005-present Instant Domain Search, Inc. */
 
 import {Link} from 'gatsby';
-import {css} from 'linaria';
 import * as React from 'react';
 
 import Column from '../../components/Column';
 import Controller from '../../components/Controller';
 import DomainSale from '../../components/DomainSale';
+import Explainer from '../../components/Explainer';
 import IconGroup from '../../components/IconGroup';
 import Page from '../../components/Page';
 import WideLayout from '../../components/WideLayout';
-import * as font from '../../font';
 import * as routes from '../../routes';
 
 export default (props: PageProps) => (
@@ -20,21 +19,17 @@ export default (props: PageProps) => (
     title="Domains For Sale">
     <Controller page={routes.Page.Sale} results={<DomainSale />}>
       <WideLayout>
-        <IconGroup
-          className={css`
-            & > p {
-              font-size: ${font.s}px;
-            }
-          `}
-          headerTag="h1"
-          icon="Sale"
-          title="Domains for sale – search the domain marketplace instantly">
-          Instant Domain Search sifts through millions of domain names for sale with every key press. We show names for
-          sale in blue, and link to marketplace where the domain is listed when you click on a name. You can use our{' '}
-          <Link to="/">domain name search</Link> tool to search for names that are not yet registered. The domain name
-          search results are sponsored. We earn money when you buy names and services from our partners like Go Daddy,
-          Shopify, Wix, WordPress, and Domain.com.
-        </IconGroup>
+        <Explainer title="Domains for sale – search the domain marketplace instantly">
+          <p>
+            Instant Domain Search sifts through millions of domain names for sale with every key press. We show names
+            for sale in blue, and link to marketplace where the domain is listed when you click on a name.
+          </p>
+          <p>
+            You can use our <Link to="/?">domain name search tool</Link> to search for names that are not yet
+            registered. The domain name search results are sponsored. We earn money when you buy names and services from
+            our partners like Go Daddy, Shopify, Wix, WordPress, and Domain.com.
+          </p>
+        </Explainer>
 
         <Column>
           <IconGroup icon="Buy" title="Buy domains">

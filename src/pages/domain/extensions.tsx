@@ -1,17 +1,16 @@
 /* Copyright 2005-present Instant Domain Search, Inc. */
 
 import {Link} from 'gatsby';
-import {css} from 'linaria';
 import * as React from 'react';
 
 import {event} from '../../analytics';
 import Column from '../../components/Column';
 import Controller from '../../components/Controller';
 import DomainGrid from '../../components/DomainGrid';
+import Explainer from '../../components/Explainer';
 import IconGroup from '../../components/IconGroup';
 import Page from '../../components/Page';
 import WideLayout from '../../components/WideLayout';
-import * as font from '../../font';
 import * as routes from '../../routes';
 
 export default (props: PageProps) => (
@@ -21,27 +20,19 @@ export default (props: PageProps) => (
     title="Domain Extensions">
     <Controller page={routes.Page.Gtlds} results={<DomainGrid />}>
       <WideLayout>
-        <IconGroup
-          className={css`
-            & > p {
-              font-size: ${font.s}px;
-            }
-          `}
-          headerTag="h1"
-          icon="Extensions"
-          title="Domain extensions – search new gTLDs instantly">
-          New domain name extensions, or generic top-level domains—gTLDs—are coming online every day. We also support
-          hundreds of country code TLDs as you type. We made a special interface to instantly search hundreds of domain
-          names at once.{' '}
-          <a
-            href="/domain/extensions/#search=full%20list%20of%20extensions"
-            onClick={() => event('interact', 'extensions', 'click to see all')}>
-            Click here to the full list.
-          </a>{' '}
-          To search generated names, domain extensions, and domains for sale at the same time you can use our{' '}
-          <Link to="/">domain name search</Link> tool. The domain name search results are sponsored. We earn money when
-          you buy names and services from partners that we link to.
-        </IconGroup>
+        <Explainer title="Domain extensions – search new gTLDs instantly">
+          <p>
+            New domain name extensions, or generic top-level domains—gTLDs—are coming online every day. We also support
+            hundreds of country code TLDs as you type. We made a special interface to instantly search hundreds of
+            domain names at once.{' '}
+            <Link to="/domain/extensions/#search=full list of extensions">Click here to the full list.</Link>
+          </p>
+          <p>
+            To search generated names, domain extensions, and domains for sale at the same time you can use our{' '}
+            <Link to="/">domain name search tool.</Link> The domain name search results are sponsored. We earn money
+            when you buy names and services from partners that we link to.
+          </p>
+        </Explainer>
 
         <Column>
           <IconGroup icon="Question" title="What is a gTLD?">

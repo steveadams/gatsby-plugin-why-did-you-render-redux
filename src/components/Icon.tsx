@@ -43,7 +43,7 @@ export default React.memo(Icon);
 
 const Circle = ({background}: {background: string}) => <circle cx="28" cy="28" fill={background} r="28" />;
 
-const icons: Record<string, FC<IconColors>> = {
+export const icons: Record<string, FC<IconColors>> = {
   AI: ({primary, secondary}) => (
     <>
       <mask fill={secondary} id="path-2-inside-1">
