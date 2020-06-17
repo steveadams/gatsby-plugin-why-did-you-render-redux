@@ -8,7 +8,7 @@ import {darkGray, lightGray, mediumDarkGray, mediumGray} from '../colors';
 import {bold, regular} from '../font';
 import {extensionsSort} from '../selectors';
 import Flyout from './Flyout';
-import {SortIcon} from './icons';
+import SortIcon from './SortIcon';
 
 const styles = {
   flyout: css`

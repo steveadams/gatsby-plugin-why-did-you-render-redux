@@ -13,7 +13,7 @@ import * as selectors from '../selectors';
 import {desktop, mobile} from '../styles';
 import Button from './Button';
 import FavoritesFlyout from './FavoritesFlyout';
-import {ClearIcon} from './icons';
+import Icon from './Icon';
 import SearchSelector from './SearchSelector';
 import {Key} from './ShortcutsDialog';
 import Text from './Text';
@@ -132,7 +132,7 @@ const styles = {
     }
   `,
   clearIcon: css`
-    fill: ${colors.darkGray};
+    color: ${colors.darkGray};
   `,
   shortcutsTip: css`
     position: absolute;
@@ -241,7 +241,7 @@ function SearchBox() {
 
           {!shouldShowHeaderAndFooter && (
             <Button className={styles.clearButton} onClick={actions.clearSearchField}>
-              <ClearIcon className={styles.clearIcon} />
+              <Icon className={styles.clearIcon} name="Clear" />
             </Button>
           )}
 
@@ -250,8 +250,8 @@ function SearchBox() {
           </Button>
 
           {isMobile && <input style={{display: 'none'}} type="button" value="Search" />}
+          {!isMobile && <FavoritesFlyout />}
         </form>
-        {!isMobile && <FavoritesFlyout />}
       </div>
       <SearchSelector mobile={isMobile} />
       {!shouldShowHeaderAndFooter && (

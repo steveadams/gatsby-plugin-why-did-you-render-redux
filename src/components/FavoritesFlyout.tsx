@@ -11,7 +11,7 @@ import * as font from '../font';
 import * as selectors from '../selectors';
 import DomainList from './DomainList';
 import Flyout from './Flyout';
-import {StarIcon} from './icons';
+import StarIcon from './StarIcon';
 
 const styles = {
   flyout: css`

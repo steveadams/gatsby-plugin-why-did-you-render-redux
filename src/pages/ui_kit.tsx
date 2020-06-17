@@ -4,11 +4,10 @@ import {css} from 'linaria';
 import * as React from 'react';
 
 import * as colors from '../colors';
-import BackButton from '../components/BackButton';
 import Button from '../components/Button';
 import Controller from '../components/Controller';
 import DomainResults from '../components/DomainResults';
-import {ChevronIcon, LongRightArrowIcon} from '../components/icons';
+import Icon, {IconName, icons} from '../components/Icon';
 import Page from '../components/Page';
 import WideLayout from '../components/WideLayout';
 import * as routes from '../routes';
@@ -23,6 +22,25 @@ const styles = {
     border-top: 1px solid ${colors.extraLightGray};
     border-bottom: 1px solid ${colors.extraLightGray};
   `,
+  icons: css`
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-rows: repeat(6, 1fr);
+    grid-auto-flow: dense;
+    grid-gap: 16px;
+    grid-auto-rows: 1fr;
+    text-align: center;
+
+    li {
+      margin-bottom: 32px;
+
+      pre {
+        background: none;
+        margin-top: 16px;
+      }
+    }
+  `,
 };
 
 export default (props: PageProps) => (
@@ -35,18 +53,36 @@ export default (props: PageProps) => (
           <h2>Buttons</h2>
           <div className={styles.row}>
             <Button>
-              <span>Primary Button</span> <LongRightArrowIcon />
+              <span>Primary Button</span> <Icon name="ArrowLeft" />
             </Button>
             <br />
-            <BackButton />
+            <Button>
+              <Icon name="ArrowLeft" /> <span>Back</span>
+            </Button>
             <br />
             <Button>
-              <span>Mobile Nav</span> <ChevronIcon />
+              <span>Mobile Nav</span> <Icon name="Chevron" />
             </Button>
             <br />
             <Button textButton={true}>
-              <span>Text Button</span> <LongRightArrowIcon />
+              <span>Text Button</span> <Icon name="ArrowRight" />
             </Button>
+          </div>
+
+          <h2>Icons</h2>
+          <div className={styles.row}>
+            <ul className={styles.icons}>
+              {Object.keys(icons)
+                .filter(
+                  k => k && !['Circle', 'Chevron', 'ChevronRight', 'Clear', 'ArrowLeft', 'ArrowRight'].includes(k),
+                )
+                .map(key => (
+                  <li key={key}>
+                    <Icon name={key as IconName} round />
+                    <pre>{key}</pre>
+                  </li>
+                ))}
+            </ul>
           </div>
         </section>
       </WideLayout>

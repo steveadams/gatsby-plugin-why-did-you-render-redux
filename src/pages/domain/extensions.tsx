@@ -8,12 +8,7 @@ import {event} from '../../analytics';
 import Column from '../../components/Column';
 import Controller from '../../components/Controller';
 import DomainGrid from '../../components/DomainGrid';
-import IconExtensionsLarge from '../../components/IconExtensionsLarge';
-import IconGrid from '../../components/IconGrid';
 import IconGroup from '../../components/IconGroup';
-import IconList from '../../components/IconList';
-import IconLock from '../../components/IconLock';
-import IconWhatIs from '../../components/IconWhatIs';
 import Page from '../../components/Page';
 import WideLayout from '../../components/WideLayout';
 import * as font from '../../font';
@@ -33,7 +28,7 @@ export default (props: PageProps) => (
             }
           `}
           headerTag="h1"
-          icon={IconExtensionsLarge}
+          icon="Extensions"
           title="Domain extensions – search new gTLDs instantly">
           New domain name extensions, or generic top-level domains—gTLDs—are coming online every day. We also support
           hundreds of country code TLDs as you type. We made a special interface to instantly search hundreds of domain
@@ -49,7 +44,7 @@ export default (props: PageProps) => (
         </IconGroup>
 
         <Column>
-          <IconGroup icon={IconWhatIs} title="What is a gTLD?">
+          <IconGroup icon="Question" title="What is a gTLD?">
             A generic top-level domain (gTLD), is the last part of the domain, like{' '}
             <Link onClick={() => event('internal', 'click', 'domain_com_p-small')} to="/domain/extensions/.com/">
               .com
@@ -61,7 +56,7 @@ export default (props: PageProps) => (
         </Column>
 
         <Column>
-          <IconGroup icon={IconList} title="List of domain extensions">
+          <IconGroup icon="List" title="List of domain extensions">
             Hundreds of new endings, like .guru and .tips, are now available to register. We show the best TLDs first.{' '}
             <a
               href="/domain/extensions/#search=full%20list%20of%20extensions"
@@ -72,7 +67,7 @@ export default (props: PageProps) => (
         </Column>
 
         <Column>
-          <IconGroup icon={IconGrid} title="Search all domain endings at once">
+          <IconGroup icon="Search" title="Search all domain endings at once">
             This page is optimized to help you search for them all at once. It shows results in a grid, with available
             extensions shown in green.{' '}
             <a href="/domain/extensions/#search=kitten" onClick={() => event('interact', 'extensions', 'kitten')}>
@@ -83,7 +78,7 @@ export default (props: PageProps) => (
         </Column>
 
         <Column>
-          <IconGroup icon={IconLock} title="Private and secure">
+          <IconGroup icon="Secure" title="Private and secure">
             All traffic to the site is encrypted. Domain search results are not recorded. Press Return to register your
             domain name. We use Google Analytics, which uses cookies, to see how you use this website over time.
           </IconGroup>

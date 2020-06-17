@@ -7,7 +7,7 @@ import * as React from 'react';
 import * as colors from '../colors';
 import * as font from '../font';
 import Flyout from './Flyout';
-import {ChevronIcon} from './icons';
+import Icon from './Icon';
 import {languageCodes, localizedLanguageNames, useLanguage} from './Text';
 
 const styles = {
@@ -19,7 +19,6 @@ const styles = {
   `,
   handle: css`
     display: flex;
-    align-content: center;
     justify-content: center;
     color: ${colors.darkGray};
     padding: 8px;
@@ -37,7 +36,7 @@ const styles = {
     }
   `,
   expandedHandle: css`
-    background: ${colors.extraLightGray};
+    background: ${colors.lightGray};
 
     & svg {
       color: ${colors.mediumDarkGray};
@@ -45,8 +44,8 @@ const styles = {
   `,
   chevron: css`
     color: ${colors.mediumGray};
-    width: 10px;
-    height: 5px;
+    width: 14px;
+    height: 14px;
     align-self: center;
     margin-left: 4px;
   `,
@@ -69,7 +68,7 @@ function LanguageFlyout() {
 
   const handle = (className: string) => (
     <div className={className}>
-      {localizedLanguageNames[lang]} <ChevronIcon className={styles.chevron} />
+      {localizedLanguageNames[lang]} <Icon className={styles.chevron} name="ChevronSmall" round={false} />
     </div>
   );
 

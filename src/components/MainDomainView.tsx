@@ -27,7 +27,7 @@ import DomainButton from './DomainButton';
 import DomainMenu from './DomainMenu';
 import DomainStar from './DomainStar';
 import Flyout from './Flyout';
-import {LongRightArrowIcon} from './icons';
+import Icon from './Icon';
 import Link from './Link';
 import Text, {LocaleKey} from './Text';
 
@@ -189,7 +189,7 @@ function MainDomainView() {
         target="_blank"
         title={title}>
         <Text id={textId} />
-        <LongRightArrowIcon className={styles.arrowIcon} />
+        <Icon className={styles.arrowIcon} name="ArrowRight" />
       </Button>
     );
 
@@ -269,7 +269,7 @@ function MainDomainView() {
             eventType="convert"
             eventValue={domain.price || 0}
             location={analytics.ClickLocation.MainResult}>
-            <LongRightArrowIcon className={styles.arrowIcon} />
+            <Icon className={styles.arrowIcon} name="ArrowRight" />
           </DomainButton>
           {!isMobile && <DomainMenu domain={domain} />}
         </div>

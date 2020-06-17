@@ -7,12 +7,7 @@ import * as React from 'react';
 import Column from '../../components/Column';
 import Controller from '../../components/Controller';
 import DomainSale from '../../components/DomainSale';
-import IconAiSearch from '../../components/IconAiSearch';
-import IconBuyDomains from '../../components/IconBuyDomains';
-import IconDomainAuction from '../../components/IconDomainAuction';
-import IconForSaleLarge from '../../components/IconForSaleLarge';
 import IconGroup from '../../components/IconGroup';
-import IconLock from '../../components/IconLock';
 import Page from '../../components/Page';
 import WideLayout from '../../components/WideLayout';
 import * as font from '../../font';
@@ -32,7 +27,7 @@ export default (props: PageProps) => (
             }
           `}
           headerTag="h1"
-          icon={IconForSaleLarge}
+          icon="Sale"
           title="Domains for sale – search the domain marketplace instantly">
           Instant Domain Search sifts through millions of domain names for sale with every key press. We show names for
           sale in blue, and link to marketplace where the domain is listed when you click on a name. You can use our{' '}
@@ -42,7 +37,7 @@ export default (props: PageProps) => (
         </IconGroup>
 
         <Column>
-          <IconGroup icon={IconBuyDomains} title="Buy domains">
+          <IconGroup icon="Buy" title="Buy domains">
             Buying a domain name is straightforward. We work with large marketplaces like AfterNic, GoDaddy, and Sedo,
             all of whom can help you buy and transfer your domain name. Transfers are usually handled by the domain
             marketplace, and you should expect to be up and running with your new name quickly once you transfer a
@@ -51,7 +46,7 @@ export default (props: PageProps) => (
         </Column>
 
         <Column>
-          <IconGroup icon={IconDomainAuction} title="Domain auctions">
+          <IconGroup icon="Auction" title="Domain auctions">
             Some domain names are only available at auction. For now, we’ve chosen to feature buy it now domain names
             because they are often available immediately. We are working to improve our search engine to make it easier
             for advanced users to choose whether they want to include domains at auction (or domains with hyphens and
@@ -60,14 +55,14 @@ export default (props: PageProps) => (
         </Column>
 
         <Column>
-          <IconGroup icon={IconAiSearch} title="AI-powered domain search">
+          <IconGroup icon="AI" title="AI-powered domain search">
             We use AI techniques to sift through the ten million domain names for sale that we index to show you names
             most relevant to your search. Let us know how we can improve search quality!
           </IconGroup>
         </Column>
 
         <Column>
-          <IconGroup icon={IconLock} title="Private and secure">
+          <IconGroup icon="Secure" title="Private and secure">
             All traffic to the site is encrypted. Domain search results are not recorded. Press Return to register your
             domain name. We use Google Analytics, which uses cookies, to see how you use this website over time.
           </IconGroup>

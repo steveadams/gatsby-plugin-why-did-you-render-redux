@@ -1,6 +1,6 @@
 /* Copyright 2005-present Instant Domain Search, Inc. */
 
-import {css, cx} from 'linaria';
+import {css} from 'linaria';
 import * as React from 'react';
 import {useSelector} from 'react-redux';
 
@@ -13,26 +13,13 @@ import {State} from '../reducers';
 import * as selectors from '../selectors';
 import {debounceImmediate} from '../util';
 import Flyout from './Flyout';
-import {ChevronIcon} from './icons';
+import Icon from './Icon';
 import Link from './Link';
 import Text from './Text';
 
 const styles = {
   handle: css`
-    background-color: ${colors.extraLightGray};
-    border-radius: 100%;
-    padding: 10px 6px;
-    width: 16px;
-    height: 8px;
-    fill: none;
-    color: ${colors.darkGray};
-
-    &:hover {
-      color: black;
-    }
-  `,
-  expandedHandle: css`
-    color: black;
+    width: 24px;
   `,
   menu: css`
     margin: 0;
@@ -126,12 +113,24 @@ function DomainMenu({domain}: DomainMenuProps) {
 
   const social = useSelector((state: State) => selectors.socialUsernameAvailability(state, domain));
 
-  const handle = (className?: string) => <ChevronIcon className={cx(styles.handle, className)} />;
+  const Handle = () => (
+    <Icon
+      background={colors.extraLightGray}
+      className={styles.handle}
+      name="ChevronSmall"
+      round
+      stroke={colors.darkGray}
+    />
+  );
+
+  const ExpandedHandle = () => (
+    <Icon background={colors.darkGray} className={styles.handle} name="ChevronSmall" round stroke={colors.white} />
+  );
 
   return (
     <Flyout
-      collapsedHandle={handle()}
-      expandedHandle={handle(styles.expandedHandle)}
+      collapsedHandle={<Handle />}
+      expandedHandle={<ExpandedHandle />}
       onCollapse={() => {
         setIsOpen(false);
       }}

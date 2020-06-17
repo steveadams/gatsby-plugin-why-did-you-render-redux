@@ -13,7 +13,7 @@ import godaddyLogo from '../images/hosting/godaddy.svg';
 import shopifyLogo from '../images/hosting/shopify.svg';
 import tailorLogo from '../images/hosting/tailor.svg';
 import * as selectors from '../selectors';
-import {ClearIcon} from './icons';
+import Icon from './Icon';
 import Link from './Link';
 
 const styles = {
@@ -49,7 +49,7 @@ const styles = {
     right: 12px;
     stroke: ${colors.mediumDarkGray};
     top: 12px;
-    vertical-align: middle;
+
     &:hover {
       background: ${colors.mediumDarkGrayHover};
       stroke: ${colors.white};
@@ -113,7 +113,7 @@ function HostingChooser() {
         eventType="interact"
         href="##"
         onClick={actions.dismissHostingChooser}>
-        <ClearIcon className={styles.clearButton} />
+        <Icon className={styles.clearButton} name="Clear" />
       </Link>
       <div className={styles.contentBox}>
         <ul className="hosting">

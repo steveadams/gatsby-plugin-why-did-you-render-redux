@@ -5,22 +5,12 @@ import {css} from 'linaria';
 import * as React from 'react';
 
 import {event} from '../analytics';
+import * as colors from '../colors';
 import Alternates from '../components/Alternates';
 import Column from '../components/Column';
 import Controller from '../components/Controller';
 import DomainResults from '../components/DomainResults';
-import IconBlue from '../components/IconBlue';
-import IconCoupon from '../components/IconCoupon';
-import IconExpired from '../components/IconExpired';
-import IconExtensions from '../components/IconExtensions';
-import IconForSale from '../components/IconForSale';
-import IconGenerator from '../components/IconGenerator';
-import IconGreen from '../components/IconGreen';
 import IconGroup from '../components/IconGroup';
-import IconLock from '../components/IconLock';
-import IconRed from '../components/IconRed';
-import IconSearch from '../components/IconSearch';
-import IconSemaphore from '../components/IconSemaphore';
 import Page from '../components/Page';
 import SmallIconGroup from '../components/SmallIconGroup';
 import WideLayout from '../components/WideLayout';
@@ -42,7 +32,7 @@ export default (props: PageProps) => (
             }
           `}
           headerTag="h1"
-          icon={IconSearch}
+          icon="Search"
           title="Domain name search">
           Instant Domain Search shows domain name search results as you type. Our domain checker automatically generates
           available domain names, shows aftermarket domains for sale, and shows domain availability for popular domain
@@ -54,13 +44,13 @@ export default (props: PageProps) => (
 
         <Column>
           <IconGroup
-            eventInfo="domain_extensions_h3"
-            href="/domain/extensions/"
-            icon={IconExtensions}
-            title="Domain extensions">
+            eventInfo="business_name_generator_h3"
+            href="/?"
+            icon="BizNameGenerator"
+            title="Business Name Generator">
             Search .com and other domain extensions like .app, .dev, .store, and over a hundred more. We also search
             country-code domains (ccTLDs) like .ca, .co.uk, .us, and .in. The{' '}
-            <Link onClick={() => event('internal', 'click', 'domain_extensions_p-small')} to="/domain/extensions/">
+            <Link onClick={() => event('internal', 'click', 'business_name_generator_p-small')} to="/?">
               domain name extensions
             </Link>{' '}
             page shows gTLD domain availability in a grid to make it easier to see many results at once.
@@ -71,7 +61,7 @@ export default (props: PageProps) => (
           <IconGroup
             eventInfo="domain_generator_h3"
             href="/domain/generator/"
-            icon={IconGenerator}
+            icon="DomainGenerator"
             title="Domain name generator">
             Our{' '}
             <Link onClick={() => event('internal', 'click', 'domain_generator_p')} to="/domain/generator/">
@@ -83,7 +73,7 @@ export default (props: PageProps) => (
         </Column>
 
         <Column>
-          <IconGroup eventInfo="domain_sale_h3" href="/domain/sale/" icon={IconForSale} title="Domains for sale">
+          <IconGroup eventInfo="domain_sale_h3" href="/domain/sale/" icon="Sale" title="Domains for sale">
             Search millions of domain names for sale. We work with large marketplaces like AfterNic, GoDaddy, and Sedo.
             AI-powered search helps find great names related to your domain name.
           </IconGroup>
@@ -92,18 +82,19 @@ export default (props: PageProps) => (
         <Column>
           <IconGroup
             eventInfo="domain_expired_h3"
-            href="/domain/expired/"
-            icon={IconExpired}
-            title="Expired domain names">
-            Search domain names that are about to expire. Some registrars let you buy the domain name immediately,
-            sometimes the names go to an auction, and others will backorder the name for you.
+            href="/domain/extensions/"
+            icon="Extensions"
+            title="Domain Extensions">
+            Search .com and other domain extensions like .app, .dev, .store, and over a hundred more. We also search
+            country-code domains (ccTLDs) like .ca, .co.uk, .us, and .in. The domain name extensions page shows gTLD
+            domain availability in a grid to make it easier to see many results at once.
           </IconGroup>
         </Column>
       </WideLayout>
 
       <WideLayout>
         <Column>
-          <IconGroup headerTag="h2" icon={IconSemaphore} title="Check domain availability">
+          <IconGroup headerTag="h2" icon="Availability" title="Check domain availability">
             Instant Domain Search checks domain availability by doing a <span className="smallCaps">DNS</span> query to
             get domain name search results as fast as possible. <span className="smallCaps">WHOIS</span>{' '}
             <Link onClick={() => event('internal', 'click', 'domain_lookup_p-small')} to="/domain/lookup/">
@@ -115,14 +106,14 @@ export default (props: PageProps) => (
         </Column>
 
         <Column>
-          <SmallIconGroup icon={IconRed}>
+          <SmallIconGroup icon={{name: 'DomainUnavailable', background: colors.red}}>
             <strong className="red">Red</strong> results mean that the name is taken. Do&nbsp;a&nbsp;
             <span className="smallCaps">WHOIS</span> lookup to see when the current registration expires.
           </SmallIconGroup>
-          <SmallIconGroup icon={IconGreen}>
+          <SmallIconGroup icon={{name: 'DomainAvailable', background: colors.green}}>
             <strong className="green">Green</strong> results mean the domain name is available to register!
           </SmallIconGroup>
-          <SmallIconGroup icon={IconBlue}>
+          <SmallIconGroup icon={{name: 'DomainForSale', background: colors.blue}}>
             <strong className="blue">Blue</strong> results show domain names for sale. Buy them from one of our auction
             partners.
           </SmallIconGroup>
@@ -131,7 +122,7 @@ export default (props: PageProps) => (
 
       <WideLayout>
         <Column>
-          <IconGroup icon={IconCoupon} title="$4.99 .com domain name registration">
+          <IconGroup icon="Coupon" title="$4.99 .com domain name registration">
             We automatically apply a discount when you register your first{' '}
             <Link onClick={() => event('internal', 'click', 'domain_com_p-small')} to="/domain/extensions/.com/">
               .com
@@ -142,7 +133,7 @@ export default (props: PageProps) => (
         </Column>
 
         <Column>
-          <IconGroup icon={IconLock} title="Private and secure">
+          <IconGroup icon="Secure" title="Private and secure">
             All traffic to the site is encrypted. Domain name search results are not recorded. Press Return to register
             your domain name. We use Google Analytics, which uses cookies, to see how you use this website over time.
           </IconGroup>

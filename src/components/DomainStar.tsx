@@ -10,7 +10,7 @@ import {localStorageKey, statusName} from '../domain';
 import * as favorites from '../favorites';
 import * as selectors from '../selectors';
 import * as statusColors from '../statusColors';
-import {StarIcon} from './icons';
+import StarIcon from './StarIcon';
 
 const styles = {
   default: css`

@@ -7,10 +7,7 @@ import * as React from 'react';
 import Column from '../../components/Column';
 import Controller from '../../components/Controller';
 import DomainExpired from '../../components/DomainExpired';
-import IconAiSearch from '../../components/IconAiSearch';
-import IconExpiredLarge from '../../components/IconExpiredLarge';
 import IconGroup from '../../components/IconGroup';
-import IconLock from '../../components/IconLock';
 import Page from '../../components/Page';
 import WideLayout from '../../components/WideLayout';
 import * as font from '../../font';
@@ -30,7 +27,7 @@ export default (props: PageProps) => (
             }
           `}
           headerTag="h1"
-          icon={IconExpiredLarge}
+          icon="Question"
           title="Expired domains – search expiring domains">
           Domain names expire when someone decides to stop renewing it. They may not be available to register
           immediately. We update the search index every night, so some names may already be renewed or re-registered.
@@ -42,14 +39,14 @@ export default (props: PageProps) => (
         </IconGroup>
 
         <Column>
-          <IconGroup icon={IconAiSearch} title="AI-powered domain search">
+          <IconGroup icon="AI" title="AI-powered domain search">
             We use AI techniques to sift through the ten million domain names for sale that we index to show you names
             most relevant to your search. Let us know how we can improve search quality!
           </IconGroup>
         </Column>
 
         <Column>
-          <IconGroup icon={IconLock} title="Private and secure">
+          <IconGroup icon="Secure" title="Private and secure">
             All traffic to the site is encrypted. Domain search results are not recorded. Press Return to register your
             domain name. We use Google Analytics, which uses cookies, to see how you use this website over time.
           </IconGroup>

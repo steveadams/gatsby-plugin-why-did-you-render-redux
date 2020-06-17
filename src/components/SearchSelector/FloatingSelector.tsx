@@ -10,7 +10,7 @@ import * as analytics from '../../analytics';
 import * as colors from '../../colors';
 import * as font from '../../font';
 import * as selectors from '../../selectors';
-import {ChevronIcon} from '../icons';
+import Icon from '../Icon';
 import {useLanguage} from '../Text';
 import {createSearchSelectorPath, searches} from '.';
 
@@ -79,7 +79,7 @@ const FloatingSelector = () => {
               </option>
             ))}
           </select>
-          <ChevronIcon className={styles.icon} />
+          <Icon className={styles.icon} name="Chevron" />
         </form>
       )}
     </Location>

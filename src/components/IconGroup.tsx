@@ -6,11 +6,12 @@ import * as React from 'react';
 
 import {event} from '../analytics';
 import * as colors from '../colors';
+import Icon, {IconName} from '../components/Icon';
 import * as font from '../font';
 import {desktop, mobile} from '../styles';
 
 interface IconGroupProps {
-  icon: React.ExoticComponent<{className?: string}>;
+  icon: IconName;
   title: string;
   href?: string;
   eventInfo?: string;
@@ -19,15 +20,7 @@ interface IconGroupProps {
   children: React.ReactNode;
 }
 
-function IconGroup({
-  icon: Icon,
-  title,
-  children,
-  href,
-  eventInfo,
-  headerTag: HeaderTag = 'h3',
-  className,
-}: IconGroupProps) {
+function IconGroup({icon, title, children, href, eventInfo, headerTag: HeaderTag = 'h3', className}: IconGroupProps) {
   return (
     <div
       className={cx(
@@ -60,6 +53,8 @@ function IconGroup({
             margin-right: 8px;
           }
         `}
+        name={icon}
+        round
       />
       <HeaderTag
         className={css`

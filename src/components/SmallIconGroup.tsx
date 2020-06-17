@@ -3,29 +3,29 @@
 import {css} from 'linaria';
 import * as React from 'react';
 
+import * as colors from '../colors';
+import Icon, {IconProps} from '../components/Icon';
 import * as font from '../font';
 import {desktop, mobile} from '../styles';
 
-function SmallIconGroup({
-  icon: Icon,
-  children,
-}: {
-  icon: React.ExoticComponent<{className?: string}>;
-  children: React.ReactNode;
-}) {
+function SmallIconGroup({icon, children}: {icon: IconProps; children: React.ReactNode}) {
   return (
     <div
       className={css`
         margin-bottom: 32px;
         display: flex;
         flex-wrap: wrap;
+        align-items: normal;
         ${desktop} {
           padding-right: 32px;
         }
       `}>
       <Icon
         className={css`
-          min-width: 64px;
+          color: ${colors.white};
+          min-width: 36px;
+          min-height: 36px;
+          max-height: 36px;
           flex: 0;
           ${desktop} {
             margin-right: 16px;
@@ -34,6 +34,8 @@ function SmallIconGroup({
             margin-right: 8px;
           }
         `}
+        round
+        {...icon}
       />
       <p
         className={css`

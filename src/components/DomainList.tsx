@@ -11,7 +11,7 @@ import * as selectors from '../selectors';
 import {desktop, mobile} from '../styles';
 import DomainView from './DomainView';
 import ExtensionsSortMenu from './ExtensionsSortMenu';
-import {RightArrowIcon} from './icons';
+import Icon from './Icon';
 import {SearchSelectorLink, SearchType} from './SearchSelector';
 
 const topLinkStyles = {
@@ -20,11 +20,12 @@ const topLinkStyles = {
     font-weight: ${font.medium};
     color: ${colors.blue};
     font-size: ${font.xxs}px;
-    margin-top: 3px;
   `,
   icon: css`
     stroke: ${colors.blue};
-    vertical-align: text-bottom;
+    width: 8px;
+    height: 8px;
+    margin-left: 4px;
   `,
 };
 
@@ -159,7 +160,7 @@ function DomainList({
           {searchSelectorType && (
             <span className={topLinkStyles.topLink}>
               See all
-              <RightArrowIcon className={topLinkStyles.icon} />
+              <Icon className={topLinkStyles.icon} name="ChevronRight" />
             </span>
           )}
         </SearchSelectorLink>

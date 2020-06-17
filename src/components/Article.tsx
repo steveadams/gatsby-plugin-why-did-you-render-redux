@@ -3,13 +3,14 @@
 import {css} from 'linaria';
 import * as React from 'react';
 
-import BackButton from '../components/BackButton';
 import Controller from '../components/Controller';
 import DomainResults from '../components/DomainResults';
 import Page from '../components/Page';
 import * as font from '../font';
 import * as routes from '../routes';
 import {desktop, mobile} from '../styles';
+import Button from './Button';
+import Icon from './Icon';
 
 export default ({
   frontmatter: {title, description, headline, date},
@@ -43,7 +44,9 @@ export default ({
         `}
         itemScope
         itemType="http://schema.org/TechArticle">
-        <BackButton />
+        <Button onClick={() => history.back()}>
+          <Icon name="ArrowLeft" /> <span>Back</span>
+        </Button>
         <h1>{headline}</h1>
         <div itemProp="articleBody">{children}</div>
         <em>

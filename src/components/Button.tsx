@@ -36,6 +36,11 @@ const styles = {
       outline: none;
     }
 
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+
     /* If an icon is added as a child, provide proper spacing before or after the icon */
     span + svg {
       margin-left: 8px;

@@ -5,7 +5,7 @@ import * as React from 'react';
 
 import * as actions from '../actions';
 import * as colors from '../colors';
-import {ClearIcon} from './icons';
+import Icon from './Icon';
 
 const styles = {
   overlay: css`
@@ -69,7 +69,7 @@ function Dialog(props: DialogProps) {
       <div className={styles.wrapper}>
         <div className={styles.dialog} onClick={preventDismiss}>
           {children}
-          <ClearIcon className={styles.dismissButton} onClick={onDismiss} />
+          <Icon className={styles.dismissButton} name="Clear" onClick={onDismiss} />
         </div>
       </div>
     </div>
