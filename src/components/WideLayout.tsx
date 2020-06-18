@@ -9,13 +9,13 @@ import {desktop, mobile} from '../styles';
 
 const styles = {
   wrapper: css`
-    font-weight: ${font.regular};
-    width: 100vw;
     position: relative;
-    left: 50%;
     right: 50%;
-    margin-left: -50vw;
+    left: 50%;
+    width: 100vw;
     margin-right: -50vw;
+    margin-left: -50vw;
+    font-weight: ${font.regular};
 
     &:nth-child(2) {
       background-color: ${colors.lighterGray};

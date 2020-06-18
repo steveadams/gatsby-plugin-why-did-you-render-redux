@@ -97,11 +97,10 @@ css`
     button {
       margin: 0;
       padding: 0;
-      border: 0;
-      font-size: 100%;
-      /* stylelint-disable-next-line declaration-block-no-shorthand-property-overrides */
       font: inherit;
+      font-size: 100%;
       vertical-align: baseline;
+      border: 0;
     }
 
     /* HTML5 display-role reset for older browsers */
@@ -117,10 +116,6 @@ css`
     nav,
     section {
       display: block;
-    }
-    body {
-      /* TODO: fix hack */
-      line-height: 1;
     }
     ol,
     ul {
@@ -152,9 +147,9 @@ css`
     pre,
     iframe,
     table {
-      line-height: 1.6;
-      margin-bottom: 1.5em;
       margin-top: 0;
+      margin-bottom: 1.5em;
+      line-height: 1.6;
     }
 
     em,
@@ -164,8 +159,8 @@ css`
 
     h1,
     h2 {
-      font-weight: ${font.bold};
       margin-bottom: 0.25em;
+      font-weight: ${font.bold};
 
       ${mobile} {
         line-height: 1.2;
@@ -195,6 +190,7 @@ css`
 
     p {
       font-size: ${font.s}px;
+
       ${mobile} {
         font-size: ${font.xs}px;
       }
@@ -205,9 +201,9 @@ css`
     }
 
     hr {
+      margin: 4px 16px;
       border: none;
       border-top: 1px solid ${colors.lightGray};
-      margin: 4px 16px;
     }
 
     hr.darkHr {
@@ -220,14 +216,14 @@ css`
       -webkit-tap-highlight-color: transparent;
     }
 
-    /* stylelint-disable-next-line no-duplicate-selectors */
     body {
-      font-weight: ${font.regular};
-      font-family: ${font.sansFamily};
-      background: ${colors.white};
-      color: ${colors.darkGray};
-      font-size: ${font.s}px;
       overflow-y: scroll;
+      color: ${colors.darkGray};
+      font-weight: ${font.regular};
+      font-size: ${font.s}px;
+      font-family: ${font.sansFamily};
+      line-height: 1;
+      background: ${colors.white};
     }
 
     strong {
@@ -237,6 +233,7 @@ css`
     a {
       color: ${colors.blue};
       text-decoration: none;
+
       &:hover {
         text-decoration: underline;
       }
@@ -247,11 +244,11 @@ css`
     }
 
     .wrapper {
-      margin-left: auto;
-      margin-right: auto;
       max-width: 800px;
-      padding-left: 24px;
+      margin-right: auto;
+      margin-left: auto;
       padding-right: 24px;
+      padding-left: 24px;
     }
 
     /* /hosting/ and the hosting choser */
@@ -259,66 +256,68 @@ css`
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      justify-content: flex-start;
       align-content: flex-start;
       align-items: flex-start;
+      justify-content: flex-start;
     }
 
     .hosting li strong {
-      font-size: ${font.xs}px;
-      font-weight: 600;
-      left: 14px;
-      line-height: 14px;
       position: absolute;
       top: 14px;
+      left: 14px;
+      font-weight: 600;
+      font-size: ${font.xs}px;
+      line-height: 14px;
     }
 
     .hosting li {
+      position: relative;
+      flex: 0 1 248px;
+      height: 210px;
+      margin-right: 18px;
+      margin-bottom: 18px;
       background-color: ${colors.white};
       border-radius: 4px;
       box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.05);
       cursor: pointer;
-      flex: 0 1 248px;
-      height: 210px;
-      margin-bottom: 18px;
-      margin-right: 18px;
-      position: relative;
+
       &:hover {
         box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+
         span {
-          background: ${colors.blue};
           color: ${colors.white};
+          background: ${colors.blue};
         }
       }
     }
 
     .hosting li a {
       position: absolute;
+      display: block;
       width: 100%;
       height: 100%;
-      display: block;
     }
 
     .hosting li img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
       width: 140px;
       height: 140px;
-      margin-left: -70px;
       margin-top: -70px;
-      position: absolute;
-      left: 50%;
-      top: 50%;
+      margin-left: -70px;
     }
 
     .hosting li span {
-      background: ${colors.extraLightGray};
-      border-radius: 100px;
-      bottom: 8px;
-      font-size: ${font.xxs}px;
-      font-weight: 600;
-      padding: 4px 20px;
       position: absolute;
       right: 8px;
+      bottom: 8px;
       display: inline-block;
+      padding: 4px 20px;
+      font-weight: 600;
+      font-size: ${font.xxs}px;
+      background: ${colors.extraLightGray};
+      border-radius: 100px;
     }
 
     td,
@@ -334,13 +333,13 @@ css`
     /* NEEDS DESIGN */
     pre,
     code {
-      background-color: #f7f7f7;
-      font-family: monospace;
-      font-size: ${font.xxs}px;
-      margin-left: -8px;
       margin-right: -8px;
-      overflow-x: hidden;
+      margin-left: -8px;
       padding: 8px;
+      overflow-x: hidden;
+      font-size: ${font.xxs}px;
+      font-family: monospace;
+      background-color: #f7f7f7;
     }
 
     .searchResults {
@@ -365,17 +364,17 @@ css`
     }
 
     .smallCaps {
-      text-transform: lowercase;
-      letter-spacing: 0.01em;
       font-variant: small-caps;
+      letter-spacing: 0.01em;
+      text-transform: lowercase;
       font-feature-settings: 'smcp';
     }
 
     .icon {
       display: inline-flex;
       align-self: center;
-      height: 1em;
       width: 1em;
+      height: 1em;
     }
   }
 `;

@@ -8,25 +8,27 @@ import * as font from '../font';
 
 const styles = {
   textInput: css`
-    font-size: ${font.m}px;
+    box-sizing: border-box;
+    width: 100%;
     height: 48px;
+    font-weight: ${font.regular};
+    font-size: ${font.m}px;
     /* stylelint-disable-next-line unit-no-unknown */
     line-height: 48px\\9; /* hack: center text vertically in ie8 */
-    width: 100%;
-    outline: none;
     border: none;
-    box-sizing: border-box;
-    font-weight: ${font.regular};
+    outline: none;
     appearance: none;
+
     &::-ms-clear {
       /* http://stackoverflow.com/questions/14007655/remove-ie10s-clear-field-x-button-on-certain-inputs */
       display: none;
     }
+
     &::placeholder {
       /* Font family required to override browser defaults */
-      font-family: ${font.sansFamily};
-      font-weight: ${font.regular};
       color: ${colors.darkGray};
+      font-weight: ${font.regular};
+      font-family: ${font.sansFamily};
       /* Firefox uses opacity: 0.5 by default */
       opacity: 1;
     }

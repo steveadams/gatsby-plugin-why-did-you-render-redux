@@ -15,20 +15,20 @@ import StarIcon from './StarIcon';
 
 const styles = {
   flyout: css`
+    left: calc(100% + 16px);
     display: flex;
     align-items: center;
     height: 48px;
-    left: calc(100% + 16px);
   `,
   handle: css`
     display: flex;
     align-items: center;
     justify-content: center;
-    color: ${colors.mediumDarkGray};
     padding: 4px 4px 4px 0;
-    border-radius: 18px;
-    text-align: center;
+    color: ${colors.mediumDarkGray};
     font-size: ${font.xs}px;
+    text-align: center;
+    border-radius: 18px;
 
     &:hover {
       text-decoration: none;
@@ -40,17 +40,17 @@ const styles = {
   `,
   content: css`
     padding: 16px 24px 16px 40px;
-    text-align: left;
-    font-size: ${font.s}px;
     color: ${colors.darkGray};
+    font-size: ${font.s}px;
+    text-align: left;
   `,
   starOutlined: css`
-    stroke: ${colors.mediumGray};
     fill: transparent;
+    stroke: ${colors.mediumGray};
   `,
   starFilled: css`
-    stroke: none;
     fill: ${colors.yellow};
+    stroke: none;
   `,
 };
 

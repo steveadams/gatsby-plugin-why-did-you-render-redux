@@ -42,5 +42,5 @@ errors:
 lint:
 	-./node_modules/.bin/eslint --fix '*/**/*.{js,jsx,ts,tsx}'
 	-./node_modules/.bin/prettier --write '*/**/*.{js,jsx,ts,tsx}'
-	-yarn stylelint "src/**/*.ts"
+	-./node_modules/.bin/stylelint "src/**/*.{ts,tsx}"
 .PHONY: lint

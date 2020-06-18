@@ -23,9 +23,8 @@ function Header() {
       max-width: 960px;
       margin: 0 auto;
       padding: 64px 16px 24px;
-
-      background-color: ${colors.extraLightGray};
       text-align: center;
+      background-color: ${colors.extraLightGray};
 
       ${mobile} {
         padding-top: 40px;
@@ -46,27 +45,27 @@ function Header() {
     title: css`
       display: flex;
       justify-content: center;
-      color: ${colors.darkGray};
-      line-height: 1;
       margin-bottom: 0;
-      font-size: ${font.xl}px;
+      color: ${colors.darkGray};
       font-weight: ${font.bold};
+      font-size: ${font.xl}px;
+      line-height: 1;
 
       ${mobile} {
-        font-size: ${font.l}px;
         /* TODO: Use spacing units */
         margin-top: 16px;
+        font-size: ${font.l}px;
       }
     `,
     registered: css`
-      font-size: ${font.xxs}px;
-      font-weight: ${font.regular};
       align-self: center;
+      font-weight: ${font.regular};
+      font-size: ${font.xxs}px;
     `,
     subTitle: css`
-      font-size: ${font.xs}px;
       margin-top: 0;
       margin-bottom: 0;
+      font-size: ${font.xs}px;
     `,
   };
 

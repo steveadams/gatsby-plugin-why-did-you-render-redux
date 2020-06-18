@@ -14,39 +14,41 @@ import StarIcon from './StarIcon';
 
 const styles = {
   default: css`
-    display: block;
     position: absolute;
     top: 50%;
     left: -20px;
+    display: block;
     margin-top: -12px;
-    cursor: pointer;
     text-align: center;
+    cursor: pointer;
   `,
   regular: css`
     width: 24px;
     height: 24px;
   `,
   large: css`
+    position: static;
     width: 28px;
     height: 28px;
-    position: static;
     margin-top: 0;
-    margin-left: ${-28 - 12}px;
     margin-right: 12px;
+    margin-left: ${-28 - 12}px;
   `,
   defaultOffColor: css`
     stroke: ${colors.lightGray};
+
     &:hover {
-      stroke: ${colors.mediumGray};
       fill: ${colors.mediumGray};
+      stroke: ${colors.mediumGray};
     }
   `,
   defaultOnColor: css`
-    stroke: ${colors.yellow};
     fill: ${colors.yellow};
+    stroke: ${colors.yellow};
+
     &:hover {
-      stroke: ${colors.yellow};
       fill: ${colors.yellow};
+      stroke: ${colors.yellow};
     }
   `,
   noFill: css`

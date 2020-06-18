@@ -33,37 +33,40 @@ import Text, {LocaleKey} from './Text';
 
 const styles = {
   default: css`
+    position: relative;
+    max-width: 648px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 16px;
+    padding-right: 12px;
+    padding-bottom: 16px;
+    padding-left: 12px;
     font-weight: ${font.bold};
     font-size: ${font.xxl}px;
-    padding-bottom: 16px;
-    padding-top: 16px;
-    position: relative;
     border-radius: 4px;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 648px;
-    padding-left: 12px;
-    padding-right: 12px;
+
     ${mobile} {
       font-size: ${font.l}px;
     }
   `,
   searching: css`
-    color: ${colors.lightGray};
     max-width: 648px;
-    padding-left: 12px;
-    padding-right: 12px;
     margin-top: 8px;
     margin-bottom: 24px;
+    padding-right: 12px;
+    padding-left: 12px;
+    color: ${colors.lightGray};
+
     ${mobile} {
       margin-top: 6px;
-      text-align: center;
       margin-bottom: 78px;
+      text-align: center;
     }
   `,
   row: css`
     display: flex;
     align-items: center;
+
     ${mobile} {
       flex-direction: column;
     }
@@ -75,6 +78,7 @@ const styles = {
   actions: css`
     display: flex;
     align-items: center;
+
     ${desktop} {
       margin-left: auto;
     }
@@ -84,10 +88,10 @@ const styles = {
     }
   `,
   link: css`
-    color: inherit;
+    position: relative; /* To make the visit site link intercept area clicks */
     margin-top: 6px;
     margin-bottom: 10px;
-    position: relative; /* To make the visit site link intercept area clicks */
+    color: inherit;
   `,
   noUnderline: css`
     &:hover {
@@ -106,17 +110,17 @@ const styles = {
     margin-left: 8px;
   `,
   flyout: css`
-    text-align: center;
     margin-left: 0;
+    text-align: center;
   `,
   questionMark: css`
-    font-weight: ${font.regular};
-    color: #fff;
-    background: ${colors.red};
-    font-size: ${font.xxs}px;
     width: 16px;
     height: 16px;
+    color: #fff;
+    font-weight: ${font.regular};
+    font-size: ${font.xxs}px;
     line-height: 16px;
+    background: ${colors.red};
     border-radius: 8px;
   `,
   notice: css`

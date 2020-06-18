@@ -30,28 +30,29 @@ const styles = {
 
 const linkStyles = {
   link: css`
-    color: ${colors.darkGray};
-    font-weight: ${font.regular};
-    cursor: pointer;
     display: block;
     margin: 0;
     padding: 6px 16px;
+    color: ${colors.darkGray};
+    font-weight: ${font.regular};
+    cursor: pointer;
+
     &:hover {
       text-decoration: none;
       background: ${colors.lightGray};
     }
   `,
   available: css`
-    color: ${colors.green};
     float: right;
+    color: ${colors.green};
   `,
   taken: css`
-    color: ${colors.red};
     float: right;
+    color: ${colors.red};
   `,
   checking: css`
-    color: ${colors.lightGray};
     float: right;
+    color: ${colors.lightGray};
   `,
 };
 

@@ -14,13 +14,13 @@ const styles = {
   `,
   listItem: css`
     display: inline-block;
-    font-size: ${font.xs}px;
+    margin: 0 12px;
     padding: 16px 24px;
     padding-top: 0;
-    margin: 0 12px;
-    border-bottom: transparent 4px solid;
     color: black;
+    font-size: ${font.xs}px;
     text-decoration: none;
+    border-bottom: transparent 4px solid;
 
     &:hover,
     &.current {
@@ -29,8 +29,8 @@ const styles = {
     }
 
     &.current {
-      font-weight: bold;
       color: ${colors.darkGray};
+      font-weight: bold;
       cursor: default;
     }
   `,

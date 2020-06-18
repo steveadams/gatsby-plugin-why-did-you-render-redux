@@ -16,22 +16,24 @@ const styles = {
     padding-bottom: 16px;
   `,
   category: css`
-    overflow: hidden;
     margin-right: -24px;
+    overflow: hidden;
+
     ${mobile} {
       margin-right: -20px;
     }
   `,
   title: css`
-    font-weight: ${font.bold};
     padding-top: 48px;
     padding-bottom: 16px;
+    font-weight: ${font.bold};
   `,
   tldWrapper: css`
-    width: 16.666%;
     float: left;
     box-sizing: border-box;
+    width: 16.666%;
     padding-right: 24px;
+
     ${mobile} {
       width: 33%;
       padding-right: 16px;

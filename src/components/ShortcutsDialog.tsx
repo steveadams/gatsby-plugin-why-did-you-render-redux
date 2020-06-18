@@ -15,8 +15,8 @@ const styles = {
     text-align: left;
   `,
   title: css`
-    font-size: ${font.l}px;
     font-weight: ${font.bold};
+    font-size: ${font.l}px;
   `,
   subtitle: css`
     margin-top: 16px;
@@ -25,18 +25,18 @@ const styles = {
     margin-bottom: 8px;
   `,
   key: css`
-    border: 1px solid ${colors.lightGray};
-    box-shadow: ${colors.mediumGray} 0 2px 0;
-    border-radius: 3px;
-    color: ${colors.mediumDarkGray};
+    display: inline-block;
     min-width: 16px;
+    margin-right: 2px;
     padding: 0 3px;
+    color: ${colors.mediumDarkGray};
+    font-size: ${font.xxs};
     line-height: 20px;
     text-align: center;
-    display: inline-block;
     vertical-align: 1px;
-    font-size: ${font.xxs};
-    margin-right: 2px;
+    border: 1px solid ${colors.lightGray};
+    border-radius: 3px;
+    box-shadow: ${colors.mediumGray} 0 2px 0;
   `,
 };
 

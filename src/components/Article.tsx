@@ -24,22 +24,24 @@ export default ({
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <div
         className={css`
-          font-weight: ${font.regular};
-          margin-left: auto;
-          margin-right: auto;
           max-width: 800px;
+          margin-right: auto;
+          margin-left: auto;
+          font-weight: ${font.regular};
+
           ${desktop} {
             margin-top: 36px;
             margin-bottom: 24px;
-            padding-left: 32px;
             padding-right: 32px;
+            padding-left: 32px;
           }
+
           ${mobile} {
             margin-top: 16px;
             margin-bottom: 48px;
-            padding-left: 16px;
-            padding-right: 16px;
             padding-top: 16px;
+            padding-right: 16px;
+            padding-left: 16px;
           }
         `}
         itemScope

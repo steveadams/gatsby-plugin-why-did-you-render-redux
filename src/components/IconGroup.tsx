@@ -27,14 +27,16 @@ function IconGroup({icon, title, children, href, eventInfo, headerTag: HeaderTag
         className,
         css`
           margin-bottom: 32px;
+
           ${desktop} {
-            padding-right: 32px;
             display: grid;
             grid-column-gap: 16px;
             grid-template-areas:
               'icon title'
               'icon text';
+            padding-right: 32px;
           }
+
           ${mobile} {
             display: flex;
             flex-wrap: wrap;
@@ -45,9 +47,11 @@ function IconGroup({icon, title, children, href, eventInfo, headerTag: HeaderTag
       <Icon
         className={css`
           min-width: 64px;
+
           ${desktop} {
             grid-area: icon;
           }
+
           ${mobile} {
             flex: 0;
             margin-right: 8px;
@@ -59,10 +63,12 @@ function IconGroup({icon, title, children, href, eventInfo, headerTag: HeaderTag
       <HeaderTag
         className={css`
           margin-bottom: 0;
+
           ${desktop} {
             grid-area: title;
             align-self: center;
           }
+
           ${mobile} {
             flex: 1;
           }
@@ -81,11 +87,13 @@ function IconGroup({icon, title, children, href, eventInfo, headerTag: HeaderTag
       </HeaderTag>
       <p
         className={css`
-          font-size: ${font.xs}px;
           margin-bottom: 0;
+          font-size: ${font.xs}px;
+
           ${desktop} {
             grid-area: text;
           }
+
           ${mobile} {
             margin-top: 8px;
           }

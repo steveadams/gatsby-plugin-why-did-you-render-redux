@@ -16,35 +16,35 @@ import {createSearchSelectorPath, searches} from '.';
 
 const styles = {
   form: css`
+    position: fixed;
+    right: 12px;
+    bottom: 12px;
+    z-index: 100;
     display: flex;
     justify-content: center;
     height: 48px;
-    position: fixed;
-    bottom: 12px;
-    right: 12px;
-    z-index: 100;
     background: ${colors.darkGray};
     border-radius: 50px;
   `,
   select: css`
-    font-size: ${font.s}px;
-    color: ${colors.white};
     display: block;
-    user-select: none;
-    cursor: pointer;
     width: 100%;
     padding: 0;
     padding-left: 20px;
-    border: none;
+    color: ${colors.white};
+    font-size: ${font.s}px;
     background-color: transparent;
+    border: none;
+    cursor: pointer;
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
+    user-select: none;
   `,
   icon: css`
     align-self: center;
-    color: ${colors.white};
     padding-right: 24px;
+    color: ${colors.white};
   `,
 };
 

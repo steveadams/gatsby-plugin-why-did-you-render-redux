@@ -11,30 +11,31 @@ function TwoColumnLayout({children: [left, right]}: {children: [React.ReactNode,
     <>
       <div
         className={css`
-          font-weight: ${font.regular};
-          margin-left: auto;
-          margin-right: auto;
           max-width: 800px;
+          margin-right: auto;
+          margin-left: auto;
+          font-weight: ${font.regular};
+
           ${desktop} {
+            display: flex;
             margin-top: 36px;
             margin-bottom: 24px;
-            padding-left: 32px;
             padding-right: 32px;
-            display: flex;
+            padding-left: 32px;
           }
           ${mobile} {
             margin-top: 16px;
             margin-bottom: 48px;
-            padding-left: 16px;
             padding-right: 16px;
+            padding-left: 16px;
           }
         `}>
         <div
           className={css`
             ${desktop} {
-              margin-bottom: 24px;
-              margin-right: 72px;
               width: 480px;
+              margin-right: 72px;
+              margin-bottom: 24px;
             }
             ${mobile} {
               margin: auto;
@@ -44,17 +45,20 @@ function TwoColumnLayout({children: [left, right]}: {children: [React.ReactNode,
         </div>
         <div
           className={css`
-            font-size: ${font.xs}px;
             padding-top: 5px;
+            font-size: ${font.xs}px;
+
             ${desktop} {
               width: ${800 - 480 - 72}px;
             }
+
             ul {
               margin-top: 0;
             }
+
             li {
-              margin-bottom: 0.3em;
               margin-top: 0.3em;
+              margin-bottom: 0.3em;
             }
           `}>
           {right}

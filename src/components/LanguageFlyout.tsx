@@ -20,11 +20,11 @@ const styles = {
   handle: css`
     display: flex;
     justify-content: center;
-    color: ${colors.darkGray};
     padding: 8px;
-    border-radius: 18px;
-    text-align: center;
+    color: ${colors.darkGray};
     font-size: ${font.xs}px;
+    text-align: center;
+    border-radius: 18px;
 
     &:hover {
       text-decoration: none;
@@ -43,11 +43,11 @@ const styles = {
     }
   `,
   chevron: css`
-    color: ${colors.mediumGray};
+    align-self: center;
     width: 14px;
     height: 14px;
-    align-self: center;
     margin-left: 4px;
+    color: ${colors.mediumGray};
   `,
   languageList: css`
     margin: 0;

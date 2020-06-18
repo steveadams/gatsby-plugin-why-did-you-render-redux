@@ -27,50 +27,55 @@ import Text from './Text';
 
 const titleStyle = {
   title: css`
-    color: ${colors.mediumDarkGray};
+    position: relative;
     display: inline-block;
     overflow: hidden;
-    position: relative;
+    color: ${colors.mediumDarkGray};
     text-overflow: ellipsis;
   `,
   highlight: css`
-    font-weight: ${font.regular};
     color: ${colors.darkGray};
+    font-weight: ${font.regular};
   `,
 };
 
 const styles = {
   root: css`
+    position: relative;
     display: block;
     line-height: 20px;
-    position: relative;
   `,
   domain: css`
-    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
+    box-sizing: border-box;
     min-width: 100%;
-    user-select: none;
     white-space: nowrap;
+    user-select: none;
+
     &:focus {
       color: ${colors.white};
     }
+
     &:focus .${titleStyle.title} {
       color: ${colors.white};
     }
+
     &:focus .${titleStyle.highlight} {
       color: ${colors.white};
     }
+
     ${desktop} {
       &:hover {
-        color: ${colors.white};
-        display: inline-flex;
         position: relative;
         z-index: 1;
-      }
-      &:hover .${titleStyle.title} {
+        display: inline-flex;
         color: ${colors.white};
+      }
+
+      &:hover .${titleStyle.title} {
         overflow: visible;
+        color: ${colors.white};
       }
       &:hover .${titleStyle.highlight} {
         color: ${colors.white};
@@ -78,12 +83,15 @@ const styles = {
     }
     ${mobile} {
       border-radius: 0;
+
       &.tapped {
         color: ${colors.white};
       }
+
       &.tapped .${titleStyle.title} {
         color: ${colors.white};
       }
+
       &.tapped .${titleStyle.highlight} {
         color: ${colors.white};
       }
@@ -91,16 +99,20 @@ const styles = {
   `,
   domainLoading: css`
     cursor: default;
+
     .${titleStyle.title} {
       color: ${colors.mediumGray};
     }
+
     .${titleStyle.highlight} {
       color: ${colors.mediumGray};
     }
+
     ${desktop} {
       &:hover .${titleStyle.title} {
         color: ${colors.mediumGray};
       }
+
       &:hover .${titleStyle.highlight} {
         color: ${colors.mediumGray};
       }
@@ -111,14 +123,16 @@ const styles = {
     white-space: nowrap;
   `,
   right: css`
-    padding-left: 16px;
     display: inline-block;
+    padding-left: 16px;
   `,
   selectedButton: css`
     color: ${colors.white};
+
     .${titleStyle.title} {
       color: ${colors.white};
     }
+
     .${titleStyle.highlight} {
       color: ${colors.white};
     }

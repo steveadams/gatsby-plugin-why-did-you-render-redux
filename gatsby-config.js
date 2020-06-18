@@ -1,3 +1,5 @@
+/*eslint-env node*/
+
 module.exports = {
   assetPrefix: `/hashed/${process.env.GATSBY_BUILD_TIME}` /* must match GATSBY_BUILD_TIME Makefile! */,
   siteMetadata: {

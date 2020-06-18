@@ -11,22 +11,22 @@ import {mobile} from '../styles';
 
 const styles = {
   button: css`
-    color: ${colors.white};
-    box-sizing: border-box;
-    font-weight: ${font.bold};
-    font-size: ${font.s}px;
-    outline: none;
-    border: none;
-    height: 48px;
-    border-radius: 32px;
-    cursor: pointer;
     display: flex;
     align-items: center;
-    text-align: center;
+    box-sizing: border-box;
+    height: 48px;
     padding: 12px 24px;
+    color: ${colors.white};
+    font-weight: ${font.bold};
+    font-size: ${font.s}px;
     line-height: 24px;
-    user-select: none;
+    text-align: center;
+    border: none;
+    border-radius: 32px;
+    outline: none;
+    cursor: pointer;
     transition: background-color 150ms, color 150ms;
+    user-select: none;
 
     &:hover {
       text-decoration: none;
@@ -51,8 +51,8 @@ const styles = {
     }
   `,
   defaultColor: css`
-    background: ${colors.darkGray};
     color: ${colors.white};
+    background-color: ${colors.darkGray};
 
     &:hover,
     &:active {
@@ -63,8 +63,8 @@ const styles = {
   textButton: css`
     height: auto;
     padding: unset;
-    background: unset;
     color: ${colors.blue};
+    background: unset;
 
     &:hover {
       color: ${colors.hoverBlue};
@@ -75,16 +75,18 @@ const styles = {
     }
   `,
   hoverButton: css`
-    border-radius: 4px;
     padding: 10px 12px;
+    border-radius: 4px;
     cursor: pointer;
 
     &:hover {
       text-decoration: none;
     }
+
     &:focus {
       outline: none;
     }
+
     ${mobile} {
       padding: 10px 16px;
     }

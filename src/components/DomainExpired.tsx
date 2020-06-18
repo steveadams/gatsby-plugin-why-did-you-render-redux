@@ -11,19 +11,21 @@ import DomainView from './DomainView';
 
 const styles = {
   root: css`
+    margin-right: -24px;
+    margin-left: -24px;
     padding-top: 16px;
     padding-bottom: 16px;
-    margin-left: -24px;
-    margin-right: -24px;
   `,
   tldWrapper: css`
-    width: 33.33%;
     float: left;
     box-sizing: border-box;
+    width: 33.33%;
+
     ${desktop} {
-      padding-left: 12px;
       padding-right: 12px;
+      padding-left: 12px;
     }
+
     ${mobile} {
       float: none;
       width: auto;

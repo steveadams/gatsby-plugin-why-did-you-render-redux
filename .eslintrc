@@ -17,7 +17,7 @@
     "plugin:react/recommended",
     "prettier/@typescript-eslint"
   ],
-  "ignorePatterns": ["gatsby-*.js", "public", "*/node_modules/*"],
+  "ignorePatterns": ["public", "*/node_modules/*"],
   "rules": {
     "@typescript-eslint/camelcase": "off",
     "@typescript-eslint/explicit-function-return-type": "off",

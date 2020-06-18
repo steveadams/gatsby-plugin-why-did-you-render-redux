@@ -14,12 +14,12 @@ import Text from './Text';
 
 const actionStyles = {
   action: css`
-    color: ${colors.white};
-    text-transform: uppercase;
     right: 8px;
     margin-left: 4px;
-    visibility: hidden;
+    color: ${colors.white};
     white-space: nowrap;
+    text-transform: uppercase;
+    visibility: hidden;
   `,
 };
 
@@ -37,23 +37,26 @@ const styles = {
     }
   `,
   root: css`
+    position: relative;
     display: flex;
     justify-content: space-between;
-    user-select: none;
+    box-sizing: border-box;
+    min-width: 100%;
     margin-top: 8px;
     margin-bottom: 8px;
     font-size: ${font.xs}px;
-    min-width: 100%;
-    box-sizing: border-box;
-    position: relative;
+    user-select: none;
+
     &:hover {
+      z-index: 1;
       display: inline-flex;
       color: ${colors.white};
-      z-index: 1;
+
       & .${actionStyles.action} {
         visibility: visible;
       }
     }
+
     ${mobile} {
       padding: 10px 8px;
     }

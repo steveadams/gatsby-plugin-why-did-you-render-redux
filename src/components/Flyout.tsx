@@ -16,25 +16,25 @@ const styles = {
   flyout: css`
     position: absolute;
     top: 100%;
-    margin-top: 12px;
     left: 50%;
-    border: 1px solid ${colors.lightGray};
-    box-shadow: rgba(0, 0, 0, 0.03) 0 0 0 2px;
+    z-index: 2;
+    margin-top: 12px;
     color: ${colors.mediumDarkGray};
-    border-radius: 4px;
     font-size: ${font.xxs}px;
     line-height: 18px;
     white-space: normal;
-    background: #fff;
-    z-index: 2;
+    background-color: #fff;
+    border: 1px solid ${colors.lightGray};
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.03) 0 0 0 2px;
   `,
   flyoutTip: css`
     position: absolute;
     top: 100%;
     left: 50%;
+    z-index: 2;
     margin-top: 3px;
     margin-left: -9px;
-    z-index: 2;
   `,
 };
 

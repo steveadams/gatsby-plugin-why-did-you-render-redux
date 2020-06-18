@@ -14,12 +14,13 @@ import Text, {languageCodes, localizedLanguageNames, useLanguage} from './Text';
 
 const styles = {
   icon: css`
-    fill: ${colors.mediumDarkGray};
+    display: inline-block;
     width: 14px;
     height: 14px;
     margin-right: -1px;
-    display: inline-block;
     vertical-align: text-bottom;
+    fill: ${colors.mediumDarkGray};
+
     a:hover > & {
       fill: ${colors.darkGray};
     }
@@ -32,39 +33,44 @@ function Footer() {
   return (
     <div
       className={css`
-        border-top: 1px solid ${colors.mediumGray};
-        background: ${colors.extraLightGray};
         clear: both;
-        font-size: ${font.xxs}px;
-        padding-bottom: 16px;
         padding-top: 16px;
+        padding-bottom: 16px;
+        font-size: ${font.xxs}px;
+        background-color: ${colors.extraLightGray};
+        border-top: 1px solid ${colors.mediumGray};
+
         ${mobile} {
-          padding-bottom: 16px;
           padding-top: 16px;
+          padding-bottom: 16px;
         }
+
         a {
-          color: ${colors.mediumDarkGray};
           display: inline-block;
           padding: 6px;
+          color: ${colors.mediumDarkGray};
+
           &:hover {
-            text-decoration: none;
             color: ${colors.darkGray};
+            text-decoration: none;
           }
         }
       `}
       id="footer">
       <div
         className={css`
-          margin-left: auto;
           margin-right: auto;
+          margin-left: auto;
+
           ${desktop} {
             max-width: 800px;
-            padding-left: 32px;
             padding-right: 32px;
+            padding-left: 32px;
           }
+
           ${mobile} {
-            padding-left: 16px;
             padding-right: 16px;
+            padding-left: 16px;
           }
         `}>
         <div
@@ -73,9 +79,10 @@ function Footer() {
               display: none;
             }
             ${mobile} {
-              line-height: 1.3em;
               margin-bottom: 1em;
+              line-height: 1.3em;
               text-align: center;
+
               & > .current.homeLink {
                 display: none;
               }
@@ -103,12 +110,12 @@ function Footer() {
             margin-left: -6px;
             ${desktop} {
               float: left;
-              padding-bottom: 8px;
               padding-top: 8px;
+              padding-bottom: 8px;
             }
             ${mobile} {
-              line-height: 1.3em;
               margin-bottom: 1em;
+              line-height: 1.3em;
               text-align: center;
             }
           `}>
@@ -135,14 +142,14 @@ function Footer() {
             margin-right: -6px;
             ${desktop} {
               float: right;
-              padding-bottom: 8px;
               padding-top: 8px;
+              padding-bottom: 8px;
               text-align: right;
             }
             ${mobile} {
               display: block;
-              line-height: 1.3em;
               margin-bottom: 1em;
+              line-height: 1.3em;
               text-align: center;
             }
           `}>
@@ -156,9 +163,10 @@ function Footer() {
         <div
           className={css`
             clear: both;
-            text-align: center;
             padding-top: 32px;
             padding-bottom: 32px;
+            text-align: center;
+
             a {
               white-space: nowrap;
             }
@@ -258,10 +266,11 @@ function Footer() {
 
         <div
           className={css`
-            color: #cfcfcf;
-            text-align: center;
-            line-height: 1.6;
             margin-bottom: 24px;
+            color: #cfcfcf;
+            line-height: 1.6;
+            text-align: center;
+
             & > a {
               padding: 0;
             }

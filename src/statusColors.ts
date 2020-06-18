@@ -58,32 +58,32 @@ export const lightColor: StatusStyles = {
 
 export const background: StatusStyles = {
   auction: css`
-    background: ${colors.blue};
     color: #fff;
+    background: ${colors.blue};
   `,
   available: css`
-    background: ${colors.green};
     color: #fff;
+    background: ${colors.green};
   `,
   expiring: css`
-    background: ${colors.blue};
     color: #fff;
+    background: ${colors.blue};
   `,
   recentlyDropped: css`
-    background: ${colors.yellow};
     color: #fff;
+    background: ${colors.yellow};
   `,
   recentlyRegistered: css`
-    background: ${colors.yellow};
     color: #fff;
+    background: ${colors.yellow};
   `,
   sale: css`
-    background: ${colors.blue};
     color: #fff;
+    background: ${colors.blue};
   `,
   taken: css`
-    background: ${colors.red};
     color: #fff;
+    background: ${colors.red};
   `,
 };
 
@@ -201,98 +201,98 @@ const hoverStatusStyles = {
   available: css`
     ${desktop} {
       &:hover {
-        background: ${colors.hoverGreen};
         color: #fff;
+        background: ${colors.hoverGreen};
       }
     }
     ${mobile} {
       &.tapped {
-        background: ${colors.hoverGreen};
         color: #fff;
+        background: ${colors.hoverGreen};
       }
     }
   `,
   recentlyRegistered: css`
     ${desktop} {
       &:hover {
-        background: ${colors.hoverYellow};
         color: #fff;
+        background: ${colors.hoverYellow};
       }
     }
     ${mobile} {
       &.tapped {
-        background: ${colors.hoverYellow};
         color: #fff;
+        background: ${colors.hoverYellow};
       }
     }
   `,
   recentlyDropped: css`
     ${desktop} {
       &:hover {
-        background: ${colors.hoverYellow};
         color: #fff;
+        background: ${colors.hoverYellow};
       }
     }
     ${mobile} {
       &.tapped {
-        background: ${colors.hoverYellow};
         color: #fff;
+        background: ${colors.hoverYellow};
       }
     }
   `,
   taken: css`
     ${desktop} {
       &:hover {
-        background: ${colors.hoverRed};
         color: #fff;
+        background: ${colors.hoverRed};
       }
     }
     ${mobile} {
       &.tapped {
-        background: ${colors.hoverRed};
         color: #fff;
+        background: ${colors.hoverRed};
       }
     }
   `,
   sale: css`
     ${desktop} {
       &:hover {
-        background: ${colors.hoverBlue};
         color: #fff;
+        background: ${colors.hoverBlue};
       }
     }
     ${mobile} {
       &.tapped {
-        background: ${colors.hoverBlue};
         color: #fff;
+        background: ${colors.hoverBlue};
       }
     }
   `,
   expiring: css`
     ${desktop} {
       &:hover {
-        background: ${colors.hoverBlue};
         color: #fff;
+        background: ${colors.hoverBlue};
       }
     }
     ${mobile} {
       &.tapped {
-        background: ${colors.hoverBlue};
         color: #fff;
+        background: ${colors.hoverBlue};
       }
     }
   `,
   auction: css`
     ${desktop} {
       &:hover {
-        background: ${colors.hoverBlue};
         color: #fff;
+        background: ${colors.hoverBlue};
       }
     }
     ${mobile} {
       &.tapped {
-        background: ${colors.hoverBlue};
         color: #fff;
+        background: ${colors.hoverBlue};
       }
     }
   `,
@@ -302,44 +302,44 @@ export const hoverBackground: StatusStyles = hoverStatusStyles;
 export const focusBackground: StatusStyles = {
   auction: css`
     &:focus {
-      background: ${colors.hoverBlue};
       color: #fff;
+      background: ${colors.hoverBlue};
     }
   `,
   available: css`
     &:focus {
-      background: ${colors.hoverGreen};
       color: #fff;
+      background: ${colors.hoverGreen};
     }
   `,
   expiring: css`
     &:focus {
-      background: ${colors.hoverBlue};
       color: #fff;
+      background: ${colors.hoverBlue};
     }
   `,
   recentlyDropped: css`
     &:focus {
-      background: ${colors.hoverYellow};
       color: #fff;
+      background: ${colors.hoverYellow};
     }
   `,
   recentlyRegistered: css`
     &:focus {
-      background: ${colors.hoverYellow};
       color: #fff;
+      background: ${colors.hoverYellow};
     }
   `,
   sale: css`
     &:focus {
-      background: ${colors.hoverBlue};
       color: #fff;
+      background: ${colors.hoverBlue};
     }
   `,
   taken: css`
     &:focus {
-      background: ${colors.hoverRed};
       color: #fff;
+      background: ${colors.hoverRed};
     }
   `,
 };

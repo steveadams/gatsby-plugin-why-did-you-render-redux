@@ -1,4 +1,5 @@
 /* Copyright 2005-present Instant Domain Search, Inc. */
+/*eslint-env node*/
 
 exports.onCreateWebpackConfig = ({getConfig, stage}) => {
   const config = getConfig();
@@ -17,10 +18,12 @@ function fixExtensionPath(path) {
 const pathWordsToTranslate = ['articlesUrl'];
 
 function translatePath(path, lang) {
+  /*eslint-disable-next-line*/
   const strings = require(`./src/locales/${lang}`);
   for (const word of pathWordsToTranslate) {
     const translation = strings[word];
     if (!translation) continue;
+    /*eslint-disable-next-line*/
     const original = require(`./src/locales/en`)[word];
     path = path.replace(new RegExp(`/${original}/`, 'gi'), `/${translation}/`);
   }

@@ -16,44 +16,48 @@ import Text from './Text';
 const styles = {
   extendedResults: css`
     min-height: 1056px; /* make very high to avoid scrollbar bouncing. text should fit in 1040px. */
+
     ${mobile} {
       min-height: initial;
     }
   `,
   columns: css`
-    margin-left: -24px;
-    margin-right: -24px;
     margin-top: 12px;
+    margin-right: -24px;
+    margin-left: -24px;
     padding-bottom: 32px;
+
     ${desktop} {
       display: flex;
     }
+
     ${mobile} {
-      margin-left: 0;
       margin-right: 0;
+      margin-left: 0;
     }
   `,
   col: css`
     ${desktop} {
-      box-sizing: border-box;
       flex-basis: 33.333%;
       flex-grow: 1;
       flex-shrink: 0;
-      min-width: 33.333%; /* help firefox apply text-overflow correctly */
-      padding-left: 24px;
-      padding-right: 24px;
+      box-sizing: border-box;
       width: 33.333%;
+      min-width: 33.333%; /* help firefox apply text-overflow correctly */
+      padding-right: 24px;
+      padding-left: 24px;
     }
   `,
   errorMessage: css`
-    color: ${colors.mediumDarkGray};
     margin-top: 48px;
+    color: ${colors.mediumDarkGray};
     text-align: center;
   `,
   goDaddyButton: css`
-    background: ${colors.green};
-    color: ${colors.white};
     margin-top: 32px;
+    color: ${colors.white};
+    background: ${colors.green};
+
     &:hover {
       background: ${colors.hoverGreen};
     }

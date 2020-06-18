@@ -12,10 +12,10 @@ import * as routes from '../routes';
 
 const styles = {
   notFoundWrapper: css`
-    text-align: center;
     max-width: 560px;
     margin: 0 auto;
     padding: 60px 0;
+    text-align: center;
   `,
   icon: css`
     width: 300px;

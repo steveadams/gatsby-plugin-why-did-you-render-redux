@@ -8,49 +8,49 @@ import * as colors from '../colors';
 const styles = {
   column: css`
     display: inline-block;
-    width: 33%;
     box-sizing: border-box;
+    width: 33%;
   `,
   cell: css`
-    padding: 6px;
     margin: 6px;
+    padding: 6px;
     border: 1px solid;
   `,
   blue: css`
+    color: '#fff';
     background: ${colors.blue};
     border-color: ${colors.blue};
-    color: '#fff';
   `,
   green: css`
+    color: '#fff';
     background: ${colors.green};
     border-color: ${colors.green};
-    color: '#fff';
   `,
   red: css`
+    color: '#fff';
     background: ${colors.red};
     border-color: ${colors.red};
-    color: '#fff';
   `,
   yellow: css`
+    color: '#fff';
     background: ${colors.yellow};
     border-color: ${colors.yellow};
-    color: '#fff';
   `,
   blueBorder: css`
-    border-color: ${colors.borderBlue};
     color: ${colors.blue};
+    border-color: ${colors.borderBlue};
   `,
   greenBorder: css`
-    border-color: ${colors.borderGreen};
     color: ${colors.green};
+    border-color: ${colors.borderGreen};
   `,
   redBorder: css`
-    border-color: ${colors.borderRed};
     color: ${colors.red};
+    border-color: ${colors.borderRed};
   `,
   yellowBorder: css`
-    border-color: ${colors.borderYellow};
     color: ${colors.yellow};
+    border-color: ${colors.borderYellow};
   `,
   blueText: css`
     color: ${colors.blue};

@@ -18,21 +18,21 @@ import Link from './Link';
 
 const styles = {
   parent: css`
-    background-color: ${colors.extraLightGray};
     position: relative;
+    background-color: ${colors.extraLightGray};
   `,
   header: css`
+    padding-bottom: 20px;
     font-size: ${font.l}px;
     line-height: 24px;
-    padding-bottom: 20px;
     text-align: center;
   `,
   contentBox: css`
+    width: 800px;
+    margin-right: auto;
+    margin-left: auto;
     padding-top: 54px;
     padding-bottom: 54px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 800px;
   `,
   footer: css`
     margin-top: 30px;
@@ -42,13 +42,13 @@ const styles = {
     color: ${colors.mediumDarkGray};
   `,
   clearButton: css`
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: block;
     border-radius: 12px;
     cursor: pointer;
-    display: block;
-    position: absolute;
-    right: 12px;
     stroke: ${colors.mediumDarkGray};
-    top: 12px;
 
     &:hover {
       background: ${colors.mediumDarkGrayHover};

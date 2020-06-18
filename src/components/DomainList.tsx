@@ -17,39 +17,42 @@ import {SearchSelectorLink, SearchType} from './SearchSelector';
 const topLinkStyles = {
   topLink: css`
     float: right;
-    font-weight: ${font.medium};
     color: ${colors.blue};
+    font-weight: ${font.medium};
     font-size: ${font.xxs}px;
   `,
   icon: css`
-    stroke: ${colors.blue};
     width: 8px;
     height: 8px;
     margin-left: 4px;
+    stroke: ${colors.blue};
   `,
 };
 
 const styles = {
   title: css`
-    font-weight: ${font.bold};
     color: ${colors.darkGray};
+    font-weight: ${font.bold};
   `,
   buttonSize: css`
-    padding-bottom: 12px;
-    padding-top: 12px;
-    padding-left: 12px;
-    padding-right: 12px;
-    margin-left: -12px;
-    margin-right: -12px;
     display: block;
+
+    margin-right: -12px;
+    margin-left: -12px;
+    padding-top: 12px;
+    padding-right: 12px;
+    padding-bottom: 12px;
+    padding-left: 12px;
+
     &:hover {
       text-decoration: none;
     }
+
     ${mobile} {
-      margin-left: -16px;
       margin-right: -16px;
-      padding-left: 16px;
+      margin-left: -16px;
       padding-right: 16px;
+      padding-left: 16px;
     }
   `,
   linkedButton: css`
@@ -57,11 +60,13 @@ const styles = {
     cursor: pointer;
     ${desktop} {
       &:hover {
-        background: ${colors.hoverBlue};
         color: ${colors.white};
+        background: ${colors.hoverBlue};
+
         & .${topLinkStyles.topLink} {
           color: ${colors.white};
         }
+
         & .${topLinkStyles.icon} {
           stroke: ${colors.white};
         }
@@ -70,11 +75,13 @@ const styles = {
     ${mobile} {
       border-radius: 0;
       &:active {
-        background: ${colors.hoverBlue};
         color: ${colors.white};
+        background: ${colors.hoverBlue};
+
         & .${topLinkStyles.topLink} {
           color: ${colors.white};
         }
+
         & .${topLinkStyles.icon} {
           stroke: ${colors.white};
         }
@@ -82,33 +89,35 @@ const styles = {
     }
   `,
   auxText: css`
-    font-weight: ${font.regular};
-    color: ${colors.mediumGray};
-    font-style: normal;
-    padding-bottom: 10px;
     padding-top: 10px;
+    padding-bottom: 10px;
+    color: ${colors.mediumGray};
+    font-weight: ${font.regular};
+    font-style: normal;
     line-height: 20px;
+
     ${mobile} {
-      margin-left: -16px;
       margin-right: -16px;
-      padding-left: 16px;
+      margin-left: -16px;
       padding-right: 16px;
+      padding-left: 16px;
     }
   `,
   bottomLink: css`
-    font-weight: ${font.regular};
-    color: ${colors.mediumGray};
-    font-style: normal;
     clear: both;
+    color: ${colors.mediumGray};
+    font-weight: ${font.regular};
+    font-style: normal;
   `,
   buyLinks: css`
-    margin-left: -12px;
     margin-right: -12px;
+    margin-left: -12px;
+
     ${mobile} {
+      margin-right: -16px;
+      margin-left: -16px;
       overflow: hidden;
       transition: height 0.3s;
-      margin-left: -16px;
-      margin-right: -16px;
     }
   `,
 };

@@ -19,12 +19,14 @@ const styles = {
     display: block;
     border-radius: 12px;
     stroke: ${lightGray};
+
     &:hover {
       stroke: ${mediumGray};
     }
   `,
   expandedHandle: css`
     stroke: ${mediumDarkGray};
+
     &:hover {
       stroke: ${mediumDarkGray};
     }
@@ -35,17 +37,18 @@ const styles = {
     font-weight: ${regular};
   `,
   label: css`
-    color: ${mediumGray};
     display: block;
     margin: 0;
     padding: 6px 16px 0;
+    color: ${mediumGray};
   `,
   item: css`
-    color: ${mediumDarkGray};
-    cursor: pointer;
     display: block;
     margin: 0;
     padding: 6px 16px;
+    color: ${mediumDarkGray};
+    cursor: pointer;
+
     &:hover {
       background: ${lightGray};
     }

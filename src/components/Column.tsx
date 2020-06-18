@@ -10,8 +10,8 @@ function Column({children}: {children: React.ReactNode}) {
     <div
       className={css`
         ${desktop} {
-          width: 50%;
           display: inline-block;
+          width: 50%;
           vertical-align: top;
         }
       `}>

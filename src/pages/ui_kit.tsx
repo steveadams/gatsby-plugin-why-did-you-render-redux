@@ -23,21 +23,21 @@ const styles = {
     border-bottom: 1px solid ${colors.extraLightGray};
   `,
   icons: css`
-    width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    grid-template-rows: repeat(6, 1fr);
+    grid-auto-rows: 1fr;
     grid-auto-flow: dense;
     grid-gap: 16px;
-    grid-auto-rows: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    width: 100%;
     text-align: center;
 
     li {
       margin-bottom: 32px;
 
       pre {
-        background: none;
         margin-top: 16px;
+        background: none;
       }
     }
   `,

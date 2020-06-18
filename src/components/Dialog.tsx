@@ -12,33 +12,34 @@ const styles = {
     position: fixed;
     top: 0;
     right: 0;
-    left: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
   `,
   wrapper: css`
     position: absolute;
     top: 50%;
-    left: 0;
     right: 0;
-    transform: translateY(-50%);
+    left: 0;
     text-align: center;
+    transform: translateY(-50%);
   `,
   dialog: css`
-    background: ${colors.white};
+    position: relative;
     display: inline-block;
     max-width: 420px;
     padding: 48px 64px 32px 64px;
+    background-color: ${colors.white};
     border-radius: 4px;
-    position: relative;
   `,
   dismissButton: css`
-    stroke: ${colors.mediumGray};
     position: absolute;
-    cursor: pointer;
     top: 6px;
     right: 6px;
     border-radius: 12px;
+    cursor: pointer;
+    stroke: ${colors.mediumGray};
+
     &:hover {
       background: ${colors.lightGray};
     }

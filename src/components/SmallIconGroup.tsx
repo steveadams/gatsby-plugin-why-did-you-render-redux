@@ -12,24 +12,27 @@ function SmallIconGroup({icon, children}: {icon: IconProps; children: React.Reac
   return (
     <div
       className={css`
-        margin-bottom: 32px;
         display: flex;
         flex-wrap: wrap;
         align-items: normal;
+        margin-bottom: 32px;
+
         ${desktop} {
           padding-right: 32px;
         }
       `}>
       <Icon
         className={css`
-          color: ${colors.white};
+          flex: 0;
           min-width: 36px;
           min-height: 36px;
           max-height: 36px;
-          flex: 0;
+          color: ${colors.white};
+
           ${desktop} {
             margin-right: 16px;
           }
+
           ${mobile} {
             margin-right: 8px;
           }
@@ -39,9 +42,9 @@ function SmallIconGroup({icon, children}: {icon: IconProps; children: React.Reac
       />
       <p
         className={css`
-          font-size: ${font.xs}px;
-          margin-bottom: 0;
           flex: 1;
+          margin-bottom: 0;
+          font-size: ${font.xs}px;
         `}>
         {children}
       </p>

@@ -38,30 +38,30 @@ const styles = {
   `,
   searchForm: css`
     position: relative;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
     width: 100%;
     max-width: 560px;
     margin: 0 auto 32px auto;
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    border-radius: 50px;
     background-color: ${colors.white};
+    border-radius: 50px;
 
     &.collapsed {
       margin-top: 32px;
     }
 
     &:before {
-      content: ' ';
-      color: transparent;
       position: absolute;
-      left: 0px;
-      right: 0px;
       top: 0px;
+      right: 0px;
       bottom: 0px;
+      left: 0px;
+      z-index: 1;
+      color: transparent;
       border: 3px solid transparent;
       border-radius: 50px;
-      z-index: 1;
+      content: ' ';
       pointer-events: none;
     }
 
@@ -78,13 +78,13 @@ const styles = {
     }
   `,
   searchInput: css`
-    font-size: ${font.xs}px;
-    display: flex;
-    background-color: transparent;
-    padding-left: 24px;
-    border-radius: 48px 0 0 48px;
-    flex-grow: 1;
     z-index: 2;
+    display: flex;
+    flex-grow: 1;
+    padding-left: 24px;
+    font-size: ${font.xs}px;
+    background-color: transparent;
+    border-radius: 48px 0 0 48px;
 
     &::placeholder,
     &:focus::placeholder {
@@ -93,26 +93,26 @@ const styles = {
     }
 
     ${mobile} {
+      padding-left: 16px;
       /* Prevent input zooming on iOS Safari */
       font-size: ${font.s}px;
-      padding-left: 16px;
     }
   `,
   searchButton: css`
+    z-index: 2;
     display: flex;
     font-weight: ${font.regular};
     border-top-left-radius: unset;
     border-bottom-left-radius: unset;
-    z-index: 2;
   `,
   clearButton: css`
+    z-index: 2;
     display: flex;
-    background-color: transparent;
-    border-radius: unset;
     padding: 0 16px;
     line-height: inherit;
+    background-color: transparent;
+    border-radius: unset;
     cursor: pointer;
-    z-index: 2;
 
     &.empty {
       color: transparent;
@@ -136,12 +136,12 @@ const styles = {
   `,
   shortcutsTip: css`
     position: absolute;
+    right: 0;
     bottom: -14px;
     left: 0;
-    right: 0;
-    text-align: center;
-    font-size: ${font.xxs}px;
     color: ${colors.mediumGray};
+    font-size: ${font.xxs}px;
+    text-align: center;
     transition: opacity 500ms;
   `,
 };
