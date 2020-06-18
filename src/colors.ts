@@ -1,5 +1,8 @@
 /* Copyright 2005-present Instant Domain Search, Inc. */
 
+export const flyoutBackground = '#fff';
+export const flyoutBorder = '#ececec';
+
 export const blue = '#3286dc';
 export const darkGray = '#444444';
 export const extraLightGray = '#f9f9f9';

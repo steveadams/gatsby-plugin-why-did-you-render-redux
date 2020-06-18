@@ -23,10 +23,10 @@ const styles = {
     font-size: ${font.xxs}px;
     line-height: 18px;
     white-space: normal;
-    background-color: #fff;
-    border: 1px solid ${colors.lightGray};
+    background-color: ${colors.flyoutBackground};
+    border: 1px solid ${colors.flyoutBorder};
     border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, 0.03) 0 0 0 2px;
+    box-shadow: 0px 16px 16px rgba(0, 0, 0, 0.03), 0px 4px 8px rgba(0, 0, 0, 0.06);
   `,
   flyoutTip: css`
     position: absolute;
@@ -41,9 +41,8 @@ const styles = {
 const FlyoutTip = (props: React.HTMLAttributes<SVGSVGElement>) => {
   return (
     <svg height="12" viewBox="0 0 18 12" width="18" {...props}>
-      <path d="M16 7L9 0 2 7z" fill="#000" fillOpacity=".03" stroke="none" />
-      <path d="M1 11.5l8-8 8 8" fill="#FFF" stroke="none" />
-      <path d="M0 9.5h3l6-6 6 6h3" fill="#FFF" stroke="#DDD" />
+      <path d="M1 11.5l8-8 8 8" fill={colors.flyoutBackground} stroke="none" />
+      <path d="M0 9.5h3l6-6 6 6h3" fill={colors.flyoutBackground} stroke={colors.flyoutBorder} />
     </svg>
   );
 };

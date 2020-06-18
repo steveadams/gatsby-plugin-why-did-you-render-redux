@@ -83,8 +83,8 @@ const styles = {
       margin-left: auto;
     }
 
-    a {
-      margin-right: 8px;
+    & > * {
+      margin-left: 8px;
     }
   `,
   link: css`
@@ -181,7 +181,7 @@ function MainDomainView() {
       title?: string,
     ) => (
       <Button
-        className={cx(styles.secondaryButton, styles.secondaryButton)}
+        className={styles.secondaryButton}
         defaultColor={false}
         eventID={eventId}
         eventInfo={googleAnalyticsLabel(mainDomain)}
