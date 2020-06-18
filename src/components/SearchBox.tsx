@@ -232,6 +232,7 @@ function SearchBox() {
             inputRef={inputRef}
             name="search"
             onChange={onChange}
+            onFocus={actions.focusedSearchField}
             onKeyPress={onKeyPress}
             placeholder={isMobile ? Text({id: 'mobileSearchPlaceholder'}) : Text({id: 'searchPlaceholder'})}
             spellCheck={false}
@@ -240,7 +241,7 @@ function SearchBox() {
           />
 
           {!shouldShowHeaderAndFooter && (
-            <Button className={styles.clearButton} onClick={actions.clearSearchField}>
+            <Button className={styles.clearButton} onClick={actions.clearSearchField} tag="a">
               <Icon className={styles.clearIcon} name="Clear" />
             </Button>
           )}
