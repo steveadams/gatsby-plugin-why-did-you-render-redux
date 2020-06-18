@@ -164,7 +164,7 @@ css`
 
     h1,
     h2 {
-      font-weight: ${font.black};
+      font-weight: ${font.bold};
       margin-bottom: 0.25em;
 
       ${mobile} {
@@ -178,7 +178,7 @@ css`
     }
 
     h1 {
-      font-size: ${font.xl}px;
+      font-size: ${font.l}px;
     }
 
     h2 {

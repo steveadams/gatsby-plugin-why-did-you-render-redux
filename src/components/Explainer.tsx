@@ -43,7 +43,7 @@ const styles = {
 
 const Explainer = ({children, className, title, ...props}: ExplainerProps) => (
   <section className={cx(styles.explainer, className ? className : '')} {...props}>
-    <h2 className={styles.title}>{title}</h2>
+    <h1 className={styles.title}>{title}</h1>
     <div className={styles.columns}>{children}</div>
   </section>
 );

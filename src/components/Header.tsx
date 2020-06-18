@@ -39,17 +39,18 @@ function Header() {
       }
     `,
     link: css`
-      display: flex;
-      justify-content: center;
-      color: ${colors.darkGray};
-
       &:hover {
         text-decoration: none;
       }
     `,
     title: css`
+      display: flex;
+      justify-content: center;
+      color: ${colors.darkGray};
       line-height: 1;
       margin-bottom: 0;
+      font-size: ${font.xl}px;
+      font-weight: ${font.bold};
 
       ${mobile} {
         font-size: ${font.l}px;
@@ -61,10 +62,6 @@ function Header() {
       font-size: ${font.xxs}px;
       font-weight: ${font.regular};
       align-self: center;
-      /* Bump it up just a bit */
-      position: relative;
-      left: 1px;
-      bottom: 3px;
     `,
     subTitle: css`
       font-size: ${font.xs}px;
@@ -80,11 +77,11 @@ function Header() {
       {!isMobile && <LanguageFlyout />}
 
       <Link className={styles.link} to={lang === languageCodes.english ? '/' : `/${lang}/`}>
-        <h1 className={styles.title}>
+        <span className={styles.title}>
           <IconLogo className={styles.logoIcon} />
           Instant Domain Search
-        </h1>
-        <span className={styles.registered}>®</span>
+          <span className={styles.registered}>®</span>
+        </span>
       </Link>
 
       <p className={styles.subTitle}>

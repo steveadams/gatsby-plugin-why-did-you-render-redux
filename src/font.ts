@@ -1,6 +1,6 @@
 /* Copyright 2005-present Instant Domain Search, Inc. */
 
-export const sansFamily = `'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;`;
+export const sansFamily = `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;`;
 export const extraLight = 100;
 export const light = 300;
 export const regular = 400;
