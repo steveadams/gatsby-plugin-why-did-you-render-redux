@@ -3,6 +3,7 @@
 import {css} from 'linaria';
 import * as React from 'react';
 
+import * as colors from '../colors';
 import Controller from '../components/Controller';
 import DomainResults from '../components/DomainResults';
 import Page from '../components/Page';
@@ -11,6 +12,42 @@ import * as routes from '../routes';
 import {desktop, mobile} from '../styles';
 import Button from './Button';
 import Icon from './Icon';
+import Text from './Text';
+
+const styles = {
+  container: css`
+    max-width: 800px;
+    margin-right: auto;
+    margin-left: auto;
+    font-weight: ${font.regular};
+
+    ${desktop} {
+      margin-top: 36px;
+      margin-bottom: 64px;
+      padding-right: 32px;
+      padding-left: 32px;
+    }
+
+    ${mobile} {
+      margin-top: 16px;
+      margin-bottom: 48px;
+      padding-top: 16px;
+      padding-right: 16px;
+      padding-left: 16px;
+    }
+  `,
+  backButton: css`
+    display: inline-block;
+    margin-bottom: 32px;
+  `,
+  header: css`
+    margin-bottom: 16px;
+  `,
+  publishedDate: css`
+    color: ${colors.mediumDarkGray};
+    font-size: ${font.xs}px;
+  `,
+};
 
 export default ({
   frontmatter: {title, description, headline, date},
@@ -22,41 +59,23 @@ export default ({
 }) => (
   <Page {...props} description={description} title={title}>
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
-      <div
-        className={css`
-          max-width: 800px;
-          margin-right: auto;
-          margin-left: auto;
-          font-weight: ${font.regular};
-
-          ${desktop} {
-            margin-top: 36px;
-            margin-bottom: 24px;
-            padding-right: 32px;
-            padding-left: 32px;
-          }
-
-          ${mobile} {
-            margin-top: 16px;
-            margin-bottom: 48px;
-            padding-top: 16px;
-            padding-right: 16px;
-            padding-left: 16px;
-          }
-        `}
-        itemScope
-        itemType="http://schema.org/TechArticle">
-        <Button onClick={() => history.back()}>
-          <Icon name="ArrowLeft" /> <span>Back</span>
+      <div className={styles.container} itemScope itemType="http://schema.org/TechArticle">
+        {/* TODO probably want to point this to /articles, but will need localization */}
+        <Button className={styles.backButton} onClick={() => history.back()}>
+          <Icon name="ArrowLeft" />{' '}
+          <span>
+            <Text id="back" />
+          </span>
         </Button>
-        <h1>{headline}</h1>
-        <div itemProp="articleBody">{children}</div>
-        <em>
+
+        <h1 className={styles.header}>{headline}</h1>
+        <p className={styles.publishedDate}>
           Published{' '}
           <time dateTime={date} itemProp="datePublished">
-            {new Date(date).toLocaleDateString()}
+            {new Date(date).toLocaleDateString('en-US')}
           </time>
-        </em>
+        </p>
+        <div itemProp="articleBody">{children}</div>
       </div>
     </Controller>
   </Page>
