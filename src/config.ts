@@ -48,30 +48,21 @@ export default {
     },
     {
       name: 'hugedomains.com',
-      URL:
-        'https://www.anrdoezrs.net/click-7629305-11751890?sid={2}&url=https%3A%2F%2Fwww.godaddy.com%2Fdomainsearch%2Ffind%3FcheckAvail%3D1%26tmskey%3D%26domainToCheck%3D{0}.{1}',
-      mobile_URL:
-        'https://www.anrdoezrs.net/click-7709788-11751890?sid={2}&url=https%3A%2F%2Fwww.godaddy.com%2Fdomainsearch%2Ffind%3FcheckAvail%3D1%26tmskey%3D%26domainToCheck%3D{0}.{1}',
-      ios_URL:
-        'https://www.anrdoezrs.net/click-7793940-11751890?sid={2}&url=https%3A%2F%2Fwww.godaddy.com%2Fdomainsearch%2Ffind%3FcheckAvail%3D1%26tmskey%3D%26domainToCheck%3D{0}.{1}',
+      URL: 'https://sedo.com/checkdomainoffer.php?language=us&domain={0}.{1}&campaignId=325945',
+      mobile_URL: 'https://sedo.com/checkdomainoffer.php?language=us&domain={0}.{1}&campaignId=325945',
+      ios_URL: 'https://sedo.com/checkdomainoffer.php?language=us&domain={0}.{1}&campaignId=325945',
     },
     {
       name: 'sedoparking.com',
-      URL:
-        'https://www.anrdoezrs.net/click-7629305-11751890?sid={2}&url=https%3A%2F%2Fwww.godaddy.com%2Fdomainsearch%2Ffind%3FcheckAvail%3D1%26tmskey%3D%26domainToCheck%3D{0}.{1}',
-      mobile_URL:
-        'https://www.anrdoezrs.net/click-7709788-11751890?sid={2}&url=https%3A%2F%2Fwww.godaddy.com%2Fdomainsearch%2Ffind%3FcheckAvail%3D1%26tmskey%3D%26domainToCheck%3D{0}.{1}',
-      ios_URL:
-        'https://www.anrdoezrs.net/click-7793940-11751890?sid={2}&url=https%3A%2F%2Fwww.godaddy.com%2Fdomainsearch%2Ffind%3FcheckAvail%3D1%26tmskey%3D%26domainToCheck%3D{0}.{1}',
+      URL: 'https://sedo.com/checkdomainoffer.php?language=us&domain={0}.{1}&campaignId=325945',
+      mobile_URL: 'https://sedo.com/checkdomainoffer.php?language=us&domain={0}.{1}&campaignId=325945',
+      ios_URL: 'https://sedo.com/checkdomainoffer.php?language=us&domain={0}.{1}&campaignId=325945',
     },
     {
       name: 'sedo.com',
-      URL:
-        'https://www.anrdoezrs.net/click-7629305-11751890?sid={2}&url=https%3A%2F%2Fwww.godaddy.com%2Fdomainsearch%2Ffind%3FcheckAvail%3D1%26tmskey%3D%26domainToCheck%3D{0}.{1}',
-      mobile_URL:
-        'https://www.anrdoezrs.net/click-7709788-11751890?sid={2}&url=https%3A%2F%2Fwww.godaddy.com%2Fdomainsearch%2Ffind%3FcheckAvail%3D1%26tmskey%3D%26domainToCheck%3D{0}.{1}',
-      ios_URL:
-        'https://www.anrdoezrs.net/click-7793940-11751890?sid={2}&url=https%3A%2F%2Fwww.godaddy.com%2Fdomainsearch%2Ffind%3FcheckAvail%3D1%26tmskey%3D%26domainToCheck%3D{0}.{1}',
+      URL: 'https://sedo.com/checkdomainoffer.php?language=us&domain={0}.{1}&campaignId=325945',
+      mobile_URL: 'https://sedo.com/checkdomainoffer.php?language=us&domain={0}.{1}&campaignId=325945',
+      ios_URL: 'https://sedo.com/checkdomainoffer.php?language=us&domain={0}.{1}&campaignId=325945',
     },
     {
       name: 'afternic.com', // same as buydomains.com
@@ -167,8 +158,7 @@ export default {
   },
 
   acquire: {
-    URL:
-      'https://www.anrdoezrs.net/click-8793954-11751890?sid={2}&url=https%3A%2F%2Fwww.godaddy.com%2Fdomainsearch%2Ffind%3FcheckAvail%3D1%26tmskey%3Ddpp_dbs%26domainToCheck%3D{0}.{1}',
+    URL: 'https://sedo.com/brokerage/acquisition.php?language=us&domain={0}.{1}&campaignId=325922',
     mobile_URL:
       'https://www.anrdoezrs.net/click-8793954-11751890?sid={2}&url=https%3A%2F%2Fwww.godaddy.com%2Fdomainsearch%2Ffind%3FcheckAvail%3D1%26tmskey%3Ddpp_dbs%26domainToCheck%3D{0}.{1}',
     ios_URL:
