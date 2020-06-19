@@ -16,7 +16,7 @@ import * as routes from '../../../routes';
 export default (props: PageProps) => (
   <Page
     {...props}
-    description="Search the list of .com domain names as you type. Search results appear instantly. $4.99 coupon for new .com customers. Automatically generates suggestions and finds premium domain names available for sale."
+    description="Search the list of .com domain names as you type. Search results appear instantly. Automatically generates suggestions and finds premium domain names available for sale."
     title=".com Domain Names">
     <Controller page={routes.Page.Com} results={<DomainResults showTlds={false} />}>
       <WideLayout>
@@ -42,9 +42,8 @@ export default (props: PageProps) => (
         </IconGroup>
 
         <Column>
-          <IconGroup icon="Coupon" title="$4.99 .com domain name registration">
-            We automatically apply a discount when you register your first .com name at GoDaddy. It will only cost
-            $4.99–plus an $0.18 <span className="smallCaps">ICANN</span> fee. Visa, MasterCard,{' '}
+          <IconGroup icon="Coupon" title="Domain name registration">
+            We automatically apply a discount when you register your first .com name at GoDaddy. Visa, MasterCard,{' '}
             <span className="smallCaps">AMEX</span>, and PayPal are accepted.
           </IconGroup>
         </Column>

@@ -50,9 +50,8 @@ export default (props: PageProps) => (
         </Column>
 
         <Column>
-          <IconGroup icon="Coupon" title="$4.99 .com domain name registration">
-            We automatically apply a discount when you register your first .com at GoDaddy. It will only cost $4.99–plus
-            an $0.18 <span className="smallCaps">ICANN</span> fee. Visa, MasterCard,{' '}
+          <IconGroup icon="Coupon" title="Domain name registration">
+            We automatically apply a discount when you register your first .com at GoDaddy. Visa, MasterCard,{' '}
             <span className="smallCaps">AMEX</span>, and PayPal are accepted.
           </IconGroup>
         </Column>

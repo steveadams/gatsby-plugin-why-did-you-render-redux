@@ -29,9 +29,9 @@ export default ({data, ...props}: PageProps & ArticlesData) => (
           </p>
 
           <p>
-            Nós aplicamos um cupão de <strong>$4.99 por nomes de domínio .com</strong> quando efetua uma compra no
-            GoDaddy. A oferta é válida para apenas uma compra .com, e não inclui a taxa ICANN de $0,18 por nome de
-            domínio por ano. É um grande negócio!
+            Nós aplicamos um cupão <strong>por nomes de domínio .com</strong> quando efetua uma compra no GoDaddy. A
+            oferta é válida para apenas uma compra .com, e não inclui a taxa ICANN de $0,18 por nome de domínio por ano.
+            É um grande negócio!
           </p>
 
           <p style={{fontSize: '1.1em'}}>

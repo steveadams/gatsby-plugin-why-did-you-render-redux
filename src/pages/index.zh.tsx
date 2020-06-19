@@ -29,7 +29,7 @@ export default ({data, ...props}: PageProps & ArticlesData) => (
           </p>
 
           <p>
-            当你在GoDaddy购买时，我们对<strong>.com的域名</strong>应用一个<strong>$4.99</strong>{' '}
+            当你在GoDaddy购买时，我们对<strong>.com的域名</strong>应用一个
             优惠券。该提供只对一个.com购买有效，并且不包含每年每域名的 $0.18分配机构（ICANN）费 。那是个很棒的购买！
           </p>
 

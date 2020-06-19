@@ -12,7 +12,7 @@ import * as routes from '../../routes';
 export default (props: PageProps) => (
   <Page
     {...props}
-    description="Lookup domain names instantly by searching as you type. Uses artificial intelligence to help you find great names. $4.99 .com names for new customers."
+    description="Lookup domain names instantly by searching as you type. Uses artificial intelligence to help you find great names."
     title="Domain Lookup | Lookup Domain Availability">
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
       <WideLayout>

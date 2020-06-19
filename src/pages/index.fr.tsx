@@ -30,10 +30,9 @@ export default ({data, ...props}: PageProps & ArticlesData) => (
           </p>
 
           <p>
-            Nous appliquons une réduction de <strong>4.99 $ pour les noms de domaine en .com</strong> lorsque vous
-            faites votre achat sur GoDaddy. Cette offre est valable pour un seul achat d'un nom de domaine en .com, et
-            n'inclut pas les frais ICANN s'élevant à 0,18 $ par an pour chaque nom de domaine. Il s'agit d'une offre
-            intéressante !
+            Nous appliquons une réduction <strong>pour les noms de domaine en .com</strong> lorsque vous faites votre
+            achat sur GoDaddy. Cette offre est valable pour un seul achat d'un nom de domaine en .com, et n'inclut pas
+            les frais ICANN s'élevant à 0,18 $ par an pour chaque nom de domaine. Il s'agit d'une offre intéressante !
           </p>
 
           <p style={{fontSize: '1.1em'}}>
