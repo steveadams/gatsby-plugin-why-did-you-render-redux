@@ -261,7 +261,7 @@ const pathsToLocalize: {[key: string]: Record<LocalizedPath, string>} = {
 };
 
 const getLocalizedPath = (code: LanguageCode, key: LocalizedPath) => {
-  const head = code === languageCodes.english ? '/' : `/${code}`;
+  const head = code === languageCodes.english ? '' : `/${code}`;
   const tail = pathsToLocalize[code] !== undefined ? pathsToLocalize[code][key] : pathsToLocalize.default[key];
 
   return `${head}/${tail}`;
