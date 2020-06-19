@@ -5,6 +5,7 @@ export const flyoutBorder = '#ececec';
 
 export const blue = '#3286dc';
 export const darkGray = '#444444';
+export const darkerGray = '#323232';
 export const extraLightGray = '#f9f9f9';
 export const green = '#6dcf33';
 export const lightBlue = '#71a4ed';

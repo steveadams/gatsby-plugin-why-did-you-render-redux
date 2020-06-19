@@ -56,7 +56,7 @@ interface FlyoutProps {
   expandedHandle: JSX.Element | string;
   onCollapse?: () => void;
   onExpand?: () => void;
-  position?: 'relative' | 'absolute' | 'static';
+  position?: CssPosition;
   width?: number;
 }
 

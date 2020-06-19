@@ -369,12 +369,5 @@ css`
       text-transform: lowercase;
       font-feature-settings: 'smcp';
     }
-
-    .icon {
-      display: inline-flex;
-      align-self: center;
-      width: 1em;
-      height: 1em;
-    }
   }
 `;

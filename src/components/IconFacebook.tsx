@@ -4,10 +4,10 @@ import * as React from 'react';
 
 function IconFacebook({className}: {className?: string}) {
   return (
-    <svg className={className} height="24" viewBox="0 0 24 24" width="24">
+    <svg className={className} fill="none" height="14" viewBox="0 0 8 14" width="8" xmlns="http://www.w3.org/2000/svg">
       <path
-        d="M21.786 23c.67 0 1.214-.544 1.214-1.214V2.214C23 1.544 22.456 1 21.786 1H2.214C1.544 1 1 1.543 1 2.214v19.572C1 22.456 1.543 23 2.214 23h19.572zm-5.606 0v-8.52h2.86l.427-3.32H16.18V9.04c0-.96.267-1.616 1.645-1.616h1.758v-2.97a23.601 23.601 0 0 0-2.562-.131c-2.535 0-4.27 1.547-4.27 4.389v2.448H9.884v3.32h2.867V23h3.429z"
-        fillRule="evenodd"
+        d="M7.7 0H5.6C4.67174 0 3.7815 0.368749 3.12513 1.02513C2.46875 1.6815 2.1 2.57174 2.1 3.5V5.6H0V8.4H2.1V14H4.9V8.4H7L7.7 5.6H4.9V3.5C4.9 3.31435 4.97375 3.1363 5.10502 3.00503C5.2363 2.87375 5.41435 2.8 5.6 2.8H7.7V0Z"
+        fill="currentColor"
       />
     </svg>
   );

@@ -24,6 +24,7 @@ const styles = {
     justify-content: center;
     height: 48px;
     background: ${colors.darkGray};
+    border: 1px solid ${colors.lighterGray};
     border-radius: 50px;
   `,
   select: css`
@@ -43,6 +44,8 @@ const styles = {
   `,
   icon: css`
     align-self: center;
+    width: 12px;
+    height: 12px;
     padding-right: 24px;
     color: ${colors.white};
   `,

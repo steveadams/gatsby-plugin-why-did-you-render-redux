@@ -126,6 +126,8 @@ interface PageProps {
   };
 }
 
+type CssPosition = 'relative' | 'absolute' | 'static' | 'fixed';
+
 declare module '*.jpg' {
   const value: string;
   export default value;

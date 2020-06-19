@@ -9,8 +9,8 @@ import * as colors from '../colors';
 import * as font from '../font';
 import * as selectors from '../selectors';
 import {mobile} from '../styles';
-import IconLogo from './IconLogo';
 import LanguageFlyout from './LanguageFlyout';
+import Logo from './Logo';
 import Text, {languageCodes, useLanguage} from './Text';
 
 function Header() {
@@ -30,37 +30,24 @@ function Header() {
         padding-top: 40px;
       }
     `,
-    logoIcon: css`
-      &.icon {
-        /* TODO: USE VARIABLE-BASED UNITS */
-        margin-right: 8px;
-        vertical-align: text-bottom;
+    flyout: css`
+      top: 40px;
+      right: 0;
+      font-size: 12px;
+    `,
+    logo: css`
+      color: ${colors.darkGray};
+      font-size: ${font.xl}px;
+
+      ${mobile} {
+        /* TODO: Use spacing units */
+        margin-top: 16px;
       }
     `,
     link: css`
       &:hover {
         text-decoration: none;
       }
-    `,
-    title: css`
-      display: flex;
-      justify-content: center;
-      margin-bottom: 0;
-      color: ${colors.darkGray};
-      font-weight: ${font.bold};
-      font-size: ${font.xl}px;
-      line-height: 1;
-
-      ${mobile} {
-        /* TODO: Use spacing units */
-        margin-top: 16px;
-        font-size: ${font.l}px;
-      }
-    `,
-    registered: css`
-      align-self: center;
-      font-weight: ${font.regular};
-      font-size: ${font.xxs}px;
     `,
     subTitle: css`
       margin-top: 0;
@@ -73,14 +60,10 @@ function Header() {
 
   return (
     <header className={styles.header}>
-      {!isMobile && <LanguageFlyout />}
+      {!isMobile && <LanguageFlyout className={styles.flyout} position={'absolute'} />}
 
       <Link className={styles.link} to={lang === languageCodes.english ? '/' : `/${lang}/`}>
-        <span className={styles.title}>
-          <IconLogo className={styles.logoIcon} />
-          Instant Domain Search
-          <span className={styles.registered}>®</span>
-        </span>
+        <Logo className={styles.logo} />
       </Link>
 
       <p className={styles.subTitle}>

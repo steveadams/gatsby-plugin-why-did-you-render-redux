@@ -10,11 +10,6 @@ import {desktop, mobile} from '../styles';
 const styles = {
   wrapper: css`
     position: relative;
-    right: 50%;
-    left: 50%;
-    width: 100vw;
-    margin-right: -50vw;
-    margin-left: -50vw;
     font-weight: ${font.regular};
 
     &:nth-child(2) {

@@ -5,15 +5,12 @@ import {css, cx} from 'linaria';
 import * as React from 'react';
 
 import * as colors from '../colors';
-import * as font from '../font';
 import Flyout from './Flyout';
 import Icon from './Icon';
 import {languageCodes, localizedLanguageNames, useLanguage} from './Text';
 
 const styles = {
   flyout: css`
-    top: 40px;
-    right: 0;
     display: flex;
     align-items: center;
   `,
@@ -21,14 +18,13 @@ const styles = {
     display: flex;
     justify-content: center;
     padding: 8px;
-    color: ${colors.darkGray};
-    font-size: ${font.xs}px;
     text-align: center;
     border-radius: 18px;
 
     &:hover {
+      color: ${colors.darkGray};
       text-decoration: none;
-      background: ${colors.lightGray};
+      background-color: ${colors.lightGray};
 
       svg {
         color: ${colors.mediumDarkGray};
@@ -36,6 +32,7 @@ const styles = {
     }
   `,
   expandedHandle: css`
+    color: ${colors.darkGray};
     background: ${colors.lightGray};
 
     & svg {
@@ -44,8 +41,8 @@ const styles = {
   `,
   chevron: css`
     align-self: center;
-    width: 14px;
-    height: 14px;
+    width: 10px;
+    height: 10px;
     margin-left: 4px;
     color: ${colors.mediumGray};
   `,
@@ -53,7 +50,7 @@ const styles = {
     margin: 0;
     padding: 8px;
 
-    & a {
+    & > a {
       color: ${colors.mediumDarkGray};
 
       &:hover {
@@ -63,12 +60,12 @@ const styles = {
   `,
 };
 
-function LanguageFlyout() {
+function LanguageFlyout({className, position = 'relative'}: {className?: string; position?: CssPosition}) {
   const lang = useLanguage();
 
-  const handle = (className: string) => (
-    <div className={className}>
-      {localizedLanguageNames[lang]} <Icon className={styles.chevron} name="ChevronSmall" round={false} />
+  const handle = (handleClassName: string) => (
+    <div className={handleClassName}>
+      {localizedLanguageNames[lang]} <Icon className={styles.chevron} name="Chevron" round={false} />
     </div>
   );
 
@@ -77,21 +74,19 @@ function LanguageFlyout() {
 
   return (
     <Flyout
-      className={styles.flyout}
+      className={cx(styles.flyout, className)}
       collapsedHandle={collapsedHandle}
       expandedHandle={expandedHandle}
-      position="absolute"
+      position={position}
       width={112}>
       <ul className={styles.languageList}>
         {Object.entries(localizedLanguageNames).map(([code, language]) => {
-          const to = code !== languageCodes.english ? `/${code}/` : '';
-
-          return code !== lang ? (
-            <li key={code}>
-              <Link to={to}>{language}</Link>
-            </li>
-          ) : (
+          return code === lang ? (
             React.Fragment
+          ) : (
+            <li key={code}>
+              <Link to={code === languageCodes.english ? '/' : `/${code}/`}>{language}</Link>
+            </li>
           );
         })}
       </ul>
