@@ -93,8 +93,7 @@ export default (props: PageProps) => (
 
         <Column>
           <IconGroup icon="Coupon" title="Registro de nombre de dominio .com">
-            Aplicamos automáticamente un descuento cuando registra su primer nombre .com en GoDaddy. Sólo costará 4.99
-            dólares–más una cuota de 0.18 dólares de <span className="smallCaps">ICANN</span>. Aceptamos Visa,
+            Aplicamos automáticamente un descuento cuando registra su primer nombre .com en GoDaddy. Aceptamos Visa,
             MasterCard, <span className="smallCaps">AMEX</span> y PayPal.
           </IconGroup>
         </Column>

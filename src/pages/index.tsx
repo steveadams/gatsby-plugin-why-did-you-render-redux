@@ -19,7 +19,7 @@ import * as routes from '../routes';
 export default (props: PageProps) => (
   <Page
     {...props}
-    description="Domain name search results appear instantly as you type. $4.99 domains for new .com customers. Check the availability of hundreds of domain names at once."
+    description="Domain name search results appear instantly as you type. Lookup .com domain names and many other TLDs at once. See more options instantly."
     title="Domain Name Search">
     <Alternates />
     <Controller page={routes.Page.Home} results={<DomainResults showTlds />}>
@@ -118,13 +118,12 @@ export default (props: PageProps) => (
 
       <WideLayout>
         <Column>
-          <IconGroup icon="Coupon" title="$4.99 .com domain name registration">
+          <IconGroup icon="Coupon" title="Domain name registration">
             We automatically apply a discount when you register your first{' '}
             <Link onClick={() => event('internal', 'click', 'domain_com_p-small')} to="/domain/extensions/.com/">
               .com
             </Link>{' '}
-            at GoDaddy. It will only cost $4.99–plus an $0.18 <span className="smallCaps">ICANN</span> fee. Go Daddy
-            accepts Visa, MasterCard, <span className="smallCaps">AMEX</span>, and PayPal.
+            at GoDaddy. Go Daddy accepts Visa, MasterCard, <span className="smallCaps">AMEX</span>, and PayPal.
           </IconGroup>
         </Column>
 
