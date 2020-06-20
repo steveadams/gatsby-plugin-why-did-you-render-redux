@@ -109,6 +109,7 @@ const styles = {
     z-index: 2;
     display: flex;
     padding: 0 16px;
+    color: ${colors.mediumDarkGray};
     line-height: inherit;
     background-color: transparent;
     border-radius: unset;
@@ -130,9 +131,6 @@ const styles = {
     ${mobile} {
       margin-right: 4px;
     }
-  `,
-  clearIcon: css`
-    color: ${colors.darkGray};
   `,
   shortcutsTip: css`
     position: absolute;
@@ -242,7 +240,7 @@ function SearchBox() {
 
           {!shouldShowHeaderAndFooter && (
             <Button className={styles.clearButton} onClick={actions.clearSearchField} tag="a">
-              <Icon className={styles.clearIcon} name="Clear" />
+              <Icon name="Clear" />
             </Button>
           )}
 
