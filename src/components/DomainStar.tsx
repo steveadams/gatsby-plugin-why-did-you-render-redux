@@ -13,25 +13,22 @@ import StarIcon from './StarIcon';
 
 const styles = {
   default: css`
-    position: absolute;
-    top: 50%;
-    left: -20px;
     display: block;
-    margin-top: -12px;
     text-align: center;
     cursor: pointer;
   `,
   regular: css`
-    width: 24px;
-    height: 24px;
+    position: absolute;
+    top: 35%;
+    left: -16px;
+    width: 14px;
+    height: 14px;
   `,
   large: css`
-    position: static;
-    width: 28px;
-    height: 28px;
-    margin-top: 0;
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
     margin-right: 12px;
-    margin-left: ${-28 - 12}px;
   `,
   defaultOffColor: css`
     stroke: ${colors.lightGray};

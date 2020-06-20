@@ -19,12 +19,13 @@ const styles = {
     display: flex;
     align-items: center;
     height: 48px;
+    font-size: 14px;
   `,
   handle: css`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 4px 4px 4px 0;
+    padding: 4px 8px 4px 4px;
     color: ${colors.mediumDarkGray};
     font-size: ${font.xs}px;
     text-align: center;
@@ -44,6 +45,10 @@ const styles = {
     font-size: ${font.s}px;
     text-align: left;
   `,
+  star: css`
+    width: 16px;
+    height: 16px;
+  `,
   starOutlined: css`
     fill: transparent;
     stroke: ${colors.mediumGray};
@@ -61,7 +66,7 @@ function FavoritesFlyout() {
     <div className={cx(styles.handle, count > 0 ? styles.expandedHandle : '')} id="favorites">
       {count > 0 && (
         <>
-          <StarIcon className={count > 0 ? styles.starFilled : styles.starOutlined} />
+          <StarIcon className={cx(styles.star, count > 0 ? styles.starFilled : styles.starOutlined)} />
           <span>{count}</span>
         </>
       )}

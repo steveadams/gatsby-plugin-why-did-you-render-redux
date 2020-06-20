@@ -15,7 +15,6 @@ import Button from './Button';
 import FavoritesFlyout from './FavoritesFlyout';
 import Icon from './Icon';
 import SearchSelector from './SearchSelector';
-import {Key} from './ShortcutsDialog';
 import Text from './Text';
 import TextInput from './TextInput';
 
@@ -132,23 +131,12 @@ const styles = {
       margin-right: 4px;
     }
   `,
-  shortcutsTip: css`
-    position: absolute;
-    right: 0;
-    bottom: -14px;
-    left: 0;
-    color: ${colors.mediumGray};
-    font-size: ${font.xxs}px;
-    text-align: center;
-    transition: opacity 500ms;
-  `,
 };
 
 function SearchBox() {
   const isMobile = useSelector(selectors.isMobile);
   const value = useSelector(selectors.typedSearch);
   const domain = useSelector(selectors.mainDomain);
-  const showShortcutsTip = useSelector(selectors.showShortcutsTip);
   const shouldShowHeaderAndFooter = useSelector(selectors.shouldShowHeaderAndFooter);
 
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -253,12 +241,6 @@ function SearchBox() {
         </form>
       </div>
       <SearchSelector mobile={isMobile} />
-      {!shouldShowHeaderAndFooter && (
-        <div className={styles.shortcutsTip} style={{opacity: showShortcutsTip ? 1 : 0}}>
-          <strong>Tip:</strong> press <Key>ctrl</Key>
-          <Key>/</Key> to see available keyboard shortcuts.
-        </div>
-      )}
     </section>
   );
 }
