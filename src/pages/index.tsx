@@ -40,13 +40,13 @@ export default (props: PageProps) => (
 
         <Column>
           <IconGroup
-            eventInfo="business_name_generator_h3"
-            href="/?"
-            icon="BizNameGenerator"
-            title="Business Name Generator">
+            eventInfo="domain_extensions_h3"
+            href="/domain/extensions/"
+            icon="Extensions"
+            title="Domain extensions">
             Search .com and other domain extensions like .app, .dev, .store, and over a hundred more. We also search
             country-code domains (ccTLDs) like .ca, .co.uk, .us, and .in. The{' '}
-            <Link onClick={() => event('internal', 'click', 'business_name_generator_p-small')} to="/?">
+            <Link onClick={() => event('internal', 'click', 'domain_extensions_p-small')} to="/?">
               domain name extensions
             </Link>{' '}
             page shows gTLD domain availability in a grid to make it easier to see many results at once.
@@ -76,14 +76,9 @@ export default (props: PageProps) => (
         </Column>
 
         <Column>
-          <IconGroup
-            eventInfo="domain_expired_h3"
-            href="/domain/extensions/"
-            icon="Extensions"
-            title="Domain Extensions">
-            Search .com and other domain extensions like .app, .dev, .store, and over a hundred more. We also search
-            country-code domains (ccTLDs) like .ca, .co.uk, .us, and .in. The domain name extensions page shows gTLD
-            domain availability in a grid to make it easier to see many results at once.
+          <IconGroup eventInfo="domain_expired_h3" href="/domain/expired/" icon="Expired" title="Expired domain names">
+            Search domain names that are about to expire. Some registrars let you buy the domain name immediately,
+            sometimes the names go to an auction, and others will backorder the name for you.
           </IconGroup>
         </Column>
       </WideLayout>

@@ -293,6 +293,23 @@ export const icons: Record<string, FC<IconColors>> = {
     </>
   ),
 
+  Expired: ({primary, secondary, stroke}) => (
+    <>
+      <circle cx="28" cy="28" fill={secondary} r="28" />
+      <path
+        d="M15.5084 37.9991C14.8175 37.1372 13.5588 36.9986 12.697 37.6895C11.8351 38.3804 11.6965 39.6391 12.3874 40.5009L15.5084 37.9991ZM44 28C44 36.8366 36.8366 44 28 44V48C39.0457 48 48 39.0457 48 28H44ZM12 28C12 19.1634 19.1634 12 28 12V8C16.9543 8 8 16.9543 8 28H12ZM28 12C36.8366 12 44 19.1634 44 28H48C48 16.9543 39.0457 8 28 8V12ZM28 44C22.9481 44 18.4439 41.661 15.5084 37.9991L12.3874 40.5009C16.0494 45.0692 21.6831 48 28 48V44Z"
+        fill={primary}
+      />
+      <circle cx="28" cy="28" fill="white" r="18" stroke={stroke} strokeWidth="4" />
+      <circle cx="29" cy="29" fill={primary} r="2" />
+      <path d="M31 29L27 29L28 20L29.5 20L31 29Z" fill={primary} />
+      <path
+        d="M30.7275 27.8995L28.6679 29.9592C28.2541 30.373 27.575 30.3446 27.1971 29.8978L18.8281 20L19.8281 19L30.7275 27.8995Z"
+        fill={primary}
+      />
+    </>
+  ),
+
   DomainGenerator: ({primary, secondary}) => (
     <>
       <rect fill={primary} height="24" transform="rotate(-90 14 30)" width="4" x="14" y="30" />
