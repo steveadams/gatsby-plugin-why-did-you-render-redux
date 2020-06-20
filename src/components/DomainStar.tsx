@@ -6,10 +6,9 @@ import {useSelector} from 'react-redux';
 
 import * as actions from '../actions';
 import * as colors from '../colors';
-import {localStorageKey, statusName} from '../domain';
+import {localStorageKey} from '../domain';
 import * as favorites from '../favorites';
 import * as selectors from '../selectors';
-import * as statusColors from '../statusColors';
 import StarIcon from './StarIcon';
 
 const styles = {
@@ -59,11 +58,10 @@ const styles = {
 interface DomainStarProps {
   domain: Domain;
   large?: boolean;
-  statusColor?: boolean;
   left?: number;
 }
 
-function DomainStar({domain, large = false, statusColor = false, left}: DomainStarProps) {
+function DomainStar({domain, large = false, left}: DomainStarProps) {
   const favs = useSelector(selectors.favoriteIDs);
   const isMobile = useSelector(selectors.isMobile);
 
@@ -128,7 +126,9 @@ function DomainStar({domain, large = false, statusColor = false, left}: DomainSt
   if (!favorites.enabled() || isMobile) {
     return null;
   }
+
   const isFavorite = favs.has(localStorageKey(domain)) || animating;
+
   return (
     <StarIcon
       className={cx(
@@ -136,12 +136,8 @@ function DomainStar({domain, large = false, statusColor = false, left}: DomainSt
         !large && styles.regular,
         large && styles.large,
         !isFavorite && styles.noFill,
-        !statusColor && !isFavorite && styles.defaultOffColor,
-        !statusColor && isFavorite && styles.defaultOnColor,
-        statusColor && !isFavorite && statusColors.lightStroke[statusName(domain)],
-        statusColor && !isFavorite && statusColors.lightHoverFill[statusName(domain)],
-        statusColor && isFavorite && statusColors.stroke[statusName(domain)],
-        statusColor && isFavorite && statusColors.fill[statusName(domain)],
+        !isFavorite && styles.defaultOffColor,
+        isFavorite && styles.defaultOnColor,
       )}
       onClick={toggle}
       style={{left}}

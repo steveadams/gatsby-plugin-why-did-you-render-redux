@@ -254,7 +254,7 @@ function MainDomainView() {
         rel="sponsored"
       />
       <div className={styles.row}>
-        <DomainStar domain={domain} large statusColor />
+        <DomainStar domain={domain} large />
         <div className={styles.domain}>
           <Link
             className={cx(
