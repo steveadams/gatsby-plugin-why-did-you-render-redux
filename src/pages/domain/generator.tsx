@@ -22,16 +22,14 @@ export default (props: PageProps) => (
           <p>
             We automatically add popular domain name beginnings and endings to whatever you type in the search box.
             Sometimes we will show a generated name as available when it’s really not. This is because we check domain
-            availability by looking it up in the zone file. We can do this instantly because we store the zone files in
-            results with a slower but more accurate query with VeriSign to make sure it's available to register.
+            availability by looking it up in the zone file. We can do this instantly because we store the zone files on
+            our servers in a very efficient way.
           </p>
           <p>
-            Thats why memory on our servers in a very efficient format. After you choose a domain keyword, we
-            double-check with a slower domain lookup. Some results may go from green (available!) to red after a few
-            seconds once these results come in. To search generated names, domain extensions, and domains for sale at
-            the same time you can use our domain name search tool. The domain name search results are sponsored. We earn
-            money when you buy names and services from our partners like Go Daddy, Shopify, Wix, WordPress, and
-            Domain.com.
+            We double-check your generated results with a VeriSign domain lookup. Some results may go from green
+            (available!) to red after a few seconds once these results come in. The domain name search results are
+            sponsored. We earn money when you buy names and services from our partners like Go Daddy, Shopify, Wix,
+            WordPress, and Domain.com.
           </p>
         </Explainer>
 
