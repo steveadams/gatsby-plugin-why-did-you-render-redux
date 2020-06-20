@@ -1,6 +1,5 @@
 /* Copyright 2005-present Instant Domain Search, Inc. */
 
-import {Link} from 'gatsby';
 import * as React from 'react';
 
 import Column from '../../components/Column';
@@ -19,17 +18,20 @@ export default (props: PageProps) => (
     title="Domain Name Generator">
     <Controller page={routes.Page.Generator} results={<DomainGenerator />}>
       <WideLayout>
-        <Explainer title="Domain name search">
+        <Explainer title="Domain name generator – try thousands of combinations instantly">
           <p>
-            Instant Domain Search <strong>shows domain name search results as you type.</strong> Our domain checker
-            automatically generates available domain names, shows aftermarket domains for sale, and shows domain
-            availability for popular domain extensions—instantly! <Link to="/">Great domain names</Link> are short,
-            memorable, and easy to spell.
+            We automatically add popular domain name beginnings and endings to whatever you type in the search box.
+            Sometimes we will show a generated name as available when it’s really not. This is because we check domain
+            availability by looking it up in the zone file. We can do this instantly because we store the zone files in
+            results with a slower but more accurate query with VeriSign to make sure it's available to register.
           </p>
           <p>
-            Try not to use hyphens or numbers. A good place to start is what someone might type into a search engine to
-            find your website. The domain name search results are sponsored. We earn money when you buy names and
-            services from partners that we link to.
+            Thats why memory on our servers in a very efficient format. After you choose a domain keyword, we
+            double-check with a slower domain lookup. Some results may go from green (available!) to red after a few
+            seconds once these results come in. To search generated names, domain extensions, and domains for sale at
+            the same time you can use our domain name search tool. The domain name search results are sponsored. We earn
+            money when you buy names and services from our partners like Go Daddy, Shopify, Wix, WordPress, and
+            Domain.com.
           </p>
         </Explainer>
 
