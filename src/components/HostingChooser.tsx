@@ -43,16 +43,22 @@ const styles = {
   `,
   clearButton: css`
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 16px;
+    right: 16px;
     display: block;
+    width: 16px;
+    height: 16px;
+    color: ${colors.darkGray};
     border-radius: 12px;
     cursor: pointer;
-    stroke: ${colors.mediumDarkGray};
 
     &:hover {
-      background: ${colors.mediumDarkGrayHover};
-      stroke: ${colors.white};
+      color: ${colors.mediumDarkGray};
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
     }
   `,
 };
@@ -108,12 +114,13 @@ function HostingChooser() {
   return (
     <div className={styles.parent}>
       <Link
+        className={styles.clearButton}
         eventID="hosting"
         eventInfo="close_icon"
         eventType="interact"
         href="##"
         onClick={actions.dismissHostingChooser}>
-        <Icon className={styles.clearButton} name="Clear" />
+        <Icon name="Clear" />
       </Link>
       <div className={styles.contentBox}>
         <ul className="hosting">
