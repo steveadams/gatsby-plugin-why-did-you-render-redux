@@ -106,6 +106,15 @@ const styles = {
       background: ${colors.hoverBlue};
     }
   `,
+  area: css`
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    margin: 0;
+  `,
   arrowIcon: css`
     margin-left: 8px;
   `,
@@ -236,6 +245,7 @@ function MainDomainView() {
           statusColors.hoverBackground[statusName(domain)],
       )}>
       <Link
+        className={styles.area}
         eventID="click_main_area"
         eventInfo={googleAnalyticsLabel(domain)}
         eventType="convert"
