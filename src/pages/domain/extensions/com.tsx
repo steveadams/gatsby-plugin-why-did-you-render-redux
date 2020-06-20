@@ -49,7 +49,7 @@ export default (props: PageProps) => (
         </Column>
 
         <Column>
-          <IconGroup icon="Secure" title="Private and secure">
+          <IconGroup icon="Lock" title="Private and secure">
             All traffic to the site is encrypted. Domain search results are not recorded. Press Return to register your
             domain name. We use Google Analytics, which uses cookies, to see how you use this website over time.
           </IconGroup>
