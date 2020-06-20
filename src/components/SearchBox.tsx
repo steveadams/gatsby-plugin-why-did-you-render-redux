@@ -118,10 +118,6 @@ const styles = {
       color: transparent;
     }
 
-    &:hover {
-      background-color: transparent;
-    }
-
     ${desktop} {
       &:hover {
         color: ${colors.darkGray};
@@ -129,6 +125,10 @@ const styles = {
     }
     ${mobile} {
       margin-right: 4px;
+
+      &:hover {
+        color: ${colors.darkGray};
+      }
     }
   `,
 };

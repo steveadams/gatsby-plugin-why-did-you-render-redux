@@ -71,15 +71,6 @@ const styles = {
       flex-direction: column;
     }
   `,
-  area: css`
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: block;
-    margin: 0;
-  `,
   domain: css`
     display: flex;
     align-items: center;
@@ -132,7 +123,7 @@ const styles = {
     margin-left: 8px;
   `,
   flyout: css`
-    margin-left: 0;
+    left: 20px;
     text-align: center;
   `,
   questionMark: css`
@@ -179,8 +170,9 @@ function MainDomainView() {
 
     if (domain.actuallyRegistered) {
       const handle = <div className={styles.questionMark}>?</div>;
+
       return (
-        <Flyout collapsedHandle={handle} expandedHandle={handle} width={300}>
+        <Flyout className={styles.flyout} collapsedHandle={handle} expandedHandle={handle} width={300}>
           <div className={styles.notice}>
             This domain is not in use, or it may be about to expire.
             {info}

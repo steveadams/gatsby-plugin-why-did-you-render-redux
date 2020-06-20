@@ -40,8 +40,7 @@ function Header() {
       font-size: ${font.xl}px;
 
       ${mobile} {
-        /* TODO: Use spacing units */
-        margin-top: 16px;
+        font-size: ${font.l}px;
       }
     `,
     link: css`
@@ -53,6 +52,10 @@ function Header() {
       margin-top: 0;
       margin-bottom: 0;
       font-size: ${font.xs}px;
+
+      ${mobile} {
+        font-size: ${font.xxs}px;
+      }
     `,
   };
 
