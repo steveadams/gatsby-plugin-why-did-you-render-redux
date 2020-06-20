@@ -6,33 +6,29 @@ import {useSelector} from 'react-redux';
 
 import * as actions from '../actions';
 import * as colors from '../colors';
-import {localStorageKey, statusName} from '../domain';
+import {localStorageKey} from '../domain';
 import * as favorites from '../favorites';
 import * as selectors from '../selectors';
-import * as statusColors from '../statusColors';
 import StarIcon from './StarIcon';
 
 const styles = {
   default: css`
-    position: absolute;
-    top: 50%;
-    left: -20px;
     display: block;
-    margin-top: -12px;
     text-align: center;
     cursor: pointer;
   `,
   regular: css`
-    width: 24px;
-    height: 24px;
+    position: absolute;
+    top: 35%;
+    left: -16px;
+    width: 14px;
+    height: 14px;
   `,
   large: css`
-    position: static;
-    width: 28px;
-    height: 28px;
-    margin-top: 0;
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
     margin-right: 12px;
-    margin-left: ${-28 - 12}px;
   `,
   defaultOffColor: css`
     stroke: ${colors.lightGray};
@@ -59,11 +55,10 @@ const styles = {
 interface DomainStarProps {
   domain: Domain;
   large?: boolean;
-  statusColor?: boolean;
   left?: number;
 }
 
-function DomainStar({domain, large = false, statusColor = false, left}: DomainStarProps) {
+function DomainStar({domain, large = false, left}: DomainStarProps) {
   const favs = useSelector(selectors.favoriteIDs);
   const isMobile = useSelector(selectors.isMobile);
 
@@ -128,7 +123,9 @@ function DomainStar({domain, large = false, statusColor = false, left}: DomainSt
   if (!favorites.enabled() || isMobile) {
     return null;
   }
+
   const isFavorite = favs.has(localStorageKey(domain)) || animating;
+
   return (
     <StarIcon
       className={cx(
@@ -136,12 +133,8 @@ function DomainStar({domain, large = false, statusColor = false, left}: DomainSt
         !large && styles.regular,
         large && styles.large,
         !isFavorite && styles.noFill,
-        !statusColor && !isFavorite && styles.defaultOffColor,
-        !statusColor && isFavorite && styles.defaultOnColor,
-        statusColor && !isFavorite && statusColors.lightStroke[statusName(domain)],
-        statusColor && !isFavorite && statusColors.lightHoverFill[statusName(domain)],
-        statusColor && isFavorite && statusColors.stroke[statusName(domain)],
-        statusColor && isFavorite && statusColors.fill[statusName(domain)],
+        !isFavorite && styles.defaultOffColor,
+        isFavorite && styles.defaultOnColor,
       )}
       onClick={toggle}
       style={{left}}

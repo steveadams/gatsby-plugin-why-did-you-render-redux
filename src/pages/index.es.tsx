@@ -99,7 +99,7 @@ export default (props: PageProps) => (
         </Column>
 
         <Column>
-          <IconGroup icon="Secure" title="Privado y seguro">
+          <IconGroup icon="Lock" title="Privado y seguro">
             Todo el tráfico al sitio está encriptado. Los resultados de búsqueda de dominio no se registran. Presione
             Regresar para registrar su nombre de dominio. Utilizamos Google Analytics, que usa cookies, para ver cómo
             usted utiliza este sitio web a lo largo del tiempo.

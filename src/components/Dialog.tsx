@@ -14,6 +14,7 @@ const styles = {
     right: 0;
     bottom: 0;
     left: 0;
+    z-index: 4;
     background-color: rgba(0, 0, 0, 0.3);
   `,
   wrapper: css`
@@ -34,14 +35,15 @@ const styles = {
   `,
   dismissButton: css`
     position: absolute;
-    top: 6px;
-    right: 6px;
-    border-radius: 12px;
+    top: 12px;
+    right: 12px;
+    width: 16px;
+    height: 16px;
+    color: ${colors.mediumGray};
     cursor: pointer;
-    stroke: ${colors.mediumGray};
 
     &:hover {
-      background: ${colors.lightGray};
+      color: ${colors.mediumDarkGray};
     }
   `,
 };
@@ -52,10 +54,14 @@ interface DialogProps {
 }
 
 function Dialog(props: DialogProps) {
-  const onDismiss = () => {
+  const onDismiss = (event: React.MouseEvent<HTMLOrSVGElement>) => {
     if (props.onDismiss) {
       props.onDismiss();
     }
+
+    // Stop races with preventDismiss
+    event.stopPropagation();
+
     actions.dismissDialog();
   };
 

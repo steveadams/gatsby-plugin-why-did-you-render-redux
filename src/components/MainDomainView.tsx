@@ -32,21 +32,21 @@ import Link from './Link';
 import Text, {LocaleKey} from './Text';
 
 const styles = {
-  default: css`
+  container: css`
     position: relative;
-    max-width: 648px;
-    margin-right: auto;
-    margin-left: auto;
-    padding-top: 16px;
-    padding-right: 12px;
-    padding-bottom: 16px;
-    padding-left: 12px;
+    max-width: 724px;
+    margin: 12px auto;
+    padding: 8px 20px 8px 20px;
     font-weight: ${font.bold};
     font-size: ${font.xxl}px;
-    border-radius: 4px;
+    border-radius: 8px;
 
     ${mobile} {
       font-size: ${font.l}px;
+    }
+
+    &:hover {
+      background-color: ${colors.extraLightGray};
     }
   `,
   searching: css`
@@ -71,6 +71,15 @@ const styles = {
       flex-direction: column;
     }
   `,
+  area: css`
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    margin: 0;
+  `,
   domain: css`
     display: flex;
     align-items: center;
@@ -92,6 +101,10 @@ const styles = {
     margin-top: 6px;
     margin-bottom: 10px;
     color: inherit;
+
+    &:hover {
+      text-decoration: none;
+    }
   `,
   noUnderline: css`
     &:hover {
@@ -228,22 +241,14 @@ function MainDomainView() {
 
   if (!domain) {
     return (
-      <div className={cx(styles.default, styles.searching)}>
+      <div className={cx(styles.container, styles.searching)}>
         {searchPhrase}.{mainTld || 'com'}
       </div>
     );
   }
 
   return (
-    <div
-      className={cx(
-        styles.default,
-        statusColors.color[statusName(domain)],
-        status(domain) !== DomainStatus.taken &&
-          status(domain) !== DomainStatus.recentlyRegistered &&
-          status(domain) !== DomainStatus.recentlyDropped &&
-          statusColors.hoverBackground[statusName(domain)],
-      )}>
+    <div className={cx(styles.container, statusColors.color[statusName(domain)])}>
       <Link
         className={styles.area}
         eventID="click_main_area"
@@ -254,7 +259,7 @@ function MainDomainView() {
         rel="sponsored"
       />
       <div className={styles.row}>
-        <DomainStar domain={domain} large statusColor />
+        <DomainStar domain={domain} large />
         <div className={styles.domain}>
           <Link
             className={cx(

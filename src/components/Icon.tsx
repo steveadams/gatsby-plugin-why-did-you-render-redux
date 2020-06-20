@@ -440,6 +440,19 @@ export const icons: Record<string, FC<IconColors>> = {
     </>
   ),
 
+  Lock: ({primary, secondary}) => (
+    <>
+      <rect fill={secondary} height="19" rx="7" stroke={primary} strokeWidth="6" width="14" x="21" y="13" />
+      <path
+        d="M14 25.75C14 24.7835 14.7835 24 15.75 24H40C41.1046 24 42 24.8954 42 26V41C42 42.1046 41.1046 43 40 43H16C14.8954 43 14 42.1046 14 41V25.75Z"
+        fill={primary}
+      />
+      <rect fill={secondary} height="2" rx="1" width="20" x="18" y="29" />
+      <rect fill={secondary} height="2" rx="1" width="20" x="18" y="33" />
+      <rect fill={secondary} height="2" rx="1" width="20" x="18" y="37" />
+    </>
+  ),
+
   Names: ({primary, secondary}) => (
     <>
       <path
@@ -609,16 +622,13 @@ export const icons: Record<string, FC<IconColors>> = {
     </>
   ),
 
-  Secure: ({primary, secondary}) => (
-    <>
-      <rect fill={secondary} height="19" rx="7" stroke={primary} strokeWidth="6" width="14" x="21" y="13" />
-      <path
-        d="M14 25.75C14 24.7835 14.7835 24 15.75 24H40C41.1046 24 42 24.8954 42 26V41C42 42.1046 41.1046 43 40 43H16C14.8954 43 14 42.1046 14 41V25.75Z"
-        fill={primary}
-      />
-      <rect fill={secondary} height="2" rx="1" width="20" x="18" y="29" />
-      <rect fill={secondary} height="2" rx="1" width="20" x="18" y="33" />
-      <rect fill={secondary} height="2" rx="1" width="20" x="18" y="37" />
-    </>
+  Star: ({primary, stroke}) => (
+    <path
+      d="M27.5 9L33.8345 21.5068L48 23.5247L37.75 33.2545L40.169 47L27.5 40.5068L14.831 47L17.25 33.2545L7 23.5247L21.1655 21.5068L27.5 9Z"
+      fill={primary}
+      stroke={stroke}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   ),
 };

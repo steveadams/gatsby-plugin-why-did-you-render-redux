@@ -12,6 +12,7 @@ import HostingChooser from './HostingChooser';
 import MainDomainView from './MainDomainView';
 import SearchBox from './SearchBox';
 import ShortcutsDialog from './ShortcutsDialog';
+import ShortcutsTip from './ShortcutsTip';
 
 interface ControllerProps {
   page: Page;
@@ -22,6 +23,7 @@ interface ControllerProps {
 
 function Controller({page, results, children}: ControllerProps) {
   const shouldShowContent = useSelector(selectors.shouldShowContent);
+  const shouldShowHeaderAndFooter = useSelector(selectors.shouldShowHeaderAndFooter);
 
   React.useEffect(() => {
     init(page);
@@ -43,6 +45,7 @@ function Controller({page, results, children}: ControllerProps) {
         ) : (
           <>
             <MainDomainView />
+            {!shouldShowHeaderAndFooter && <ShortcutsTip />}
             <HostingChooser />
             {results}
           </>
