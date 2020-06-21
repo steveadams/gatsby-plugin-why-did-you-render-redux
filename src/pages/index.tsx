@@ -45,11 +45,8 @@ export default (props: PageProps) => (
             icon="Extensions"
             title="Domain extensions">
             Search .com and other domain extensions like .app, .dev, .store, and over a hundred more. We also search
-            country-code domains (ccTLDs) like .ca, .co.uk, .us, and .in. The{' '}
-            <Link onClick={() => event('internal', 'click', 'domain_extensions_p-small')} to="/?">
-              domain name extensions
-            </Link>{' '}
-            page shows gTLD domain availability in a grid to make it easier to see many results at once.
+            country-code domains (ccTLDs) like .ca, .co.uk, .us, and .in. The domain name extensions page shows gTLD
+            domain availability in a grid to make it easier to see many results at once.
           </IconGroup>
         </Column>
 
