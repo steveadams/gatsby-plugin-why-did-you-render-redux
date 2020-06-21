@@ -6,6 +6,7 @@ import * as React from 'react';
 import {Helmet} from 'react-helmet';
 import {useSelector} from 'react-redux';
 
+import * as colors from '../colors';
 import * as selectors from '../selectors';
 import * as Text from './Text';
 
@@ -44,8 +45,14 @@ function Page({
         <link href="https://app.instantdomainsearch.com/" rel="preconnect" />
         <link href="https://check.instantdomainsearch.com/" rel="preconnect" />
 
-        <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
-        <link href="/favicon.ico" rel="shortcut icon" type="image/svg+xml" />
+        <link href="/apple-touch-icon.png?v=PYq02Qy8dr" rel="apple-touch-icon" sizes="180x180" />
+        <link href="/favicon-32x32.png?v=PYq02Qy8dr" rel="icon" sizes="32x32" type="image/png" />
+        <link href="/favicon-16x16.png?v=PYq02Qy8dr" rel="icon" sizes="16x16" type="image/png" />
+        <link href="/site.webmanifest?v=PYq02Qy8dr" rel="manifest" />
+        <link color={colors.darkGray} href="/safari-pinned-tab.svg?v=PYq02Qy8dr" rel="mask-icon" />
+        <link href="/favicon.ico?v=PYq02Qy8dr" rel="shortcut icon" />
+        <meta content={colors.darkGray} name="msapplication-TileColor" />
+        <meta content={colors.lighterGray} name="theme-color" />
 
         {/* several domains list the same content, make sure google knows we mean this one. */}
         <link href={`https://instantdomainsearch.com${location.pathname}`} rel="canonical" />

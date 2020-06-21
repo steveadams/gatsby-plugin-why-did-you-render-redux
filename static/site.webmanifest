@@ -1,0 +1,20 @@
+{
+  "name": "IDS",
+  "short_name": "IDS",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png?v=PYq02Qy8dr",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png?v=PYq02Qy8dr",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#f9f9f9",
+  "background_color": "#f9f9f9",
+  "start_url": "https://www.instantdomainsearch.com",
+  "display": "standalone"
+}
