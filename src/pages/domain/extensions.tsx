@@ -25,7 +25,11 @@ export default (props: PageProps) => (
             New domain name extensions, or generic top-level domains—gTLDs—are coming online every day. We also support
             hundreds of country code TLDs as you type. We made a special interface to instantly search hundreds of
             domain names at once.{' '}
-            <Link to="/domain/extensions/#search=full list of extensions">Click here to the full list.</Link>
+            <a
+              href="/domain/extensions/#search=full%20list%20of%20extensions"
+              onClick={() => event('interact', 'extensions', 'see the full list')}>
+              Click here to the full list.
+            </a>
           </p>
           <p>
             To search generated names, domain extensions, and domains for sale at the same time you can use our{' '}
