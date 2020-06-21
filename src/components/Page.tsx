@@ -43,11 +43,12 @@ function Page({
         {/* https://caniuse.com/#feat=link-rel-preconnect */}
         <link href="https://www.google-analytics.com/" rel="preconnect" />
         <link href="https://app.instantdomainsearch.com/" rel="preconnect" />
-        <link href="https://check.instantdomainsearch.com/" rel="preconnect" />
 
+        <link href="/favicon.svg?v=PYq02Qy8dr" rel="icon" type="image/svg+xml" />
+        <link href="/favicon.ico?v=PYq02Qy8dr" rel="alternate icon" type="image/x-icon" />
         <link href="/apple-touch-icon.png?v=PYq02Qy8dr" rel="apple-touch-icon" sizes="180x180" />
-        <link href="/favicon-32x32.png?v=PYq02Qy8dr" rel="icon" sizes="32x32" type="image/png" />
-        <link href="/favicon-16x16.png?v=PYq02Qy8dr" rel="icon" sizes="16x16" type="image/png" />
+        <link href="/favicon-32x32.png?v=PYq02Qy8dr" rel="alternate icon" sizes="32x32" type="image/png" />
+        <link href="/favicon-16x16.png?v=PYq02Qy8dr" rel="alternate icon" sizes="16x16" type="image/png" />
         <link href="/site.webmanifest?v=PYq02Qy8dr" rel="manifest" />
         <link color={colors.darkGray} href="/safari-pinned-tab.svg?v=PYq02Qy8dr" rel="mask-icon" />
         <link href="/favicon.ico?v=PYq02Qy8dr" rel="shortcut icon" />
@@ -69,10 +70,6 @@ function Page({
         <meta content="yes" name="apple-mobile-web-app-capable" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <meta content="Domain Search" name="apple-mobile-web-app-title" />
-        <link href="/icons/touch-icon-iphone.png" rel="apple-touch-icon" />
-        <link href="/icons/touch-icon-ipad.png" rel="apple-touch-icon" sizes="76x76" />
-        <link href="/icons/touch-icon-iphone-retina.png" rel="apple-touch-icon" sizes="120x120" />
-        <link href="/icons/touch-icon-ipad-retina.png" rel="apple-touch-icon" sizes="152x152" />
 
         {/* Twitter/Facebook tags */}
         <meta content="Instant Domain Search" property="og:site_name" />
@@ -80,15 +77,15 @@ function Page({
         <meta content={`https://instantdomainsearch.com${location.pathname}`} property="og:url" />
         <meta content={title} property="og:title" />
         <meta content={description} property="og:description" />
-        <link href="https://instantdomainsearch.com/screenshot.png" rel="image_src" />
-        <meta content="https://instantdomainsearch.com/screenshot.png" property="og:image" />
+        <link href="https://instantdomainsearch.com/image.png" rel="image_src" />
+        <meta content="https://instantdomainsearch.com/image.png" property="og:image" />
         <meta content="image/png" property="og:image:type" />
         <meta content="2309869772" property="fb:app_id" />
         <meta content="@InstantDomain" property="twitter:site" />
         <meta content="summary" property="twitter:card" />
         <meta content={title} property="twitter:title" />
         <meta content={description} property="twitter:description" />
-        <meta content="https://instantdomainsearch.com/screenshot.png" property="twitter:image:src" />
+        <meta content="https://instantdomainsearch.com/image.png" property="twitter:image:src" />
 
         {/* <script src="//www.google-analytics.com/cx/api.js?experiment=Xee7fJz8RKKgYb1TsDrt0g" /> */}
         {/* https://developers.google.com/structured-data/slsb-overview */}
