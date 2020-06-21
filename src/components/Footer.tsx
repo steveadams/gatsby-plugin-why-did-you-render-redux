@@ -264,7 +264,7 @@ const getLocalizedPath = (code: LanguageCode, key: LocalizedPath) => {
   const head = code === languageCodes.english ? '' : `/${code}`;
   const tail = pathsToLocalize[code] !== undefined ? pathsToLocalize[code][key] : pathsToLocalize.default[key];
 
-  return `${head}/${tail}`;
+  return `${head}/${tail}/`;
 };
 
 export default Footer;
