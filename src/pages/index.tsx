@@ -28,8 +28,8 @@ export default (props: PageProps) => (
           <p>
             Instant Domain Search <strong>shows domain name search results as you type.</strong> Our domain checker
             automatically generates available domain names, shows aftermarket domains for sale, and shows domain
-            availability for popular domain extensions—instantly! <Link to="/wow">Great domain names</Link> are short,
-            memorable, and easy to spell.
+            availability for popular domain extensions—instantly! Great domain names are short, memorable, and easy to
+            spell.
           </p>
           <p>
             Try not to use hyphens or numbers. A good place to start is what someone might type into a search engine to
