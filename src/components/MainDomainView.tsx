@@ -94,7 +94,7 @@ const styles = {
     color: inherit;
 
     &:hover {
-      text-decoration: none;
+      text-decoration: underline;
     }
   `,
   noUnderline: css`

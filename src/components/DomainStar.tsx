@@ -19,16 +19,18 @@ const styles = {
   `,
   regular: css`
     position: absolute;
-    top: 35%;
-    left: -16px;
+    top: calc(35% - 4px);
+    left: -20px;
     width: 14px;
     height: 14px;
+    padding: 4px; /* to increase the hit area a bit */
   `,
   large: css`
+    position: relative; /* To capture area clicks in MainDomainView*/
     width: 16px;
     height: 16px;
-    margin-top: 2px;
-    margin-right: 12px;
+    margin-right: 10px;
+    padding: 4px; /* to increase the hit area a bit */
   `,
   defaultOffColor: css`
     stroke: ${colors.lightGray};

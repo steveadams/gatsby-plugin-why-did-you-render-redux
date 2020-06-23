@@ -48,6 +48,7 @@ const styles = {
     display: block;
     width: 16px;
     height: 16px;
+    padding: 4px; /* to increase the hit area a bit */
     color: ${colors.darkGray};
     border-radius: 12px;
     cursor: pointer;
