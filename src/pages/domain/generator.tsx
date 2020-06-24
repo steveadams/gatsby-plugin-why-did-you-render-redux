@@ -34,7 +34,7 @@ export default (props: PageProps) => (
         </Explainer>
 
         <Column>
-          <IconGroup icon="Random" title="Random name generator">
+          <IconGroup icon="Random" title="Random domain generator">
             Our algorithm adds thousands of prefixes and suffixes to your search, starting with the most popular, then
             only shows .com domains that are available. We chose these prefixes and suffixes by looking at what the most
             popular registered domain names begin and end with.
@@ -45,7 +45,7 @@ export default (props: PageProps) => (
           <IconGroup icon="BizNameGenerator" title="Business name generator">
             Finding a great business name is important, and you should find a .com to match it. The name generator can
             help you find a domain that is available. To check if a social media username is available, click on the
-            three dots and we will check Facebook, Twitter, and Pinterest usernames for you.
+            three dots and we will check Facebook, Twitter, and Instagram usernames for you.
           </IconGroup>
         </Column>
 
