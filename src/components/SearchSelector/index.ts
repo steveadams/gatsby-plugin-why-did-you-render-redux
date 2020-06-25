@@ -1,10 +1,8 @@
 /* Copyright 2005-present Instant Domain Search, Inc. */
 
-import React from 'react';
-
 import {languageCodes, LocaleKey} from '../Text';
-import FloatingSelector from './FloatingSelector';
-import ListSelector from './ListSelector';
+import FloatingSearchSelector from './FloatingSelector';
+import ListSearchSelector from './ListSelector';
 import SearchSelectorLink from './SearchSelectorLink';
 
 export enum SearchType {
@@ -31,8 +29,4 @@ export function createSearchSelectorPath(type: SearchType, lang: LanguageCode) {
   return `/domain/${type}/`;
 }
 
-export {SearchSelectorLink};
-
-export default function SearchSelector({mobile}: {mobile: boolean}) {
-  return mobile ? <FloatingSelector /> : <ListSelector />;
-}
+export {ListSearchSelector, FloatingSearchSelector, SearchSelectorLink};

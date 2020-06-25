@@ -51,12 +51,7 @@ const styles = {
   `,
 };
 
-const FloatingSelector = () => {
-  // TODO: This localization is awful
-  // You can't render a JSX element in an <option> element (output is [object Object]),
-  // so using <option><Text id={...} /></option> won't work here
-  // Hooks can only be used in the top level of a react component, so it needs to happen
-  // somewhere close to where the locale strings are needed. This patch works for now
+const FloatingSearchSelector = () => {
   const lang = useLanguage();
   const locale = React.useMemo(() => require(`../../locales/${lang}`), [lang]);
   const canonicalUrl = useSelector(selectors.canonicalUrl);
@@ -89,4 +84,4 @@ const FloatingSelector = () => {
   );
 };
 
-export default FloatingSelector;
+export default FloatingSearchSelector;

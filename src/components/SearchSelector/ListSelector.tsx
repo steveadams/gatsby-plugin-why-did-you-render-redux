@@ -36,7 +36,7 @@ const styles = {
   `,
 };
 
-const ListSelector = () => (
+const ListSearchSelector = () => (
   <nav>
     {searches.map(([searchType, localeKey]) => (
       <SearchSelectorLink className={styles.listItem} key={searchType} type={searchType}>
@@ -46,4 +46,4 @@ const ListSelector = () => (
   </nav>
 );
 
-export default ListSelector;
+export default ListSearchSelector;

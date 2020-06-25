@@ -15,7 +15,7 @@ import {desktop, mobile} from '../styles';
 import Button from './Button';
 import FavoritesFlyout from './FavoritesFlyout';
 import Icon from './Icon';
-import SearchSelector from './SearchSelector';
+import {ListSearchSelector} from './SearchSelector';
 import Text from './Text';
 import TextInput from './TextInput';
 
@@ -242,7 +242,8 @@ function SearchBox() {
           {!isMobile && <FavoritesFlyout />}
         </form>
       </div>
-      <SearchSelector mobile={isMobile} />
+
+      {!isMobile && <ListSearchSelector />}
     </section>
   );
 }

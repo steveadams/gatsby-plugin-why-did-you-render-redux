@@ -11,6 +11,7 @@ import Header from './Header';
 import HostingChooser from './HostingChooser';
 import MainDomainView from './MainDomainView';
 import SearchBox from './SearchBox';
+import {FloatingSearchSelector} from './SearchSelector';
 import ShortcutsDialog from './ShortcutsDialog';
 import ShortcutsTip from './ShortcutsTip';
 import ToastContainer from './Toast/ToastContainer';
@@ -25,6 +26,7 @@ interface ControllerProps {
 function Controller({page, results, children}: ControllerProps) {
   const shouldShowContent = useSelector(selectors.shouldShowContent);
   const shouldShowHeaderAndFooter = useSelector(selectors.shouldShowHeaderAndFooter);
+  const isMobile = useSelector(selectors.isMobile);
 
   React.useEffect(() => {
     init(page);
@@ -32,8 +34,6 @@ function Controller({page, results, children}: ControllerProps) {
 
   return (
     <main>
-      <ToastContainer />
-
       <section id="headerAndSearch">
         {shouldShowContent && <Header />}
         <SearchBox />
@@ -56,6 +56,8 @@ function Controller({page, results, children}: ControllerProps) {
       </section>
 
       <ShortcutsDialog />
+      <ToastContainer />
+      {isMobile && <FloatingSearchSelector />}
     </main>
   );
 }
