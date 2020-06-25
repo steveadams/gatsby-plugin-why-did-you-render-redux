@@ -9,23 +9,16 @@ import Icon from '../Icon';
 import type {ToastProps} from '.';
 
 const toastWidth = 300;
-const toastPadding = 32;
+const toastMargin = 32;
 
 const styles = {
-  wrapper: css`
-    position: absolute;
-    top: ${toastPadding}px;
-    right: ${toastPadding}px;
-    width: ${toastWidth + toastPadding * 2}px;
-    height: ${650 - toastPadding * 2}px;
-  `,
   toast: css`
-    position: sticky;
-    top: ${toastPadding}px;
-    bottom: ${toastPadding}px;
+    position: fixed;
+    right: ${toastMargin}px;
+    bottom: ${toastMargin}px;
     z-index: 3;
     width: ${toastWidth}px;
-    padding: ${toastPadding}px;
+    padding: ${toastMargin}px;
     color: ${colors.lighterGray};
     text-align: center;
     background-color: ${colors.darkerGray};
@@ -38,7 +31,7 @@ const styles = {
     right: 0;
     display: block;
     height: auto;
-    padding: ${toastPadding / 2}px;
+    padding: ${toastMargin / 2}px;
     color: ${colors.lightGray};
     background-color: transparent;
     cursor: pointer;
@@ -79,8 +72,6 @@ const styles = {
 };
 
 type ToastItem = FC<React.HtmlHTMLAttributes<HTMLElement>>;
-
-export const Wrapper: ToastItem = ({children}) => <div className={styles.wrapper}>{children}</div>;
 
 export const ToastIcon: ToastItem = ({children, className, ...props}) => (
   <span className={cx(styles.icon, className)} {...props}>
