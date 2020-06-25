@@ -9,7 +9,7 @@ export type ToastProps = {
 };
 
 export enum ToastID {
-  Survey = 'Survey',
+  Survey = '2020-06-24_Survey',
 }
 
 export const loadDismissed = (): ToastID[] => JSON.parse(storage.get('dismissedToasts') || '[]') as ToastID[];
