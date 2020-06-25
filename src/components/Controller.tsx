@@ -13,6 +13,7 @@ import MainDomainView from './MainDomainView';
 import SearchBox from './SearchBox';
 import ShortcutsDialog from './ShortcutsDialog';
 import ShortcutsTip from './ShortcutsTip';
+import ToastContainer from './Toast/ToastContainer';
 
 interface ControllerProps {
   page: Page;
@@ -31,6 +32,8 @@ function Controller({page, results, children}: ControllerProps) {
 
   return (
     <main>
+      <ToastContainer />
+
       <section id="headerAndSearch">
         {shouldShowContent && <Header />}
         <SearchBox />

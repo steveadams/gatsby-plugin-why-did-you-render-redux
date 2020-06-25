@@ -1,6 +1,7 @@
 /* Copyright 2005-present Instant Domain Search, Inc. */
 
 import {Action, ResultType, SocialService} from './actionTypes';
+import {ToastID} from './components/Toast';
 import {domainName, localStorageKey, searchResultKey} from './domain';
 import {Page} from './routes';
 
@@ -292,6 +293,31 @@ export const showHostingChooser = (state = false, action: Action) => {
       return true;
     case 'DISMISS_HOSTING_CHOOSER':
       return false;
+    default:
+      return state;
+  }
+};
+
+interface ToastState {
+  added: ToastID[];
+  dismissed: ToastID[];
+}
+
+export interface State {
+  toasts: ToastState;
+}
+
+export const toasts = (state: ToastState = {added: [], dismissed: []}, action: Action) => {
+  switch (action.type) {
+    case 'ADD_TOAST':
+      return {...state, added: [...state.added, action.toastID].filter(id => !state.dismissed.includes(id))};
+
+    case 'DISMISS_TOAST':
+      return {...state, dismissed: [...state.dismissed, action.toastID]};
+
+    case 'DISMISSED_TOASTS_LOADED':
+      return {...state, dismissed: action.dismissed};
+
     default:
       return state;
   }

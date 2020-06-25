@@ -1,5 +1,6 @@
 /* Copyright 2005-present Instant Domain Search, Inc. */
 
+import type {ToastID} from './components/Toast';
 import {Page} from './routes';
 
 export enum SocialService {
@@ -16,12 +17,17 @@ export enum ResultType {
   TLDs = 'tlds',
 }
 
+type ToastIDHandler<T> = {type: T; toastID: ToastID};
+
 export type Action =
+  | ToastIDHandler<'ADD_TOAST'>
   | {type: 'BAD_REQUEST'; phrase: string; tld: string; status: number | null}
   | {type: 'BROWSER_RESIZED'; isMobile: boolean; isTouch: boolean}
   | {type: 'COLLAPSE_FLYOUT'}
   | {type: 'DISMISS_DIALOG'}
   | {type: 'DISMISS_HOSTING_CHOOSER'}
+  | ToastIDHandler<'DISMISS_TOAST'>
+  | {type: 'DISMISSED_TOASTS_LOADED'; dismissed: ToastID[]}
   | {type: 'DOMAINS_RESOLVED'; availability: {[domainName: string]: boolean}}
   | {type: 'EXPAND_FLYOUT'; flyoutID: number}
   | {type: 'FAVORITES_LOADED'; favorites: Set<string>}
@@ -39,6 +45,7 @@ export type Action =
   | {type: 'SHOW_HOSTING_CHOOSER'}
   | {type: 'SHOW_SHORTCUTS_DIALOG'}
   | {type: 'SHOW_SHORTCUTS_TIP'}
+  | ToastIDHandler<'SHOULD_SHOW_TOAST'>
   | {type: 'SOCIAL_USERNAME_AVAILABILITY'; service: SocialService; name: string; available: boolean}
   | {type: 'SWITCH_PAGE'; page: Page}
   | {type: 'TOGGLE_FAVORITE'; domain: Domain}

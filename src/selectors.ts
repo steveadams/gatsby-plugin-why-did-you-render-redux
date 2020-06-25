@@ -3,6 +3,7 @@
 
 import {createSelector} from 'reselect';
 
+import {ToastID} from './components/Toast';
 import {domainName, DomainStatus, isExpiring, isForSale, isSuggestion, localStorageKey, name, status} from './domain';
 import * as ranking from './ranking';
 import {State} from './reducers';
@@ -271,6 +272,11 @@ export const hostingChooserShown = (state: State) =>
 
 export const shortcutsDialogShown = (state: State) => state.shortcutsDialog;
 export const showShortcutsTip = (state: State) => state.shortcutsTip.show;
+
+export const toasts = (state: State) => state.toasts;
+export const dismissedToasts = (state: State) => state.toasts.dismissed;
+export const shouldShowToast = (state: State, toastID: ToastID) =>
+  !isMobile(state) && !state.toasts.dismissed.includes(toastID);
 
 export const dialogShown = createSelector(shortcutsDialogShown, shortcutsDialogShown => shortcutsDialogShown);
 

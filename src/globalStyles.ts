@@ -369,5 +369,41 @@ css`
       text-transform: lowercase;
       font-feature-settings: 'smcp';
     }
+
+    .animated {
+      animation-duration: 0.75s;
+      animation-fill-mode: both;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        transform: translate3d(0, -25%, 0);
+        opacity: 0;
+      }
+
+      to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+      }
+    }
+
+    .fadeInDown {
+      animation-name: fadeInDown;
+    }
+
+    @keyframes fadeOutDown {
+      from {
+        opacity: 1;
+      }
+
+      to {
+        transform: translate3d(0, 25%, 0);
+        opacity: 0;
+      }
+    }
+
+    .fadeOutDown {
+      animation-name: fadeOutDown;
+    }
   }
 `;

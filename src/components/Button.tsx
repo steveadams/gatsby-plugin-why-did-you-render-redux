@@ -14,7 +14,6 @@ const styles = {
     display: flex;
     align-items: center;
     box-sizing: border-box;
-    height: 48px;
     padding: 12px 24px;
     color: ${colors.white};
     font-weight: ${font.bold};

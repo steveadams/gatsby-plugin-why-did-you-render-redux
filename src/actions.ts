@@ -5,6 +5,8 @@ import * as React from 'react';
 import {ResultType, SocialService} from './actionTypes';
 import * as analytics from './analytics';
 import * as async from './async';
+import type {ToastID} from './components/Toast';
+import * as toasts from './components/Toast';
 import config from './config';
 import {defaultActionURL, domainName, DomainStatus, googleAnalyticsLabel, name, status} from './domain';
 import * as favorites from './favorites';
@@ -347,6 +349,23 @@ export const dismissHostingChooser = (event: React.MouseEvent) => {
   event.preventDefault();
 };
 
+const loadDismissedToasts = () => {
+  dispatch({type: 'DISMISSED_TOASTS_LOADED', dismissed: toasts.loadDismissed()});
+};
+
+export const shouldShowToast = (toastID: ToastID) => {
+  dispatch({type: 'SHOULD_SHOW_TOAST', toastID});
+};
+
+export const addToast = (toastID: ToastID) => {
+  dispatch({type: 'ADD_TOAST', toastID});
+};
+
+export const dismissToast = (toastID: ToastID) => {
+  dispatch({type: 'DISMISS_TOAST', toastID});
+  toasts.saveDismissed(store.getState().toasts.dismissed);
+};
+
 const singleNameQuery = (phrase: string, tld: string) => {
   const query = url.encodeQueryString({
     tlds: tld || 'com',
@@ -612,6 +631,7 @@ export const init = (page: Page) => {
     isFullPageLoad = false;
     dispatch({type: 'PAGE_LOADED', page});
     loadFavorites();
+    loadDismissedToasts();
     browserResized();
     window.addEventListener('resize', browserResized);
     setupKeyboardShortcuts();
