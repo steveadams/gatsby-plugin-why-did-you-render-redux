@@ -9,10 +9,8 @@ import * as actions from '../actions';
 import * as analytics from '../analytics';
 import * as colors from '../colors';
 import config from '../config';
-import {defaultActionURL, googleAnalyticsLabel} from '../domain';
 import * as font from '../font';
 import * as selectors from '../selectors';
-import {store} from '../store';
 import {desktop, mobile} from '../styles';
 import Button from './Button';
 import FavoritesFlyout from './FavoritesFlyout';
@@ -179,24 +177,20 @@ function SearchBox() {
     analytics.event('interact', 'handleChange: first');
   }, []);
 
-  let action = `${config.appURL}redirect/`;
-  let label = 'com';
-  const mainDomain = selectors.mainDomain(store.getState());
-  if (mainDomain !== null) {
-    action = defaultActionURL(mainDomain) || action;
-    label = googleAnalyticsLabel(mainDomain);
-  }
-
   const performMainAction = React.useCallback(() => {
-    analytics.event('convert', 'submit_js', label);
+    // TODO: would be nice to know whether this is WHOIS, aftermarket, available, etc. Add to com,
+    // like 'com_aftermarket'.
+    analytics.event('convert', 'submit_js', 'com');
     analytics.firstConvert();
     if (domain) {
       analytics.click(domain, analytics.ClickLocation.SearchBox);
     }
-  }, [domain, label]);
+    actions.performMainAction();
+  }, [domain]);
 
   const onSubmit = React.useCallback(
     (event: React.FormEvent) => {
+      event.preventDefault();
       performMainAction();
     },
     [performMainAction],
@@ -209,7 +203,7 @@ function SearchBox() {
     <section className={styles.searchContainer} onClick={onClick}>
       <div className={styles.searchFormAndFavs}>
         <form
-          action={action}
+          action={`${config.appURL}redirect/`}
           className={cx(styles.searchForm, !shouldShowHeaderAndFooter && 'collapsed')}
           method="get"
           onSubmit={onSubmit}

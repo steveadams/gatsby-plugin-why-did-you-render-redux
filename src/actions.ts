@@ -8,8 +8,9 @@ import * as async from './async';
 import type {ToastID} from './components/Toast';
 import * as toasts from './components/Toast';
 import config from './config';
-import {domainName, DomainStatus, name, status} from './domain';
+import {defaultActionURL, domainName, DomainStatus, googleAnalyticsLabel, name, status} from './domain';
 import * as favorites from './favorites';
+import * as log from './log';
 import {Page} from './routes';
 import {search} from './search';
 import * as selectors from './selectors';
@@ -178,6 +179,30 @@ const scheduleDoubleCheck = (domains: Domain[]) => {
 };
 
 /* User actions (buy, whois, etc.) */
+
+export const performMainAction = () => {
+  const mainDomain = selectors.mainDomain(store.getState());
+
+  if (!mainDomain) {
+    log.warn('performMainAction() called without an active domain');
+    return;
+  }
+
+  analytics.event('convert', 'submit_js', googleAnalyticsLabel(mainDomain));
+  analytics.firstConvert();
+
+  const href = defaultActionURL(mainDomain);
+  if (!href) {
+    return;
+  }
+
+  // TODO: A/B test a new tab vs just navigating away
+  if (selectors.isMobile(store.getState())) {
+    window.location.href = href; // safari mobile presents a popup warning modal
+  } else {
+    window.open(href, '_blank', 'noopener=yes');
+  }
+};
 
 export const expandFlyout = (flyoutID: number) => {
   dispatch({type: 'EXPAND_FLYOUT', flyoutID});
