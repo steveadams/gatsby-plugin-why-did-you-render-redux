@@ -7,6 +7,7 @@ import {Helmet} from 'react-helmet';
 import {useSelector} from 'react-redux';
 
 import * as colors from '../colors';
+import config from '../config';
 import * as selectors from '../selectors';
 import * as Text from './Text';
 
@@ -42,7 +43,7 @@ function Page({
 
         {/* https://caniuse.com/#feat=link-rel-preconnect */}
         <link href="https://www.google-analytics.com/" rel="preconnect" />
-        <link href="https://app.instantdomainsearch.com/" rel="preconnect" />
+        <link href={`${config.appURL}`} rel="preconnect" />
 
         <link href="/favicon.svg?v=PYq02Qy8dr" rel="icon" type="image/svg+xml" />
         <link href="/favicon.ico?v=PYq02Qy8dr" rel="alternate icon" type="image/x-icon" />

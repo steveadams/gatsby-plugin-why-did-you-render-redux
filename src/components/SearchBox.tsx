@@ -8,6 +8,7 @@ import {unstable_LowPriority, unstable_scheduleCallback} from 'scheduler';
 import * as actions from '../actions';
 import * as analytics from '../analytics';
 import * as colors from '../colors';
+import config from '../config';
 import * as font from '../font';
 import * as selectors from '../selectors';
 import {desktop, mobile} from '../styles';
@@ -202,8 +203,7 @@ function SearchBox() {
     <section className={styles.searchContainer} onClick={onClick}>
       <div className={styles.searchFormAndFavs}>
         <form
-          // TODO: Should urls like this be placed in config somewhere?
-          action="https://app.instantdomainsearch.com/redirect/"
+          action={`${config.appURL}redirect/`}
           className={cx(styles.searchForm, !shouldShowHeaderAndFooter && 'collapsed')}
           method="get"
           onSubmit={onSubmit}
