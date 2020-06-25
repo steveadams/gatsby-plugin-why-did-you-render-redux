@@ -1,6 +1,6 @@
 /* Copyright 2005-present Instant Domain Search, Inc. */
 
-import {css} from 'linaria';
+import {css, cx} from 'linaria';
 import * as React from 'react';
 
 import * as colors from '../colors';
@@ -43,7 +43,7 @@ const styles = {
   `,
 };
 
-const WideLayout = ({children}: {children: React.ReactNode}) => (
+const WideLayout = ({children}: React.HTMLAttributes<HTMLDivElement>) => (
   <div className={styles.wrapper}>
     <div className={styles.inside}>{children}</div>
   </div>

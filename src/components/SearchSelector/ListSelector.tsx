@@ -34,13 +34,22 @@ const styles = {
       cursor: default;
     }
   `,
+  newBadge: css`
+    margin-left: 4px;
+    padding: 2px 4px;
+    color: ${colors.white};
+    font-weight: ${font.bold};
+    font-size: ${font.xxxs}px;
+    background-color: ${colors.red};
+    border-radius: 8px;
+  `,
 };
 
 const ListSearchSelector = () => (
   <nav>
     {searches.map(([searchType, localeKey]) => (
       <SearchSelectorLink className={styles.listItem} key={searchType} type={searchType}>
-        <Text id={localeKey} />
+        <Text id={localeKey} /> {localeKey === 'businessNameGenerator' && <span className={styles.newBadge}>New</span>}
       </SearchSelectorLink>
     ))}
   </nav>

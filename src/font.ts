@@ -8,6 +8,7 @@ export const medium = 600;
 export const bold = 700;
 export const black = 900;
 
+export const xxxs = 9;
 export const xxs = 12;
 export const xs = 14;
 export const s = 16;

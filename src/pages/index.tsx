@@ -54,7 +54,7 @@ export default (props: PageProps) => (
           <IconGroup
             eventInfo="domain_generator_h3"
             href="/domain/generator/"
-            icon="DomainGenerator"
+            icon="DomainNameGenerator"
             title="Domain name generator">
             Our{' '}
             <Link onClick={() => event('internal', 'click', 'domain_generator_p')} to="/domain/generator/">

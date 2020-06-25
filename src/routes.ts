@@ -1,10 +1,12 @@
 /* Copyright 2005-present Instant Domain Search, Inc. */
 
 export enum Page {
-  Home,
+  BusinessNameGenerator,
+  Com,
   Expired,
   Generator,
+  Generators,
   Gtlds,
-  Com,
+  Home,
   Sale,
 }
