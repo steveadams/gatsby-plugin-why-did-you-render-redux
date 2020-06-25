@@ -213,7 +213,9 @@ function SearchBox() {
           className={cx(styles.searchForm, !shouldShowHeaderAndFooter && 'collapsed')}
           method="get"
           onSubmit={onSubmit}
-          role="search">
+          rel="sponsored noreferrer noopener"
+          role="search"
+          target="_blank">
           <TextInput
             autoCapitalize="off"
             autoComplete="off"
