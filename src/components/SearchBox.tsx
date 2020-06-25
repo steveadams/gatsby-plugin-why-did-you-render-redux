@@ -12,12 +12,12 @@ import config from '../config';
 import {defaultActionURL, googleAnalyticsLabel} from '../domain';
 import * as font from '../font';
 import * as selectors from '../selectors';
+import {store} from '../store';
 import {desktop, mobile} from '../styles';
 import Button from './Button';
 import FavoritesFlyout from './FavoritesFlyout';
 import Icon from './Icon';
 import SearchSelector from './SearchSelector';
-import {store} from './store';
 import Text from './Text';
 import TextInput from './TextInput';
 
