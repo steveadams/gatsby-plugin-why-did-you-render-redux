@@ -8,15 +8,23 @@ import * as font from '../../font';
 import Text from '../Text';
 import {searches, SearchSelectorLink} from '.';
 
+// Prevent the selectors from wrapping as the window scales down
+const wrappingBreakpoint = '@media only screen and (max-width: 1050px)';
+
 const styles = {
-  list: css`
-    margin: 0;
+  nav: css`
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+
+    ${wrappingBreakpoint} {
+      justify-content: space-between;
+    }
   `,
   listItem: css`
     display: inline-block;
     margin: 0 12px;
-    padding: 16px 24px;
-    padding-top: 0;
+    padding: 0px 24px 16px 24px;
     color: black;
     font-size: ${font.xs}px;
     text-decoration: none;
@@ -33,6 +41,11 @@ const styles = {
       font-weight: bold;
       cursor: default;
     }
+
+    ${wrappingBreakpoint} {
+      margin: 0 6px;
+      padding: 0px 12px 16px 12px;
+    }
   `,
   newBadge: css`
     margin-left: 4px;
@@ -46,7 +59,7 @@ const styles = {
 };
 
 const ListSearchSelector = () => (
-  <nav>
+  <nav className={styles.nav}>
     {searches.map(([searchType, localeKey]) => (
       <SearchSelectorLink className={styles.listItem} key={searchType} type={searchType}>
         <Text id={localeKey} /> {localeKey === 'businessNameGenerator' && <span className={styles.newBadge}>New</span>}

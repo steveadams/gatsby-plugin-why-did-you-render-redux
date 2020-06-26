@@ -4,8 +4,6 @@ import React from 'react';
 import * as colors from '../colors';
 
 type ExplainerProps = {
-  children?: React.ReactNode;
-  className?: string;
   title: string;
 } & React.HTMLAttributes<HTMLElement>;
 
