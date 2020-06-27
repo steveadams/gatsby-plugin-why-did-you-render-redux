@@ -8,7 +8,7 @@ import Alternates from '../../components/Alternates';
 import Button from '../../components/Button';
 import Column from '../../components/Column';
 import Controller from '../../components/Controller';
-import DomainResults from '../../components/DomainResults';
+import DomainGenerator from '../../components/DomainGenerator';
 import Explainer from '../../components/Explainer';
 import Icon from '../../components/Icon';
 import IconGroup from '../../components/IconGroup';
@@ -51,7 +51,7 @@ const styles = {
 export default (props: PageProps) => (
   <Page {...props} description="Generate a Business Name" title="Business Name Generator">
     <Alternates />
-    <Controller page={routes.Page.BusinessNameGenerator} results={<DomainResults showTlds />}>
+    <Controller page={routes.Page.BusinessNameGenerator} results={<DomainGenerator />}>
       <WideLayout>
         <Explainer title="Business Name Generator">
           <p>

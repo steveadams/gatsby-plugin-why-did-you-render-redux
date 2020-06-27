@@ -5,7 +5,7 @@ import * as React from 'react';
 import Alternates from '../components/Alternates';
 import Column from '../components/Column';
 import Controller from '../components/Controller';
-import DomainResults from '../components/DomainResults';
+import DomainGenerator from '../components/DomainGenerator';
 import Explainer from '../components/Explainer';
 import IconGroup from '../components/IconGroup';
 import Page from '../components/Page';
@@ -18,7 +18,7 @@ export default (props: PageProps) => (
     description="Domain name search results appear instantly as you type. Lookup .com domain names and many other TLDs at once. See more options instantly."
     title="Domain Name Search">
     <Alternates />
-    <Controller page={routes.Page.Generators} results={<DomainResults showTlds />}>
+    <Controller page={routes.Page.Generators} results={<DomainGenerator />}>
       <WideLayout>
         <Explainer title="Name Generators">
           <p>We are constantly working on new name generators. Stay tuned for more!</p>
