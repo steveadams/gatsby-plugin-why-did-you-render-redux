@@ -9,17 +9,13 @@ import Text from '../Text';
 import {searches, SearchSelectorLink} from '.';
 
 // Prevent the selectors from wrapping as the window scales down
-const wrappingBreakpoint = '@media only screen and (max-width: 1050px)';
+const wrappingBreakpoint = '@media only screen and (max-width: 960px)';
 
 const styles = {
   nav: css`
     display: flex;
     justify-content: center;
     margin: 0px;
-
-    ${wrappingBreakpoint} {
-      justify-content: space-between;
-    }
   `,
   listItem: css`
     display: inline-block;
@@ -29,6 +25,14 @@ const styles = {
     font-size: ${font.xs}px;
     text-decoration: none;
     border-bottom: transparent 4px solid;
+
+    :first-child {
+      margin-left: 0;
+    }
+
+    :last-child {
+      margin-right: 0;
+    }
 
     &:hover,
     &.current {
@@ -47,22 +51,13 @@ const styles = {
       padding: 0px 12px 16px 12px;
     }
   `,
-  newBadge: css`
-    margin-left: 4px;
-    padding: 2px 4px;
-    color: ${colors.white};
-    font-weight: ${font.bold};
-    font-size: ${font.xxxs}px;
-    background-color: ${colors.red};
-    border-radius: 8px;
-  `,
 };
 
 const ListSearchSelector = () => (
   <nav className={styles.nav}>
     {searches.map(([searchType, localeKey]) => (
       <SearchSelectorLink className={styles.listItem} key={searchType} type={searchType}>
-        <Text id={localeKey} /> {localeKey === 'businessNameGenerator' && <span className={styles.newBadge}>New</span>}
+        <Text id={localeKey} /> {localeKey === 'businessNameGenerator'}
       </SearchSelectorLink>
     ))}
   </nav>
