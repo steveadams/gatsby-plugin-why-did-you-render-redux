@@ -49,7 +49,10 @@ const styles = {
 };
 
 export default (props: PageProps) => (
-  <Page {...props} description="Generate a Business Name" title="Business Name Generator">
+  <Page
+    {...props}
+    description="Generate thousands of business names instantly. Shows domain name availability as you type. Buy premium names to build the perfect brand."
+    title="Business Name Generator">
     <Alternates />
     <Controller page={routes.Page.BusinessNameGenerator} results={<DomainGenerator />}>
       <WideLayout>

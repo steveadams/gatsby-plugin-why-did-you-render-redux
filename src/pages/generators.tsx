@@ -13,14 +13,11 @@ import WideLayout from '../components/WideLayout';
 import * as routes from '../routes';
 
 export default (props: PageProps) => (
-  <Page
-    {...props}
-    description="Domain name search results appear instantly as you type. Lookup .com domain names and many other TLDs at once. See more options instantly."
-    title="Domain Name Search">
+  <Page {...props} description="Generate a name domain name for your business." title="Name Generator">
     <Alternates />
     <Controller page={routes.Page.Generators} results={<DomainGenerator />}>
       <WideLayout>
-        <Explainer title="Name Generators">
+        <Explainer title="Name Generator">
           <p>We are constantly working on new name generators. Stay tuned for more!</p>
         </Explainer>
 
