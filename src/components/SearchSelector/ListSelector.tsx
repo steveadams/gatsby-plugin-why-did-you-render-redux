@@ -9,7 +9,7 @@ import Text from '../Text';
 import {searches, SearchSelectorLink} from '.';
 
 // Prevent the selectors from wrapping as the window scales down
-const wrappingBreakpoint = '@media only screen and (max-width: 960px)';
+const wrappingBreakpoint = '@media only screen and (max-width: 1000px)';
 
 const styles = {
   nav: css`
@@ -57,7 +57,7 @@ const ListSearchSelector = () => (
   <nav className={styles.nav}>
     {searches.map(([searchType, localeKey]) => (
       <SearchSelectorLink className={styles.listItem} key={searchType} type={searchType}>
-        <Text id={localeKey} /> {localeKey === 'businessNameGenerator'}
+        <Text id={localeKey} />
       </SearchSelectorLink>
     ))}
   </nav>
