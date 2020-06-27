@@ -69,11 +69,7 @@ export default (props: PageProps) => (
         </Explainer>
 
         <Column>
-          <IconGroup
-            eventInfo="domain_extensions_h3"
-            href="/domain/extensions/"
-            icon="Names"
-            title="Creative business names">
+          <IconGroup eventInfo="creative_business_names_h3" icon="Names" title="Creative business names">
             The key to creating a successful business name is to make it interesting. Nike is more clever than Bob’s
             Running Shoes. Twitter is more memorable than Short Message Service. The business name generator will help
             you identify a list of names that make you stand out.
@@ -94,7 +90,7 @@ export default (props: PageProps) => (
         </Column>
 
         <Column>
-          <IconGroup eventInfo="business-name_ai_h3" href="/domain/sale/" icon="AI" title="AI-powered name generation">
+          <IconGroup eventInfo="business-name_ai_h3" icon="AI" title="AI-powered name generation">
             Trying to create a list of business names from scratch can be a difficult process without ideas to inspire
             you. The business name generator doesn’t rely on a static list of options based on common phrases. It’s
             AI-powered name generation looks for patterns among similar terms across domain names to give you

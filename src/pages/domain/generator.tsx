@@ -42,7 +42,7 @@ export default (props: PageProps) => (
         </Column>
 
         <Column>
-          <IconGroup icon="BizNameGenerator" title="Business name generator">
+          <IconGroup href="/generators/business-name/" icon="BizNameGenerator" title="Business name generator">
             Finding a great business name is important, and you should find a .com to match it. The name generator can
             help you find a domain that is available. To check if a social media username is available, click on the
             three dots and we will check Facebook, Twitter, and Instagram usernames for you.

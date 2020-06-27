@@ -1,9 +1,7 @@
 /* Copyright 2005-present Instant Domain Search, Inc. */
 
-import {Link} from 'gatsby';
 import * as React from 'react';
 
-import {event} from '../analytics';
 import Alternates from '../components/Alternates';
 import Column from '../components/Column';
 import Controller from '../components/Controller';
@@ -23,38 +21,28 @@ export default (props: PageProps) => (
     <Controller page={routes.Page.Generators} results={<DomainResults showTlds />}>
       <WideLayout>
         <Explainer title="Name Generators">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet vulputate morbi sit condimentum
-            pellentesque. Elementum ultrices volutpat phasellus congue mauris enim suspendisse. Tortor facilisis non
-            phasellus tellus lorem non fusce aliquet.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet vulputate morbi sit condimentum
-            pellentesque. Elementum ultrices volutpat phasellus congue mauris enim suspendisse. Tortor facilisis non
-            phasellus tellus lorem non fusce aliquet.
-          </p>
+          <p>We are constantly working on new name generators. Stay tuned for more!</p>
         </Explainer>
 
         <Column>
-          <IconGroup eventInfo="domain_generator_h3" href="/domain" icon="DomainNameGenerator" title="Domain Generator">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet vulputate morbi sit condimentum
-            pellentesque. Elementum ultrices volutpat phasellus congue mauris enim suspendisse. Tortor facilisis non
-            phasellus tellus.
+          <IconGroup
+            eventInfo="business_name_generator_h3"
+            href="/generators/business-name/"
+            icon="BizNameGenerator"
+            title="Business name generator">
+            The key to finding a great business name is to make it interesting. The business name generator will help
+            you identify a list of names that make you stand out.
           </IconGroup>
         </Column>
 
         <Column>
           <IconGroup
-            eventInfo="business_generator_h3"
-            href="/generators/business-name"
-            icon="BizNameGenerator"
-            title="Business Name Generator">
-            Our{' '}
-            <Link onClick={() => event('internal', 'click', 'domain_generator_p')} to="/domain/generator/">
-              domain name generator
-            </Link>{' '}
-            adds thousands of popular beginnings and endings to your domain name search to find available names for
-            registration. Use the generator to find website names for your new business or online store.
+            eventInfo="domain_generator_h3"
+            href="/domain/generator/"
+            icon="DomainNameGenerator"
+            title="Domain name generator">
+            Our domain name generator adds thousands of popular beginnings and endings to your search. Find website
+            names for your new business or online store.
           </IconGroup>
         </Column>
       </WideLayout>

@@ -40,13 +40,12 @@ export default (props: PageProps) => (
 
         <Column>
           <IconGroup
-            eventInfo="domain_extensions_h3"
-            href="/domain/extensions/"
-            icon="Extensions"
-            title="Domain extensions">
-            Search .com and other domain extensions like .app, .dev, .store, and over a hundred more. We also search
-            country-code domains (ccTLDs) like .ca, .co.uk, .us, and .in. The domain name extensions page shows gTLD
-            domain availability in a grid to make it easier to see many results at once.
+            eventInfo="business_name_generator_h3"
+            href="/generators/business-name/"
+            icon="BizNameGenerator"
+            title="Business name generator">
+            The key to finding a great business name is to make it interesting. The business name generator will help
+            you identify a list of names that make you stand out.
           </IconGroup>
         </Column>
 
@@ -56,12 +55,8 @@ export default (props: PageProps) => (
             href="/domain/generator/"
             icon="DomainNameGenerator"
             title="Domain name generator">
-            Our{' '}
-            <Link onClick={() => event('internal', 'click', 'domain_generator_p')} to="/domain/generator/">
-              domain name generator
-            </Link>{' '}
-            adds thousands of popular beginnings and endings to your domain name search to find available names for
-            registration. Use the generator to find website names for your new business or online store.
+            Our domain name generator adds thousands of popular beginnings and endings to your search. Find website
+            names for your new business or online store.
           </IconGroup>
         </Column>
 
@@ -73,9 +68,30 @@ export default (props: PageProps) => (
         </Column>
 
         <Column>
+          <IconGroup
+            eventInfo="domain_extensions_h3"
+            href="/domain/extensions/"
+            icon="Extensions"
+            title="Domain extensions">
+            Search .com and other domain extensions like .app, .dev, .store, and over a hundred more. We also search
+            country-code domains (ccTLDs) like .ca, .co.uk, .us, and .in.
+          </IconGroup>
+        </Column>
+
+        <Column>
           <IconGroup eventInfo="domain_expired_h3" href="/domain/expired/" icon="Expired" title="Expired domain names">
             Search domain names that are about to expire. Some registrars let you buy the domain name immediately,
             sometimes the names go to an auction, and others will backorder the name for you.
+          </IconGroup>
+        </Column>
+
+        <Column>
+          <IconGroup icon="Coupon" title="Domain name registration">
+            We automatically apply a discount when you register your first{' '}
+            <Link onClick={() => event('internal', 'click', 'domain_com_p-small')} to="/domain/extensions/.com/">
+              .com
+            </Link>{' '}
+            at GoDaddy. Go Daddy accepts Visa, MasterCard, <span className="smallCaps">AMEX</span>, and PayPal.
           </IconGroup>
         </Column>
       </WideLayout>
@@ -109,16 +125,6 @@ export default (props: PageProps) => (
       </WideLayout>
 
       <WideLayout>
-        <Column>
-          <IconGroup icon="Coupon" title="Domain name registration">
-            We automatically apply a discount when you register your first{' '}
-            <Link onClick={() => event('internal', 'click', 'domain_com_p-small')} to="/domain/extensions/.com/">
-              .com
-            </Link>{' '}
-            at GoDaddy. Go Daddy accepts Visa, MasterCard, <span className="smallCaps">AMEX</span>, and PayPal.
-          </IconGroup>
-        </Column>
-
         <Column>
           <IconGroup icon="Lock" title="Private and secure">
             All traffic to the site is encrypted. Domain name search results are not recorded. Press Return to register
