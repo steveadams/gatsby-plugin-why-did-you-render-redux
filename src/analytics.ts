@@ -4,7 +4,6 @@ import {v4 as uuid} from 'uuid';
 
 import * as actions from './actions';
 import * as async from './async';
-import {ToastID} from './components/Toast';
 import config from './config';
 import {name} from './domain';
 import * as experiments from './experiments';
@@ -181,7 +180,6 @@ export const firstConvert = () => {
     gaHasConverted = true;
 
     actions.showHostingChooser();
-    actions.addToast(ToastID.Survey);
   }
 };
 
