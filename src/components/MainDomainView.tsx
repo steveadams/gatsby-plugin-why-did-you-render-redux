@@ -143,95 +143,93 @@ const styles = {
 };
 
 const arrowRightIcon = <Icon className={styles.arrowIcon} name="ArrowRight" />;
+const buttonText: {[key in LocaleKey]?: JSX.Element} = {
+  appraise: <Text id="appraise" />,
+  whois: <Text id="whois" />,
+};
+
+const secondaryButton = (
+  mainDomain: Domain,
+  urlFunction: (d: Domain) => string,
+  eventId: string,
+  textId: LocaleKey,
+  title?: string,
+) => (
+  <Button
+    className={styles.secondaryButton}
+    defaultColor={false}
+    eventID={eventId}
+    eventInfo={googleAnalyticsLabel(mainDomain)}
+    eventType="convert"
+    eventValue={mainDomain.price || 0}
+    href={urlFunction(mainDomain)}
+    rel="sponsored"
+    tag="a"
+    target="_blank"
+    title={title}>
+    {buttonText[textId]}
+    {arrowRightIcon}
+  </Button>
+);
+
+const renderAvailabilityNotice = (domain: Domain) => {
+  if (!domain) return null;
+
+  const info = (
+    <span>
+      {' '}
+      Check{' '}
+      <Link
+        eventID="flyout_whois"
+        eventInfo={googleAnalyticsLabel(domain)}
+        eventType="convert"
+        eventValue={domain.price || 0}
+        href={whoisURL(domain)}
+        rel="sponsored">
+        WHOIS
+      </Link>{' '}
+      for more information.
+    </span>
+  );
+
+  if (domain.actuallyRegistered) {
+    const handle = <div className={styles.questionMark}>?</div>;
+
+    return (
+      <Flyout className={styles.flyout} collapsedHandle={handle} expandedHandle={handle} width={300}>
+        <div className={styles.notice}>
+          This domain is not in use, or it may be about to expire.
+          {info}
+        </div>
+      </Flyout>
+    );
+  } else {
+    return null;
+  }
+};
+
+const renderSecondaryButton = (domain: Domain) => {
+  if (!domain) return null;
+
+  switch (status(domain)) {
+    case DomainStatus.recentlyRegistered:
+    case DomainStatus.recentlyDropped:
+    case DomainStatus.expiring:
+      return secondaryButton(domain, whoisURL, 'whois', 'whois');
+    case DomainStatus.taken:
+      return secondaryButton(domain, acquireURL, 'acquire', 'makeOffer', `Acquire ${domainName(domain)} with an agent`);
+    case DomainStatus.sale:
+      return secondaryButton(domain, appraiseURL, 'appraise', 'appraise');
+    default:
+      return null;
+  }
+};
 
 function MainDomainView() {
   const domain = useSelector(selectors.mainDomain);
   const isMobile = useSelector(selectors.isMobile);
   const searchPhrase = useSelector(selectors.searchPhrase);
   const mainTld = useSelector(selectors.mainTld);
-
-  const renderAvailabilityNotice = () => {
-    if (!domain) return null;
-
-    const info = (
-      <span>
-        {' '}
-        Check{' '}
-        <Link
-          eventID="flyout_whois"
-          eventInfo={googleAnalyticsLabel(domain)}
-          eventType="convert"
-          eventValue={domain.price || 0}
-          href={whoisURL(domain)}
-          rel="sponsored">
-          WHOIS
-        </Link>{' '}
-        for more information.
-      </span>
-    );
-
-    if (domain.actuallyRegistered) {
-      const handle = <div className={styles.questionMark}>?</div>;
-
-      return (
-        <Flyout className={styles.flyout} collapsedHandle={handle} expandedHandle={handle} width={300}>
-          <div className={styles.notice}>
-            This domain is not in use, or it may be about to expire.
-            {info}
-          </div>
-        </Flyout>
-      );
-    } else {
-      return null;
-    }
-  };
-
-  const renderSecondaryButton = () => {
-    if (!domain) return null;
-
-    const secondaryButton = (
-      mainDomain: Domain,
-      urlFunction: (d: Domain) => string,
-      eventId: string,
-      textId: LocaleKey,
-      title?: string,
-    ) => (
-      <Button
-        className={styles.secondaryButton}
-        defaultColor={false}
-        eventID={eventId}
-        eventInfo={googleAnalyticsLabel(mainDomain)}
-        eventType="convert"
-        eventValue={mainDomain.price || 0}
-        href={urlFunction(mainDomain)}
-        rel="sponsored"
-        tag="a"
-        target="_blank"
-        title={title}>
-        <Text id={textId} />
-        <Icon className={styles.arrowIcon} name="ArrowRight" />
-      </Button>
-    );
-
-    switch (status(domain)) {
-      case DomainStatus.recentlyRegistered:
-      case DomainStatus.recentlyDropped:
-      case DomainStatus.expiring:
-        return secondaryButton(domain, whoisURL, 'whois', 'whois');
-      case DomainStatus.taken:
-        return secondaryButton(
-          domain,
-          acquireURL,
-          'acquire',
-          'makeOffer',
-          `Acquire ${domainName(domain)} with an agent`,
-        );
-      case DomainStatus.sale:
-        return secondaryButton(domain, appraiseURL, 'appraise', 'appraise');
-      default:
-        return null;
-    }
-  };
 
   if (!domain) {
     return (
@@ -271,10 +269,10 @@ function MainDomainView() {
             title={status(domain) === DomainStatus.taken ? `Visit ${domainName(domain)}` : undefined}>
             {domainName(domain)}
           </Link>
-          {renderAvailabilityNotice()}
+          {renderAvailabilityNotice(domain)}
         </div>
         <div className={styles.actions}>
-          {renderSecondaryButton()}
+          {renderSecondaryButton(domain)}
           <DomainButton
             domain={domain}
             eventID={status(domain) === DomainStatus.taken ? 'whois' : 'click_main_button'}
