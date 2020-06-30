@@ -68,6 +68,10 @@ interface DomainResultsProps {
   showTlds?: boolean;
 }
 
+const popularTldsText = <Text id="popularTlds" />;
+const suggestionsText = <Text id="suggestions" />;
+const forSaleText = <Text id="forSale" />;
+
 function DomainResults({showTlds = false}: DomainResultsProps) {
   const normalizedSearch = useSelector(selectors.normalizedSearch);
   const requestError = useSelector(selectors.requestError);
@@ -88,22 +92,22 @@ function DomainResults({showTlds = false}: DomainResultsProps) {
               className={styles.col}
               location={ClickLocation.TldsColumn}
               searchSelectorType={SearchType.Extensions}
-              title={<Text id="popularTlds" />}
+              title={popularTldsText}
             />
           )}
           <DomainList
             category="suggestions"
             className={styles.col}
             location={ClickLocation.GeneratorColumn}
-            searchSelectorType={SearchType.Generator}
-            title={<Text id="suggestions" />}
+            searchSelectorType={SearchType.DomainNameGenerator}
+            title={suggestionsText}
           />
           <DomainList
             category="forSale"
             className={styles.col}
             location={ClickLocation.ForSaleColumn}
             searchSelectorType={SearchType.Sale}
-            title={<Text id="forSale" />}
+            title={forSaleText}
           />
         </div>
       )}
