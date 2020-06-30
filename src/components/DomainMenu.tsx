@@ -2,6 +2,7 @@
 
 import {css} from 'linaria';
 import * as React from 'react';
+import isEqual from 'react-fast-compare';
 import {useSelector} from 'react-redux';
 
 import * as actions from '../actions';
@@ -192,4 +193,4 @@ function DomainMenu({domain}: DomainMenuProps) {
   );
 }
 
-export default React.memo(DomainMenu);
+export default React.memo(DomainMenu, isEqual);

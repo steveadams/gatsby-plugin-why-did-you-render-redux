@@ -2,6 +2,7 @@
 
 import {css, cx} from 'linaria';
 import * as React from 'react';
+import isEqual from 'react-fast-compare';
 import {useSelector} from 'react-redux';
 
 import {ClickLocation} from '../analytics';
@@ -211,4 +212,4 @@ function DomainList({
   );
 }
 
-export default React.memo(DomainList);
+export default React.memo(DomainList, isEqual);

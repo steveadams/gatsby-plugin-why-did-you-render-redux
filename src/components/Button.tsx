@@ -2,6 +2,7 @@
 
 import {css, cx} from 'linaria';
 import * as React from 'react';
+import isEqual from 'react-fast-compare';
 
 import * as actions from '../actions';
 import * as analytics from '../analytics';
@@ -200,4 +201,4 @@ function Button<Tag extends 'a' | 'button'>({
   );
 }
 
-export default React.memo(Button);
+export default React.memo(Button, isEqual);

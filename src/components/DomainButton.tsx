@@ -2,6 +2,7 @@
 
 import {css, cx} from 'linaria';
 import * as React from 'react';
+import isEqual from 'react-fast-compare';
 import {useSelector} from 'react-redux';
 
 import * as analytics from '../analytics';
@@ -108,4 +109,4 @@ function DomainButton({
   );
 }
 
-export default React.memo(DomainButton);
+export default React.memo(DomainButton, isEqual);

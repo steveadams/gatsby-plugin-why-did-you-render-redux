@@ -2,6 +2,7 @@
 
 import {css, cx} from 'linaria';
 import * as React from 'react';
+import isEqual from 'react-fast-compare';
 import {useSelector} from 'react-redux';
 
 import * as actions from '../actions';
@@ -145,4 +146,4 @@ function DomainStar({domain, large = false, left}: DomainStarProps) {
   );
 }
 
-export default React.memo(DomainStar);
+export default React.memo(DomainStar, isEqual);
