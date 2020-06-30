@@ -142,6 +142,8 @@ const styles = {
   `,
 };
 
+const arrowRightIcon = <Icon className={styles.arrowIcon} name="ArrowRight" />;
+
 function MainDomainView() {
   const domain = useSelector(selectors.mainDomain);
   const isMobile = useSelector(selectors.isMobile);
@@ -280,7 +282,7 @@ function MainDomainView() {
             eventType="convert"
             eventValue={domain.price || 0}
             location={analytics.ClickLocation.MainResult}>
-            <Icon className={styles.arrowIcon} name="ArrowRight" />
+            {arrowRightIcon}
           </DomainButton>
           {!isMobile && <DomainMenu domain={domain} />}
         </div>
