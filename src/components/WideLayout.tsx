@@ -1,6 +1,6 @@
 /* Copyright 2005-present Instant Domain Search, Inc. */
 
-import {css, cx} from 'linaria';
+import {css} from 'linaria';
 import * as React from 'react';
 
 import * as colors from '../colors';
