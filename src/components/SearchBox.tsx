@@ -134,6 +134,18 @@ const styles = {
   `,
 };
 
+const searchButton = (
+  <Button className={styles.searchButton}>
+    <Text id="search" />
+  </Button>
+);
+
+const clearButton = (
+  <Button className={styles.clearButton} onClick={actions.clearSearchField} tag="a">
+    <Icon name="Clear" />
+  </Button>
+);
+
 function SearchBox() {
   const isMobile = useSelector(selectors.isMobile);
   const value = useSelector(selectors.typedSearch);
@@ -228,15 +240,9 @@ function SearchBox() {
             value={syncValue}
           />
 
-          {!shouldShowHeaderAndFooter && (
-            <Button className={styles.clearButton} onClick={actions.clearSearchField} tag="a">
-              <Icon name="Clear" />
-            </Button>
-          )}
+          {!shouldShowHeaderAndFooter && clearButton}
 
-          <Button className={styles.searchButton}>
-            <Text id="search" />
-          </Button>
+          {searchButton}
 
           {isMobile && <input style={{display: 'none'}} type="button" value="Search" />}
           {!isMobile && <FavoritesFlyout />}
