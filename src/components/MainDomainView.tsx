@@ -145,6 +145,7 @@ const styles = {
 const arrowRightIcon = <Icon className={styles.arrowIcon} name="ArrowRight" />;
 const buttonText: {[key in LocaleKey]?: JSX.Element} = {
   appraise: <Text id="appraise" />,
+  makeOffer: <Text id="makeOffer" />,
   whois: <Text id="whois" />,
 };
 
