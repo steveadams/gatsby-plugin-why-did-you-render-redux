@@ -41,7 +41,7 @@ export function normalizeSearch(typedSearch: string) {
   return [sanitize(match[2]), (match[4] || '').toLowerCase()] as [string, string];
 }
 
-export function debounce<Args extends any[], Result>(
+export function debounce<Args extends unknown[], Result>(
   fun: (...args: Args) => Result,
   delay = 200,
 ): (...args: Args) => void {
@@ -55,7 +55,7 @@ export function debounce<Args extends any[], Result>(
 }
 
 // Just like debounce, but lets the first event in a series through
-export function debounceImmediate<Args extends any[], Result>(
+export function debounceImmediate<Args extends unknown[], Result>(
   fun: (...args: Args) => Result,
   delay = 200,
 ): (...args: Args) => void {
@@ -78,7 +78,7 @@ export function debounceImmediate<Args extends any[], Result>(
   };
 }
 
-export function throttle<Args extends any[], Result>(
+export function throttle<Args extends unknown[], Result>(
   fun: (...args: Args) => Result,
   delay = 200,
 ): (...args: Args) => void {

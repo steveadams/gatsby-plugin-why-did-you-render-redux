@@ -147,7 +147,7 @@ export const click = (domain: Domain, location: ClickLocation, position?: number
 export const event = (eventType: string, eventID: string, eventInfo?: string, eventValue?: number) => {
   log.info('event', eventType, eventID, eventInfo, eventValue);
 
-  if (<any>window.ga) {
+  if (<unknown>window.ga) {
     ga('send', 'event', eventType, eventID, eventInfo, eventValue);
   }
 
@@ -229,7 +229,7 @@ export const getBuildTime = () => {
 export const setup = (callback: (geography: {Country: string; City: string}) => void) => {
   // ga should always be defined in production (it's defined in a <head> script
   // block), but this occasionally breaks hot reload in development, so skip it.
-  if (!(<any>window.ga)) {
+  if (!(<unknown>window.ga)) {
     async.request({
       url: `${config.appURL}analytics/`,
       body: {},
