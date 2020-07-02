@@ -1,1 +1,1 @@
-{"version":3,"file":"gatsby-browser.d.ts","sourceRoot":"","sources":["src/gatsby-browser.ts"],"names":[],"mappings":"AACA,OAAO,KAAK,EAAC,sBAAsB,EAAC,MAAM,uCAAuC,CAAC;AAWlF,eAAO,MAAM,aAAa,MAAO,SAAS;;;;MAAmC,IA8C5E,CAAC"}
+{"version":3,"file":"gatsby-browser.d.ts","sourceRoot":"","sources":["src/gatsby-browser.ts"],"names":[],"mappings":"AACA,OAAO,KAAK,EAAC,sBAAsB,EAAC,MAAM,uCAAuC,CAAC;AAWlF,eAAO,MAAM,aAAa,MAAO,SAAS;;;;MAAmC,IA4C5E,CAAC"}
