@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-why-did-you-render-redux",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Gatsby plugin to include @welldone-software/why-did-you-render with useSelector tracing",
   "main": "gatsby-browser.js",
   "types": "index.d.ts",
