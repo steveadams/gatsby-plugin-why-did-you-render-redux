@@ -4,15 +4,13 @@ import React from 'react';
 
 // Only primitive values can be interpeted properly from JSON.
 // TODO: Build `new RegExp` instances from include/exclude strings.
-const defaultOptions: Omit<WhyDidYouRenderOptions, 'include' | 'exclude' | 'notifier'> & {
+const defaultOptions: WhyDidYouRenderOptions & {
   trackUseSelector?: boolean;
 } = {
   trackAllPureComponents: true,
 };
 
 export const onClientEntry = (_: undefined, pluginOptions = defaultOptions): void => {
-  console.log('onClientEntry why did you render?', {pluginOptions});
-
   if (process.env.NODE_ENV !== 'production') {
     let extraHooks: [unknown, string][] = [];
 
@@ -25,7 +23,7 @@ export const onClientEntry = (_: undefined, pluginOptions = defaultOptions): voi
       }
     } catch (error) {
       console.error(error);
-      console.warn("Couldn't load react-redux/lib; have you installed it in your project?");
+      console.error("Couldn't load react-redux/lib; have you installed it in your project?");
     }
 
     whyDidYouRender(React, {...pluginOptions, trackExtraHooks: extraHooks});
