@@ -5413,10 +5413,10 @@ gatsby-plugin-typescript@^2.4.8:
     "@babel/runtime" "^7.10.3"
     babel-plugin-remove-graphql-queries "^2.9.7"
 
-gatsby-plugin-why-did-you-render-redux@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-why-did-you-render-redux/-/gatsby-plugin-why-did-you-render-redux-0.2.0.tgz#d254b1996d0dad0e498dd667b6f80483f3d000c3"
-  integrity sha512-TIDubg+hsPc7wid36vmUGQqa7WOSJHyTWIIYbNAls7bGnNfg1zjvfvdavUaoY0havt7CRi3ISjNoCjApLq/2kQ==
+gatsby-plugin-why-did-you-render-redux@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-why-did-you-render-redux/-/gatsby-plugin-why-did-you-render-redux-0.2.1.tgz#77c67ec312a04175fa7ed8ddb9823607813baacf"
+  integrity sha512-bUq0ZMMdXf/85a05ezHQALjmI4S1jKRusdh3F8Pdmp9R+DbwFq9LJZvpHR6A2ozG3Mxv7DshGO+DyEJwLUfYLQ==
   dependencies:
     "@types/node" "^14.0.14"
     "@welldone-software/why-did-you-render" "^4.0.4"
