@@ -52,8 +52,6 @@ export const onClientEntry = (_: undefined, pluginOptions = defaultOptions): voi
       console.error("Couldn't load react-redux/lib; have you installed it in your project?");
     }
 
-    console.log({...pluginOptions, trackExtraHooks: extraHooks});
-
     whyDidYouRender(React, {...pluginOptions, trackExtraHooks: extraHooks, include, exclude});
   }
 };
