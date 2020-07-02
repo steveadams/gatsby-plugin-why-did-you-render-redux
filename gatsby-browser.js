@@ -35,7 +35,7 @@ exports.onClientEntry = function (_, pluginOptions) {
     if (process.env.NODE_ENV !== 'production') {
         var extraHooks = [];
         try {
-            if (Object.prototype.hasOwnProperty.call(pluginOptions, 'trackUseSelector')) {
+            if (pluginOptions.trackUseSelector) {
                 extraHooks = __spreadArrays((pluginOptions.trackExtraHooks || []), [
                     [require('react-redux/lib'), 'useSelector'],
                 ]);

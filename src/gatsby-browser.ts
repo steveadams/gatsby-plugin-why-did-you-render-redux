@@ -4,7 +4,9 @@ import React from 'react';
 
 // Only primitive values can be interpeted properly from JSON.
 // TODO: Build `new RegExp` instances from include/exclude strings.
-const defaultOptions: Omit<WhyDidYouRenderOptions, 'include' | 'exclude' | 'notifier'> = {
+const defaultOptions: Omit<WhyDidYouRenderOptions, 'include' | 'exclude' | 'notifier'> & {
+  trackUseSelector?: boolean;
+} = {
   trackAllPureComponents: true,
 };
 
@@ -15,7 +17,7 @@ export const onClientEntry = (_: undefined, pluginOptions = defaultOptions): voi
     let extraHooks: [unknown, string][] = [];
 
     try {
-      if (Object.prototype.hasOwnProperty.call(pluginOptions, 'trackUseSelector')) {
+      if (pluginOptions.trackUseSelector) {
         extraHooks = [
           ...(pluginOptions.trackExtraHooks || []),
           [require('react-redux/lib'), 'useSelector'],

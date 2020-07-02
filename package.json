@@ -35,6 +35,6 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/steveadams/gatsby-plugin-why-did-you-render"
+    "url": "https://github.com/steveadams/gatsby-plugin-why-did-you-render-redux"
   }
 }
