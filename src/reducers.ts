@@ -1,5 +1,7 @@
 /* Copyright 2005-present Instant Domain Search, Inc. */
 
+import isEqual from 'react-fast-compare';
+
 import {Action, ResultType, SocialService} from './actionTypes';
 import {ToastID} from './components/Toast';
 import {domainName, localStorageKey, searchResultKey} from './domain';
@@ -12,7 +14,6 @@ export interface State {
 export const page = (state = Page.Home, action: Action) => {
   switch (action.type) {
     case 'PAGE_LOADED':
-      return action.page;
     case 'SWITCH_PAGE':
       return action.page;
     default:
@@ -37,7 +38,9 @@ export interface State {
   browser: {isMobile: boolean; isTouch: boolean};
 }
 
-export const browser = (state = {isMobile: false, isTouch: false}, action: Action) => {
+const defaultBrowserState = {isMobile: false, isTouch: false};
+
+export const browser = (state = defaultBrowserState, action: Action) => {
   switch (action.type) {
     case 'BROWSER_RESIZED':
       return {isMobile: action.isMobile, isTouch: action.isTouch};
@@ -64,33 +67,28 @@ export interface State {
   searchStatus: {[key: string]: SearchStatus};
 }
 
-export const searchStatus = (state = {}, action: Action) => {
-  let key;
+const defaultSearchStatusState = {};
+
+export const searchStatus = (state: Partial<State> = defaultSearchStatusState, action: Action) => {
+  function getSearchStatusState(action: {phrase: string; tld: string}, state: Partial<State>): State {
+    const key = `${action.phrase}.${action.tld}`;
+    const newState = {
+      ...state,
+      [key]: {inProgress: true, requestError: false, responseError: false},
+    };
+
+    return (isEqual(state, newState) ? state : newState) as State;
+  }
+
   switch (action.type) {
     case 'UPDATE_SEARCH_AND_SEND_REQUEST':
-      key = `${action.phrase}.${action.tld}`;
-      return {
-        ...state,
-        [key]: {inProgress: true, requestError: false, responseError: false},
-      };
+      return getSearchStatusState(action, state);
     case 'REQUEST_DONE':
-      key = `${action.phrase}.${action.tld}`;
-      return {
-        ...state,
-        [key]: {inProgress: false, requestError: false, responseError: false},
-      };
+      return getSearchStatusState(action, state);
     case 'BAD_REQUEST':
-      key = `${action.phrase}.${action.tld}`;
-      return {
-        ...state,
-        [key]: {inProgress: false, requestError: true, responseError: false},
-      };
+      return getSearchStatusState(action, state);
     case 'SERVER_ERROR':
-      key = `${action.phrase}.${action.tld}`;
-      return {
-        ...state,
-        [key]: {inProgress: false, requestError: false, responseError: true},
-      };
+      return getSearchStatusState(action, state);
     default:
       return state;
   }
@@ -108,10 +106,13 @@ export const results = (state: {[key: string]: Domain[]} = {}, action: Action) =
       for (const result of action.results) {
         uniqueResults[searchResultKey(result)] = result;
       }
-      return {
+
+      const newState = {
         ...state,
         [key]: {...(state[key] || {}), ...uniqueResults},
       };
+
+      return isEqual(state, newState) ? state : newState;
     }
     case 'BAD_REQUEST': {
       const key = `${action.phrase}.${action.tld}`;
@@ -139,7 +140,8 @@ export const domains = (state: {[domainName: string]: Domain} = {}, action: Acti
       for (const domain of action.results) {
         result[domainName(domain)] = domain;
       }
-      return result;
+
+      return isEqual(state, result) ? state : result;
     }
     default:
       return state;
@@ -153,12 +155,16 @@ export interface State {
 }
 
 export const domainAvailability = (state: {[key: string]: boolean} = {}, action: Action) => {
+  let newState;
+
   switch (action.type) {
     case 'DOMAINS_RESOLVED':
-      return {
+      newState = {
         ...state,
         ...action.availability,
       };
+
+      return isEqual(state, newState) ? state : newState;
     default:
       return state;
   }
@@ -174,20 +180,31 @@ export interface State {
   };
 }
 
-export const extensionSimilarity = (state: State['extensionSimilarity'] = {}, action: Action) => {
+const defaultExtensionSimilarity = {};
+
+export const extensionSimilarity = (
+  state: State['extensionSimilarity'] = defaultExtensionSimilarity,
+  action: Action,
+) => {
+  let newState;
+
   switch (action.type) {
     case 'RECEIVE_EXTENSION_SIMILARITIES': {
       const first = action.similarities[0];
+
       if (!first) return state;
+
       // Perf optimization: assume all results in the batch share the same
       // search, so we can avoid cloning this object hundreds of times. We
       // clone it once then mutate it.
-      state = {...state, [first.search]: {...state[first.search]}};
+      newState = {...state, [first.search]: {...state[first.search]}};
+
       for (const {search, item, similarity} of action.similarities) {
-        if (!state[search]) state[search] = {};
-        state[search]![item] = similarity;
+        if (!newState[search]) newState[search] = {};
+        newState[search]![item] = similarity;
       }
-      return state;
+
+      return isEqual(state, newState) ? state : newState;
     }
     default:
       return state;
@@ -211,16 +228,23 @@ export interface State {
   socialUsernameAvailability: {[key: string]: {[service in SocialService]: boolean}};
 }
 
+// Create a reusable reference for empty states
+const defaultSocialUsernameAvailabilityState = {};
+
 export const socialUsernameAvailability = (
-  state: {[key: string]: {[service in SocialService]: boolean}} = {},
+  state: {[key: string]: {[service in SocialService]: boolean}} = defaultSocialUsernameAvailabilityState,
   action: Action,
 ) => {
+  let newState;
+
   switch (action.type) {
     case 'SOCIAL_USERNAME_AVAILABILITY':
-      return {
+      newState = {
         ...state,
         [action.name]: {...state[action.name], [action.service]: action.available},
       };
+
+      return isEqual(state, newState) ? state : newState;
     default:
       return state;
   }
@@ -230,19 +254,20 @@ export interface State {
   selection: {type: ResultType; index: number};
 }
 
-export const selection = (
-  state = {type: ResultType.TLDs, index: -1},
-  action: Action,
-): {type: ResultType; index: number} => {
+const defaultSelectionState = {type: ResultType.TLDs, index: -1};
+export const selection = (state = defaultSelectionState, action: Action): {type: ResultType; index: number} => {
   switch (action.type) {
     case 'SELECT_DOMAIN':
-      return {type: action.domainType, index: action.index};
+      return state.type !== action.domainType || state.index !== action.index
+        ? {type: action.domainType, index: action.index}
+        : state;
     case 'UPDATE_SEARCH':
     case 'UPDATE_SEARCH_AND_SEND_REQUEST':
     case 'FOCUSED_SEARCH_FIELD':
       if (state.type === ResultType.Fix) {
         return {type: ResultType.Fix, index: -1};
       }
+
       return {type: ResultType.TLDs, index: -1};
     default:
       return state;
@@ -253,7 +278,9 @@ export interface State {
   shortcutsTip: {show: boolean; never: boolean};
 }
 
-export const shortcutsTip = (state = {show: false, never: false}, action: Action) => {
+const defaultShortcutsTipState = {show: false, never: false};
+
+export const shortcutsTip = (state = defaultShortcutsTipState, action: Action) => {
   switch (action.type) {
     case 'SHOW_SHORTCUTS_TIP':
       if (state.never) {

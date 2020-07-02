@@ -10,6 +10,15 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-linaria',
     {
+      resolve: 'gatsby-plugin-why-did-you-render-redux',
+      options: {
+        trackAllPureComponents: true,
+        logOwnerReasons: true,
+        trackHooks: true,
+        trackUseSelector: true,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-sitemap',
       options: {
         exclude: ['/errors/*'],

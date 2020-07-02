@@ -1,6 +1,7 @@
 /* Copyright 2005-present Instant Domain Search, Inc. */
 /* eslint-disable no-shadow */
 
+import isEqual from 'react-fast-compare';
 import {createSelector} from 'reselect';
 
 import {ToastID} from './components/Toast';
@@ -96,6 +97,8 @@ export const domains = createSelector(rawDomains, domainAvailability, (rawDomain
   return domains;
 });
 
+let lastPopularTldsResult: Domain[] = [];
+
 export const tldResults = createSelector(
   rawDomains,
   searchPhrase,
@@ -110,9 +113,16 @@ export const tldResults = createSelector(
       extensionSimilarity,
       extensionSort,
     );
-    return popularTlds.map(
+
+    const result = popularTlds.map(
       tld => domains[`${searchPhrase}.${tld}`] || {label: searchPhrase, tld, search: 'name', isLoading: true},
     );
+
+    if (isEqual(result, lastPopularTldsResult)) {
+      return lastPopularTldsResult;
+    }
+
+    return (lastPopularTldsResult = result);
   },
 );
 
@@ -130,7 +140,12 @@ export const suggestionResults = createSelector(
 
     if (isSearchInProgress && results.length === 0) return lastSuggestionResults;
 
+    if (isEqual(lastSuggestionResults, results)) {
+      return lastSuggestionResults;
+    }
+
     results.sort(ranking.compare);
+
     return (lastSuggestionResults = results);
   },
 );
@@ -147,9 +162,13 @@ export const forSaleResults = createSelector(
 
     if (isSearchInProgress && results.length === 0) return lastForSaleResults;
 
+    if (isEqual(lastForSaleResults, results)) {
+      return lastForSaleResults;
+    }
+
     results.sort(ranking.compare);
-    lastForSaleResults = results;
-    return results;
+
+    return (lastForSaleResults = results);
   },
 );
 
@@ -165,7 +184,12 @@ export const expiringResults = createSelector(
 
     if (isSearchInProgress && results.length === 0) return lastExpiringResults;
 
+    if (isEqual(lastExpiringResults, results)) {
+      return lastExpiringResults;
+    }
+
     results.sort(ranking.compare);
+
     lastExpiringResults = results;
     return results;
   },
@@ -179,7 +203,13 @@ export const generatorResults = createSelector(
   (domainsForCurrentSearch, isSearchInProgress) => {
     const results = domainsForCurrentSearch;
     if (isSearchInProgress && results.length === 0) return lastGeneratorResults;
+
+    if (isEqual(lastGeneratorResults, results)) {
+      return lastGeneratorResults;
+    }
+
     results.sort(ranking.compare);
+
     lastGeneratorResults = results;
     return results;
   },
@@ -229,6 +259,7 @@ export const mainDomain = createSelector(
   domains,
   (selectedDomain, searchPhrase, mainTld, domains) => {
     if (searchPhrase.length === 0) return (lastMainDomain = null);
+
     const tld = mainTld || 'com';
 
     // Single-character domains are all taken
@@ -243,16 +274,32 @@ export const mainDomain = createSelector(
 
       return (lastMainDomain = placeholder);
     }
-    if (selectedDomain) return selectedDomain;
+
+    if (selectedDomain) {
+      if (isEqual(selectedDomain, lastMainDomain)) {
+        return lastMainDomain;
+      }
+
+      return selectedDomain;
+    }
 
     if (!domains[`${searchPhrase}.${tld}`]) return lastMainDomain;
+
     const domain = domains[`${searchPhrase}.${tld}`];
+
+    // TODO: Why is this selector triggered so many times this this is necessary?
+    if (isEqual(lastMainDomain, domain)) {
+      return lastMainDomain;
+    }
+
     return (lastMainDomain = domain);
   },
 );
 
+const defaultSocialUsernameAvailability = {};
+
 export const socialUsernameAvailability = (state: State, domain: Domain) =>
-  state.socialUsernameAvailability[name(domain)] || {};
+  state.socialUsernameAvailability[name(domain)] || defaultSocialUsernameAvailability;
 export const domainCheckLoaded = (state: State, domain: Domain) =>
   state.domainAvailability[localStorageKey(domain)] !== void 0;
 

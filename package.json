@@ -61,6 +61,7 @@
     "gatsby-plugin-rollbar": "1.1.0",
     "gatsby-plugin-sitemap": "^2.4.7",
     "gatsby-plugin-typescript": "^2.4.8",
+    "gatsby-plugin-why-did-you-render-redux": "^0.2.0",
     "gatsby-source-filesystem": "^2.3.14",
     "gatsby-transformer-javascript-frontmatter": "^2.3.7",
     "husky": "^4.2.5",

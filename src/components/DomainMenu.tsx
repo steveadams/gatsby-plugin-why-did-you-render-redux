@@ -85,12 +85,16 @@ type UsernameLinkProps = {
   available: boolean | undefined;
 } & AdvancedLinkProps;
 
+const availableText = <span className={linkStyles.available}>Available</span>;
+const takenText = <span className={linkStyles.taken}>Taken</span>;
+const checkingText = <span className={linkStyles.checking}>Checking</span>;
+
 const UsernameLink = ({service, available, ...props}: UsernameLinkProps) => (
   <AdvancedLink {...props}>
     {service} username
-    {available === true && <span className={linkStyles.available}>Available</span>}
-    {available === false && <span className={linkStyles.taken}>Taken</span>}
-    {available === void 0 && <span className={linkStyles.checking}>Checking</span>}
+    {available === true && availableText}
+    {available === false && takenText}
+    {available === void 0 && checkingText}
   </AdvancedLink>
 );
 
