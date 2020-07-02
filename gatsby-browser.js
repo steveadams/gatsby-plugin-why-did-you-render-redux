@@ -24,16 +24,33 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.onClientEntry = void 0;
 var why_did_you_render_1 = __importDefault(require("@welldone-software/why-did-you-render"));
 var react_1 = __importDefault(require("react"));
-// Only primitive values can be interpeted properly from JSON.
-// TODO: Build `new RegExp` instances from include/exclude strings.
 var defaultOptions = {
     trackAllPureComponents: true,
 };
 exports.onClientEntry = function (_, pluginOptions) {
     if (pluginOptions === void 0) { pluginOptions = defaultOptions; }
-    console.log('onClientEntry why did you render?', { pluginOptions: pluginOptions });
     if (process.env.NODE_ENV !== 'production') {
         var extraHooks = [];
+        var include = [];
+        var exclude = [];
+        if (pluginOptions.include) {
+            try {
+                include = pluginOptions.include.map(function (include) { return new RegExp(include); });
+            }
+            catch (error) {
+                console.error(error);
+                console.error("Unable to construct a RegExp instance from " + JSON.stringify(pluginOptions.include), pluginOptions.include);
+            }
+        }
+        if (pluginOptions.exclude) {
+            try {
+                exclude = pluginOptions.exclude.map(function (exclude) { return new RegExp(exclude); });
+            }
+            catch (error) {
+                console.error(error);
+                console.error("Unable to construct a RegExp instance from " + JSON.stringify(pluginOptions.exclude), pluginOptions.exclude);
+            }
+        }
         try {
             if (pluginOptions.trackUseSelector) {
                 extraHooks = __spreadArrays((pluginOptions.trackExtraHooks || []), [
@@ -43,9 +60,10 @@ exports.onClientEntry = function (_, pluginOptions) {
         }
         catch (error) {
             console.error(error);
-            console.warn("Couldn't load react-redux/lib; have you installed it in your project?");
+            console.error("Couldn't load react-redux/lib; have you installed it in your project?");
         }
-        why_did_you_render_1.default(react_1.default, __assign(__assign({}, pluginOptions), { trackExtraHooks: extraHooks }));
+        console.log(__assign(__assign({}, pluginOptions), { trackExtraHooks: extraHooks }));
+        why_did_you_render_1.default(react_1.default, __assign(__assign({}, pluginOptions), { trackExtraHooks: extraHooks, include: include, exclude: exclude }));
     }
 };
 //# sourceMappingURL=gatsby-browser.js.map
