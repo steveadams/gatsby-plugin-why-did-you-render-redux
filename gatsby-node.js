@@ -12,7 +12,7 @@ var __assign = (this && this.__assign) || function () {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.onCreateWebpackConfig = void 0;
-exports.onCreateWebpackConfig = function (_a) {
+var onCreateWebpackConfig = function (_a) {
     var getConfig = _a.getConfig, stage = _a.stage;
     var config = getConfig();
     if (!stage.startsWith('develop')) {
@@ -28,4 +28,5 @@ exports.onCreateWebpackConfig = function (_a) {
         config.resolve.alias = alias;
     }
 };
+exports.onCreateWebpackConfig = onCreateWebpackConfig;
 //# sourceMappingURL=gatsby-node.js.map

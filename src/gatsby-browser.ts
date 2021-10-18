@@ -1,4 +1,3 @@
-import whyDidYouRender from '@welldone-software/why-did-you-render';
 import type {WhyDidYouRenderOptions} from '@welldone-software/why-did-you-render';
 import React from 'react';
 
@@ -15,6 +14,9 @@ export const onClientEntry = (_: undefined, pluginOptions = defaultOptions): voi
     let extraHooks: [unknown, string][] = [];
     let include: RegExp[] = [];
     let exclude: RegExp[] = [];
+
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const whyDidYouRender = require('why-did-you-render');
 
     if (pluginOptions.include) {
       try {
